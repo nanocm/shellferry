@@ -4,9 +4,11 @@ Choose one method per host. Every method installs the complete
 `skills/shellferry/` directory, including scripts, recipes, evidence, and licenses.
 Downloading only `SKILL.md` leaves out files needed to build bundles.
 
-**First-release status:** commands using `nanocm/shellferry` require the first
-GitHub publication. Local paths and extracted releases work now. Remote fetching
-remains to be tested once the repository is public.
+The public repository is [nanocm/shellferry](https://github.com/nanocm/shellferry).
+Remote GitHub installation through Skills CLI, Claude's plugin marketplace, and
+Codex's built-in installer was verified on 2026-11-09 in isolated directories.
+Each installed skill payload was checked against the published source, including
+recipes, licenses, and relocated evidence.
 
 | Method | Where to run it | Invocation |
 | --- | --- | --- |
@@ -22,7 +24,7 @@ Git. The [Skills CLI](https://github.com/vercel-labs/skills) discovers the stand
 `skills/shellferry/` layout. A separate Shellferry npm package is unnecessary:
 npm supplies the installer, and the repository supplies the skill.
 
-After publication, choose your host:
+Choose your host:
 
 ```sh
 npx skills add nanocm/shellferry --skill shellferry --agent codex --global
@@ -53,15 +55,15 @@ npx skills update shellferry --global
 npx skills remove shellferry --agent codex claude-code --global
 ```
 
-For a local source, install again from its updated directory. Once release tags
-exist, `nanocm/shellferry@v0.1.0` pins that release instead of following the default
+For a local source, install again from its updated directory.
+`nanocm/shellferry@v0.1.0` pins that release instead of following the default
 branch.
 
 ## Claude Code plugin
 
 The package includes `.claude-plugin/marketplace.json` and
 `.claude-plugin/plugin.json`. The plugin points to the shared `skills/` directory.
-After publication, run inside Claude Code:
+Run inside Claude Code:
 
 ```text
 /plugin marketplace add nanocm/shellferry
@@ -75,7 +77,7 @@ claude plugin marketplace add /path/to/shellferry
 claude plugin install shellferry@shellferry
 ```
 
-The terminal command also accepts `nanocm/shellferry` after publication. Add
+The terminal command also accepts `nanocm/shellferry`. Add
 `--scope project` to the install command for project scope. Invoke the plugin
 with `/shellferry:shellferry`, then provide the installation command and target.
 The standalone skill installed by `npx` or Python uses `/shellferry`.
@@ -90,7 +92,7 @@ Refresh plugins or start a new session if an installed command does not appear.
 
 ## Codex built-in installer
 
-After publication, ask Codex:
+Ask Codex:
 
 ```text
 $skill-installer install https://github.com/nanocm/shellferry/tree/main/skills/shellferry
@@ -221,8 +223,8 @@ Checks cover project and user scope, copy and link installation, both host
 destinations, the full skill payload, and evidence matching after relocation.
 Claude checks validate both manifests, add the local marketplace, install the
 plugin, and inspect its payload. These installation checks do not run an
-authenticated agent conversation. GitHub fetching needs a separate check after
-publication.
+authenticated agent conversation. The release's separate remote-installation
+report covers actual GitHub fetching; local archive checks do not establish it.
 
 ## Verification prerequisites
 
@@ -244,7 +246,7 @@ to a Linux container. `verify.py` is not a native Windows container launcher.
 | Symptom | Action |
 | --- | --- |
 | Skill does not appear | Check the selected discovery location; try the next turn or restart the host |
-| GitHub repository not found | Before the first publication, install from the local checkout or archive |
+| GitHub access fails | Check connectivity; transfer a complete release archive and use the local Python installer when GitHub is unavailable |
 | Claude command name differs | Use `/shellferry` for standalone installation, `/shellferry:shellferry` for the plugin |
 | `npx` cannot create links | Add `--copy` |
 | Existing directory refused | Use `update` for a managed install; preserve/move a manual installation yourself |

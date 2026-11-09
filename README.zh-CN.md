@@ -4,6 +4,8 @@
 
 [English](README.md) · [安装指南](docs/installation.md) · [验证矩阵](skills/shellferry/references/validation-matrix.md) · [参与贡献](CONTRIBUTING.md)
 
+[![Checks](https://github.com/nanocm/shellferry/actions/workflows/ci.yml/badge.svg)](https://github.com/nanocm/shellferry/actions/workflows/ci.yml)
+
 给 Shellferry 一条安装命令和目标机器信息，它会收集安装阶段所需的脚本、二进制和依赖，生成可搬运的安装包，用于访问 GitHub 不稳定或完全无法联网的服务器。
 
 ```text
@@ -19,7 +21,7 @@ Skill 指令和技术参考统一使用英文维护；回复与生成的安装�
 
 ## 安装
 
-选择一种安装方式即可。**首次发布状态：**下面的 GitHub 命令在 `nanocm/shellferry` 发布后可用；本地仓库和解压后的发布包现在即可安装，见[本地安装](docs/installation.md#local-checkout-or-release-archive)。
+选择一种安装方式即可。可以直接从 GitHub 安装，也可以下载[发布包](https://github.com/nanocm/shellferry/releases)进行[本地安装](docs/installation.md#local-checkout-or-release-archive)。
 
 ### 通过 npx 安装到 Codex 或 Claude Code
 

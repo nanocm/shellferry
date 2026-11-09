@@ -4,6 +4,8 @@
 
 [中文](README.zh-CN.md) · [Install](docs/installation.md) · [Verified recipes](skills/shellferry/references/validation-matrix.md) · [Contribute](CONTRIBUTING.md)
 
+[![Checks](https://github.com/nanocm/shellferry/actions/workflows/ci.yml/badge.svg)](https://github.com/nanocm/shellferry/actions/workflows/ci.yml)
+
 Give Shellferry an installation command and a target machine. It collects the scripts, binaries, and dependencies needed during installation, then builds a bundle you can carry to a server with unreliable or no internet access.
 
 ```text
@@ -19,7 +21,7 @@ The skill instructions and technical references are maintained in English. Expla
 
 ## Install
 
-Choose one installation method. **First-release status:** GitHub commands below become available when `nanocm/shellferry` is published. A local checkout or extracted release works now; see [local installation](docs/installation.md#local-checkout-or-release-archive).
+Choose one installation method. You can install from GitHub or use a [release archive](https://github.com/nanocm/shellferry/releases) for [local installation](docs/installation.md#local-checkout-or-release-archive).
 
 ### Codex or Claude Code with `npx`
 

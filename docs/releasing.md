@@ -1,9 +1,8 @@
 # Preparing a release
 
-The proposed project identity is **Shellferry**, repository slug `shellferry`,
-skill name `shellferry`, and invocation `$shellferry`. The name describes ferrying
-installers and resources to disconnected machines. The initial GitHub name search
-found no exact repository-name match; it is not a trademark clearance.
+The project is **Shellferry**, repository
+[nanocm/shellferry](https://github.com/nanocm/shellferry), skill name `shellferry`,
+and invocation `$shellferry`.
 
 ## Local release preparation
 
@@ -32,14 +31,14 @@ Before publishing:
 
 ## GitHub
 
-Create the repository only when publication is requested. Add its actual URL as
-the Git remote, then push reviewed source. GitHub CI is included but is not
-considered executed until a real hosted run succeeds.
+Push reviewed source to the existing public repository when publication is
+requested. Wait for the applicable GitHub checks on the release commit; only
+successful hosted runs establish hosted CI results.
 
-After creating the public repository, test the README's remote Skills CLI,
-Claude marketplace, and Codex installer commands against that repository. Remove
-the first-release notices only when these commands work. Local-path checks do
-not test GitHub fetching.
+Test the README's remote Skills CLI, Claude marketplace, and Codex installer
+commands against the repository or release tag in isolated directories. Compare
+the complete installed payload and query relocated evidence. Local-path checks
+do not test GitHub fetching.
 
 Set `VERSION`, `plugin.json`, and `.claude-plugin/plugin.json` to the same release version. Create a tag only
 after required checks pass, and attach the source/skill archive with its checksum.
