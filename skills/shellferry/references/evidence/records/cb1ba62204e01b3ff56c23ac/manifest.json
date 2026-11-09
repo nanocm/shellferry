@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "porter",
+  "version": "1.6.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/porter-linux-amd64",
+      "url": "https://github.com/getporter/porter/releases/download/v1.6.1/porter-linux-amd64",
+      "sha256": "d3312a407441c226662f1e5d01a8087d7c0adc9f978867ea236621eef767da69",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/exec-linux-amd64",
+      "url": "https://github.com/getporter/porter/releases/download/v1.6.1/exec-linux-amd64",
+      "sha256": "95c6c0ce29ac5030b69b6950c0402387b61096f36ad96dd1ad0c11f90486f820",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/getporter/porter/f81c35438483d00038a040d1acde75f72542f1d7/scripts/install/install-linux.sh",
+      "sha256_original": "fabc694529cb8e6b4aa964f3468038e0d356ec2193794cce13edee040a95dd16",
+      "sha256_patched": "80a2dfacbbd835eda8013af582ea393142cc6488ec178a32600abdde24649098",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "969a7f87a2eacf43e48ade70c7ac203957c7f6bae11db13c6119e8d369b846a8",
+      "sha256_patched": "320636b4c65833d63f8e2ff4b2b2d691405464d1036e4c7b2a6e9af5112c8bdc",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "python3"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Preserves Porter native exec-mixin installation by serving only the bundled exec release through a temporary loopback HTTP mirror. Python 3 is an explicit prerequisite; server binds 127.0.0.1 on an ephemeral port and is stopped after installation. No external network is used, but loopback network is used. Both mixin client and runtime binaries are installed by Porter itself. Validates mixin listing and local project creation, not Docker/CNAB bundle execution."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "21502e19f832ce2cec8d7ab951fb4a7dbda92b8cef5dd36eec6fce4c862e0882",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

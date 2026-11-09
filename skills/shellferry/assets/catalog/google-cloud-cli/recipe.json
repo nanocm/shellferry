@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "name": "google-cloud-cli",
+  "version": "592.0.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "default_prefix": "{home}/.local/google-cloud",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/bootstrap.sh",
+      "sha256": "7a518bd002e7f7f36605fdfd244e3d5c78638e40bfb17102ab8139ef687ea6c6",
+      "patches": [
+        {
+          "old": "curl -# \"$URL\" > \"$script_file\"",
+          "new": "cp \"$OFFLINE_ROOT/upstream/stage2.sh\" \"$script_file\"",
+          "count": 1
+        }
+      ],
+      "url": "https://sdk.cloud.google.com"
+    },
+    {
+      "path": "upstream/stage2.sh",
+      "sha256": "6d550e06d1c425e4723c6cce26ce208f2598cbf0adb6de595eea25b9b621b6c1",
+      "patches": [
+        {
+          "old": "download_src=$__SDK_URL_DIR/$__SDK_TGZ",
+          "new": "download_src=https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-592.0.0-linux-x86_64.tar.gz",
+          "count": 1
+        },
+        {
+          "old": "promptWithDefault() {",
+          "new": "promptWithDefault() {\n  if [ -n \"${CLOUDSDK_CORE_DISABLE_PROMPTS:-}\" ]; then\n    printf -v \"$3\" '%s' \"$2\"\n    return\n  fi",
+          "count": 1
+        },
+        {
+          "old": "download \"$download_src\" \"$download_dst\"",
+          "new": "offline_fetch \"$download_src\" \"$download_dst\"",
+          "count": 1
+        },
+        {
+          "old": "trace \"$destination/install.sh\"",
+          "new": "actual_installer_sha=$(sha256sum \"$destination/install.sh\" | awk '{print $1}')\n  [ \"$actual_installer_sha\" = \"db69ff9ac4c55c8b18c1041b717ba1370e4d921ace4d67c05088d4411d75282a\" ] || { echo \"Archive installer source changed\" >&2; return 1; }\n  mkdir -p \"$destination/offline\"\n  offline_fetch \"https://dl.google.com/dl/cloudsdk/channels/rapid/components-v592.0.0.json\" \"$destination/offline/components-v592.0.0.json\"\n  trace \"$destination/install.sh\" --quiet --usage-reporting=false --command-completion=true --path-update=true --rc-path=\"$HOME/.bashrc\"",
+          "count": 1
+        }
+      ],
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash"
+    },
+    {
+      "path": "upstream/archive-install.sh",
+      "sha256": "db69ff9ac4c55c8b18c1041b717ba1370e4d921ace4d67c05088d4411d75282a",
+      "patches": [],
+      "source": "sources/gcloud-install.sh",
+      "provenance_archive": "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-592.0.0-linux-x86_64.tar.gz",
+      "provenance_member": "google-cloud-sdk/install.sh"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "a29452f917f0eb725cb3a47748289064d6ca33b80a420114ebcdad74d608217a",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-592.0.0-linux-x86_64.tar.gz",
+      "sha256": "2d841a23a681ab94486af6841e5f1cd123cd300fb8c4be6ba5b51350fca3d50b",
+      "checksum_source": "local SHA-256 pin after official HTTPS download",
+      "path": "resources/google-cloud-cli-592.0.0-linux-x86_64.tar.gz"
+    },
+    {
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/components-v592.0.0.json",
+      "path": "resources/components-v592.0.0.json",
+      "sha256": "73022dc42665a8c6d368605b7632ccc5c78e5921bc15e69b3512f1853ccd7902",
+      "checksum_source": "local SHA-256 pin after official versioned snapshot download"
+    }
+  ],
+  "env": {
+    "CLOUDSDK_CORE_DISABLE_PROMPTS": "1",
+    "CLOUDSDK_CORE_DISABLE_USAGE_REPORTING": "true",
+    "CLOUDSDK_COMPONENT_MANAGER_DISABLE_UPDATE_CHECK": "true",
+    "CLOUDSDK_COMPONENT_MANAGER_SNAPSHOT_URL": "file://{prefix}/google-cloud-sdk/offline/components-v592.0.0.json"
+  },
+  "args": [],
+  "repeat_args": [
+    "--reinitialize"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/gcloud",
+      "version"
+    ],
+    [
+      "bash",
+      "-e",
+      "-c",
+      "\n. \"$HOME/.bashrc\"\ntest \"$(command -v gcloud)\" = \"$OFFLINE_PREFIX/google-cloud-sdk/bin/gcloud\"\ncomplete -p gcloud > /tmp/gcloud-completion.txt\ngrep -q _python_argcomplete /tmp/gcloud-completion.txt\n\"$OFFLINE_PREFIX/google-cloud-sdk/platform/bundledpythonunix/bin/python3\" -c 'import sys, ssl, sqlite3; assert sys.version_info[:2] == (3, 14); print(sys.version.split()[0])'\nbq version\ngsutil version\nd=$(mktemp -d)\nexport CLOUDSDK_CONFIG=\"$d/config\"\ngcloud config configurations create offline --activate --quiet\ngcloud config set core/project shellferry-offline --quiet\ngcloud config set core/verbosity warning --quiet\ntest \"$(gcloud config get-value core/project)\" = shellferry-offline\ntest \"$(gcloud config get-value core/verbosity)\" = warning\ngcloud components list --only-local-state --format='value(id)' > \"$d/components\"\ngrep -Fx core \"$d/components\"\ngrep -Fx bundled-python3-unix \"$d/components\"\n"
+    ]
+  ],
+  "notes": [
+    "Converts the official sdk.cloud.google.com bootstrap and its install_google_cloud_sdk.bash child. Both hosted originals are fetched at build time with pinned SHA-256 values. Only minimal call anchors are published for these bootstrap stages; changed bytes require reanalysis.",
+    "The bootstrap download selects the official complete versioned Linux x86_64 archive instead of the seed archive that would fetch components online. Preserves extraction, overwrite rejection, the archive install.sh and its unmodified Python initialization, official PATH updates and Bash completion.",
+    "The archive install.sh is retained as an audited source snapshot in scripts/provenance. The extracted original is checked against that exact source digest and executed in place without adding offline-lib.sh to the installed copy. Its reviewed Python initializer uses the native file:// component snapshot override; no downstream online installer is skipped.",
+    "For the upstream noninteractive prompt branch, use Bash printf -v to assign the supplied default directory literally before the interactive eval-based expansion. This preserves dollar signs, repeated spaces and command-like characters in explicit paths; the original interactive branch remains intact.",
+    "The full archive includes Python 3.14.9, bq and gsutil. No system Python or pip download is needed. The versioned official components-v592.0.0.json is bundled and supplied through the native component_manager/snapshot_url file:// override for installer component listing.",
+    "Normal installation retains the upstream refusal to overwrite an existing google-cloud-sdk directory. Explicit --reinitialize verifies the exact installed version and reruns the official archive installer for repeat initialization; it does not delete an existing installation.",
+    "Tests bundled Python ssl/sqlite3, gcloud/bq/gsutil versions, offline component listing, local project/logging configuration, and official profile/completion activation. Cloud login, API requests and extra components are outside scope.",
+    "Ubuntu 22.04 x86_64 glibc test baseline. The archived Google Cloud CLI LICENSE declares Apache-2.0 unless an alternate license applies; its included Python and third-party dependency notices remain in the original archive."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image; Python comes from the official CLI archive",
+    "network": "none",
+    "runtime_scope": "CLI archive installer, bundled Python, profile/completion and local configuration; no cloud account"
+  }
+}

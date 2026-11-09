@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "name": "opam",
+  "version": "2.6.1",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ocaml/opam/ac518a2fa874b957e109fdd178c0cf36c06ae95b/shell/install.sh",
+      "sha256": "152f07cead16dc5e99668dd32e3991c2a7957db9ce77e675c010a988f340f7de",
+      "patches": [
+        {
+          "old": "download() {\n    if command -v wget >/dev/null; then wget -q -O \"$@\"\n    else curl -s -L -o \"$@\"\n    fi\n}",
+          "new": "download() { offline_fetch \"$2\" \"$1\"; }",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "d1f7200beec211e37857591dfb874bb289272829b9ca60d8984c2210d7236db9",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/ocaml/opam/releases/download/2.6.1/opam-2.6.1-x86_64-linux",
+      "path": "resources/opam-2.6.1-x86_64-linux",
+      "sha256": "b533d393a6967150d6ef41cb3d71e147e93ecbabeb59e921aa412c0ae79ebe3d",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "OPAMROOT": "{prefix}/state"
+  },
+  "requires": [
+    "sh",
+    "openssl",
+    "sha256sum",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/opam",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf 'opam-version: \"2.0\"\\nname: \"offline-demo\"\\nversion: \"1.0.0\"\\nsynopsis: \"Local offline package\"\\nmaintainer: \"test@example.com\"\\nauthors: \"Example\"\\nlicense: \"MIT\"\\nhomepage: \"https://example.com\"\\nbug-reports: \"https://example.com/issues\"\\n' > \"$HOME/offline-demo.opam\"; \"$OFFLINE_PREFIX/bin/opam\" lint \"$HOME/offline-demo.opam\" | grep -q Passed"
+    ]
+  ],
+  "notes": [
+    "Preserves embedded upstream SHA-512 verification. Manager only: no OCaml compiler, package repository, switch or package downloads are included. Wrapper supplies installation directory through installer stdin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

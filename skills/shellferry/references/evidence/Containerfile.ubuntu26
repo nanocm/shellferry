@@ -1,0 +1,5 @@
+FROM docker.io/library/ubuntu:latest
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates bash unzip xz-utils openssl file git procps && rm -rf /var/lib/apt/lists/*
+USER 1000:1000
+ENV HOME=/tmp/offline-home
+WORKDIR /tmp

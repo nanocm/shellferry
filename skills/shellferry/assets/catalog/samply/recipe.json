@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "name": "samply",
+  "version": "0.13.1",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-installer.sh",
+      "sha256": "0573ba577d99bb14f2f9c612115866e03752be7717ce2eb8ab7eb66b9f60d510",
+      "patches": [
+        {
+          "old": "downloader() {\n    if check_cmd curl\n    then _dld=curl\n    elif check_cmd wget\n    then _dld=wget\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]\n    then curl -sSfL \"$1\" -o \"$2\"\n    elif [ \"$_dld\" = wget ]\n    then wget \"$1\" -O \"$2\"\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-x86_64-unknown-linux-gnu.tar.xz",
+      "path": "resources/samply-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "61875daad67888798690dea3cb2748279df6ac299c5c6a857d67eed7642473d9",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-x86_64-unknown-linux-musl.tar.xz",
+      "path": "resources/samply-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "691f48f3b3ece38d6fc0d93ce2143fd8ca5621fe627ebc4c13f1f0081fcb6480",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "SAMPLY_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "python3"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/samply",
+      "--version"
+    ],
+    [
+      "python3",
+      "-c",
+      "import os,pathlib,subprocess,time,urllib.request,json,re,urllib.parse\nprofile={\"meta\":{\"interval\":1,\"startTime\":0,\"abi\":\"x86_64-gcc3\",\"oscpu\":\"Linux\",\"platform\":\"X11\",\"processType\":0,\"product\":\"Offline test\",\"stackwalk\":1,\"toolkit\":\"gtk\",\"version\":24,\"preprocessedProfileVersion\":55},\"libs\":[],\"threads\":[],\"processes\":[],\"pages\":[],\"profilerOverhead\":[]}\npathlib.Path('/tmp/sample.json').write_text(json.dumps(profile));log=pathlib.Path('/tmp/samply.log')\nwith log.open('w') as output:p=subprocess.Popen([os.environ['OFFLINE_PREFIX']+'/bin/samply','load','--no-open','--port','18182','/tmp/sample.json'],stdout=output,stderr=subprocess.STDOUT)\ntry:\n opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))\n for i in range(100):\n  text=urllib.parse.unquote(log.read_text()); match=re.search(r'http://127.0.0.1:18182/[a-z0-9]+/profile.json',text)\n  if match:\n   body=opener.open(match[0],timeout=2).read();assert json.loads(body)['meta']['product']=='Offline test';break\n  if p.poll() is not None:raise RuntimeError(log.read_text())\n  time.sleep(.1)\n else:raise AssertionError('profile was not served')\nfinally:p.terminate();p.wait(timeout=5)\n"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Python 3 is used only by the local loopback functional assertion. External network remains disabled; no browser, external API or live service is required for this checked local operation."
+  ]
+}

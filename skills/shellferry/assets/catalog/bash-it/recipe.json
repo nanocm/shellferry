@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "name": "bash-it",
+  "version": "3.2.0",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/Bash-it/bash-it/72ea9e285fe1828977d1cd2bc596b901bcc57440/install.sh",
+      "sha256": "d67e459eae6417dcc7be72b12df533f8bf19bbe0b1aec5a06683ae470ab1568f",
+      "patches": [],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "dd492f797154a04d112cb5cbf16f9b7ec1f1b116c07f7a1d4c2d67afbd632059",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/Bash-it/bash-it/tar.gz/72ea9e285fe1828977d1cd2bc596b901bcc57440",
+      "path": "resources/bash-it-source.tar.gz",
+      "sha256": "f658453d98d281ba109f2addabb4129eef519a1fc60bff9b83dfdcad08424c95",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "BASH_IT": "{prefix}"
+  },
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "bash",
+      "-c",
+      "export BASH_IT=\"$OFFLINE_PREFIX\"; source \"$BASH_IT/bash_it.sh\"; type bash-it >/dev/null || exit 1; bash-it enable alias general || exit 1; test -e \"$BASH_IT/enabled/750---general.aliases.bash\" || exit 1; bash-it show aliases > \"$HOME/bash-it-aliases\"; grep -q general \"$HOME/bash-it-aliases\""
+    ]
+  ],
+  "notes": [
+    "Preserves official installer default profile enabling. Uses --silent --no-modify-config so shell startup files remain a user opt-in; test sources Bash-it and enables the general alias collection.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

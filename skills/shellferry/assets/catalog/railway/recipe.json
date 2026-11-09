@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "name": "railway",
+  "version": "5.71.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/railwayapp/cli/5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb/install.sh",
+      "sha256": "3675a6fc3ad9536c0434366d993af38488e8a038cea1e58c4330b36371ec717d",
+      "patches": [
+        {
+          "old": "download() {\n  file=\"$1\"\n  url=\"$2\"\n  touch \"$file\"\n\n  if has curl; then\n    cmd=\"curl --fail --silent --location --output $file $url\"\n  elif has wget; then\n    cmd=\"wget --quiet --output-document=$file $url\"\n  elif has fetch; then\n    cmd=\"fetch --quiet --output=$file $url\"\n  else\n    error \"No HTTP download program (curl, wget, fetch) found, exiting…\"\n    return 1\n  fi\n\n  $cmd && return 0 || rc=$?\n\n  error \"Command failed (exit code $rc): ${BLUE}${cmd}${NO_COLOR}\"\n  printf \"\\n\" >&2\n  info \"This is likely due to railway not yet supporting your configuration.\"\n  info \"If you would like to see a build for your configuration,\"\n  info \"please create an issue requesting a build for ${MAGENTA}${TARGET}${NO_COLOR}:\"\n  info \"${BOLD}${UNDERLINE}https://github.com/railwayapp/cli/issues/new/${NO_COLOR}\"\n  return $rc\n}",
+          "new": "download() {\n offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/railwayapp/cli/releases/download/v5.71.0/railway-v5.71.0-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/railway-v5.71.0-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "2e682fd2ddf8d6fdf9e46d9d99d99646ff0022a6abb0c2bca93011348a269fb9",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "RAILWAY_VERSION": "5.71.0",
+    "RAILWAY_BIN_DIR": "{prefix}/bin",
+    "CI": "true",
+    "SHELL": "/bin/bash"
+  },
+  "args": [
+    "--yes",
+    "--bin-dir",
+    "{prefix}/bin"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/railway",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/railway\" completion bash > /tmp/railway.bash; test -s /tmp/railway.bash; grep -q railway /tmp/railway.bash"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Core CLI installation only; optional cloud-agent setup is not requested. Uses official musl release for the Linux x86_64 target."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

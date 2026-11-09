@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "name": "direnv",
+  "version": "2.38.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/run.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://direnv.net/install.sh",
+      "source": "sources/direnv.sh",
+      "patches": [
+        {
+          "old": "  download_url=$(\n    curl \"${curl_args[@]}\" \\\n    | grep browser_download_url \\\n    | cut -d '\"' -f 4 \\\n    | grep -E \"direnv.$kernel.$machine(\\.exe)?\\$\"\n  )",
+          "new": "  download_url=\"https://github.com/direnv/direnv/releases/download/v2.38.2/direnv.linux-amd64\"",
+          "count": 1
+        },
+        {
+          "old": "curl -o \"$bin_path/direnv$exe\" -fL \"$download_url\"",
+          "new": "staged_binary=$(mktemp \"$bin_path/.direnv-offline.XXXXXXXX\")\n  offline_fetch \"$download_url\" \"$staged_binary\"\n  chmod a+x \"$staged_binary\"\n  mv -f \"$staged_binary\" \"$bin_path/direnv$exe\"",
+          "count": 1
+        }
+      ],
+      "sha256": "b1f9f698e959ed29e6f7b88bc8576c0ab2eb3d8444d30fcd84fbfc393d57034d"
+    },
+    {
+      "path": "upstream/run.sh",
+      "source": "sources/direnv-wrapper.sh",
+      "patches": [],
+      "sha256": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/direnv/direnv/releases/download/v2.38.2/direnv.linux-amd64",
+      "path": "resources/direnv.linux-amd64",
+      "sha256": "148820a187930d36ca6a204504e5cdb30d8396cd1a97e64c3b3f10d793c11247",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    }
+  ],
+  "env": {
+    "bin_path": "{prefix}/bin",
+    "version": "v2.38.2",
+    "OFFLINE_PREFIX": "{prefix}"
+  },
+  "args": [],
+  "requires": [
+    "bash"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/direnv",
+      "version"
+    ],
+    [
+      "{prefix}/bin/direnv",
+      "hook",
+      "bash"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p /tmp/direnv-project; printf 'export OFFLINE_DIRENV_TEST=works\\n' > /tmp/direnv-project/.envrc; \"${OFFLINE_PREFIX}/bin/direnv\" allow /tmp/direnv-project; \"${OFFLINE_PREFIX}/bin/direnv\" exec /tmp/direnv-project sh -c 'test \"$OFFLINE_DIRENV_TEST\" = works'"
+    ]
+  ],
+  "notes": [
+    "Pins release and replaces API discovery and binary download. Shell hook remains the user's explicit setup step.",
+    "Functional test exposed Text file busy during overwrite after direnv exec. Download now stages a sibling file and atomically renames it, supporting reinstall while old processes exit."
+  ]
+}

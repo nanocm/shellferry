@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "xmake",
+  "version": "3.1.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/xmake.run",
+      "url": "https://github.com/xmake-io/xmake/releases/download/v3.1.2/xmake-v3.1.2.gz.run",
+      "sha256": "c8466416f6479d4e959f9e41dd60bdc0ee121461216c28705c8264550ab17125",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/xmake-io/xmake/8dd9de1ff4e5070931d190c3a109d39825fd62ab/scripts/get.sh",
+      "sha256_original": "5b83584bf2d57aa96a1579398a8bbc2bab74d62680623ce1dd3fd73732c8b115",
+      "sha256_patched": "c5e808e583211ddeb2172b5f7495ffb271fa532a20884b7018c8f672bce918eb",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "bash",
+    "git",
+    "make",
+    "gcc",
+    "g++",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official get.sh conversion: fixed runfile release replaces git latest lookup and download helper; upstream configure, make and install are retained. Prepared image supplies C/C++ build toolchain and libreadline development files. Functional test compiles and executes a local C application without package dependencies.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Fixes reproduced upstream Makefile installation quoting: the PREFIX make variable is passed as a shell-quoted path, preserving install targets while supporting spaces. Upstream does not intentionally forbid spaces.",
+    "Disables optional build statistics with the supported XMAKE_STATS=false setting. The first disconnected build exposed downloader probes by the statistics subsystem; the final report requires no guarded downloader calls."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "ba928a770a4107dcb8c1c04a4cab65f7066f2dd82894c096fb899cdddd85b6b0",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

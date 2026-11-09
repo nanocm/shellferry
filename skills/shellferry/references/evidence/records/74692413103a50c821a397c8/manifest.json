@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "babashka",
+  "version": "1.13.229",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/babashka-1.13.229-linux-amd64-static.tar.gz",
+      "url": "https://github.com/babashka/babashka/releases/download/v1.13.229/babashka-1.13.229-linux-amd64-static.tar.gz",
+      "sha256": "64fb984991c6e68f44e8a9391176a9bb411f9b9ae9959a6bca5307c75a7414da",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/babashka/babashka/5099cbfbf8d6fd4cd82fd5033370c5c467601acb/install",
+      "sha256_original": "85b4e836f50d64b0b1d28ae626865aef42ab9c7e488e177aa96ed5841bb52bc9",
+      "sha256_patched": "f1371b07a284db46ff3d417dad84fe04ed8a84fbc385eff8afaa292cfd2a3ab0",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "69266c68b5805cbdcfdaf26d3e53e9e4ee21ec86f1775c7f7e6cc1ad3ce7ba33",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

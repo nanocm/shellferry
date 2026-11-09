@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "name": "cargo-binstall",
+  "version": "1.26.2",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/734bf48fca953a635646ba559fa32ddad1e6b6bd/install-from-binstall-release.sh",
+      "sha256": "d3a93702160e0ec03e2a4e996855db1f01adee801fb84a43add24e0877ef8eae",
+      "patches": [
+        {
+          "old": "do_curl() {",
+          "new": "do_curl() { offline_fetch \"$1\"; }\n_original_do_curl() {",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/cargo-bins/cargo-binstall/releases/download/v1.26.2/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "path": "resources/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "sha256": "9e0e064f189a9abb9f8df5fb93c3c810ef5cc19e7212d998c7a64c9e4d3527d5",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {
+    "BINSTALL_VERSION": "v1.26.2",
+    "CARGO_HOME": "{prefix}"
+  },
+  "args": [],
+  "repeat_args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cmp"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/cargo-binstall",
+      "-V"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p /tmp/binstall-copy; cp \"$OFFLINE_PREFIX/bin/cargo-binstall\" /tmp/binstall-source; chmod +x /tmp/binstall-source; /tmp/binstall-source --self-install --root /tmp/binstall-copy; test -x /tmp/binstall-copy/bin/cargo-binstall; cmp \"$OFFLINE_PREFIX/bin/cargo-binstall\" /tmp/binstall-copy/bin/cargo-binstall"
+    ]
+  ],
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Complete installer redistribution license was not established: only a minimal function-name patch anchor and original Shellferry replacement are retained; the fixed-commit original is fetched at build time. Do not publish generated bundles containing the complete script without resolving its license."
+  ]
+}

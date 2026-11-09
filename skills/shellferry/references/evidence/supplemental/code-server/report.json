@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "name": "code-server",
+  "version": "4.145.2",
+  "status": "passed",
+  "network": "none",
+  "user": "1000:1000",
+  "image": "localhost/offline-install-test:ubuntu22",
+  "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+  "recipe_sha256": "06cec032766ad2d6ad8a3aeed07aba78bcf4e1413a360a0acfa2c92044661893",
+  "manifest_sha256": "bbb679d54592e80b6792a214a638227119afa4b9c055cfe39a7f98b2365b981f",
+  "checksum_list_sha256": "b8c796c78eea33d333fd3fdc7653aadd8491ac70f7c339205f0e9620b74403c0",
+  "harness_sha256": "3039e6189b32656276aa52f6a639b6fc7cda0912b05c5ddb741e2ffa9a1c3fef",
+  "checks": [
+    "upstream --dry-run does not create prefix or cache",
+    "untrusted same-name cached release replaced with verified bundle resource",
+    "installed executable runs",
+    "no guarded downloader invoked"
+  ],
+  "scope": "Supplemental test of the final bundle directory, separate from the recorded final-archive test."
+}

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "garden",
+  "version": "0.14.20",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/garden-0.14.20-linux-amd64.tar.gz",
+      "url": "https://github.com/garden-io/garden/releases/download/0.14.20/garden-0.14.20-linux-amd64.tar.gz",
+      "sha256": "83e148491e00cb5ca831caeb401a3d1bc5cb8d66b972150af96a129ab7aac505",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/garden-0.14.20-linux-amd64.tar.gz.sha256",
+      "url": "https://github.com/garden-io/garden/releases/download/0.14.20/garden-0.14.20-linux-amd64.tar.gz.sha256",
+      "sha256": "24b55faae2a028991e7dd9df05e53719d6db1168a18bfe18099f85a62e1c4165",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/garden-io/garden/4e7128de8dfb5f38f76a5d005a65a78110be7553/support/install.sh",
+      "sha256_original": "8e086a69bf4d40bb71b59321d9e84256cd831d2a0e130a3f7a763ef3e046c34a",
+      "sha256_patched": "0e3df8fb5cca3a5f8ef964fa1e786bd1f5541317f4d7be7184407af933261b20",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "openssl"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "3c1af107da29ee48b60e2caec32232d6edb4e095d20ca792da40b8ac8413b104",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

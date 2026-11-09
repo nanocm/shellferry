@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "name": "basher",
+  "version": "commit-7c3d238ce263",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/basherpm/basher/7c3d238ce263856edbb99fee000613c01ba5712d/install.sh",
+      "sha256": "bc3b04b8e0566f62583dfea4fafdde3c0e11e86a11c9eaa880f4bfae8dac15e1",
+      "patches": [
+        {
+          "old": "git clone https://github.com/basherpm/basher.git ~/.basher 2> /dev/null",
+          "new": "mkdir -p \"$BASHER_ROOT\"\ntar -xzf \"$OFFLINE_ROOT/resources/basher-source.tar.gz\" --strip-components=1 -C \"$BASHER_ROOT\"",
+          "count": 1
+        },
+        {
+          "old": "$HOME/.basher",
+          "new": "$BASHER_ROOT",
+          "count": 3
+        },
+        {
+          "old": "\\$BASHER_ROOT",
+          "new": "${BASHER_ROOT}",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "2766c1309655dc187723315373192fdf1ee8fb191c4b93e96976780efcdfac2e",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/basherpm/basher/tar.gz/7c3d238ce263856edbb99fee000613c01ba5712d",
+      "path": "resources/basher-source.tar.gz",
+      "sha256": "f7481b74413689916ba3ab0689497a7a1a4a58cd86518ce57bc6dc1560df2a51",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "BASHER_ROOT": "{prefix}/basher",
+    "SHELL": "/bin/bash"
+  },
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$BASHER_ROOT/bin:$PATH\"; basher commands | grep -qx link; mkdir -p \"$HOME/localpkg/bin\"; printf '#!/bin/sh\\nprintf basher-local-ok\\n' > \"$HOME/localpkg/bin/offline-demo\"; chmod +x \"$HOME/localpkg/bin/offline-demo\"; \"$BASHER_ROOT/bin/basher\" uninstall local/demo >/dev/null 2>&1 || :; basher link --no-deps \"$HOME/localpkg\" local/demo; test \"$(\"$BASHER_ROOT/cellar/bin/offline-demo\")\" = basher-local-ok"
+    ]
+  ],
+  "notes": [
+    "Runs official installer with source transport replaced by pinned archive; BASHER_ROOT carries requested prefix. Preserves startup integration. Explicit repeat verification checks installed source pin; tests linking and executing a local package without dependencies.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  },
+  "repeat_args": [
+    "--verify-existing"
+  ]
+}

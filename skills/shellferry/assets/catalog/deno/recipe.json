@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "name": "deno",
+  "version": "2.9.8",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://deno.land/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "deno_version=\"$(curl -s https://dl.deno.land/release-latest.txt)\"",
+          "new": "deno_version=\"v2.9.8\"",
+          "count": 1
+        },
+        {
+          "old": "curl --fail --location --progress-bar --output \"$exe.zip\" \"$deno_uri\"",
+          "new": "offline_fetch \"$deno_uri\" \"$exe.zip\"",
+          "count": 1
+        },
+        {
+          "old": "$exe run -A --reload jsr:@deno/installer-shell-setup/bundled \"$deno_install\" \"$@\"",
+          "new": "\"$exe\" run -A --cached-only --no-config --no-lock \"$OFFLINE_ROOT/resources/deno-shell-setup.esm.js\" \"$deno_install\" \"$@\"",
+          "count": 1
+        },
+        {
+          "old": "if $exe eval ",
+          "new": "if \"$exe\" eval ",
+          "count": 1
+        }
+      ],
+      "sha256": "83f19ea13f6d7884f4dc0e2f92e7e08e7589204138d9b6edfcd53c3f07b3273b",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://dl.deno.land/release/v2.9.8/deno-x86_64-unknown-linux-gnu.zip",
+      "path": "resources/deno.zip",
+      "sha256": "a39762429792913fe762ef0b59c9cba41dbd38195984da99221a193b13d97b40",
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "url": "https://jsr.io/@deno/installer-shell-setup/0.3.4/bundled.esm.js",
+      "path": "resources/deno-shell-setup.esm.js",
+      "sha256": "3bf232de451d984bb700230b661c21c7cee5304f9f4ad4d6af5e7f2cc3603899",
+      "checksum_source": "https://jsr.io/@deno/installer-shell-setup/0.3.4_meta.json#/manifest/~1bundled.esm.js/checksum"
+    }
+  ],
+  "env": {
+    "SHELL": "/bin/bash",
+    "DENO_INSTALL": "{prefix}",
+    "DENO_NO_UPDATE_CHECK": "1"
+  },
+  "args": [
+    "v2.9.8",
+    "--yes",
+    "--no-modify-path"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "unzip"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/deno",
+      "--version"
+    ],
+    [
+      "{prefix}/bin/deno",
+      "eval",
+      "--no-config",
+      "console.log(6 * 7)"
+    ]
+  ],
+  "notes": [
+    "Preserves upstream installer and runs bundled second-stage shell setup from pinned JSR file; --cached-only disallows remote module fetching.",
+    "Runs --yes --no-modify-path in validation. Deno binary runtime/project dependencies are outside this installer conversion.",
+    "Quotes upstream executable invocation to support prefix paths containing spaces."
+  ],
+  "repeat_args": [],
+  "validation_scope": {
+    "target": "linux-x86_64",
+    "userspace": "Ubuntu 26.04.1 prepared image; unzip and OpenSSL available",
+    "network": "none",
+    "runtime_scope": "Deno executable and installer shell setup, not arbitrary project remote dependencies"
+  }
+}

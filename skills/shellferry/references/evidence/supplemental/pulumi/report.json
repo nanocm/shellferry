@@ -1,0 +1,34 @@
+{
+  "name": "pulumi",
+  "version": "3.274.1",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/offline-install-test:ubuntu22",
+  "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+  "network": "none",
+  "user": "1000:1000",
+  "capabilities": "all dropped",
+  "new_privileges": false,
+  "artifact_report": "../../records/38a142101d38e2ebc9e6f1e4/report.json",
+  "archive_sha256": "838c8964eb45a04ce2437604dbcd97a138f0fee2ca6cf187b5e0ae189303221d",
+  "recipe_sha256": "87aa016d0dd9eea201efbb68d1c9f78ff66598438ef006dfb7c3e448c3307993",
+  "manifest_sha256": "0bca8bd46881bf877684b425419e150cb6fce3425861ee96ffca7f1eea6b9c35",
+  "checksum_list_sha256": "e294e294a3ec2e8962d47c7c3895de93a06ba1b49fa3a97b2df232c5cca55799",
+  "harness": "pulumi-argument-guards.sh",
+  "harness_sha256": "c517eef39b6f095575033e991c5e69ee2dac219ce9c106cdb08b7529b5436131",
+  "log": "pulumi-argument-guards.log",
+  "log_sha256": "07bf251217a72d8344ac3a8d02453426bb586368696d63a957f9010f6bb4f82a",
+  "verified_at": "2026-11-09T13:37:32.498054+00:00",
+  "checks": [
+    "Reject conflicting --install-root and --version before creating the intended prefix",
+    "Reject equals forms and missing values",
+    "No unintended directory is written",
+    "A fake preexisting PATH pulumi executable is not invoked",
+    "No curl/wget/fetch/aria2c guard invocation"
+  ],
+  "observed_markers": [
+    "PULUMI_ARGUMENT_OVERRIDE_REJECTED_BEFORE_WRITES_PASS",
+    "OLD_PATH_CLI_NOT_EXECUTED_PASS"
+  ],
+  "scope": "Supplementary check uses final build whose manifest/recipe/checksum bindings match the primary final-archive roundtrip report."
+}

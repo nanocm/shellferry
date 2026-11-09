@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "name": "stack",
+  "version": "3.11.1",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/commercialhaskell/stack/3e8fff0c6875ef85cb184eaba658825aa3c1fbed/etc/scripts/get-stack.sh",
+      "sha256": "cfc74001e126a0fff5dad961aec5b3bda43f29b1174d3538d1ee56248cdf7e2a",
+      "patches": [
+        {
+          "old": "dl_to_file() {\n  if has_curl ; then\n    if ! curl ${QUIET:+-sS} -L -o \"$2\" \"$1\"; then\n      die \"curl download failed: $1\"\n    fi\n  elif has_wget ; then\n    if ! wget ${QUIET:+-q} \"-O$2\" \"$1\"; then\n      die \"wget download failed: $1\"\n    fi\n  else\n    # should already have checked for this, otherwise this message will probably\n    # not be displayed, since dl_to_stdout will be part of a pipeline\n    die \"Neither wget nor curl is available, please install one to continue.\"\n  fi\n}\n",
+          "new": "dl_to_file() { offline_fetch \"$1\" \"$2\"; }\n",
+          "count": 1
+        },
+        {
+          "old": "    apt_get_install_pkgs \"$@\"",
+          "new": "    : # Runtime prerequisites are declared and supplied by the prepared image",
+          "count": 2
+        },
+        {
+          "old": "IFB_URL=\"https://get.haskellstack.org/stable/$1\"",
+          "new": "IFB_URL=\"https://github.com/commercialhaskell/stack/releases/download/v3.11.1/stack-3.11.1-$1\"",
+          "count": 1
+        },
+        {
+          "old": "$(dirname $DEST)",
+          "new": "$(dirname \"$DEST\")",
+          "count": 3
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/commercialhaskell/stack/releases/download/v3.11.1/stack-3.11.1-linux-x86_64.tar.gz",
+      "path": "resources/stack-3.11.1-linux-x86_64.tar.gz",
+      "sha256": "1fda71e657cd8d355625cc66b61b352699279dfee2664c014a392163bd19a952",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "-q",
+    "-d",
+    "{prefix}/bin"
+  ],
+  "env": {
+    "STACK_ROOT": "{prefix}/state",
+    "CI": "true"
+  },
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "perl",
+    "file",
+    "install",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/stack",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/stack\" --bash-completion-script stack > \"$HOME/stack-completion\"; test -s \"$HOME/stack-completion\"; grep -q stack \"$HOME/stack-completion\""
+    ]
+  ],
+  "notes": [
+    "Manager/CLI only: no GHC compiler or project dependencies. Distro apt step is replaced by explicit preinstalled runtime prerequisites (glibc/libgmp/libffi/zlib); all upstream binary extraction/install logic retained. Fixes unquoted dirname for spaces. Functional test generates the command-completion script.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  },
+  "repeat_args": [
+    "-f"
+  ]
+}

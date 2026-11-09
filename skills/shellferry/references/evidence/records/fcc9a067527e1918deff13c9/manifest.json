@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "dotnet",
+  "version": "10.0.403",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/sdk-productVersion.txt",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.403/sdk-productVersion.txt",
+      "sha256": "e4e6a678725873a4192c048849cd64d852983991bfcb210a40c3b80cc8fcf2eb",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally pinned official versioned product-version metadata"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/productVersion.txt",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.403/productVersion.txt",
+      "sha256": "e4e6a678725873a4192c048849cd64d852983991bfcb210a40c3b80cc8fcf2eb",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally pinned official versioned product-version metadata"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/dotnet-sdk-10.0.403-linux-x64.tar.gz",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.403/dotnet-sdk-10.0.403-linux-x64.tar.gz",
+      "sha256": "cd7224fe8e8ba57c15f1601439ff8785a1a72b54ae5c89dd5302a32dcfbddf18",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 locally computed after matching official Microsoft release-metadata SHA-512 b7b3d8461cf98b07d2552ce9199702fa3ad010ac2671a5f8cd5136f7534e50f6855ba7bbb02b11494563f1d04156276a31cda1103b900e5eecd0d9473dc7b9c5"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/dotnet/install-scripts/ee83f9c42135205be4e0503bd472b6f99c9b7d51/src/dotnet-install.sh",
+      "sha256_original": "082f7685e156738a1b2e2ed8381a621870d4ce8e8c59278034556f05c186eb2e",
+      "sha256_patched": "8e2fe974bdb546840b14b0a5ecf1f42d5d15cfa7e0234092dec83c2f2c8473c5",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "find",
+    "sort",
+    "uniq",
+    "tr",
+    "cut",
+    "head",
+    "tail",
+    "wc",
+    "sha256sum",
+    "sha512sum"
+  ],
+  "runtime": {
+    "libc": "glibc",
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts Microsoft dotnet-install.sh at a fixed commit; current official dot.net/v1 entrypoint had identical bytes. Pins active LTS .NET 10 SDK 10.0.403 with runtime 10.0.14.",
+    "Preserves official argument parsing, OS/architecture/product-version selection, archive extraction, version-directory install behavior, size comparison, and already-installed handling. Only downloader prerequisite, network transport, product-version fetch transport, and HTTP size lookup are adapted.",
+    "SDK archive matches Microsoft official release-metadata SHA-512; the offline download adapter verifies that SHA-512 again before the original installer extracts it. Every source and resource also has a SHA-256 pin.",
+    "Includes the complete SDK, C# compiler, .NET/ASP.NET runtimes, reference packs and templates from the official SDK archive. Does not include optional workloads, cross-target runtime packs or external NuGet packages.",
+    "Ubuntu 22.04 runtime library prerequisites: libc6, libgcc-s1, libgssapi-krb5-2, libicu70, libssl3, libstdc++6, zlib1g (plus ca-certificates for future HTTPS use). These are explicitly prepared in the recorded test image and are not bundled system-library installers.",
+    "The offline C# test creates a fresh console project, clears all NuGet feeds, restores only SDK-provided framework references, builds and runs it, and asserts LINQ, JSON serialization and real French ICU culture data. Telemetry, workload update notifications and development-certificate generation are disabled.",
+    "Installs directly under the requested prefix. Run <prefix>/dotnet or add that prefix to PATH; the official --no-path option is preserved. No host installation or shell profile editing is performed."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "acac56c686dd5f46d5f1d1b4a65fa0ee26c922f98c547199657a13c6a6995ebc",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

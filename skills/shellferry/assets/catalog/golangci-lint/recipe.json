@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "name": "golangci-lint",
+  "version": "2.15.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/golangci/golangci-lint/b6379d175cf23337327359361a1876c44ae1e6ac/install.sh",
+      "sha256": "1022ddb4d87ed252350ed03fc9677e250a4ae95cc6bcd4658c2a20a8a23d390f",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "github_release() {\n  owner_repo=$1\n  version=$2\n  test -z \"$version\" && version=\"latest\"\n  giturl=\"https://github.com/${owner_repo}/releases/${version}\"\n  json=$(http_copy \"$giturl\" \"Accept:application/json\")\n  test -z \"$json\" && return 1\n  version=$(echo \"$json\" | tr -s '\\n' ' ' | sed 's/.*\"tag_name\":\"//' | sed 's/\".*//')\n  test -z \"$version\" && return 1\n  echo \"$version\"\n}",
+          "new": "github_release() {\n  printf \"%s\\n\" 'v2.15.0'\n}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/golangci/golangci-lint/releases/download/v2.15.0/golangci-lint-2.15.0-linux-amd64.tar.gz",
+      "path": "resources/golangci-lint-2.15.0-linux-amd64.tar.gz",
+      "sha256": "9b7fe6a6bf6334b98decf8d86b11415ea7889afdabdd1959fdce23af2a9ebcea",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/golangci/golangci-lint/releases/download/v2.15.0/golangci-lint-2.15.0-checksums.txt",
+      "path": "resources/golangci-lint-2.15.0-checksums.txt",
+      "sha256": "364f56cb7ef4555e42bb1754b432b0f40bd914477d962c5888c8a8b5378ce8b6",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {},
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v2.15.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/golangci-lint",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf \"package main\\nfunc main(){println(42)}\\n\" | \"$OFFLINE_PREFIX/bin/golangci-lint\" fmt --stdin > /tmp/formatted.go; grep -q \"func main()\" /tmp/formatted.go"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

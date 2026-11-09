@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "name": "svix-cli",
+  "version": "2.9.1",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/svix/svix-webhooks/releases/download/v2.9.1/svix-cli-installer.sh",
+      "sha256": "117f886f6022a12f8f4e3c5c4c225c959ba87d34482a3a66ad1cbe67eefc1db6",
+      "patches": [
+        {
+          "old": "downloader() {\n    # Check if we have a broken snap curl\n    # https://github.com/boukendesho/curl-snap/issues/1\n    _snap_curl=0\n    if command -v curl > /dev/null 2>&1; then\n      _curl_path=$(command -v curl)\n      if echo \"$_curl_path\" | grep \"/snap/\" > /dev/null 2>&1; then\n        _snap_curl=1\n      fi\n    fi\n\n    # Check if we have a working (non-snap) curl\n    if check_cmd curl && [ \"$_snap_curl\" = \"0\" ]\n    then _dld=curl\n    # Try wget for both no curl and the broken snap curl\n    elif check_cmd wget\n    then _dld=wget\n    # If we can't fall back from broken snap curl to wget, report the broken snap curl\n    elif [ \"$_snap_curl\" = \"1\" ]\n    then\n      say \"curl installed with snap cannot be used to install $APP_NAME\"\n      say \"due to missing permissions. Please uninstall it and\"\n      say \"reinstall curl with a different package manager (e.g., apt).\"\n      say \"See https://github.com/boukendesho/curl-snap/issues/1\"\n      exit 1\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            curl -sSfL --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -o \"$2\"\n        else\n            curl -sSfL \"$1\" -o \"$2\"\n        fi\n    elif [ \"$_dld\" = wget ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            wget --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -O \"$2\"\n        else\n            wget \"$1\" -O \"$2\"\n        fi\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/svix/svix-webhooks/releases/download/v2.9.1/svix-cli-x86_64-unknown-linux-musl.tar.xz",
+      "path": "resources/svix-cli-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "fa9fb7876240abc8d8cf9455d93bab0b68298074170634b472566d4c76cf568f",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "SVIX_CLI_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/svix",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/svix\" completion bash > /tmp/svix-completion; test -s /tmp/svix-completion; bash -n /tmp/svix-completion"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ]
+}

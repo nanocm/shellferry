@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "chsrc",
+  "version": "0.2.7",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/chsrc-x64-linux",
+      "url": "https://github.com/RubyMetric/chsrc/releases/download/v0.2.7/chsrc-x64-linux",
+      "sha256": "70d236dbd346e969a3d2abe507343eb07419be494ff40fd117cad44c619465d5",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned official GitHub release bytes"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/RubyMetric/chsrc/03dd727e76b3510fc0f26f74c5cb1ec13702b0e0/tool/installer.sh",
+      "sha256_original": "3d953d22eeeaf411b5f453c3a5035937f96b6f44d4dab72531048229acd6f5c5",
+      "sha256_patched": "db3735ba071ef8768c557e55ac87df5975a9e928a0831718f3b36a64f59ebf03",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official POSIX installer. Uses bytes from the project's official GitHub release for its official Gitee URL alias; version fixed explicitly. The offline smoke lists built-in targets without changing system package sources.",
+    "Fixes reproduced upstream EXIT cleanup bug that deleted a newly created successful install directory. Clears only the cleanup marker after chmod succeeds."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "2d2d10bbce2b8472c7900ef9d2e19a3cf013d3cd174e8b136b0b3625c972198f",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

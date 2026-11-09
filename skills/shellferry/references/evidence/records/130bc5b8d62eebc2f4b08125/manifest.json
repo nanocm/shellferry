@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "helm",
+  "version": "3.22.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/run.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/helm-v3.22.1-linux-amd64.tar.gz",
+      "url": "https://get.helm.sh/helm-v3.22.1-linux-amd64.tar.gz",
+      "sha256": "896cf63684a42a723d61c980369d6e588330927deb13676ca0d85006dd6da0ea",
+      "expected_checksum_matched": true,
+      "checksum_source": "official-release-checksums"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/helm-v3.22.1-linux-amd64.tar.gz.sha256",
+      "url": "https://get.helm.sh/helm-v3.22.1-linux-amd64.tar.gz.sha256",
+      "sha256": "e5657ac306e72616beb3b6edb27163c84e409091ab0561982038944d3305f61b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3",
+      "sha256_original": "08edc9569a7115a22fdc4ec164a653d072440ad14a8dbe51ca9b321c903c59a9",
+      "sha256_patched": "c0c1d3215fa2012fb4569a8eb0191585c453a9db0a2495e539e138f299051b94",
+      "patch_count": 5
+    },
+    {
+      "kind": "script",
+      "path": "upstream/run.sh",
+      "url": null,
+      "sha256_original": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088",
+      "sha256_patched": "97aca50b6b914724e06daa0a6153e917547bd09c3487bda58f7d4b4a508ce3d4",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Pinned Helm v3.22.1; preserves official tar extraction, version checks and SHA-256 verification. Equivalent sha256sum replaces openssl. Plugins and cluster access are separate workflows."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "b49f1cd754b00286eaff5ad8a83458e930e793175a6be059f13d96888a46a716"
+}

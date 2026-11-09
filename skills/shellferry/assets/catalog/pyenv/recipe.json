@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "name": "pyenv",
+  "version": "2.8.14",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/pyenv/pyenv-installer/bdd89156f0e591558ca901c5984387dd993157f9/bin/pyenv-installer",
+      "sha256": "2bf587665219d2ed3e262fc2c3d9e6843b48f64435bc489d936f03e68b5f610d",
+      "patches": [
+        {
+          "old": "git -c advice.detachedHead=0 -c core.autocrlf=false -c core.symlinks=true clone --branch \"$3\" --depth 1 \"$1\" \"$2\" || failed_checkout \"$1\"\n    git -C \"$2\" config core.symlinks true",
+          "new": "case \"$1\" in\n      https://github.com/pyenv/pyenv.git) archive=\"$OFFLINE_ROOT/resources/pyenv-source.tar.gz\" ;;\n      https://github.com/pyenv/pyenv-doctor.git) archive=\"$OFFLINE_ROOT/resources/pyenv-doctor-source.tar.gz\" ;;\n      https://github.com/pyenv/pyenv-update.git) archive=\"$OFFLINE_ROOT/resources/pyenv-update-source.tar.gz\" ;;\n      https://github.com/pyenv/pyenv-virtualenv.git) archive=\"$OFFLINE_ROOT/resources/pyenv-virtualenv-source.tar.gz\" ;;\n      *) failed_checkout \"$1\" ;;\n    esac\n    mkdir -p \"$2\"\n    tar -xzf \"$archive\" --strip-components=1 -C \"$2\" || failed_checkout \"$1\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "5432de8307c26e246c76279d09122c4ad46d16691ae168c907bafd40750b381d",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/pyenv/pyenv/tar.gz/9e40c078c0f86eae0d96e114269e934681745625",
+      "path": "resources/pyenv-source.tar.gz",
+      "sha256": "dac34de704af7f3a9bc645b2a1b9a835c603ce10f25daf04e241731cff2c2a9b",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://codeload.github.com/pyenv/pyenv-doctor/tar.gz/bad83e51e1409665de6cb37537cfc1e02e154bec",
+      "path": "resources/pyenv-doctor-source.tar.gz",
+      "sha256": "c524f2ae7b85b84eebd194c4b1ef4fb4dae5e6e8e1d770cbd4c7d96d10b5a7f4",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://codeload.github.com/pyenv/pyenv-update/tar.gz/4c536d76f9fe1a2a7f528b2aa1f609d7e64b2a28",
+      "path": "resources/pyenv-update-source.tar.gz",
+      "sha256": "53685f344408739df3d5024eda8a134a6ccb736f3d6ddffcf012f32fa18dc945",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://codeload.github.com/pyenv/pyenv-virtualenv/tar.gz/7d821a62d6eeae21a451141c41898be1ed4ed147",
+      "path": "resources/pyenv-virtualenv-source.tar.gz",
+      "sha256": "1bd4171a5e887189fad2c91b05c23f6f57757ea4eba7c905138ac258e3a70855",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "PYENV_ROOT": "{prefix}"
+  },
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/pyenv",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$PYENV_ROOT/bin:$PATH\"; mkdir -p \"$HOME/pyenv-project\"; cd \"$HOME/pyenv-project\"; pyenv local system; test \"$(cat .python-version)\" = system; test \"$(pyenv version-name)\" = system; pyenv rehash"
+    ]
+  ],
+  "notes": [
+    "Manager plus official doctor, update and virtualenv plugins. Does not include managed Python interpreters. Git transport replaced by four pinned source trees. Explicit repeat verification preserves upstream default refusal to overwrite.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  },
+  "repeat_args": [
+    "--verify-existing"
+  ]
+}

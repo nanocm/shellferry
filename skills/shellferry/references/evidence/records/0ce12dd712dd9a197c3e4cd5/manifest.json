@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "sql-studio",
+  "version": "0.1.53",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/sql-studio-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/frectonz/sql-studio/releases/download/0.1.53/sql-studio-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "55323af39b8acac55afb03a36c43922855e09d09feedde4f40415f1ee59311a3",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/sql-studio-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/frectonz/sql-studio/releases/download/0.1.53/sql-studio-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "7b42cf694c5f40a14a2855584bf079e47ccb50649d993f24ead0162a6d79d8f3",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/frectonz/sql-studio/releases/download/0.1.53/sql-studio-installer.sh",
+      "sha256_original": "79447e11578219170f48edef18f1690d846d0843baab8881de9468d2f7e33518",
+      "sha256_patched": "c47cc058da594703361f7e6aca36120f8938934c879c819f8d2ef1c051e51361",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "python3"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Python 3 is used only by the local loopback functional assertion. External network remains disabled; no browser, external API or live service is required for this checked local operation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "77ef936ede80b84130db404748355a909d4608bb1817caac661c2b1fca69b953",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

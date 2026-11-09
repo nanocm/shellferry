@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "name": "chezmoi",
+  "version": "2.74.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/run.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://get.chezmoi.io",
+      "source": "sources/chezmoi.sh",
+      "patches": [
+        {
+          "old": "TAG=\"$(real_tag \"${TAGARG}\")\"",
+          "new": "TAG=\"v2.74.0\" # pinned while preparing this offline bundle",
+          "count": 1
+        },
+        {
+          "old": "http_download \"${tmpdir}/${TARBALL}\" \"${TARBALL_URL}\" || exit 1",
+          "new": "offline_fetch \"${TARBALL_URL}\" \"${tmpdir}/${TARBALL}\" || exit 1",
+          "count": 1
+        },
+        {
+          "old": "http_download \"${tmpdir}/${CHECKSUMS}\" \"${CHECKSUMS_URL}\" || exit 1",
+          "new": "offline_fetch \"${CHECKSUMS_URL}\" \"${tmpdir}/${CHECKSUMS}\" || exit 1",
+          "count": 1
+        }
+      ],
+      "sha256": "d92ac6044ecfcd716c0c1d0512693e7d91c3002591cd6c871bb94ef227919982"
+    },
+    {
+      "path": "upstream/run.sh",
+      "source": "sources/chezmoi-wrapper.sh",
+      "patches": [],
+      "sha256": "5ca8990a3e2cd47c3f8686705f467b85c9f498d5c296367518f64a1e2eec100f"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_linux-glibc_amd64.tar.gz",
+      "path": "resources/chezmoi_2.74.0_linux-glibc_amd64.tar.gz",
+      "sha256": "1b98a567f726f41540414aea4caf912699d53e248b29ccf8369cf553657b2374",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_linux-musl_amd64.tar.gz",
+      "path": "resources/chezmoi_2.74.0_linux-musl_amd64.tar.gz",
+      "sha256": "0fd6400784ad310ef0904d74d99d5d95e7c1d01cfd249b3510c606ca45d6a1d5",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_checksums.txt",
+      "path": "resources/chezmoi_2.74.0_checksums.txt",
+      "sha256": "da9b687dc3f4cf1e2afbfa42a68e6932b9da637927bfe80307b87975341c6596",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    }
+  ],
+  "env": {
+    "OFFLINE_PREFIX": "{prefix}"
+  },
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "-t",
+    "v2.74.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "install",
+    "awk"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/chezmoi",
+      "--version"
+    ],
+    [
+      "{prefix}/bin/chezmoi",
+      "execute-template",
+      "{{ .chezmoi.os }}"
+    ]
+  ],
+  "notes": [
+    "Preserves official libc selection, extraction, install and checksum verification. Includes glibc and musl x86_64 resources selected by original installer. Dotfile repositories are outside the software installation scope."
+  ]
+}

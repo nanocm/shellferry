@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "sheldon",
+  "version": "0.8.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/rossmacarthur/sheldon/releases/download/0.8.5/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "80aa0be617072c278d67fd6c5fbce4903d3801d78b6abf8f058f0648d2242c78",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/release-metadata.json",
+      "url": "https://api.github.com/repos/rossmacarthur/sheldon/releases/tags/0.8.5",
+      "sha256": "e888de3283fc4799c25f5ef299c0822ffbaa209c5c04fe169cfa8d8688f2329b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally pinned public release metadata response"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/crate.sh",
+      "sha256_original": "9ff2b3ee918dd345807aece8abf2231fab4f1d827867c4e933d1da1a4924cc9d",
+      "sha256_patched": "67fccd6a873a83155fa05da1b2a8d39c140256699e634d17d90626f3bee88391",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cut",
+    "head",
+    "install",
+    "basename"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "6e0efd1311ef860d71dc6277df6e30f32f27f6da3df1e3e8747a63bc7da87c28",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

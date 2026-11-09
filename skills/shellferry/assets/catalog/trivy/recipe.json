@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "name": "trivy",
+  "version": "0.76.2",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/aquasecurity/trivy/10ab0f82f059f0913491ba91dea6ba25f850ea5a/contrib/install.sh",
+      "sha256": "e00df553be558995b994758bc8995956554a16937f456dc6615b0cc411bfec7a",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "github_release() {\n  owner_repo=$1\n  version=$2\n  test -z \"$version\" && version=\"latest\"\n  giturl=\"https://github.com/${owner_repo}/releases/${version}\"\n  json=$(http_copy \"$giturl\" \"Accept:application/json\")\n  test -z \"$json\" && return 1\n  version=$(echo \"$json\" | tr -s '\\n' ' ' | sed 's/.*\"tag_name\":\"//' | sed 's/\".*//')\n  test -z \"$version\" && return 1\n  echo \"$version\"\n}",
+          "new": "github_release() {\n  printf \"%s\\n\" 'v0.76.2'\n}",
+          "count": 1
+        },
+        {
+          "old": "TARBALL_URL=\"${GET_DOWNLOAD}?os=${OS}&arch=${ARCH}&version=${VERSION}&type=${FORMAT}&client=${CLIENT}\"",
+          "new": "TARBALL_URL=\"https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.tar.gz\"",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.tar.gz",
+      "path": "resources/trivy_0.76.2_Linux-64bit.tar.gz",
+      "sha256": "bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_checksums.txt",
+      "path": "resources/trivy_0.76.2_checksums.txt",
+      "sha256": "802e4ac1418ed967cd3c4b901f4f71ca00b7363ede67778665a22d9f13f58c83",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "TRIVY_SKIP_VERSION_CHECK": "true"
+  },
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v0.76.2"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/trivy",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); printf \"PRIVATE_KEY=secret-example\\n\" > \"$d/sample.txt\"; \"$OFFLINE_PREFIX/bin/trivy\" fs --scanners secret --skip-db-update --skip-java-db-update --offline-scan --no-progress --format json \"$d\" > /tmp/trivy.json; grep -q SchemaVersion /tmp/trivy.json"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

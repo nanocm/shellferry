@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "name": "rbenv",
+  "version": "1.3.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rbenv/rbenv-installer/a5350919f70fd398f327b2efcd072500ab7f29ce/bin/rbenv-installer",
+      "sha256": "9a1f19c4564cc8954bca75640d320fcc98cf40187d73531156629edd36606f2f",
+      "patches": [
+        {
+          "old": "~/.rbenv",
+          "new": "\"$RBENV_ROOT\"",
+          "count": 4
+        },
+        {
+          "old": "    git init\n    git remote add -f -t master origin https://github.com/rbenv/rbenv.git\n    git checkout -b master origin/master",
+          "new": "    tar -xzf \"$OFFLINE_ROOT/resources/rbenv-source.tar.gz\" --strip-components=1 -C \"$RBENV_ROOT\"",
+          "count": 1
+        },
+        {
+          "old": "git clone https://github.com/rbenv/ruby-build.git \"${rbenv_root}/plugins/ruby-build\"",
+          "new": "mkdir -p \"${rbenv_root}/plugins/ruby-build\"\n    tar -xzf \"$OFFLINE_ROOT/resources/ruby-build-source.tar.gz\" --strip-components=1 -C \"${rbenv_root}/plugins/ruby-build\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/rbenv/rbenv/tar.gz/07e9b1e297a5977298c6aadc9971ae0e9eb7f0dc",
+      "path": "resources/rbenv-source.tar.gz",
+      "sha256": "d43643c2a58927684ffd9bccae493d5e6f78e78ece2477635890effe5c55098f",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://codeload.github.com/rbenv/ruby-build/tar.gz/573f87a93b27195b97c2a72b5c6fbc0a266d73d0",
+      "path": "resources/ruby-build-source.tar.gz",
+      "sha256": "7daf04e93fc46928eec7cd29cb4753e6bc27a73c59f0ca228972f29686687066",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "RBENV_ROOT": "{prefix}",
+    "SHELL": "/bin/bash"
+  },
+  "requires": [
+    "bash",
+    "git",
+    "tar",
+    "gzip",
+    "ps",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/rbenv",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$RBENV_ROOT/bin:$PATH\"; mkdir -p \"$HOME/rbenv-project\"; cd \"$HOME/rbenv-project\"; rbenv local --unset; rbenv init - bash > \"$HOME/rbenv-init\"; grep -q RBENV_SHELL \"$HOME/rbenv-init\"; rbenv rehash; test -d \"$RBENV_ROOT/shims\""
+    ]
+  ],
+  "notes": [
+    "Manager and ruby-build plugin only, no Ruby runtimes. Preserves official install/init workflow while redirecting git source transport to pinned archives and replacing hardcoded ~/.rbenv with RBENV_ROOT.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

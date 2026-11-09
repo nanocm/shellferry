@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "pixi",
+  "version": "0.84.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/pixi-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/prefix-dev/pixi/releases/download/v0.84.1/pixi-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "c81a16595e9e925fac3b12fe50cedbf415619a421ad2b72c1bba2a6ba6c2454a",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from the HTTPS official release asset; not an independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://pixi.sh/install.sh",
+      "sha256_original": "aad053bec1e6f26fc94e838963fe4dc1892a8e9095d147f78abc6ff15a284b19",
+      "sha256_patched": "c80d60233848d007897188d8ea639ca3940f8b9ab7414b6da0848994ef88a915",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Optional installation telemetry is removed because the downloaded binary would otherwise issue a network request.",
+    "Does not prefetch Conda/PyPI environments; this verifies pixi itself. PATH editing disabled."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "b790e2312af9b8805de276e032313af95fe4e6e5fa6011629faf2b8aeba4209b"
+}

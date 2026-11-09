@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "name": "helm",
+  "version": "3.22.1",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/run.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3",
+      "source": "sources/helm.sh",
+      "patches": [
+        {
+          "old": "HAS_CURL=\"$(type \"curl\" &> /dev/null && echo true || echo false)\"",
+          "new": "HAS_CURL=true # offline_fetch replaces all selected network calls",
+          "count": 1
+        },
+        {
+          "old": "HAS_OPENSSL=\"$(type \"openssl\" &> /dev/null && echo true || echo false)\"",
+          "new": "HAS_OPENSSL=true # sha256sum replaces openssl hashing",
+          "count": 1
+        },
+        {
+          "old": "curl -SsL \"$CHECKSUM_URL\" -o \"$HELM_SUM_FILE\"",
+          "new": "offline_fetch \"$CHECKSUM_URL\" \"$HELM_SUM_FILE\"",
+          "count": 1
+        },
+        {
+          "old": "curl -SsL \"$DOWNLOAD_URL\" -o \"$HELM_TMP_FILE\"",
+          "new": "offline_fetch \"$DOWNLOAD_URL\" \"$HELM_TMP_FILE\"",
+          "count": 1
+        },
+        {
+          "old": "local sum=$(openssl sha1 -sha256 ${HELM_TMP_FILE} | awk '{print $2}')",
+          "new": "local sum=$(sha256sum \"${HELM_TMP_FILE}\" | awk '{print $1}')",
+          "count": 1
+        }
+      ],
+      "sha256": "08edc9569a7115a22fdc4ec164a653d072440ad14a8dbe51ca9b321c903c59a9"
+    },
+    {
+      "path": "upstream/run.sh",
+      "source": "sources/helm-wrapper.sh",
+      "patches": [],
+      "sha256": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://get.helm.sh/helm-v3.22.1-linux-amd64.tar.gz",
+      "path": "resources/helm-v3.22.1-linux-amd64.tar.gz",
+      "sha256": "896cf63684a42a723d61c980369d6e588330927deb13676ca0d85006dd6da0ea",
+      "checksum_source": "official-release-checksums"
+    },
+    {
+      "url": "https://get.helm.sh/helm-v3.22.1-linux-amd64.tar.gz.sha256",
+      "path": "resources/helm-v3.22.1-linux-amd64.tar.gz.sha256",
+      "sha256": "e5657ac306e72616beb3b6edb27163c84e409091ab0561982038944d3305f61b",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    }
+  ],
+  "env": {
+    "DESIRED_VERSION": "v3.22.1",
+    "HELM_INSTALL_DIR": "{prefix}/bin",
+    "USE_SUDO": "false",
+    "VERIFY_CHECKSUM": "true",
+    "VERIFY_SIGNATURES": "false",
+    "OFFLINE_PREFIX": "{prefix}"
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/helm",
+      "version",
+      "--short"
+    ],
+    [
+      "{prefix}/bin/helm",
+      "env"
+    ]
+  ],
+  "notes": [
+    "Pinned Helm v3.22.1; preserves official tar extraction, version checks and SHA-256 verification. Equivalent sha256sum replaces openssl. Plugins and cluster access are separate workflows."
+  ]
+}

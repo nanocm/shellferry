@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "oranda",
+  "version": "0.6.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/oranda-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "2db065e8b06253526a81595b9312b8c4468ff42f3f9fbe50a6ff21a42d3516d1",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/oranda-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "05171447b827f681ec19142d0bb983a8691f65c54820d821e66ee7a419fbd88b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-installer.sh",
+      "sha256_original": "4a03a317b3e1b70efe79eaf85e078cdff99b523f320620f5a7d79f763d877a28",
+      "sha256_patched": "7d0032cd10302cf980f14d4ea581e15c4b8745647e85a12c833c8539aafa42f9",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "python3"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Selects the official GitHub release through the upstream INSTALLER_DOWNLOAD_URL override; pins the same release archives instead of the default axo artifact host.",
+    "Functional check serves a local HTML site on loopback with external networking disabled. Python 3 is a verification prerequisite for the loopback HTTP assertion; not required to install or run oranda itself."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "c55aa7cd32910602cd97bc1de94296d2c8247d275a96929aac8c3d728e6aa470",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

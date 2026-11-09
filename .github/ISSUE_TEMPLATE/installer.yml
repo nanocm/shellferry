@@ -1,0 +1,37 @@
+name: Installer support or failure
+description: Request an adaptation or report a reproducible offline installation failure.
+body:
+  - type: textarea
+    id: command
+    attributes:
+      label: Official installation command or URL
+      description: Remove tokens, passwords, and private URLs before sharing.
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Destination OS, version, CPU, and libc
+      placeholder: Ubuntu 22.04, x86_64, glibc
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Software version
+      placeholder: Exact version or latest requested
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected result, actual result, and relevant logs
+      description: Include the Shellferry version, selected recipe, and validation report when available.
+  - type: dropdown
+    id: permissions
+    attributes:
+      label: Destination installation permissions
+      options:
+        - Ordinary user
+        - Root or administrator
+        - Not yet known

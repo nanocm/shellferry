@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "name": "bun",
+  "version": "1.4.4",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://bun.sh/install",
+      "source": "sources/install.sh",
+      "sha256": "04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8",
+      "patches": [
+        {
+          "old": "\nexe_name=bun\n",
+          "new": "\ntarget=linux-x64-baseline\nexe_name=bun\n",
+          "count": 1
+        },
+        {
+          "old": "curl --fail --location --progress-bar --output \"$exe.zip\" \"$bun_uri\"",
+          "new": "offline_fetch \"$bun_uri\" \"$exe.zip\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline.zip",
+      "path": "resources/bun-linux-x64-baseline.zip",
+      "sha256": "e0446eb55995772eb9894bebae9a6be368d985a8b9271ee124486f9946eedd76",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {
+    "BUN_INSTALL": "{prefix}",
+    "SHELL": "/bin/bash"
+  },
+  "args": [
+    "bun-v1.4.4"
+  ],
+  "requires": [
+    "bash",
+    "unzip",
+    "cp",
+    "chmod",
+    "mv",
+    "mkdir",
+    "grep"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/bun",
+      "--version"
+    ],
+    [
+      "{prefix}/bin/bun",
+      "-e",
+      "if (21 * 2 !== 42) process.exit(1); console.log(\"offline-ok\")"
+    ]
+  ],
+  "notes": [
+    "Pins Linux x86_64 baseline build and version; keeps original extraction, completions and PATH behavior. Project dependency downloads are outside this runtime bundle."
+  ],
+  "runtime": {
+    "libc": "glibc"
+  }
+}

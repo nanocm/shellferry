@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "bun",
+  "version": "1.4.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/offline-bun.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/bun-linux-x64-baseline.zip",
+      "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline.zip",
+      "sha256": "e0446eb55995772eb9894bebae9a6be368d985a8b9271ee124486f9946eedd76",
+      "expected_checksum_matched": true,
+      "checksum_source": "Bun official release SHASUMS256.txt over HTTPS (publisher signature not independently verified)"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/SHASUMS256.txt",
+      "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/SHASUMS256.txt",
+      "sha256": "86629f14fe256b487ceba5170217e13787c49d0cc0fe4bb6397ce5767d3b8f65",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned HTTPS official release checksum list"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/unzip_6.0-26ubuntu3.2_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-26ubuntu3.2_amd64.deb",
+      "sha256": "4f274ffc6774d52878322ef1e3eb6d185003e1607448e62893849825bfae347d",
+      "expected_checksum_matched": true,
+      "checksum_source": "Ubuntu 22.04 apt package index authenticated by apt-get update"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/libbz2-1.0_1.0.8-5ubuntu0.1_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/b/bzip2/libbz2-1.0_1.0.8-5ubuntu0.1_amd64.deb",
+      "sha256": "2fd35bb1ac601fa1bf35da2fa08dba3541766ca791927342b5efcb18ef17aecb",
+      "expected_checksum_matched": true,
+      "checksum_source": "Ubuntu 22.04 apt package index authenticated by apt-get update"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://bun.sh/install",
+      "sha256_original": "04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8",
+      "sha256_patched": "c8a8724f76df3f87a3e6ab9afbc00e3ac456f8f73d2106e7a7c5e1ab7716ce14",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/offline-bun.sh",
+      "url": null,
+      "sha256_original": "9aaef1bbb171f907830a9113e23d72012b5777e9c4c3d8ea54ab4f232a664343",
+      "sha256_patched": "9c70ec96aacba422c101027dd85751b3394ee22900c08c24ba74c0951fd73f19",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "dpkg-deb",
+    "tar",
+    "cp",
+    "chmod",
+    "mv",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "tr",
+    "getconf",
+    "uname",
+    "cat",
+    "rm",
+    "basename",
+    "dirname",
+    "tee"
+  ],
+  "runtime": {
+    "libc": "glibc",
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converted the original https://bun.sh/install script, snapshot SHA256 04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8. Current latest tag resolved to bun-v1.4.4 on 2026-11-09.",
+    "Pinned Ubuntu 22.04 x86_64 glibc and linux-x64-baseline; download replaced with exact local resource lookup. Original extraction, shell setup and completion behavior retained.",
+    "Four unquoted completion executable invocations were quoted to handle installation directories containing spaces. Completion and bunx generation are actually executed in smoke checks.",
+    "Bundled Ubuntu unzip and libbz2 debs are extracted to a temporary private directory by dpkg-deb, not installed system-wide. No sudo, Python, curl, wget or preinstalled unzip is needed on the target.",
+    "Generated install.sh defaults to OFFLINE_PREFIX, then BUN_INSTALL, then HOME/.bun. --prefix overrides the default. Existing Bash/Zsh/Fish profile handling follows the official script.",
+    "Scope is Bun runtime and installation-time resources, including local shell completions. Arbitrary project packages, bun install dependencies and bunx package downloads are not included."
+  ],
+  "default_prefix": "{home}/.bun",
+  "default_prefix_env": "BUN_INSTALL",
+  "validation_status": "not-run",
+  "recipe_sha256": "3656aa39070edddb89ed3ac4456513117da3faa17644e1ce3d0cb110df1f0a1b",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

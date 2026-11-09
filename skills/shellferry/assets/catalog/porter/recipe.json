@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "name": "porter",
+  "version": "1.6.1",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/getporter/porter/f81c35438483d00038a040d1acde75f72542f1d7/scripts/install/install-linux.sh",
+      "sha256": "fabc694529cb8e6b4aa964f3468038e0d356ec2193794cce13edee040a95dd16",
+      "patches": [
+        {
+          "old": "curl -fsSLo \"$PORTER_HOME/porter\" \"$PORTER_BINARY_URL\"",
+          "new": "offline_fetch \"$PORTER_BINARY_URL\" \"$PORTER_HOME/porter\"",
+          "count": 1
+        },
+        {
+          "old": "\"$PORTER_HOME/porter\" mixin install exec --version \"$PORTER_VERSION\"",
+          "new": "\"$PORTER_HOME/porter\" mixin install exec --version \"$PORTER_VERSION\" --url \"$PORTER_MIXIN_URL\"",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "969a7f87a2eacf43e48ade70c7ac203957c7f6bae11db13c6119e8d369b846a8",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/getporter/porter/releases/download/v1.6.1/porter-linux-amd64",
+      "path": "resources/porter-linux-amd64",
+      "sha256": "d3312a407441c226662f1e5d01a8087d7c0adc9f978867ea236621eef767da69",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://cdn.porter.sh/download/v1.6.1/porter-linux-amd64"
+      ]
+    },
+    {
+      "url": "https://github.com/getporter/porter/releases/download/v1.6.1/exec-linux-amd64",
+      "path": "resources/exec-linux-amd64",
+      "sha256": "95c6c0ce29ac5030b69b6950c0402387b61096f36ad96dd1ad0c11f90486f820",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://cdn.porter.sh/download/v1.6.1/exec-linux-amd64"
+      ]
+    }
+  ],
+  "env": {
+    "PORTER_HOME": "{prefix}/lib/porter",
+    "PORTER_VERSION": "v1.6.1"
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "python3"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/porter",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/porter\" mixins list --output json > /tmp/porter-mixins.json; grep -q exec /tmp/porter-mixins.json; d=$(mktemp -d); cd \"$d\"; \"$OFFLINE_PREFIX/bin/porter\" create; test -s porter.yaml; grep -q mixins porter.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Preserves Porter native exec-mixin installation by serving only the bundled exec release through a temporary loopback HTTP mirror. Python 3 is an explicit prerequisite; server binds 127.0.0.1 on an ephemeral port and is stopped after installation. No external network is used, but loopback network is used. Both mixin client and runtime binaries are installed by Porter itself. Validates mixin listing and local project creation, not Docker/CNAB bundle execution."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image with Python 3",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

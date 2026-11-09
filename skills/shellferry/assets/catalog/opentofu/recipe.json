@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "name": "opentofu",
+  "version": "1.13.9",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/static/install-opentofu.sh",
+      "sha256": "e4e899ae7bd86241fd17ad99e9d32f5b2d20a11b1a40d088acabb6e06dba49c5",
+      "patches": [
+        {
+          "old": "download_tool_exists() {\n    log_debug \"Determining if a supported download tool is installed...\"\n    if command_exists \"wget\"; then\n      log_debug \"wget is installed.\"\n      return \"${TOFU_INSTALL_EXIT_CODE_OK}\"\n    elif command_exists \"curl\"; then\n      log_debug \"curl is installed.\"\n      return \"${TOFU_INSTALL_EXIT_CODE_OK}\"\n    else\n      log_debug \"No supported download tool is installed.\"\n      return \"${TOFU_INSTALL_EXIT_CODE_INSTALL_REQUIREMENTS_NOT_MET}\"\n    fi\n}",
+          "new": "download_tool_exists() {\n return 0\n}",
+          "count": 1
+        },
+        {
+          "old": "download_file() {\n  if [ -z \"$1\" ]; then\n    log_error \"Bug: no URL supplied to download_file()\"\n    return \"${TOFU_INSTALL_EXIT_CODE_INVALID_ARGUMENT}\"\n  fi\n  if [ -z \"$2\" ]; then\n    log_error \"Bug: no destination file supplied to download_file()\"\n    return \"${TOFU_INSTALL_EXIT_CODE_INVALID_ARGUMENT}\"\n  fi\n  log_debug \"Downloading URL ${1} to ${2}...\"\n  IS_GITHUB=0\n  if [ -n \"${GITHUB_TOKEN}\" ]; then\n    if [ \"$(echo \"$1\" | grep -c \"api.github.com\" || true)\" -ne 0 ]; then\n      IS_GITHUB=1\n    fi\n  fi\n  if command_exists \"wget\"; then\n    if [ \"${IS_GITHUB}\" -eq 1 ]; then\n      log_debug \"Downloading using wget with GITHUB_TOKEN...\"\n      if ! wget -q --header=\"Authorization: token ${GITHUB_TOKEN}\" -O \"$2\" \"$1\"; then\n        log_debug \"Download failed.\"\n        return \"${TOFU_INSTALL_RETURN_CODE_DOWNLOAD_FAILED}\"\n      fi\n    else\n      log_debug \"Downloading using wget without GITHUB_TOKEN, this may lead to rate limit issues...\"\n      if ! wget -q -O \"$2\" \"$1\"; then\n        log_debug \"Download failed, please try specifying the GITHUB_TOKEN environment variable.\"\n        return \"${TOFU_INSTALL_RETURN_CODE_DOWNLOAD_FAILED}\"\n      fi\n    fi\n  elif command_exists \"curl\"; then\n    if [ \"${IS_GITHUB}\" -eq 1 ]; then\n      log_debug \"Downloading using curl with GITHUB_TOKEN...\"\n      if ! curl --proto '=https' --tlsv1.2 -fsSL -H \"Authorization: token ${GITHUB_TOKEN}\" -o \"$2\" \"$1\"; then\n        log_debug \"Download failed.\"\n        return \"${TOFU_INSTALL_RETURN_CODE_DOWNLOAD_FAILED}\"\n      fi\n    else\n      log_debug \"Downloading using curl without GITHUB_TOKEN, this may lead to rate limit issues...\"\n      if ! curl --proto '=https' --tlsv1.2 -fsSL -o \"$2\" \"$1\"; then\n        log_debug \"Download failed, please try specifying the GITHUB_TOKEN environment variable.\"\n        return \"${TOFU_INSTALL_RETURN_CODE_DOWNLOAD_FAILED}\"\n      fi\n    fi\n  else\n    log_error \"Neither wget nor curl are available on your system. Please install one of them to proceed.\"\n    return \"${TOFU_INSTALL_EXIT_CODE_INSTALL_REQUIREMENTS_NOT_MET}\"\n  fi\n  log_debug \"Download successful.\"\n  return \"${TOFU_INSTALL_EXIT_CODE_OK}\"\n}",
+          "new": "download_file() {\n if [ \"$2\" = \"-\" ]; then offline_fetch \"$1\"; else offline_fetch \"$1\" \"$2\"; fi\n}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_linux_amd64.zip",
+      "path": "resources/tofu_1.13.9_linux_amd64.zip",
+      "sha256": "bc44eb6b06446ba83bd4072114891987f590f66cca712737a7f1147c50c539ce",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_SHA256SUMS",
+      "path": "resources/tofu_1.13.9_SHA256SUMS",
+      "sha256": "f8a2925243a71078e84a911f1bb8eaf9c0974c3d5637475921a6af01082d080c",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_SHA256SUMS.gpgsig",
+      "path": "resources/tofu_1.13.9_SHA256SUMS.gpgsig",
+      "sha256": "8cdfa942cbefc45d2649d1f5f85576e41c9bc55bded0c1206cb64a794bc4836d",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/static/opentofu.asc",
+      "path": "resources/opentofu.asc",
+      "sha256": "3b20a1ef48c34c1ecfdafbe14133e19a4fe5770472f5650d701744b4f6d9450f",
+      "checksum_source": "locally-pinned after HTTPS download",
+      "aliases": [
+        "https://get.opentofu.org/opentofu.asc"
+      ]
+    }
+  ],
+  "env": {
+    "CHECKPOINT_DISABLE": "1"
+  },
+  "args": [
+    "--install-method",
+    "standalone",
+    "--root-method",
+    "none",
+    "--opentofu-version",
+    "1.13.9",
+    "--install-path",
+    "{prefix}/lib/opentofu",
+    "--symlink-path",
+    "{prefix}/bin",
+    "--cosign-path",
+    "/nonexistent-cosign",
+    "--gpg-path",
+    "gpg"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "unzip",
+    "gpg"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/tofu",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); cd \"$d\"; printf 'output \"answer\" { value = 6 * 7 }\\n' > main.tf; \"$OFFLINE_PREFIX/bin/tofu\" fmt; \"$OFFLINE_PREFIX/bin/tofu\" validate -no-color | grep -q \"Success\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Preserves the default signature verification using bundled release signatures and the pinned upstream GPG public key; GnuPG is an explicit target prerequisite. Tests local HCL formatting and validation with no external provider dependency."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image with GnuPG",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

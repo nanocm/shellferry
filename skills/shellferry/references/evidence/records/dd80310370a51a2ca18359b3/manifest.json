@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "ghcup",
+  "version": "0.2.6.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/x86_64-linux-ghcup-0.2.6.2",
+      "url": "https://github.com/haskell/ghcup-hs/releases/download/v0.2.6.2/x86_64-linux-ghcup-0.2.6.2",
+      "sha256": "9ed5da5449b48043a0d17e767c05d2ef585e25a639bb934329496c6d2fad9cf8",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/ghcup.yaml",
+      "url": "https://raw.githubusercontent.com/haskell/ghcup-metadata/48e81288f9d16dbea628719b6dffcacd4acd76c2/ghcup-0.0.9.yaml",
+      "sha256": "570f1b50f1ed487d03c125919143481fa736e703baf8bbf463223c45585a3dd3",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/haskell/ghcup-hs/e24077bc3640f55171735b11dffc0223dacfc7fe/scripts/bootstrap/bootstrap-haskell",
+      "sha256_original": "c85add4cdca779ea34bcbeeb3a311bbfed23fc96583311df41fe4e73554eba6d",
+      "sha256_patched": "d320a581a80583a10ca4f24156bf44864353601a3803cb929fe88330c3e7e8ab",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "file",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "GHCup manager only using upstream BOOTSTRAP_HASKELL_MINIMAL. Includes pinned official metadata so tool-requirements and local list work offline; GHC, Cabal, Stack and HLS not included. Runtime needs libgmp and libtinfo.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "569369159f56344dbdf64a44e1df57310a7c6af8d0ee60a95395ca51c1decd75",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

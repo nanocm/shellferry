@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "name": "jfrog-cli",
+  "version": "2.131.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/jfrog/jfrog-cli/7f74a0887f859e0856e88dcfd26ba3e6f18ed421/build/installcli/jf.sh",
+      "sha256": "7a6ca4b2bc5dbaaf20c38cb72538de2660674d2dfd3cac96f567899d0362c715",
+      "patches": [
+        {
+          "old": "curl -XGET \"$URL\" -L -g -o \"$FILE_NAME\"",
+          "new": "offline_fetch \"$URL\" \"$FILE_NAME\"",
+          "count": 1
+        },
+        {
+          "old": "curl -sS --fail -L -g \"$CHECKSUM_URL\" -o \"$CHECKSUM_TMP\"",
+          "new": "offline_fetch \"$CHECKSUM_URL\" \"$CHECKSUM_TMP\"",
+          "count": 1
+        },
+        {
+          "old": "set -- \"/usr/local/bin\" \"/usr/bin\" \"/opt/bin\"",
+          "new": "set -- \"$OFFLINE_PREFIX/bin\"",
+          "count": 1
+        },
+        {
+          "old": "mv $FILE_NAME \"$1\"",
+          "new": "mv \"$FILE_NAME\" \"$1\"",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "fa94a67217e2f98305c416955140be0b9087a25aa2b256d47a537d5e834899e7",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.131.0/jfrog-cli-linux-amd64/jf",
+      "path": "resources/jf",
+      "sha256": "b19b2fe03efe2058f9be44f746a1eb83d469d31e67d2acd4093d7580c676f01f",
+      "checksum_source": "locally-pinned after HTTPS download"
+    },
+    {
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.131.0/jfrog-cli-linux-amd64/jf.sha256",
+      "path": "resources/jf.sha256",
+      "sha256": "db54087f6ef1383f878531e4604975f226ed0e9ec6b6254d3c8e68e1bc3ec1d7",
+      "checksum_source": "locally-pinned after HTTPS download"
+    }
+  ],
+  "env": {
+    "CI": "true",
+    "JFROG_CLI_OFFER_CONFIG": "false",
+    "JFROG_CLI_REPORT_USAGE": "false"
+  },
+  "args": [
+    "2.131.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/jf",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/jf\" rt build-collect-env offline 1; test -d \"$HOME/.jfrog\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Installs into explicit user prefix instead of privileged PATH directories. Uses local build environment collection as functional test; no Artifactory server is required."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

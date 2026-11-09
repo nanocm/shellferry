@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.cache/
+dist/
+build/
+work/
+.venv/
+.pytest_cache/
+.shellferry-install.json
+*.part

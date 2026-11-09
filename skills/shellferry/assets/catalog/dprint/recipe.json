@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "name": "dprint",
+  "version": "0.64.3",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/dprint/dprint/9c48f60bb912c1fd1aedd545f472f7fc5427cf6e/website/src/assets/install.sh",
+      "sha256": "177d5f7623012b447ef9ea99c3a143bfe5061e7c3915bba746c8e1159898ef30",
+      "patches": [
+        {
+          "old": "curl --fail --location --progress-bar --output \"$zip\" \"$dprint_uri\"",
+          "new": "offline_fetch \"$dprint_uri\" \"$zip\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/dprint/dprint/releases/download/0.64.3/dprint-x86_64-unknown-linux-gnu.zip",
+      "path": "resources/dprint-x86_64-unknown-linux-gnu.zip",
+      "sha256": "f71cb7e22d6776439eba168d5cb296092d6413fea7148fe4d70684a2702a4fee",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://plugins.dprint.dev/json-0.21.1.wasm",
+      "path": "resources/json.wasm",
+      "sha256": "09eb556cb5e581972b06ceb2c4536a90ae032b84d384beea8837c99188454cdf",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "0.64.3"
+  ],
+  "env": {
+    "DPRINT_INSTALL": "{prefix}"
+  },
+  "requires": [
+    "sh",
+    "unzip",
+    "realpath",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/dprint",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf '{\"answer\":42}\\n' | \"$OFFLINE_PREFIX/bin/dprint\" fmt --stdin json --plugins \"$OFFLINE_ROOT/resources/json.wasm\" | grep -q '\"answer\": 42'"
+    ]
+  ],
+  "notes": [
+    "Includes a pinned JSON WebAssembly formatting plugin so the real formatting test does not download a plugin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

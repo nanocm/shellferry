@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "name": "chsrc",
+  "version": "0.2.7",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/RubyMetric/chsrc/03dd727e76b3510fc0f26f74c5cb1ec13702b0e0/tool/installer.sh",
+      "sha256": "3d953d22eeeaf411b5f453c3a5035937f96b6f44d4dab72531048229acd6f5c5",
+      "patches": [
+        {
+          "old": "download() {\n  if command -v curl &>/dev/null; then\n    curl -sL \"$1\" -o \"$2\"\n    return $? # \u53ea\u80fd\u5355\u72ec return\n  fi\n\n  if command -v wget &>/dev/null; then\n    # follow \u662fwget\u9ed8\u8ba4\u884c\u4e3a\n    wget -qO \"$2\" \"$1\"\n    return $?\n  fi\n\n  if is_zh; then\n    error_exit \"\u7f3a\u4e4f\u5fc5\u8981\u7684\u4e0b\u8f7d\u5de5\u5177(curl\u6216wget)\uff0c\u65e0\u6cd5\u4e0b\u8f7d\u6587\u4ef6\"\n  else\n    error_exit \"Missing necessary download tools (curl or wget) to download the file!\"\n  fi\n}\n",
+          "new": "download() {\n  offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        },
+        {
+          "old": "    chmod +x \"$path_to_executable\"",
+          "new": "    chmod +x \"$path_to_executable\"\n    tmp_created_install_dir=\"\" # Preserve successful installation; cleanup remains active for failures.",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/RubyMetric/chsrc/releases/download/v0.2.7/chsrc-x64-linux",
+      "aliases": [
+        "https://gitee.com/RubyMetric/chsrc/releases/download/v0.2.7/chsrc-x64-linux"
+      ],
+      "path": "resources/chsrc-x64-linux",
+      "sha256": "70d236dbd346e969a3d2abe507343eb07419be494ff40fd117cad44c619465d5",
+      "checksum_source": "locally-pinned official GitHub release bytes"
+    }
+  ],
+  "env": {},
+  "args": [
+    "-d",
+    "{prefix}/bin",
+    "-v",
+    "0.2.7",
+    "-l",
+    "en"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/chsrc",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/chsrc\" list > /tmp/chsrc-list; grep -qi python /tmp/chsrc-list; grep -qi ubuntu /tmp/chsrc-list"
+    ]
+  ],
+  "notes": [
+    "Converts the official POSIX installer. Uses bytes from the project's official GitHub release for its official Gitee URL alias; version fixed explicitly. The offline smoke lists built-in targets without changing system package sources.",
+    "Fixes reproduced upstream EXIT cleanup bug that deleted a newly created successful install directory. Clears only the cleanup marker after chmod succeeds."
+  ]
+}

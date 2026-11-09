@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "name": "dagger",
+  "version": "0.21.11",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/dagger/dagger/631cdb609aaddc0037c2ba713e7642cadf645ff4/install.sh",
+      "source": "sources/install.sh",
+      "sha256": "0e02969050598a7749167ff1ba1f8bdb1d823e3bdab1dc6b1e609e502450230c",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "fetch_version() {\n  # attempt to interpret the DAGGER_VERSION as a build pointer, otherwise\n  # just use it's value directly\n  curl -sfL \"${base}/${name}/versions/${DAGGER_VERSION}\" || echo \"${DAGGER_VERSION}\"\n}",
+          "new": "fetch_version() {\n  printf \"%s\\n\" \"0.21.11\"\n}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/dagger/dagger/releases/download/v0.21.11/dagger_v0.21.11_linux_amd64.tar.gz",
+      "path": "resources/dagger_v0.21.11_linux_amd64.tar.gz",
+      "sha256": "a2d3ef96e7305abc18663a3606d9c1c592278ba3c8f48e01d6be14eef72276ef",
+      "checksum_source": "locally-pinned",
+      "aliases": [
+        "https://dl.dagger.io/dagger/releases/0.21.11/dagger_v0.21.11_linux_amd64.tar.gz"
+      ]
+    },
+    {
+      "url": "https://github.com/dagger/dagger/releases/download/v0.21.11/checksums.txt",
+      "path": "resources/checksums.txt",
+      "sha256": "8ab240f031ef042f7f6218a3835ba4cf8e262d0a4a156291ef0b7db8eda2098b",
+      "checksum_source": "locally-pinned",
+      "aliases": [
+        "https://dl.dagger.io/dagger/releases/0.21.11/checksums.txt"
+      ]
+    }
+  ],
+  "env": {
+    "BIN_DIR": "{prefix}/bin",
+    "DAGGER_VERSION": "0.21.11",
+    "CI": "1"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/dagger",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/dagger\" completion bash > \"$HOME/dagger-completion.sh\"; test -s \"$HOME/dagger-completion.sh\"; bash -n \"$HOME/dagger-completion.sh\""
+    ]
+  ],
+  "notes": [
+    "Official installer with local downloads and fixed version resolution; preserves upstream release checksum verification. Scope is the CLI and local completion generation; Dagger engine/container execution requires separately prepared engine images."
+  ],
+  "kind": "script-conversion"
+}

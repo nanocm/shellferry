@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "name": "mcfly",
+  "version": "0.9.4",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/cantino/mcfly/6eed8ebd879c257249f1f4e07b8515edb1e9e395/ci/install.sh",
+      "sha256": "356a67566d1b7b2975500878ae9e4e0f4a23052e57c846755169d242be00bba3",
+      "patches": [
+        {
+          "old": "need curl\n",
+          "new": "need cp\n",
+          "count": 1
+        },
+        {
+          "old": "if [ \"$(curl --head --write-out \"%{http_code}\\n\" --silent --output /dev/null \"$url\")\" -eq \"404\" ]; then\n  err \"GitHub repository $git does not exist\"\nfi\n",
+          "new": "# Existence is enforced by the pinned local resource and its digest.\n",
+          "count": 1
+        },
+        {
+          "old": "if [ \"$(curl --head --write-out \"%{http_code}\\n\" --silent --output /dev/null \"$url\")\" -eq \"404\" ]; then\n  err \"$url does not exist, you will need to build $crate from source\"\nfi\n",
+          "new": "# Existence is enforced by the pinned local resource and its digest.\n",
+          "count": 1
+        },
+        {
+          "old": "curl -sL \"$url\" | tar -C \"$td\" -xz",
+          "new": "offline_fetch \"$url\" \"$td/archive.tar.gz\" || exit $?\ntar -C \"$td\" -xzf \"$td/archive.tar.gz\"\nrm \"$td/archive.tar.gz\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/cantino/mcfly/releases/download/v0.9.4/mcfly-v0.9.4-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/mcfly-v0.9.4-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "72d2c6fdaa111ac96c2cf725fc40e313e2856643482be58608911a09440313f1",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {},
+  "args": [
+    "--git",
+    "cantino/mcfly",
+    "--crate",
+    "mcfly",
+    "--tag",
+    "v0.9.4",
+    "--to",
+    "{prefix}/bin"
+  ],
+  "repeat_args": [
+    "--force"
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "install",
+    "basename",
+    "cut"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/mcfly",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/mcfly\" init bash > /tmp/mcfly-init.sh; test -s /tmp/mcfly-init.sh; bash -n /tmp/mcfly-init.sh; grep -q mcfly /tmp/mcfly-init.sh"
+    ]
+  ],
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "bash-it",
+  "version": "3.2.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/bash-it-source.tar.gz",
+      "url": "https://codeload.github.com/Bash-it/bash-it/tar.gz/72ea9e285fe1828977d1cd2bc596b901bcc57440",
+      "sha256": "f658453d98d281ba109f2addabb4129eef519a1fc60bff9b83dfdcad08424c95",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/Bash-it/bash-it/72ea9e285fe1828977d1cd2bc596b901bcc57440/install.sh",
+      "sha256_original": "d67e459eae6417dcc7be72b12df533f8bf19bbe0b1aec5a06683ae470ab1568f",
+      "sha256_patched": "4f510294e44f4f61fefd509fa21ee02eef7488e833a3a635ffde8487203960a4",
+      "patch_count": 0
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "dd492f797154a04d112cb5cbf16f9b7ec1f1b116c07f7a1d4c2d67afbd632059",
+      "sha256_patched": "f5858a9300aae257a25a6a644fa8f3491594f591ae7957756acaa3cc576732fd",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves official installer default profile enabling. Uses --silent --no-modify-config so shell startup files remain a user opt-in; test sources Bash-it and enables the general alias collection.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "e14538267a8ce5bb24a54a5d39ea1998b469e3d2d5a68b2e3a159ba5021668c5",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

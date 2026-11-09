@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "name": "task",
+  "version": "3.54.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://taskfile.dev/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "github_release() {\n  owner_repo=$1\n  version=$2\n  test -z \"$version\" && version=\"latest\"\n  giturl=\"https://github.com/${owner_repo}/releases/${version}\"\n  json=$(http_copy \"$giturl\" \"Accept:application/json\")\n  test -z \"$json\" && return 1\n  version=$(echo \"$json\" | tr -s '\\n' ' ' | sed 's/.*\"tag_name\":\"//' | sed 's/\".*//')\n  test -z \"$version\" && return 1\n  echo \"$version\"\n}",
+          "new": "github_release() {\n  [ \"$1\" = \"go-task/task\" ] || return 1\n  case \"${2:-v3.54.0}\" in v3.54.0|latest) printf '%s\\n' v3.54.0 ;; *) return 1 ;; esac\n}",
+          "count": 1
+        }
+      ],
+      "sha256": "e360c4d49273347e8ceb740f98d81d0b8b753de7d1b3c3452bdae7ec54289b99",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/go-task/task/releases/download/v3.54.0/task_linux_amd64.tar.gz",
+      "path": "resources/task_linux_amd64.tar.gz",
+      "sha256": "680859dbb4d881a9c72d4d9a8f510825450849af8567deacd7302c01124416fb",
+      "checksum_source": "https://github.com/go-task/task/releases/download/v3.54.0/task_checksums.txt"
+    },
+    {
+      "url": "https://github.com/go-task/task/releases/download/v3.54.0/task_checksums.txt",
+      "path": "resources/task_checksums.txt",
+      "sha256": "1c81a44f7f5e7c06dd3b696be47c7d10cad26c1a12d0cde780a4114649c5e259",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {
+    "SHELL": "/bin/bash"
+  },
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v3.54.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "install",
+    "gzip"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/task",
+      "--version"
+    ],
+    [
+      "sh",
+      "-c",
+      "d=$(mktemp -d); printf 'version: \"3\"\\ntasks:\\n  hello:\\n    cmds:\\n      - echo offline-task-ok\\n' > \"$d/Taskfile.yml\"; result=$(\"$1/bin/task\" --dir \"$d\" --silent hello); test \"$result\" = offline-task-ok",
+      "sh",
+      "{prefix}"
+    ]
+  ],
+  "notes": [
+    "Retains official checksum-file verification and install behavior. Version discovery fixed to pinned release."
+  ],
+  "repeat_args": [],
+  "validation_scope": {
+    "target": "linux-x86_64",
+    "userspace": "Ubuntu 26.04.1 prepared image; unzip and OpenSSL available",
+    "network": "none",
+    "runtime_scope": "Executable and local Taskfile execution; task-specific tools not included"
+  }
+}

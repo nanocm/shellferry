@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "name": "actionlint",
+  "version": "1.7.12",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rhysd/actionlint/011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7/scripts/download-actionlint.bash",
+      "sha256": "a96d60132afb74536ff2b55cc784d5c55b0b57980d3d49f962f0b3871447d53a",
+      "patches": [
+        {
+          "old": "curl -L \"${url}\" | tar xvz -C \"$target_dir\" actionlint",
+          "new": "offline_fetch \"${url}\" | tar xvz -C \"$target_dir\" actionlint",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz",
+      "path": "resources/actionlint_1.7.12_linux_amd64.tar.gz",
+      "sha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {},
+  "args": [
+    "1.7.12",
+    "{prefix}/bin"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/actionlint",
+      "-version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); printf 'name: offline\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo offline\n' > \"$d/workflow.yaml\"; \"$OFFLINE_PREFIX/bin/actionlint\" -shellcheck='' -pyflakes='' \"$d/workflow.yaml\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

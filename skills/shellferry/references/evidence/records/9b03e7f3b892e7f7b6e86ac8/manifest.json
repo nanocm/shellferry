@@ -1,0 +1,369 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "pdm",
+  "version": "2.29.7",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/installer.py",
+      "url": "https://raw.githubusercontent.com/pdm-project/pdm/112d7b8a1605fb409449a3ec5be370a177be0639/install-pdm.py",
+      "sha256": "8c947c5c9ea7a1b84685d5aff9122d974ffa57d1a499f7873d24c61a0781d3a6",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/anyio-4.13.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/da/42/e921fccf5015463e32a3cf6ee7f980a6ed0f395ceeaa45060b61d86486c2/anyio-4.13.0-py3-none-any.whl",
+      "sha256": "08b310f9e24a9594186fd75b4f73f4a4152069e3853f1ed8bfbf58369f4ad708",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/anysqlite-0.0.5-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/0b/31/349eae2bc9d9331dd8951684cf94528d91efaa71129dc30822ac111dfc66/anysqlite-0.0.5-py3-none-any.whl",
+      "sha256": "cb345dc4f76f6b37f768d7a0b3e9cf5c700dfcb7a6356af8ab46a11f666edbe7",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/argcomplete-3.7.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/12/f6/5b8ec087cd9cfa9449491ec83f76fb6b7006b4dff57d2ba8aaab330fe8e4/argcomplete-3.7.0-py3-none-any.whl",
+      "sha256": "d8f0f22d2a8a7caa383be1e22b6caf1ecaf0ebd10d8f83cc125e36540c95830c",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/blinker-1.9.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl",
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/certifi-2026.10.19-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl",
+      "sha256": "42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/dep_logic-0.7.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/cf/52/c6e420917d1e271ac716b555ed2006db740052586828494bfc6ddddc26db/dep_logic-0.7.1-py3-none-any.whl",
+      "sha256": "38b96555083a8efdd62a6987e49f65eb3778fe4c8189e83b3429ca6b6412d196",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/distlib-0.4.0-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/33/6b/e0547afaf41bf2c42e52430072fa5658766e3d65bd4b03a563d1b6336f57/distlib-0.4.0-py2.py3-none-any.whl",
+      "sha256": "9659f7d87e46584a30b5780e43ac7a2143098441670ff0a49d5f9034c54a6c16",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/exceptiongroup-1.3.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl",
+      "sha256": "a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/filelock-3.29.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/81/47/dd9a212ef6e343a6857485ffe25bba537304f1913bdbed446a23f7f592e1/filelock-3.29.0-py3-none-any.whl",
+      "sha256": "96f5f6344709aa1572bbf631c640e4ebeeb519e08da902c39a001882f30ac258",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/findpython-0.8.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/bb/a5/fae2000239a1f0225c9f31ec5f790f465d3cf135e79937ad19c876303e21/findpython-0.8.0-py3-none-any.whl",
+      "sha256": "4a61ee1618a8b55014f7d41f59345d322be93f6ce62395bdccccc651b3f7e28a",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/h11-0.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/hishel-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/01/9e/3657bc96268326f911952e2b6d67494344ef0c49220db342f1d625cb2cf3/hishel-2.0.0-py3-none-any.whl",
+      "sha256": "3e96613d05a13d08d4ee22621dff3aebcdffbe41472efc2b5d4d01d6bd254983",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/httpcore2-2.14.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/02/06/a8d6a8f90d11b76d9086242b6bb0ee4b503473bfc8be34c2d5b067275c22/httpcore2-2.14.0-py3-none-any.whl",
+      "sha256": "4c4f64f4b544afeb778c42c0ffb5941b29e671157e90ed3f6dc787c4bca90cd1",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/httpx2-2.14.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/69/5a/469616aa8c2cbb0bb9dd67a3c18d07c01ab604cc0b236ee1c47d260c7f6e/httpx2-2.14.0-py3-none-any.whl",
+      "sha256": "9d20c13a10bae1773a0be3b0f1e5beeb4bdd549bc3a2ba18efa32897c65403e4",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/id-1.6.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/42/77/de194443bf38daed9452139e960c632b0ef9f9a5dd9ce605fdf18ca9f1b1/id-1.6.1-py3-none-any.whl",
+      "sha256": "f5ec41ed2629a508f5d0988eda142e190c9c6da971100612c4de9ad9f9b237ca",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/idna-3.20-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/installer-1.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/fd/a8/7a1659fa61a225ea23b8e5d6d376e3ec427c994116141e6a1617dc253e0a/installer-1.0.0-py3-none-any.whl",
+      "sha256": "7b46327ded20d8544bfe2d8561618bbcd12d88e7e3645333af1ed141d8bc1bfe",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/markdown_it_py-4.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/a8/88/802c82060c54bc7dde21eb0033e337838b8181a1323254aa9ec41cbfc3d1/markdown_it_py-4.1.0-py3-none-any.whl",
+      "sha256": "d4939a62a2dd0cd9cb80a191a711ba1d39bac8ed5ef9e9966895b0171c01c46d",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/mdurl-0.1.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/msgpack-1.2.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/a8/f3/d215252efd2befcac420b01889bb17a816194a2c59501a15f7b1136f6591/msgpack-1.2.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "85b79ed643cfde70672152b3d1aee438ca647c5d2ffb7dba7226689ee9f6f44b",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/packaging-26.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl",
+      "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/pbs_installer-2026.10.25-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/d5/13/e48327d9ec27ac821583258fd869e49170b9b3b22e893e366b0ece58cd92/pbs_installer-2026.10.25-py3-none-any.whl",
+      "sha256": "19158e6fe4c941a230fdd017e48562ccea8a1d9320d9ffb30b38826d516b375b",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/pdm-2.29.7-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/93/67/6d971f071ddc1dbd6186dc1e656cbdc4980fe98ded9fcee955a425fbc0db/pdm-2.29.7-py3-none-any.whl",
+      "sha256": "7bf7bad198176c60eafeed19e625f9a0c8794a626a233a00d2bd1d9c7be31041",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/pip-26.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/07/25/ee8c38ae72d66b844ce8eb9711ba905dba21ca1a8a0c960057c41cd23337/pip-26.3-py3-none-any.whl",
+      "sha256": "f3b60b20ffaadd4415ed7957212a38ac63fa4c5fa375bd0f4a797777940fad13",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/platformdirs-4.9.6-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/75/a6/a0a304dc33b49145b21f4808d763822111e67d1c3a32b524a1baf947b6e1/platformdirs-4.9.6-py3-none-any.whl",
+      "sha256": "e61adb1d5e5cb3441b4b7710bea7e4c12250ca49439228cc1021c00dcfac0917",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/pygments-2.20.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl",
+      "sha256": "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/pyproject_hooks-1.2.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/bd/24/12818598c362d7f300f18e74db45963dbcb85150324092410c8b49405e42/pyproject_hooks-1.2.0-py3-none-any.whl",
+      "sha256": "9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/python_discovery-1.3.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/30/d4/24d543ab8b8158b7f5a97113c831205f5c900c92c8762b1e7f44b7ea0405/python_discovery-1.3.0-py3-none-any.whl",
+      "sha256": "441d9ced3dfce36e113beb35ca302c71c7ef06f3c0f9c227a0b9bb3bd49b9e9f",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/python_dotenv-1.2.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl",
+      "sha256": "1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/resolvelib-1.2.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/e2/23/c941a0d0353681ca138489983c4309e0f5095dfd902e1357004f2357ddf2/resolvelib-1.2.1-py3-none-any.whl",
+      "sha256": "fb06b66c8da04172d9e72a21d7d06186d8919e32ae5ab5cdf5b9d920be805ac2",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/rich-15.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/shellingham-1.5.4-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/socksio-1.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/37/c3/6eeb6034408dac0fa653d126c9204ade96b819c936e136c5e8a6897eee9c/socksio-1.0.0-py3-none-any.whl",
+      "sha256": "95dc1f15f9b34e8d7b16f06d74b8ccf48f609af32ab33c608d08761c5dcbb1f3",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/tomli-2.4.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl",
+      "sha256": "0d85819802132122da43cb86656f8d1f8c6587d54ae7dcaf30e90533028b49fe",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/tomlkit-0.14.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/b5/11/87d6d29fb5d237229d67973a6c9e06e048f01cf4994dee194ab0ea841814/tomlkit-0.14.0-py3-none-any.whl",
+      "sha256": "592064ed85b40fa213469f81ac584f67a4f2992509a7c3ea2d632208623a3680",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/truststore-0.10.4-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/19/97/56608b2249fe206a67cd573bc93cd9896e1efb9e98bce9c163bcdc704b88/truststore-0.10.4-py3-none-any.whl",
+      "sha256": "adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/typing_extensions-4.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/unearth-0.19.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/e1/20/24b7fbb4760d65d9749489b103ee6723287110325b93b1596e60e8e70a70/unearth-0.19.0-py3-none-any.whl",
+      "sha256": "f12c65341303ece9bee986db35ac8aa0d17df4fa000c728a76c8c3798b1f4cf1",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/urllib3-2.6.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl",
+      "sha256": "bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/wheels/virtualenv-21.3.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/b1/4f/f71e641e504111a5a74e3a20bc52d01bd86788b22699dd3fee1c63253cf6/virtualenv-21.3.1-py3-none-any.whl",
+      "sha256": "d1a71cf58f2f9228fff23a1f6ec15d39785c6b32e03658d104974247145edd35",
+      "expected_checksum_matched": true,
+      "checksum_source": "official PyPI JSON SHA-256 verified against downloaded wheel"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "3f08d133dc9e6988c5ce7d5c50bb5acb2da3c44bbe859695b22f42b0bbd80293",
+      "sha256_patched": "23bb5f81e20011db243014fb341448a7378effbe39bd24940743749a7bcdd232",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "python3",
+    "sha256sum"
+  ],
+  "runtime": {
+    "libc": "glibc",
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Python-installer adaptation: unmodified official Python entrypoint is a resource; authored wrapper performs hash/count-checked transformation where needed and stores applied diff beside installed state. All pip dependencies are pinned CPython 3.10 Linux x86_64 wheels with PyPI-published hashes. Python 3.10 and venv/ensurepip are prerequisites; project dependencies and additional interpreters are outside scope.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Official Python installer runs unmodified. PIP_NO_INDEX/PIP_FIND_LINKS select the bundled wheelhouse; Python venv/ensurepip availability is checked before installer execution to prevent fallback bootstrap downloads."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "56c88dd111027628ba3f97b82c5247f6f8f3911931f51711773dc34a3597856f",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

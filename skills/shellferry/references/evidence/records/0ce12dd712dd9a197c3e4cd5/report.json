@@ -1,0 +1,41 @@
+{
+  "name": "sql-studio",
+  "version": "0.1.53",
+  "target": "linux-x86_64",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/shellferry-rust-test:ubuntu22",
+  "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+  "image_digests": [
+    "localhost/shellferry-rust-test@sha256:d08c8dc49860177c286b6787191e076ba92f8df3726a31a5e984c7601fda2f2a"
+  ],
+  "environment": "PRETTY_NAME=\"Ubuntu 22.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.5 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\nldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35\nCopyright (C) 2022 Free Software Foundation, Inc.\n/usr/bin/sh\n/usr/bin/bash\n/usr/bin/tar\n/usr/bin/gzip\n/usr/bin/unzip\n/usr/bin/xz\n/usr/bin/openssl\n/usr/bin/file\n/usr/bin/git\n/usr/bin/dpkg-deb\n",
+  "archive_sha256": "89b677a68b0ac3978c75d666f5cebbe09310ead1aeb7ac8560b896d3cb360367",
+  "archive_roundtrip": true,
+  "network": "none",
+  "user": "1000:1000",
+  "manifest_sha256": "4d1aec4291e1e67b4402145758ff1336a2748b63c8eec4d107acb3f958d1980b",
+  "checksum_list_sha256": "ccc54169a8d7c063607601ef53725a5a15be0554227de70f403531f52a8ec3dc",
+  "elapsed_seconds": 2.64,
+  "exit_code": 0,
+  "checks": [
+    "checksum verification",
+    "prerequisite preflight",
+    "path with spaces",
+    "install from clean home",
+    "smoke command",
+    "repeat installation",
+    "blocked download command detection"
+  ],
+  "verified_at": "2026-11-09T12:06:07.330586+00:00",
+  "recipe_sha256": "77ef936ede80b84130db404748355a909d4608bb1817caac661c2b1fca69b953",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  },
+  "verifier": {
+    "verify.py": "5756ee90f699a083d6d98303da8842cb293e1995502aa79a764b6349f2ba1dbc",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  },
+  "scope": "Container userspace on host kernel; download command guards cover curl/wget/fetch/aria2c only. Network=none proves operation without external network, not absence of every attempted network syscall. No claim about untested OS versions, architectures, services, or kernel features."
+}

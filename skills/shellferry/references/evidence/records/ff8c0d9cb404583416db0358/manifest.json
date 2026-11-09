@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "grype",
+  "version": "0.121.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/grype_0.121.2_linux_amd64.tar.gz",
+      "url": "https://github.com/anchore/grype/releases/download/v0.121.2/grype_0.121.2_linux_amd64.tar.gz",
+      "sha256": "9c8965ced9df657e5e851c14021bae838802f711edd7a48f9bc3c923a8d28f12",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/grype_0.121.2_checksums.txt",
+      "url": "https://github.com/anchore/grype/releases/download/v0.121.2/grype_0.121.2_checksums.txt",
+      "sha256": "031a06d6c9184a3a0b379f1544938bdf8ecc18327aa2e46ea912bbf6ce51fc65",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/anchore/grype/82d7a0ea911946b99343c672056867d372f9b319/install.sh",
+      "sha256_original": "4bc8e844d1ca0b74082cb51e1587d58c35150756954660db3d3078e57c81cbfd",
+      "sha256_patched": "9c1ec60a08b6f06d9bdd7b2501fbca5e5abc36329bb059846d798c061ba9d3e0",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "sha256_patched": "3ab2ca5f018310895fd8f2c59a2f15ac8ee99c7aba2d9b29491858f55a2198e2",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Validates local effective configuration rendering. Vulnerability scanning requires an independently collected Grype database, which is not included or claimed.",
+    "The included official installer is fetched at the release tag commit, so the redundant release-script refetch is disabled. Upstream SHA-256 verification is preserved; optional cosign verification was not enabled in the original default."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "921a8b2c1f51387f6bf868227b525718bdb3885434d6412e8a231b9b272a1bff",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

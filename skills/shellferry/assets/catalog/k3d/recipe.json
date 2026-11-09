@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "name": "k3d",
+  "version": "5.9.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/k3d-io/k3d/fb87e3ab09b91db3dd85d46a6a9067e25db107c0/install.sh",
+      "sha256": "f360710b6555d7b95f510b583b7c6050c6453e5b1d91cbb046864897d5915347",
+      "patches": [
+        {
+          "old": "runAsRoot() {\n  local CMD=\"$*\"\n\n  if [ $EUID -ne 0 -a $USE_SUDO = \"true\" ]; then\n    CMD=\"sudo $CMD\"\n  fi\n\n  $CMD\n}",
+          "new": "runAsRoot() {\n if [ \"$EUID\" -ne 0 ] && [ \"$USE_SUDO\" = true ]; then sudo \"$@\"; else \"$@\"; fi\n}",
+          "count": 1
+        },
+        {
+          "old": "  if ! type \"curl\" > /dev/null && ! type \"wget\" > /dev/null; then\n    echo \"Either curl or wget is required\"\n    exit 1\n  fi",
+          "new": ": # local resource fetching requires neither curl nor wget",
+          "count": 1
+        },
+        {
+          "old": "  if type \"curl\" > /dev/null; then\n    scurl -sL \"$DOWNLOAD_URL\" -o \"$K3D_TMP_FILE\"\n    scurl -sL \"$CHECKSUM_URL\" -o \"$K3D_SUM_FILE\"\n  elif type \"wget\" > /dev/null; then\n    wget -q -O \"$K3D_TMP_FILE\" \"$DOWNLOAD_URL\"\n    wget -q -O \"$K3D_SUM_FILE\" \"$CHECKSUM_URL\"\n  fi",
+          "new": "  offline_fetch \"$DOWNLOAD_URL\" \"$K3D_TMP_FILE\"\n  offline_fetch \"$CHECKSUM_URL\" \"$K3D_SUM_FILE\"",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/k3d-io/k3d/releases/download/v5.9.0/k3d-linux-amd64",
+      "path": "resources/k3d-linux-amd64",
+      "sha256": "06d8f25bc3a971c4eb29e0ff08429b180402db0f4dec838c9eac427e296800a0",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/k3d-io/k3d/releases/download/v5.9.0/checksums.txt",
+      "path": "resources/checksums.txt",
+      "sha256": "ed820bf83134bb0e5f0980f44c16e643ae956c1aeeb3f17ca120c9cd0a41262b",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "TAG": "v5.9.0",
+    "K3D_INSTALL_DIR": "{prefix}/bin",
+    "USE_SUDO": "false"
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/k3d",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); \"$OFFLINE_PREFIX/bin/k3d\" config init --output \"$d/k3d.yaml\"; grep -q \"kind: Simple\" \"$d/k3d.yaml\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Fixes upstream runAsRoot argument reconstruction to preserve spaces. Tests configuration generation, not containerized cluster creation."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

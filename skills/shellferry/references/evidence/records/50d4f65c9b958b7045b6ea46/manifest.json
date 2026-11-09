@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "secretspec",
+  "version": "0.21.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/secretspec-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/cachix/secretspec/releases/download/v0.21.1/secretspec-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "a4c4682edc873b4f75872e66f0753492e87eab0ea02e898b8f9405f7151a37c6",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/secretspec-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/cachix/secretspec/releases/download/v0.21.1/secretspec-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "4751041b7035868cea41974abfebad8a72ebb8046e9115179c2c1faae35691e9",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/cachix/secretspec/releases/download/v0.21.1/secretspec-installer.sh",
+      "sha256_original": "f5962bdfe702f0ad0894f9c5ce9187b6a3228edb3b26526954e32f91dc10aec7",
+      "sha256_patched": "6d444e762ecad6595dd38d2666186e67651faada218980501800f9ab0673d7d6",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "b8bf487bba09ae51f4dcf3c809661aa7b593beaef7a2407eda0889abb05ff3ed",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

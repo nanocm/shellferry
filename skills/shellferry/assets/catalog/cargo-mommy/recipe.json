@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "name": "cargo-mommy",
+  "version": "0.3.1",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-installer.sh",
+      "sha256": "9bd7086ab196a830f269f5afc5c82222c2e5150f6e31ea25bd51dbf807e3b1a6",
+      "patches": [
+        {
+          "old": "downloader() {\n    if check_cmd curl\n    then _dld=curl\n    elif check_cmd wget\n    then _dld=wget\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]\n    then curl -sSfL \"$1\" -o \"$2\"\n    elif [ \"$_dld\" = wget ]\n    then wget \"$1\" -O \"$2\"\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-x86_64-unknown-linux-gnu.tar.xz",
+      "path": "resources/cargo-mommy-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "25daf0138c5670800e474fa7751a48da2b106196119f64aba9743179ec0a652a",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-x86_64-unknown-linux-musl.tar.xz",
+      "path": "resources/cargo-mommy-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "0e7964f9772f4d5b5902a34bf3c40a3a8365cdc8546df0533aacf7d05517275d",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {
+    "CARGO_HOME": "{prefix}",
+    "INSTALLER_NO_MODIFY_PATH": "1"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cargo",
+    "rustc",
+    "cc",
+    "git",
+    "readelf"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/cargo-mommy",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p /tmp/mommy-project/src; cd /tmp/mommy-project; printf '[package]\nname = \"offline-demo\"\nversion = \"0.1.0\"\nedition = \"2021\"\n' > Cargo.toml; printf 'fn main() { println!(\"mommy-ok\"); }\n' > src/main.rs; \"$OFFLINE_PREFIX/bin/cargo-mommy\" build --offline; ./target/debug/offline-demo > /tmp/mommy-result; grep -qx mommy-ok /tmp/mommy-result"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The official install-directory override selects the ordinary-user prefix and INSTALLER_NO_MODIFY_PATH disables profile editing. Other upstream installation metadata is preserved.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Cargo, Rust, C linker and Git are existing development prerequisites, tested from Ubuntu 22.04 distribution packages; no Rust toolchain or project dependencies are downloaded by this installation."
+  ]
+}

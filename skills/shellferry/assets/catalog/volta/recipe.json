@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "name": "volta",
+  "version": "2.0.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/volta-cli/volta/5eedd5fb2f682baceb47a242289111fcd79435a5/dev/unix/volta-install.sh",
+      "sha256": "fbdc4b8cb33fb6d19e5f07b22423265943d34e7e5c3d5a1efcecc9621854f9cb",
+      "patches": [
+        {
+          "old": "curl --progress-bar --show-error --location --fail \"$archive_url\" --output \"$download_file\" --write-out \"$download_file\"",
+          "new": "offline_fetch \"$archive_url\" \"$download_file\"; printf '%s' \"$download_file\"",
+          "count": 1
+        },
+        {
+          "old": "($volta_bin --version",
+          "new": "(\"$volta_bin\" --version",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/volta-cli/volta/releases/download/v2.0.2/volta-2.0.2-linux.tar.gz",
+      "path": "resources/volta-2.0.2-linux.tar.gz",
+      "sha256": "6cec054c911fb925b629a09455775af6e95dc0f5694a4c28b63979ab9ef18037",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "--version",
+    "2.0.2",
+    "--skip-setup"
+  ],
+  "env": {
+    "VOLTA_HOME": "{prefix}"
+  },
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/volta",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/volta\" completions bash > \"$HOME/volta-completion\"; test -s \"$HOME/volta-completion\"; grep -q volta \"$HOME/volta-completion\""
+    ]
+  ],
+  "notes": [
+    "Manager only: Volta binary and shims. Managed Node.js runtimes and project packages are not included. Uses upstream --skip-setup; functional test generates Bash completions. Fixes upstream executable path quoting for repeat installs with spaces.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

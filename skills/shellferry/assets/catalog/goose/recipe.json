@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "name": "goose",
+  "version": "3.29.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/pressly/goose/2d285d2249855c959765409c68b17a6634f0acb4/install.sh",
+      "sha256": "c23ea72ff36577fab5274ececc2e9f21f0b3e46c53b202c0ad6d7bfc31bcfd6f",
+      "patches": [
+        {
+          "old": "curl --silent --show-error --location --fail --location --output \"${exe}\" \"$goose_uri\"",
+          "new": "offline_fetch \"$goose_uri\" \"${exe}\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/pressly/goose/releases/download/v3.29.0/goose_linux_x86_64",
+      "path": "resources/goose_linux_x86_64",
+      "sha256": "cc56e2f75532a4dd52f5ef2d31db0121e91079a9c2617bc0ad4e04e2d41c228b",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "GOOSE_INSTALL": "{prefix}"
+  },
+  "args": [
+    "v3.29.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/goose",
+      "-version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); printf '%s\n' '-- +goose Up' 'CREATE TABLE example (id INTEGER);' '-- +goose Down' 'DROP TABLE example;' > \"$d/00001_init.sql\"; \"$OFFLINE_PREFIX/bin/goose\" -dir \"$d\" sqlite3 \"$d/example.db\" up; \"$OFFLINE_PREFIX/bin/goose\" -dir \"$d\" sqlite3 \"$d/example.db\" status > \"$d/status\" 2>&1; grep -q Applied \"$d/status\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

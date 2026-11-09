@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "name": "elan",
+  "version": "4.2.4",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/elan-init.sh",
+      "sha256": "a620ff1641616222c8d37c54845492004bb84d6877cdbc944dd65c1aa685bf53",
+      "patches": [
+        {
+          "old": "need_cmd curl",
+          "new": "need_cmd cp",
+          "count": 1
+        },
+        {
+          "old": "ensure curl -sSfL \"$ELAN_UPDATE_ROOT/latest/download/elan-$_arch.tar.gz\"",
+          "new": "ensure offline_fetch \"$ELAN_UPDATE_ROOT/download/v4.2.4/elan-$_arch.tar.gz\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/elan-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "-y",
+    "--default-toolchain",
+    "none",
+    "--no-modify-path"
+  ],
+  "env": {
+    "ELAN_HOME": "{prefix}"
+  },
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/elan",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/elan\" completions bash > \"$HOME/elan-completion\"; test -s \"$HOME/elan-completion\"; grep -q elan \"$HOME/elan-completion\""
+    ]
+  ],
+  "notes": [
+    "Manager only. Explicit upstream --default-toolchain none avoids implicit Lean downloads; Lean compiler/toolchains are not included. Functional test generates shell completions.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

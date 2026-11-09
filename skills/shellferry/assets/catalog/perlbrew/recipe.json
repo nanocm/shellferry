@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "name": "perlbrew",
+  "version": "1.02",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew-install",
+      "sha256": "8f254651d2eee188199b3355228eb67166974716081b794ca93b69c8f949c38d",
+      "patches": [
+        {
+          "old": "$PERLBREWDOWNLOAD || clean_exit 1",
+          "new": "offline_fetch \"$PERLBREWURL\" \"$LOCALINSTALLER\" || clean_exit 1",
+          "count": 1
+        },
+        {
+          "old": "$PERL \"$LOCALINSTALLER\" -f -q install-patchperl || clean_exit 4",
+          "new": "install -m 755 \"$OFFLINE_ROOT/resources/patchperl\" \"$PERLBREW_ROOT/bin/patchperl\" || clean_exit 4",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew",
+      "path": "resources/perlbrew",
+      "sha256": "4582d3a3b6b7867ef34503013d3709797cd910164a42d698adacddfbc7d596f0",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gugod/patchperl-packing/e964d2c16d5ddad90a2a67dcfb3bf674becb54c8/patchperl",
+      "path": "resources/patchperl",
+      "sha256": "893fa85b02b620269851a6ebd96004d644914d827b560c0c656e84af337d926e",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "PERLBREW_ROOT": "{prefix}",
+    "PERLBREW_HOME": "{prefix}/home",
+    "PERLBREWURL": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew"
+  },
+  "requires": [
+    "sh",
+    "perl",
+    "install",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/perlbrew",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/perlbrew\" init; test -s \"$OFFLINE_PREFIX/etc/bashrc\"; \"$OFFLINE_PREFIX/bin/perlbrew\" env | grep -q PERLBREW_ROOT; \"$OFFLINE_PREFIX/bin/patchperl\" --version"
+    ]
+  ],
+  "notes": [
+    "Installs manager and official patchperl companion. Managed Perl builds and CPAN modules are not included. Preserves self-install; nested patchperl HTTP fetch is replaced with the equivalent copy+executable permission from its pinned official source.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "air",
+  "version": "1.67.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/air_1.67.4_linux_amd64.tar.gz",
+      "url": "https://github.com/air-verse/air/releases/download/v1.67.4/air_1.67.4_linux_amd64.tar.gz",
+      "sha256": "c8cc405210e557e2681275688ce700441eac53db9fb42bb58764874ee9aa783d",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/air_1.67.4_checksums.txt",
+      "url": "https://github.com/air-verse/air/releases/download/v1.67.4/air_1.67.4_checksums.txt",
+      "sha256": "b3df0ec7a07c78c97023f4c68195906df422487992ffc84f16870e933fc9972b",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/air-verse/air/71ea1dee05248122ed22b5870c7fb20a90d80ddd/install.sh",
+      "sha256_original": "e342e2be291835f0ab47b932d45925203ab50df3f45cbe47b42afe4b53b29d13",
+      "sha256_patched": "47c5536ab8e0ffca9dce6583a0304a660f8af037ac6470374ea8da735085134a",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "sha256_patched": "3ab2ca5f018310895fd8f2c59a2f15ac8ee99c7aba2d9b29491858f55a2198e2",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "04f189a56c3247f4eb24aea65b326b96441c759cb9951fc61501d8635584ee90",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

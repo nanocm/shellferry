@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "starship",
+  "version": "1.27.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/starship-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/starship/starship/releases/download/v1.27.0/starship-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "10c8eb4cb3b761d9bf59ea828444c2dab36c900b7d69a69e08814b286969df89",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from the HTTPS official release asset; not an independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://starship.rs/install.sh",
+      "sha256_original": "52c64f14a558034ebeb1907ea9364e802b32474576fd3e68265f73bc33cc8fbb",
+      "sha256_patched": "f20c931c359b3ce834ac5fc995f88108306209f8b9e90ca9d072b1d2d0a6ce83",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Pins default version and creates selected bin directory before upstream validation. --yes skips confirmation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "ff8c468b07173576115dfb3cdf645a57674b09b5956902bb7098d8aeb2608759",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

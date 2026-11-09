@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "name": "air",
+  "version": "1.67.4",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/air-verse/air/71ea1dee05248122ed22b5870c7fb20a90d80ddd/install.sh",
+      "sha256": "e342e2be291835f0ab47b932d45925203ab50df3f45cbe47b42afe4b53b29d13",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "github_release() {\n  owner_repo=$1\n  version=$2\n  test -z \"$version\" && version=\"latest\"\n  giturl=\"https://github.com/${owner_repo}/releases/${version}\"\n  json=$(http_copy \"$giturl\" \"Accept:application/json\")\n  test -z \"$json\" && return 1\n  version=$(echo \"$json\" | tr -s '\\n' ' ' | sed 's/.*\"tag_name\":\"//' | sed 's/\".*//')\n  test -z \"$version\" && return 1\n  echo \"$version\"\n}",
+          "new": "github_release() {\n  printf \"%s\\n\" 'v1.67.4'\n}",
+          "count": 1
+        },
+        {
+          "old": "OWNER=cosmtrek",
+          "new": "OWNER=air-verse",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/air-verse/air/releases/download/v1.67.4/air_1.67.4_linux_amd64.tar.gz",
+      "path": "resources/air_1.67.4_linux_amd64.tar.gz",
+      "sha256": "c8cc405210e557e2681275688ce700441eac53db9fb42bb58764874ee9aa783d",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/air-verse/air/releases/download/v1.67.4/air_1.67.4_checksums.txt",
+      "path": "resources/air_1.67.4_checksums.txt",
+      "sha256": "b3df0ec7a07c78c97023f4c68195906df422487992ffc84f16870e933fc9972b",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {},
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v1.67.4"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/air",
+      "-v"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); cd \"$d\"; \"$OFFLINE_PREFIX/bin/air\" init; test -s .air.toml; grep -q build .air.toml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

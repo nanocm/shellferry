@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "istioctl",
+  "version": "1.31.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/istioctl-1.31.4-linux-amd64.tar.gz",
+      "url": "https://github.com/istio/istio/releases/download/1.31.4/istioctl-1.31.4-linux-amd64.tar.gz",
+      "sha256": "7c00227d87f280c2450483e3518e3a73af62c057363b779ea80931c409e8852e",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/istio/istio/a0956cb8565439ffc90c01562391a9dab3442d8a/release/downloadIstioCtl.sh",
+      "sha256_original": "2cfcf1b6690ca43a5f5191241d58dbe43df4081c8baba4c856d8d5c0c1c5c880",
+      "sha256_patched": "af5a675f6d0515b010684299bcec995e8767320217d6b587ba98d7166402c723",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Converts the official release/downloadIstioCtl.sh CLI-only installer. Tests local manifest generation; cluster installation and container images are outside this scope."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "46ab4a0724984b49c2c73b6fc02e45015b9cd1f44d61bb50887f03e924cf6323",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

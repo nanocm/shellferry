@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "reviewed_on": "2026-11-09",
+  "generated_source_snapshots": [
+    {
+      "path": "sources/sdkman-install.sh",
+      "url": "https://get.sdkman.io",
+      "sha256": "d2ad12c3702fa42967e48114f01ebd266f0c901a53fa8fd739c9b6a007cc91d0",
+      "size": 18459,
+      "license": "Apache-2.0",
+      "template_repository": "sdkman/sdkman-hooks",
+      "template_commit": "a2eb0a137c9074d1aa2132cedc49d983080a2e10",
+      "template_path": "app/views/install_stable.scala.txt",
+      "template_url": "https://raw.githubusercontent.com/sdkman/sdkman-hooks/a2eb0a137c9074d1aa2132cedc49d983080a2e10/app/views/install_stable.scala.txt",
+      "template_sha256": "148b10e96d673fa7a52312c43bcf0444ccf00ddb1fc54635c2ab1734809fe02b",
+      "parameters": {
+        "cliVersion": "5.24.0",
+        "cliNativeVersion": "0.8.0",
+        "baseUrl": "https://api.sdkman.io/2",
+        "rcUpdate": true,
+        "beta": false,
+        "ci": false
+      }
+    },
+    {
+      "path": "sources/java-post.sh",
+      "url": "https://api.sdkman.io/2/hooks/post/java/21.0.13.0+9-tem/linuxx64",
+      "sha256": "06e3984401eb3b9a30bf5d7f98fc0527cb11ec6d136cc7b50680025ff576dea1",
+      "size": 937,
+      "license": "Apache-2.0",
+      "template_repository": "sdkman/sdkman-hooks",
+      "template_commit": "a2eb0a137c9074d1aa2132cedc49d983080a2e10",
+      "template_path": "app/views/java_post_linux_tarball.scala.txt",
+      "template_url": "https://raw.githubusercontent.com/sdkman/sdkman-hooks/a2eb0a137c9074d1aa2132cedc49d983080a2e10/app/views/java_post_linux_tarball.scala.txt",
+      "template_sha256": "2aea50bfc0fae4ac9f21984026e5f64386823fb4d81b728c767aa870f4d4b3d8",
+      "parameters": {
+        "candidate": "Java",
+        "version": "21.0.13.0+9-tem",
+        "platform": "Linux 64bit"
+      }
+    }
+  ],
+  "generated_source_note": "These are original endpoint response bytes with their own hashes. The fixed sdkman-hooks commit documents reviewed template provenance; generated response bytes are not claimed to equal an individual raw template file. The catalog uses local permitted snapshots, so builds never fetch these mutable endpoints.",
+  "conversion_repairs": [
+    {
+      "scope": "Shell initialization prefix quoting",
+      "original_source_unchanged": true,
+      "patch_location": "recipe.json scripts[0].patches",
+      "reason": "The original SDKMAN_DIR_RAW interpolation inside a quoted shell export and echo -e profile output reinterprets literal shell syntax and backslashes in the chosen prefix.",
+      "change": "Bash printf %q emits the export assignment; the test and source expressions retain literal \"$SDKMAN_DIR\" references; printf %s writes all three original profile append sites without interpreting escapes. Original profile selection and append guards are preserved.",
+      "validation": "Fresh-shell smoke first unsets SDKMAN_DIR, sources .bashrc, compares the restored value to the original exact prefix, and compiles/executes Java. Additional disconnected archive tests cover literal $HOME, consecutive spaces, a single quote, command-substitution syntax, backticks, double quotes and a backslash."
+    }
+  ],
+  "reviewed_metadata_endpoints": [
+    {
+      "url": "https://api.sdkman.io/2/candidates/all",
+      "observed_sha256": "4112ad95bcee1e904c8e8dfced453cbe249a425790395fb1a08d456be0dc59ee",
+      "observed_size": 602,
+      "raw_response_vendored": false,
+      "build_resource": false,
+      "local_selection": "java",
+      "decision": "Construct a minimal one-candidate offline allowlist because only Java is bundled."
+    },
+    {
+      "url": "https://api.sdkman.io/2/candidates/validate/java/21.0.13.0+9-tem/linuxx64",
+      "observed_sha256": "ec654fac9599f62e79e2706abef23dfb7c07c08185aa86db4d8695f0b718d1b3",
+      "observed_size": 5,
+      "raw_response_vendored": false,
+      "build_resource": false,
+      "local_selection": "Exact candidate/version/platform is accepted by the authored installation-only transport; other URLs fail closed."
+    }
+  ],
+  "broker": {
+    "url": "https://broker.sdkman.io/download/java/21.0.13.0+9-tem/linuxx64",
+    "observed_archive_type": "tar.gz",
+    "resolved_release_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+    "observed_checksum_header": null,
+    "decision": "Replay the archive-type metadata in the installer-only transport. Validate the original tarball with the separately pinned Temurin publisher SHA-256 before the official tar-to-zip hook."
+  },
+  "sdkman_cli_commit": "5dbdea513a043658ab185ddf6de27a508a3486dc",
+  "sdkman_native_commit": "5b0b38ca644c2ee70cf0a8837b65d43ba7861dbf",
+  "jdk": {
+    "version": "21.0.13+9",
+    "sdkman_identifier": "21.0.13.0+9-tem",
+    "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+    "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+    "publisher_checksum_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz.sha256.txt",
+    "release_metadata_sha256": "f83f6dcc966043c93cd498ac8e7ee7c310852074970d62c702e4ad2710002898",
+    "release_metadata_source": "jdk-21.0.13+9/release inside the pinned archive",
+    "source_repository": "https://github.com/adoptium/jdk21u.git",
+    "source_revision_from_release": "2ab10ca20c19",
+    "build_revision_from_release": "1cf43d7a3e77886bfea7d550a902e151a87d724d"
+  },
+  "scope": "One Java SDK only. This conversion preserves SDKMAN native binaries, original install/default/use behavior and shell initialization. Other SDK candidates, live version catalogs, future upgrades and project dependency caches are outside this bundle."
+}

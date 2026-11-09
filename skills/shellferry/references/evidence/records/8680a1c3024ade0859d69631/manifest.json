@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "fzf",
+  "version": "0.75.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/fzf-source.tar.gz",
+      "url": "https://codeload.github.com/junegunn/fzf/tar.gz/c7bf2b8eea25952dd257a466c0afa72faae206fb",
+      "sha256": "35bf0c7d039089721804ae313c3cb0240ad2aa794486d972ef3c1afa0cf95300",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/fzf-0.75.0-linux_amd64.tar.gz",
+      "url": "https://github.com/junegunn/fzf/releases/download/v0.75.0/fzf-0.75.0-linux_amd64.tar.gz",
+      "sha256": "0d6640f83582d991cf429754baad64b07e3a4e439a6019670f4b91da1314141c",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "368766c120822550fa85c5be01ee1626be4f05d6506104f9a179cd3bafd71b34",
+      "sha256_patched": "f0e34497693c025990ee59597b1a846a3f96806228ee9f1e10ba6684d561d2c5",
+      "patch_count": 0
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/junegunn/fzf/c7bf2b8eea25952dd257a466c0afa72faae206fb/install",
+      "sha256_original": "f8e8573b51de1a0d7666fd55952576b83598638258071d1fd49ee3dffc4e3c1e",
+      "sha256_patched": "d12d98cf4b0375c19fd80241de32be1690d98d55fb811eae6e916ec417e6cbae",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official installer and complete pinned source tree preserve Bash completion/key bindings and generated initialization. Shell profile editing is disabled with upstream --no-update-rc; source ~/.fzf.bash to enable."
+  ],
+  "default_prefix": "{home}/.fzf",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "acd15c26e00dca9f82ef6eb56b523747bda86f0c4a1db1bb6b026bea956f9a4e",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

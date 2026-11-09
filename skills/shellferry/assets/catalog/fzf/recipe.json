@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "name": "fzf",
+  "version": "0.75.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "368766c120822550fa85c5be01ee1626be4f05d6506104f9a179cd3bafd71b34",
+      "patches": []
+    },
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/junegunn/fzf/c7bf2b8eea25952dd257a466c0afa72faae206fb/install",
+      "source": "sources/install.sh",
+      "sha256": "f8e8573b51de1a0d7666fd55952576b83598638258071d1fd49ee3dffc4e3c1e",
+      "patches": [
+        {
+          "old": "try_curl() {\n  command -v curl > /dev/null &&\n    if [[ $1 =~ tar.gz$ ]]; then\n      curl -fL $1 | tar $tar_opts\n    else\n      local temp=${TMPDIR:-/tmp}/fzf.zip\n      curl -fLo \"$temp\" $1 && unzip -o \"$temp\" && rm -f \"$temp\"\n    fi\n}",
+          "new": "try_curl() {\n  offline_fetch \"$1\" | tar $tar_opts\n}",
+          "count": 1
+        },
+        {
+          "old": "try_wget() {\n  command -v wget > /dev/null &&\n    if [[ $1 =~ tar.gz$ ]]; then\n      wget -O - $1 | tar $tar_opts\n    else\n      local temp=${TMPDIR:-/tmp}/fzf.zip\n      wget -O \"$temp\" $1 && unzip -o \"$temp\" && rm -f \"$temp\"\n    fi\n}",
+          "new": "try_wget() {\n  return 1\n}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/junegunn/fzf/tar.gz/c7bf2b8eea25952dd257a466c0afa72faae206fb",
+      "path": "resources/fzf-source.tar.gz",
+      "sha256": "35bf0c7d039089721804ae313c3cb0240ad2aa794486d972ef3c1afa0cf95300",
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "url": "https://github.com/junegunn/fzf/releases/download/v0.75.0/fzf-0.75.0-linux_amd64.tar.gz",
+      "path": "resources/fzf-0.75.0-linux_amd64.tar.gz",
+      "sha256": "0d6640f83582d991cf429754baad64b07e3a4e439a6019670f4b91da1314141c",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {},
+  "args": [],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/fzf",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf \"alpha\\nbeta\\n\" | \"$OFFLINE_PREFIX/bin/fzf\" --filter beta | grep -qx beta; test -s \"$HOME/.fzf.bash\"; bash -n \"$HOME/.fzf.bash\""
+    ]
+  ],
+  "notes": [
+    "Official installer and complete pinned source tree preserve Bash completion/key bindings and generated initialization. Shell profile editing is disabled with upstream --no-update-rc; source ~/.fzf.bash to enable."
+  ],
+  "kind": "script-conversion",
+  "default_prefix": "{home}/.fzf"
+}

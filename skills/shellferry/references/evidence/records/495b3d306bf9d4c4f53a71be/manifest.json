@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "micromamba",
+  "version": "2.10.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/micromamba-linux-64",
+      "url": "https://github.com/mamba-org/micromamba-releases/releases/download/2.10.0-0/micromamba-linux-64",
+      "sha256": "701f39c06f8e6a670a0e186c8479b9e5c0502a2f0cda6cef65d83bdd2875e8bd",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/mamba-org/micromamba-releases/346bb1cf50c51a92d58dd4c3063e7c70b78a8246/install.sh",
+      "sha256_original": "b0c482f627af23613f21b31bbaa70e4829544acc91430cafd3d5b4c37b5651ff",
+      "sha256_patched": "6cef2797a5947146ab57129d37121800c9d87707675151ab57f9820f2fbd4072",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "bash",
+    "ps",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager binary only; package environments need separately collected packages. Uses supported no-shell-init/no-channel-configuration options. Tests creation of an empty offline environment and command execution in it.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "dc7e712f4fba84e0cc6c4da9f38b742c1cf3202f69282ac79aeafb1901863488",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

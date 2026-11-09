@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "bun",
+  "version": "1.4.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/bun-linux-x64-baseline.zip",
+      "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline.zip",
+      "sha256": "e0446eb55995772eb9894bebae9a6be368d985a8b9271ee124486f9946eedd76",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://bun.sh/install",
+      "sha256_original": "04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8",
+      "sha256_patched": "cd56f445f28051eac13f211cccd6d89da56a1399edeba8ebf911e36092bb7a10",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "bash",
+    "unzip",
+    "cp",
+    "chmod",
+    "mv",
+    "mkdir",
+    "grep"
+  ],
+  "runtime": {
+    "libc": "glibc"
+  },
+  "notes": [
+    "Pins Linux x86_64 baseline build and version; keeps original extraction, completions and PATH behavior. Project dependency downloads are outside this runtime bundle."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "8ebff2a3946497112b5eeb8b50d71bd5a9f8902cae9977883568494e551cf822"
+}

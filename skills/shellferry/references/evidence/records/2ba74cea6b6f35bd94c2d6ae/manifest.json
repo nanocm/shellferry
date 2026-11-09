@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "nvm",
+  "version": "0.40.3-node26.13.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/run.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/nvm-nvm.sh",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/nvm.sh",
+      "sha256": "390260ab9eb1da20e8bc0ebea2ee90f528d53e5e9f6e13b16717db4af454df9d",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/nvm-nvm-exec",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/nvm-exec",
+      "sha256": "e6b7a2bafac6994e1ba14282cff82c75476fba0788f68a9ecf558dfdf3331621",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/nvm-bash_completion",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/bash_completion",
+      "sha256": "b7eb3bf03d59b61e451957b020640aa55fe8bf47fb39d85d244e259f445d2fbe",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/node-v26.13.0-linux-x64.tar.gz",
+      "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-linux-x64.tar.gz",
+      "sha256": "5848553868b402d3fabb5b09270649977780a390f832155721025a08b5104455",
+      "expected_checksum_matched": true,
+      "checksum_source": "official-release-checksums"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/node-v26.13.0-SHASUMS256.txt",
+      "url": "https://nodejs.org/dist/v26.13.0/SHASUMS256.txt",
+      "sha256": "9b0d4aa4d20a4f1afaf2cdcf99175ad90d1856d24c7d31dc46f72369b73e2d35",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/libatomic1_16-20260322-1ubuntu1_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-16/libatomic1_16-20260322-1ubuntu1_amd64.deb",
+      "sha256": "82fa61135e7154d7958feaa91ec1808a688eb1e0e06822ab35e99e2480feb148",
+      "expected_checksum_matched": true,
+      "checksum_source": "Ubuntu apt package index SHA256 (libatomic1 16-20260322-1ubuntu1 amd64)"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh",
+      "sha256_original": "2d8359a64a3cb07c02389ad88ceecd43f2fa469c06104f92f98df5b6f315275f",
+      "sha256_patched": "cd7253c5ba33f6d172025e6f5be53db61c69a7fd0f1dbcf070e45e5a31d3357b",
+      "patch_count": 4
+    },
+    {
+      "kind": "script",
+      "path": "upstream/run.sh",
+      "url": null,
+      "sha256_original": "564873783e322eb936df8d4c762817656eb90c93378d286eb9dbb4c1ef398574",
+      "sha256_patched": "629c74a148114d18634f4ec40548cd645eacf2b486a206ab90236fcf626ffa3c",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "dpkg-deb"
+  ],
+  "runtime": {
+    "libc": "glibc",
+    "os_id": "ubuntu",
+    "os_version": "26.04"
+  },
+  "notes": [
+    "Preserves official nvm installer with METHOD=script, downloading nvm.sh/nvm-exec/bash_completion locally. Installs pinned official Node.js tarball into nvm's version layout and sets default with nvm itself. Avoids calling online nvm install/version discovery. nvm future versions and npm package installation require separate resources.",
+    "Clean Ubuntu test exposed Node 26 libatomic.so.1 dependency. Bundle includes Ubuntu libatomic1 deb with archive SHA-256, extracts its library into the private Node prefix and uses a Node launcher with process-local LD_LIBRARY_PATH. Requires dpkg-deb; tested on Ubuntu 26.04, not arbitrary distributions. Original Node binary is preserved as node.real."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "53e39fe029df3a5b2e95136d4967714f4280f70a3c111b3171186da1b816e0fe",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

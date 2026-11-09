@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "cargo-binstall",
+  "version": "1.26.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "url": "https://github.com/cargo-bins/cargo-binstall/releases/download/v1.26.2/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "sha256": "9e0e064f189a9abb9f8df5fb93c3c810ef5cc19e7212d998c7a64c9e4d3527d5",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/734bf48fca953a635646ba559fa32ddad1e6b6bd/install-from-binstall-release.sh",
+      "sha256_original": "d3a93702160e0ec03e2a4e996855db1f01adee801fb84a43add24e0877ef8eae",
+      "sha256_patched": "e58f69e48c13f577c1d78df76a8e6dcce974541a0e42c8d716d4cefb3097ec5e",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cmp"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "e1e14e1feeb158ee5eb6996d3b7b9c63473dd1862b037c84549c3d2b17c73077",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "name": "clojure-lsp",
+  "version": "2026.10.15-11.42.38",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/3ef962ffa9c79c3360b3119af102d7d62b1d8eac/install",
+      "sha256": "31d68f040afa20bada37e1e1f81846a96aa24c6be97e48cda67283bf39a10bf4",
+      "patches": [
+        {
+          "old": "curl -o \"$filename\" -sL \"$download_url\"",
+          "new": "offline_fetch \"$download_url\" \"$filename\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/clojure-lsp/clojure-lsp/releases/download/2026.10.15-11.42.38/clojure-lsp-native-static-linux-amd64.zip",
+      "path": "resources/clojure-lsp-native-static-linux-amd64.zip",
+      "sha256": "81fa5cc4aeef09fd14e94b9913d3e46a47c32f39096d60c49b27f3609912c44a",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "--dir",
+    "{prefix}/bin",
+    "--version",
+    "2026.10.15-11.42.38"
+  ],
+  "env": {},
+  "requires": [
+    "bash",
+    "unzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/clojure-lsp",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p \"$HOME/cljproject/src\"; printf '(ns demo)\\n(defn add [a b] (+ a b))\\n' > \"$HOME/cljproject/src/demo.clj\"; printf '{:paths [\"src\"]}\\n' > \"$HOME/cljproject/deps.edn\"; \"$OFFLINE_PREFIX/bin/clojure-lsp\" format --project-root \"$HOME/cljproject\" --filenames \"$HOME/cljproject/src/demo.clj\" --settings '{:project-specs [] :source-paths [\"src\"] :auto-add-ns-to-new-files? false}'; grep -q defn \"$HOME/cljproject/src/demo.clj\""
+    ]
+  ],
+  "notes": [
+    "Native LSP CLI with local file-formatting smoke test; project dependency resolution and language-server editor integration are outside this bundle.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

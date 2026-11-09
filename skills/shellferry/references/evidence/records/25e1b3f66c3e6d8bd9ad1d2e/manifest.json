@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "jfrog-cli",
+  "version": "2.131.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/jf",
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.131.0/jfrog-cli-linux-amd64/jf",
+      "sha256": "b19b2fe03efe2058f9be44f746a1eb83d469d31e67d2acd4093d7580c676f01f",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/jf.sha256",
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.131.0/jfrog-cli-linux-amd64/jf.sha256",
+      "sha256": "db54087f6ef1383f878531e4604975f226ed0e9ec6b6254d3c8e68e1bc3ec1d7",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/jfrog/jfrog-cli/7f74a0887f859e0856e88dcfd26ba3e6f18ed421/build/installcli/jf.sh",
+      "sha256_original": "7a6ca4b2bc5dbaaf20c38cb72538de2660674d2dfd3cac96f567899d0362c715",
+      "sha256_patched": "b8cc39c577d79127aa71308dc94cb8843c2fb52b910cb912a948126a249c61c3",
+      "patch_count": 4
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "fa94a67217e2f98305c416955140be0b9087a25aa2b256d47a537d5e834899e7",
+      "sha256_patched": "dbdd7dbbd24f3b2ef3d088bf57f004f60c2e6f9218efbc867c852a454b3d0b25",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Installs into explicit user prefix instead of privileged PATH directories. Uses local build environment collection as functional test; no Artifactory server is required."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "11484764df37982be15f541f0cea8617d7d668f9dea2b8819d5d21056bfc53d3",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "opam",
+  "version": "2.6.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/opam-2.6.1-x86_64-linux",
+      "url": "https://github.com/ocaml/opam/releases/download/2.6.1/opam-2.6.1-x86_64-linux",
+      "sha256": "b533d393a6967150d6ef41cb3d71e147e93ecbabeb59e921aa412c0ae79ebe3d",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ocaml/opam/ac518a2fa874b957e109fdd178c0cf36c06ae95b/shell/install.sh",
+      "sha256_original": "152f07cead16dc5e99668dd32e3991c2a7957db9ce77e675c010a988f340f7de",
+      "sha256_patched": "5154d1a390f765967976143d5d6af54600e5b281d60abf5534c35f1cf840178a",
+      "patch_count": 1
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "d1f7200beec211e37857591dfb874bb289272829b9ca60d8984c2210d7236db9",
+      "sha256_patched": "4089993ca741e510b1bf83cf385e0be26f236f99080f86c0310925ec3a49912c",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "openssl",
+    "sha256sum",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves embedded upstream SHA-512 verification. Manager only: no OCaml compiler, package repository, switch or package downloads are included. Wrapper supplies installation directory through installer stdin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "003fc48e780414c7588a8b263b1ab77ffd10fb6617d7c33e54d6d46a441fcb8f",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "name": "k3sup",
+  "version": "0.13.14",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/alexellis/k3sup/07ee3911f65dc978899f036586c7a99317a31996/get.sh",
+      "sha256": "2d9ca8e6942161ce0d8fc49d3e6d11ae626d11e42f7c9409aa1ae023837d99f4",
+      "patches": [
+        {
+          "old": "version=$(curl -sI https://github.com/$OWNER/$REPO/releases/latest | grep -i \"location:\" | awk -F\"/\" '{ printf \"%s\", $NF }' | tr -d '\\r')",
+          "new": "version='0.13.14'",
+          "count": 1
+        },
+        {
+          "old": "hasCli() {\n\n    hasCurl=$(which curl)\n    if [ \"$?\" = \"1\" ]; then\n        echo \"You need curl to use this script.\"\n        exit 1\n    fi\n}",
+          "new": "hasCli() { :; }",
+          "count": 1
+        },
+        {
+          "old": "curl -sSL $url --output \"$targetFile\"",
+          "new": "offline_fetch \"$url\" \"$targetFile\"",
+          "count": 1
+        },
+        {
+          "old": "checkHash(){\n\n    sha_cmd=\"sha256sum\"\n\n    if [ ! -x \"$(command -v $sha_cmd)\" ]; then\n    sha_cmd=\"shasum -a 256\"\n    fi\n\n    if [ -x \"$(command -v $sha_cmd)\" ]; then\n\n    targetFileDir=${targetFile%/*}\n\n    (cd $targetFileDir && curl -sSL $url.sha256|$sha_cmd -c >/dev/null)\n   \n        if [ \"$?\" != \"0\" ]; then\n            rm $targetFile\n            echo \"Binary checksum didn't match. Exiting\"\n            exit 1\n        fi   \n    fi\n}",
+          "new": "checkHash() {\n expected=$(offline_fetch \"$url.sha256\" | awk 'NR==1 {print $1}')\n actual=$(sha256sum \"$targetFile\" | awk '{print $1}')\n [ -n \"$expected\" ] && [ \"$expected\" = \"$actual\" ] || { echo 'Checksum mismatch' >&2; exit 1; }\n}",
+          "count": 1
+        },
+        {
+          "old": "${SUCCESS_CMD}",
+          "new": "\"$BINLOCATION/$REPO\" version",
+          "count": 1
+        },
+        {
+          "old": "export BINLOCATION=\"/usr/local/bin\"",
+          "new": "export BINLOCATION=\"${OFFLINE_PREFIX}/bin\"",
+          "count": 1
+        },
+        {
+          "old": "mv $targetFile $BINLOCATION/$REPO",
+          "new": "mv \"$targetFile\" \"$BINLOCATION/$REPO\"",
+          "count": 1
+        },
+        {
+          "old": "[ ! -L $BINLOCATION/$ALIAS_NAME ]",
+          "new": "[ ! -L \"$BINLOCATION/$ALIAS_NAME\" ]",
+          "count": 1
+        },
+        {
+          "old": "ln -s $BINLOCATION/$REPO $BINLOCATION/$ALIAS_NAME",
+          "new": "ln -s \"$BINLOCATION/$REPO\" \"$BINLOCATION/$ALIAS_NAME\"",
+          "count": 1
+        },
+        {
+          "old": "export VERIFY_CHECKSUM=0",
+          "new": "export VERIFY_CHECKSUM=1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "feb582c03ca82293c2a558efbb9b16a3e6148886ce237c770660d2363cfae7dd",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/alexellis/k3sup/releases/download/0.13.14/k3sup",
+      "path": "resources/k3sup",
+      "sha256": "8117a7c298209b1a9e6f6f1e936dc7a5342d786bba45d4ca190105c20278e060",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/alexellis/k3sup/releases/download/0.13.14/k3sup.sha256",
+      "path": "resources/k3sup.sha256",
+      "sha256": "b6b82445a01b23efa1c19f5d1930f40dce3714a4d343fce6fdf5420079b2ba8f",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "BINLOCATION": "{prefix}/bin",
+    "GET_PRO": "false"
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/k3sup",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/k3sup\" completion bash > /tmp/k3sup.bash; test -s /tmp/k3sup.bash; grep -q k3sup /tmp/k3sup.bash"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Pins release, enables equivalent official SHA-256 verification using the expected digest rather than upstream build-time bin/ paths, quotes upstream paths with spaces. Completion rendering is local; fetching additional programs or deploying clusters is separate."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

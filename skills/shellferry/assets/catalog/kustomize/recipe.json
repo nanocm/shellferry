@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "name": "kustomize",
+  "version": "5.8.3",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/ace3fedfc2e404f835668905cffebcc62f3b8a39/hack/install_kustomize.sh",
+      "sha256": "0a76e6dd4e73b9bc0cac5ba9f014bf04f07c462de234ebcabc0bddf79c3ccc0d",
+      "patches": [
+        {
+          "old": "releases=$(curl -s \"$release_url\")",
+          "new": "releases='{\"assets\": [{\"browser_download_url\": \"https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.8.3/kustomize_v5.8.3_linux_amd64.tar.gz\"}]}'",
+          "count": 1
+        },
+        {
+          "old": "curl -sLO \"$RELEASE_URL\"",
+          "new": "offline_fetch \"$RELEASE_URL\" \"${RELEASE_URL##*/}\"",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "b20705600571e975e11443bda849c245b9bd8b8ce4df4a4b22ba9348e86e930f",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.8.3/kustomize_v5.8.3_linux_amd64.tar.gz",
+      "path": "resources/kustomize_v5.8.3_linux_amd64.tar.gz",
+      "sha256": "cb9e31198d3f63b44848bd0afc4c8efc56e6cfef9c93a4a39a211940e6decd61",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {},
+  "args": [
+    "5.8.3",
+    "{prefix}/bin"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/kustomize",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); printf 'resources:\n- deployment.yaml\nnamePrefix: offline-\n' > \"$d/kustomization.yaml\"; printf 'apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: test\ndata:\n  answer: \"42\"\n' > \"$d/deployment.yaml\"; \"$OFFLINE_PREFIX/bin/kustomize\" build \"$d\" > /tmp/kustomized.yaml; grep -q 'name: offline-test' /tmp/kustomized.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "An existing binary is accepted only after its exact pinned version is checked; original overwrite rejection is otherwise retained."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

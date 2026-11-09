@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "basher",
+  "version": "commit-7c3d238ce263",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/basher-source.tar.gz",
+      "url": "https://codeload.github.com/basherpm/basher/tar.gz/7c3d238ce263856edbb99fee000613c01ba5712d",
+      "sha256": "f7481b74413689916ba3ab0689497a7a1a4a58cd86518ce57bc6dc1560df2a51",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/basherpm/basher/7c3d238ce263856edbb99fee000613c01ba5712d/install.sh",
+      "sha256_original": "bc3b04b8e0566f62583dfea4fafdde3c0e11e86a11c9eaa880f4bfae8dac15e1",
+      "sha256_patched": "6073cb7b97318c179323eea13ecad97d2067eeacd788f59d4c349a40ca45eb0f",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "2766c1309655dc187723315373192fdf1ee8fb191c4b93e96976780efcdfac2e",
+      "sha256_patched": "227fd55b876852cf0364f2b22edbce91b7b58b1d25ed02aad476a947bf57afe0",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Runs official installer with source transport replaced by pinned archive; BASHER_ROOT carries requested prefix. Preserves startup integration. Explicit repeat verification checks installed source pin; tests linking and executing a local package without dependencies.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "24eed79fdbb839a73618d47fb4d908e10ce5baa3e84062c0299e5178c97e9595",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

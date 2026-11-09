@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "syft",
+  "version": "1.57.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/syft_1.57.0_linux_amd64.tar.gz",
+      "url": "https://github.com/anchore/syft/releases/download/v1.57.0/syft_1.57.0_linux_amd64.tar.gz",
+      "sha256": "9c077a7d43029b3b13e98a8db720661e700c4d58db6352153a06395ae4a2a704",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/syft_1.57.0_checksums.txt",
+      "url": "https://github.com/anchore/syft/releases/download/v1.57.0/syft_1.57.0_checksums.txt",
+      "sha256": "bec8ee399df0b23cb7b6fe7b72f290418bdbf91cab2e01bfa0a44f2a2e96d006",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/anchore/syft/30f4bce762f31136e055f2965185f12eb95fbe47/install.sh",
+      "sha256_original": "2ed88b163a4576521598f9e573bd3d64f39c7b5912a21fb9571a9d604ca64b3b",
+      "sha256_patched": "f1b913b7de25e7cf9dfa4ea815f4a3e2dfb28a7a38de6a0b8922409a4301aafb",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "sha256_patched": "3ab2ca5f018310895fd8f2c59a2f15ac8ee99c7aba2d9b29491858f55a2198e2",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "The included official installer is fetched at the release tag commit, so the redundant release-script refetch is disabled. Upstream SHA-256 verification is preserved; optional cosign verification was not enabled in the original default."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "2a4da90d235c1a15ce10f3e7994eaf12a20703579afd6ed68a43172e0a14028a",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

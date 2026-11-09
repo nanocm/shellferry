@@ -1,0 +1,13 @@
+Google Cloud SDK 592.0.0
+bq 2.1.41
+bundled-python3-unix 3.14.9
+core 2026.10.30
+gcloud-crc32c 1.0.0
+gsutil 5.38
+core
+POST_INSTALL_NO_RECIPE_ENV_PASS
+DEFAULT_OVERWRITE_REJECTED_PASS
+INSTALLED_ORIGINAL_REINITIALIZE_PASS
+LITERAL_PREFIX_PASS
+
+Your current Google Cloud CLI version is: 592.0.0

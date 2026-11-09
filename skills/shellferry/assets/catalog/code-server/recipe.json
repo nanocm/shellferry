@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "name": "code-server",
+  "version": "4.145.2",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/coder/code-server/302bc77436721f5a474e06d1fe34cf8f86195d5e/install.sh",
+      "source": "sources/install.sh",
+      "sha256": "3a71d87a26d39d03332a8eda6b0692e4cb0b5d7b760a598ea0d0fcb723ed7ddc",
+      "patches": [
+        {
+          "old": "  sh_c curl \\\n    -#fL \\\n    -o \"$FILE.incomplete\" \\\n    -C - \\\n    \"$URL\"",
+          "new": "  sh_c offline_fetch \"$URL\" \"$FILE.incomplete\"",
+          "count": 1
+        },
+        {
+          "old": "  if [ -e \"$FILE\" ]; then\n    echoh \"+ Reusing $FILE\"\n    return\n  fi",
+          "new": "  # Refresh from the checksum-verified bundle rather than trusting an existing cache file.",
+          "count": 1
+        },
+        {
+          "old": "    sh -c \"$*\"\n  fi\n}\n\nsudo_sh_c()",
+          "new": "    \"$@\"\n  fi\n}\n\nsudo_sh_c()",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/smoke.sh",
+      "source": "sources/smoke.sh",
+      "sha256": "a369031db8862b2a43f11527b2d4c5d4faa6002fadcb46c400b1e5c8fd28c65d",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/coder/code-server/releases/download/v4.145.2/code-server-4.145.2-linux-amd64.tar.gz",
+      "path": "resources/code-server-4.145.2-linux-amd64.tar.gz",
+      "sha256": "2f6db6c3e8b733dd6b3aeee83532e148b2bae2e392353ba85452d03572348962",
+      "checksum_source": "official-github-release-asset-digest"
+    }
+  ],
+  "args": [
+    "--method",
+    "standalone",
+    "--version",
+    "4.145.2",
+    "--prefix",
+    "{prefix}"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sed",
+    "uname",
+    "mkdir",
+    "mv",
+    "ln",
+    "cp",
+    "readlink",
+    "dirname",
+    "basename",
+    "cat",
+    "sha256sum"
+  ],
+  "runtime": {
+    "libc": "glibc"
+  },
+  "smoke": [
+    [
+      "sh",
+      "{bundle}/upstream/smoke.sh"
+    ]
+  ],
+  "notes": [
+    "Converts the official install.sh at a fixed commit. Uses upstream --method standalone for ordinary-user installation, preserving the bundled Node runtime, symlink layout, and existing-version behavior.",
+    "The standalone installation path uses argument arrays; the original sh_c reparsed arguments with sh -c and lost spaces. This adaptation invokes the existing argument vector directly for that selected path.",
+    "Preserves upstream --dry-run by routing local resource copies through sh_c. Refreshes the upstream cache from the verified bundle instead of trusting an existing same-named cache entry.",
+    "Final archive was checked against the GitHub release asset SHA-256 digest. The bundled code-server runtime requires glibc >= 2.28 and GLIBCXX >= 3.4.21; Ubuntu 22.04 with libstdc++6 supplies them.",
+    "Functional check starts the editor on container loopback with authentication disabled only for this local test, optional telemetry and update checks disabled, then requests the health endpoint and editor workbench using bundled Node. Extensions from a marketplace, browser interaction, external authentication, and remote tunnels are not included."
+  ],
+  "kind": "script-conversion"
+}

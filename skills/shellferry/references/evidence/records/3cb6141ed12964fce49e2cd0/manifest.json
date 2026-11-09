@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "infracost",
+  "version": "0.10.47",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/infracost-linux-amd64.tar.gz",
+      "url": "https://github.com/infracost/infracost/releases/download/v0.10.47/infracost-linux-amd64.tar.gz",
+      "sha256": "df098d5565b78cc23de57e1dac9f2a02491691322cbd690dca9b197e3e02fe93",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/infracost-linux-amd64.tar.gz.sha256",
+      "url": "https://github.com/infracost/infracost/releases/download/v0.10.47/infracost-linux-amd64.tar.gz.sha256",
+      "sha256": "738cb81bf8c21662fa35abbc746a39d709c2a4c117f0816a03e982c87625eae2",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/infracost/infracost/93b9a2d921f19966b09a3d84d2e63bd86f8587d0/scripts/install.sh",
+      "sha256_original": "783f42e471a58d62463b3dcd0baf877bbc19aad0c7edf25c1332b332ebb33fd5",
+      "sha256_patched": "d7dcbea710614dca12ac7bca38b5ec22c5fbb02e7f5d3d342b45ac96e135d9bc",
+      "patch_count": 6
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "sha256_patched": "3ab2ca5f018310895fd8f2c59a2f15ac8ee99c7aba2d9b29491858f55a2198e2",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Uses the official legacy <1.0 installer and pins v0.10.47. Replaces shasum checksum validation with equivalent sha256sum validation. Tests local configuration, not cloud pricing or API estimates."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "a425ed31eac9f9e196600a3e8e82f3e6c9b27f733847bd6ff408ec62849e89d7",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

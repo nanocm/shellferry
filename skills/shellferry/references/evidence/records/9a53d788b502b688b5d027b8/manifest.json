@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "flyctl",
+  "version": "0.5.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/flyctl_0.5.5_Linux_x86_64.tar.gz",
+      "url": "https://github.com/superfly/flyctl/releases/download/v0.5.5/flyctl_0.5.5_Linux_x86_64.tar.gz",
+      "sha256": "2c64e1c7f320fafed0452fbce9adff57fcaf733619f0faa315ae883ec03d7ef6",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://fly.io/install.sh",
+      "sha256_original": "8f98224a0b8f00cf290a009ca521881ed0e86cd98067ee0c13c83ab526777b82",
+      "sha256_patched": "ce3b9c0ba6105c065d30ab8b4159b7ea23037461c354988c5a8f985d8977a266",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Official fly.io/install.sh is pinned by SHA-256 rather than Git commit; changed upstream bytes cause the build to fail for reanalysis. Retains its MIT attribution to the Deno authors. Fixes unquoted symlink paths. Cloud authentication/deployment is outside this scope."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "fda5dd1847f313a907d77b95d10b9b3005b543564c5920cda1643337f0a02a8d",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "elan",
+  "version": "4.2.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/elan-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/elan-init.sh",
+      "sha256_original": "a620ff1641616222c8d37c54845492004bb84d6877cdbc944dd65c1aa685bf53",
+      "sha256_patched": "81e8baa0a07c70553e878c40c22e628240654d6c2273d538b4138d4e7eaf37de",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager only. Explicit upstream --default-toolchain none avoids implicit Lean downloads; Lean compiler/toolchains are not included. Functional test generates shell completions.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "9cbec49f1036bc9f8753e91f0869667e7c6a12f29a40d2cd5614ff63f65a4748",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

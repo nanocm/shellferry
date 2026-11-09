@@ -1,0 +1,3876 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "software_count": 105,
+  "recipe_count": 106,
+  "kind_counts": {
+    "python-installer": 2,
+    "shell-installer": 101,
+    "source-installer": 3
+  },
+  "evidence_record_count": 148,
+  "missing_evidence": [],
+  "meaning": "Each listed match binds the current recipe, inputs, builder and verifier to a previous passed archive test. It does not execute newly built bundles.",
+  "records": [
+    {
+      "recipe": "actionlint",
+      "name": "actionlint",
+      "version": "1.7.12",
+      "target": "linux-x86_64",
+      "recipe_sha256": "223a7d17738d3fc74195352c68e578a481a444de4d9b68c854f4e12df9eea3de",
+      "kind": "shell-installer",
+      "functional_summary": "Lint a local GitHub Actions workflow without external shellcheck or pyflakes",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "3ec33ff12096bcf0aebecd8b",
+          "report": "records/3ec33ff12096bcf0aebecd8b/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "b5ddc7fd6966466e787ea63faae2a5432b2a83f0a9e63480f957e6a1e941ac43",
+          "verified_at": "2026-11-09T11:40:05.646861+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "air",
+      "name": "air",
+      "version": "1.67.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "04f189a56c3247f4eb24aea65b326b96441c759cb9951fc61501d8635584ee90",
+      "kind": "shell-installer",
+      "functional_summary": "Generate and inspect an Air project configuration",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "f3d07521b5561a50a749fc7a",
+          "report": "records/f3d07521b5561a50a749fc7a/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "b064eadd87168f0d0bd74e2f5cc9566f5f76f4a26a0cf1f335c79dd6f2fa034d",
+          "verified_at": "2026-11-09T11:39:58.746751+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "arkade",
+      "name": "arkade",
+      "version": "0.12.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "61da7ae031fe9111da1b42115f021c02a6c88bc0ec6263a98857e8a061a7b0ae",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (no additional application downloads)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Pins release, enables equivalent official SHA-256 verification using the expected digest rather than upstream build-time bin/ paths, quotes upstream paths with spaces. Completion rendering is local; fetching additional programs or deploying clusters is separate."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "945d61c598ac1983262fa60b",
+          "report": "records/945d61c598ac1983262fa60b/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "8d99ae41eab3ece2d9e79b5a2aefd03e94066c90cab8c37b99974e50cfea7dc0",
+          "verified_at": "2026-11-09T11:45:58.258776+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "atuin",
+      "name": "atuin",
+      "version": "18.24.5",
+      "target": "linux-x86_64",
+      "recipe_sha256": "72f7e16969ee9cd3719d467aaa61326ead96191b97d9f1d366f6b7efa74cb668",
+      "kind": "shell-installer",
+      "functional_summary": "Complete both installer stages and generate Bash initialization.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official setup.atuin.sh returned 502/403 while preparing; fetched the official repository install.sh instead.",
+        "Preserves entry script plus pinned second-stage installer. Non-interactive setup disables sync; shell hooks are still installed as upstream setup normally does."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "207cdff2bd14303fa3f492b3",
+          "report": "records/207cdff2bd14303fa3f492b3/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "2e7a08c86d99635be75da39a82166a2014767a955a64b81aa1197f9ee075e0fe",
+          "verified_at": "2026-11-09T11:51:02.502095+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "babashka",
+      "name": "babashka",
+      "version": "1.13.229",
+      "target": "linux-x86_64",
+      "recipe_sha256": "69266c68b5805cbdcfdaf26d3e53e9e4ee21ec86f1775c7f7e6cc1ad3ce7ba33",
+      "kind": "shell-installer",
+      "functional_summary": "Evaluates a Clojure reduction and asserts the result is 10.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "74692413103a50c821a397c8",
+          "report": "records/74692413103a50c821a397c8/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "d32db6dace0b600ba724bad0ad8779105ea34c203f802556da342463a4cf52a3",
+          "verified_at": "2026-11-09T11:34:12.835488+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "bash-it",
+      "name": "bash-it",
+      "version": "3.2.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "e14538267a8ce5bb24a54a5d39ea1998b469e3d2d5a68b2e3a159ba5021668c5",
+      "kind": "source-installer",
+      "functional_summary": "Loads Bash-it, enables general aliases and lists enabled configuration.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves official installer default profile enabling. Uses --silent --no-modify-config so shell startup files remain a user opt-in; test sources Bash-it and enables the general alias collection.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "5180ef0a81b82deaa8e89d1e",
+          "report": "records/5180ef0a81b82deaa8e89d1e/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "4083d5cc4528cc59bcfd17ceb9c6651c63d1382b296d9c3b2176da998633ef9b",
+          "verified_at": "2026-11-09T11:47:02.506684+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "basher",
+      "name": "basher",
+      "version": "commit-7c3d238ce263",
+      "target": "linux-x86_64",
+      "recipe_sha256": "24eed79fdbb839a73618d47fb4d908e10ce5baa3e84062c0299e5178c97e9595",
+      "kind": "shell-installer",
+      "functional_summary": "Links and executes a local package without fetching dependencies.",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "git",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Runs official installer with source transport replaced by pinned archive; BASHER_ROOT carries requested prefix. Preserves startup integration. Explicit repeat verification checks installed source pin; tests linking and executing a local package without dependencies.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "4afd372d927ae9c4a73f4a3d",
+          "report": "records/4afd372d927ae9c4a73f4a3d/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "13b51dc78bcf933c6f3ed316e9af867a8403dffcfe808ffc71ab494eddd31c15",
+          "verified_at": "2026-11-09T12:05:38.162271+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "bats",
+      "name": "bats",
+      "version": "1.14.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "8f5d8fba40bd63e0c1a997eb426dd9aceca97880fcb6eb7f86bf4894d2e6a303",
+      "kind": "source-installer",
+      "functional_summary": "Executes a local Bats test and asserts a passing test result.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Runs the official source install.sh with all pinned source-tree companions. No compiler required.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "1213a1045cc503631599d062",
+          "report": "records/1213a1045cc503631599d062/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "f449043fb508e94bb33ba757717178e58dd42f218a4e9487324f31e2eed3a4fe",
+          "verified_at": "2026-11-09T11:45:39.616317+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "bpkg",
+      "name": "bpkg",
+      "version": "1.1.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "237291c3f6df3c712a232907a35ad57737f97ea10dba92483c18062723299fc5",
+      "kind": "shell-installer",
+      "functional_summary": "Parses a local JSON object with its installed JSON command.",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "git",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Replaces only official setup git transport with the commit-pinned source archive. Preserves make_install and overwrite behavior.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "c66762588ecd9ddebe358f03",
+          "report": "records/c66762588ecd9ddebe358f03/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "5d2dde2ace4204b7ca6421e956b55819be178a79dbc2f874c55cff1320fc08da",
+          "verified_at": "2026-11-09T11:50:00.032016+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "bun",
+      "name": "bun",
+      "version": "1.4.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "8ebff2a3946497112b5eeb8b50d71bd5a9f8902cae9977883568494e551cf822",
+      "kind": "shell-installer",
+      "functional_summary": "Evaluate a local JavaScript expression.",
+      "requires": [
+        "bash",
+        "unzip",
+        "cp",
+        "chmod",
+        "mv",
+        "mkdir",
+        "grep"
+      ],
+      "runtime": {
+        "libc": "glibc"
+      },
+      "notes": [
+        "Pins Linux x86_64 baseline build and version; keeps original extraction, completions and PATH behavior. Project dependency downloads are outside this runtime bundle."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "16550574ff23fa9427a0d991",
+          "report": "records/16550574ff23fa9427a0d991/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "a7c3154d0c0502d3c796f2e4ad5366d2defb3cc708970d85586b76fac741892a",
+          "verified_at": "2026-11-09T12:19:31.554475+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "bun-ubuntu22",
+      "name": "bun",
+      "version": "1.4.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "3656aa39070edddb89ed3ac4456513117da3faa17644e1ce3d0cb110df1f0a1b",
+      "kind": "shell-installer",
+      "functional_summary": "Run JavaScript, check default-prefix installation and generate completions with bundled unzip.",
+      "requires": [
+        "sh",
+        "bash",
+        "dpkg-deb",
+        "tar",
+        "cp",
+        "chmod",
+        "mv",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "tr",
+        "getconf",
+        "uname",
+        "cat",
+        "rm",
+        "basename",
+        "dirname",
+        "tee"
+      ],
+      "runtime": {
+        "libc": "glibc",
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converted the original https://bun.sh/install script, snapshot SHA256 04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8. Current latest tag resolved to bun-v1.4.4 on 2026-11-09.",
+        "Pinned Ubuntu 22.04 x86_64 glibc and linux-x64-baseline; download replaced with exact local resource lookup. Original extraction, shell setup and completion behavior retained.",
+        "Four unquoted completion executable invocations were quoted to handle installation directories containing spaces. Completion and bunx generation are actually executed in smoke checks.",
+        "Bundled Ubuntu unzip and libbz2 debs are extracted to a temporary private directory by dpkg-deb, not installed system-wide. No sudo, Python, curl, wget or preinstalled unzip is needed on the target.",
+        "Generated install.sh defaults to OFFLINE_PREFIX, then BUN_INSTALL, then HOME/.bun. --prefix overrides the default. Existing Bash/Zsh/Fish profile handling follows the official script.",
+        "Scope is Bun runtime and installation-time resources, including local shell completions. Arbitrary project packages, bun install dependencies and bunx package downloads are not included."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "309de85cf1b8688e4dff94ee",
+          "report": "records/309de85cf1b8688e4dff94ee/report.json",
+          "image": "docker.io/library/ubuntu:22.04",
+          "image_id": "a7b0f6af325461862a99c677cf3229ca5241d9f4f4289bd00cc2cce91a3aff23",
+          "archive_sha256": "605593a3723709677f725820dadf0e62e2c9bdebffb2a59a60699694aa177a3c",
+          "verified_at": "2026-11-09T10:07:22.218429+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-auditable",
+      "name": "cargo-auditable",
+      "version": "0.7.7",
+      "target": "linux-x86_64",
+      "recipe_sha256": "5acf4adb09dd079db3d67f0daf142c9d15863c6cbacf64e228f1a7397010c27e",
+      "kind": "shell-installer",
+      "functional_summary": "Compile and run a local Rust program; assert .dep-v0 metadata",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cargo",
+        "rustc",
+        "cc",
+        "git",
+        "readelf"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Cargo, Rust, C linker and Git are existing development prerequisites, tested from Ubuntu 22.04 distribution packages; no Rust toolchain or project dependencies are downloaded by this installation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "f83897a7e0fc8d8614b03df6",
+          "report": "records/f83897a7e0fc8d8614b03df6/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "e01c899103201239df6fd036d4da7dcf80dbba2c69f6006073186f3f547d8469",
+          "verified_at": "2026-11-09T11:59:19.278593+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-binstall",
+      "name": "cargo-binstall",
+      "version": "1.26.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "f51d5e9ec9f06fc40a9a4e026f8826c4c1e90c98e7890487511f2c666572fe5d",
+      "kind": "shell-installer",
+      "functional_summary": "Self-install a copied executable and compare bytes",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cmp"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+        "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+        "Complete installer redistribution license was not established: only a minimal function-name patch anchor and original Shellferry replacement are retained; the fixed-commit original is fetched at build time. Do not publish generated bundles containing the complete script without resolving its license."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "44e7811397990c237689ffd9",
+          "report": "records/44e7811397990c237689ffd9/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "1d9d5044f5a8913a95218a587ee62eff5688d598da40cce4a76c45a93663b492",
+          "verified_at": "2026-11-09T12:08:46.566033+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-dist",
+      "name": "cargo-dist",
+      "version": "0.34.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "0668b2397e2666942e3c3be31c2101f06e68f93f6bae8ca48d04a5235661b311",
+      "kind": "shell-installer",
+      "functional_summary": "Initialize a local Cargo project and generate a release plan",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cargo",
+        "rustc",
+        "cc",
+        "git",
+        "readelf"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Cargo, Rust, C linker and Git are existing development prerequisites, tested from Ubuntu 22.04 distribution packages; no Rust toolchain or project dependencies are downloaded by this installation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "b0fe131f79063dfd242b38c6",
+          "report": "records/b0fe131f79063dfd242b38c6/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "b1241a19f7f260513ac8b6e0cdd6e56b98005442c6bc51d53dd5790bb406a744",
+          "verified_at": "2026-11-09T11:59:16.002496+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-insta",
+      "name": "cargo-insta",
+      "version": "1.49.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "3ba3478bd9d068237d5ec1300fad90e4c8b446296b62386be5c13c6431a482d1",
+      "kind": "shell-installer",
+      "functional_summary": "Render a local snapshot using Cargo metadata",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cargo",
+        "rustc"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Local snapshot rendering invokes cargo metadata. Cargo/Rust are explicit existing development prerequisites (tested Ubuntu 22.04 cargo/rustc 1.75); the installer does not fetch a Rust toolchain."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "40f82d5ccb927a522aa6db81",
+          "report": "records/40f82d5ccb927a522aa6db81/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "0043dcec9ba5e4cd0f76f143d06ddbc3af793d8efd07483e39fd677c8a9399d2",
+          "verified_at": "2026-11-09T11:56:34.190570+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-leptos",
+      "name": "cargo-leptos",
+      "version": "0.3.11",
+      "target": "linux-x86_64",
+      "recipe_sha256": "c946767f5d7a155a5dd189724c6ff8c0ec7872ca781531285fb770e2e00c6979",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completion and validate syntax",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "db8bc56704adb3fafd688cb4",
+          "report": "records/db8bc56704adb3fafd688cb4/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "643198b965023335a9aabe55061cd0825f0fecd299c06a74c3200bcdf0de666f",
+          "verified_at": "2026-11-09T12:06:03.090078+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "cargo-mommy",
+      "name": "cargo-mommy",
+      "version": "0.3.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "35c2f3e74196fc876cbebc0fcc7a56571f70ab8a8a3aabaaee2ccb0a03cb3cf2",
+      "kind": "shell-installer",
+      "functional_summary": "Build and run a local Rust program through the Cargo wrapper",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cargo",
+        "rustc",
+        "cc",
+        "git",
+        "readelf"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The official install-directory override selects the ordinary-user prefix and INSTALLER_NO_MODIFY_PATH disables profile editing. Other upstream installation metadata is preserved.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Cargo, Rust, C linker and Git are existing development prerequisites, tested from Ubuntu 22.04 distribution packages; no Rust toolchain or project dependencies are downloaded by this installation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "0fca33eb10ca209487444955",
+          "report": "records/0fca33eb10ca209487444955/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "89b16a867c9b4f7797342171d8ef2afd5ed95139eab013cf2f8fd9ff3d4105dd",
+          "verified_at": "2026-11-09T12:15:02.306483+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "chezmoi",
+      "name": "chezmoi",
+      "version": "2.74.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "a4c1e9028f15a201fe8b9059dc5d864d6e37c6df3c32ea669b44132de36b8ec1",
+      "kind": "shell-installer",
+      "functional_summary": "Render a template reading the target OS.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "install",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves official libc selection, extraction, install and checksum verification. Includes glibc and musl x86_64 resources selected by original installer. Dotfile repositories are outside the software installation scope."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "105007f6c94693372d57aa96",
+          "report": "records/105007f6c94693372d57aa96/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "e98e411ed180eb6874a3e0917497982c7631dd39fe1686b4c28344022a67deff",
+          "verified_at": "2026-11-09T11:51:02.654530+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "chsrc",
+      "name": "chsrc",
+      "version": "0.2.7",
+      "target": "linux-x86_64",
+      "recipe_sha256": "2d2d10bbce2b8472c7900ef9d2e19a3cf013d3cd174e8b136b0b3625c972198f",
+      "kind": "shell-installer",
+      "functional_summary": "List built-in package-source targets without modifying sources",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official POSIX installer. Uses bytes from the project's official GitHub release for its official Gitee URL alias; version fixed explicitly. The offline smoke lists built-in targets without changing system package sources.",
+        "Fixes reproduced upstream EXIT cleanup bug that deleted a newly created successful install directory. Clears only the cleanup marker after chmod succeeds."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "4b32c2e6814c18e0eab5b524",
+          "report": "records/4b32c2e6814c18e0eab5b524/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "f655d94a845099ed9eba0d224fc3a672426096428103d3df35aa6fd5c4df4300",
+          "verified_at": "2026-11-09T12:04:47.454351+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "clj-kondo",
+      "name": "clj-kondo",
+      "version": "2026.10.26",
+      "target": "linux-x86_64",
+      "recipe_sha256": "af04fc66c3dd6a6804ea77f62613f5470085489f76e76b7c6faa88cd05d2c5e6",
+      "kind": "shell-installer",
+      "functional_summary": "Lints a local Clojure namespace and asserts zero errors.",
+      "requires": [
+        "bash",
+        "unzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "f8b55859c231c3b5f8ef5ed0",
+          "report": "records/f8b55859c231c3b5f8ef5ed0/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "4f69f57656c49a573df78abc95081c0bc59e5b1bae3a4062754b4168717bd435",
+          "verified_at": "2026-11-09T11:38:48.406365+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "clojure-lsp",
+      "name": "clojure-lsp",
+      "version": "2026.10.15-11.42.38",
+      "target": "linux-x86_64",
+      "recipe_sha256": "82126418f5721d568d51c82b71d888674950c05310054cc321f7e65fa1ac13ce",
+      "kind": "shell-installer",
+      "functional_summary": "Formats a local Clojure source file with external classpath discovery disabled.",
+      "requires": [
+        "bash",
+        "unzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Native LSP CLI with local file-formatting smoke test; project dependency resolution and language-server editor integration are outside this bundle.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "bdf456c49189a156d1ebbb27",
+          "report": "records/bdf456c49189a156d1ebbb27/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "71c598a93ff03eeec42ab48055e27b6acad19e37be3b256b5dfea0fc205b47ea",
+          "verified_at": "2026-11-09T11:38:49.418128+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "code-server",
+      "name": "code-server",
+      "version": "4.145.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "06cec032766ad2d6ad8a3aeed07aba78bcf4e1413a360a0acfa2c92044661893",
+      "kind": "shell-installer",
+      "functional_summary": "Start the editor on loopback and verify its HTTP health endpoint and workbench using bundled Node.",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sed",
+        "uname",
+        "mkdir",
+        "mv",
+        "ln",
+        "cp",
+        "readlink",
+        "dirname",
+        "basename",
+        "cat",
+        "sha256sum"
+      ],
+      "runtime": {
+        "libc": "glibc"
+      },
+      "notes": [
+        "Converts the official install.sh at a fixed commit. Uses upstream --method standalone for ordinary-user installation, preserving the bundled Node runtime, symlink layout, and existing-version behavior.",
+        "The standalone installation path uses argument arrays; the original sh_c reparsed arguments with sh -c and lost spaces. This adaptation invokes the existing argument vector directly for that selected path.",
+        "Preserves upstream --dry-run by routing local resource copies through sh_c. Refreshes the upstream cache from the verified bundle instead of trusting an existing same-named cache entry.",
+        "Final archive was checked against the GitHub release asset SHA-256 digest. The bundled code-server runtime requires glibc >= 2.28 and GLIBCXX >= 3.4.21; Ubuntu 22.04 with libstdc++6 supplies them.",
+        "Functional check starts the editor on container loopback with authentication disabled only for this local test, optional telemetry and update checks disabled, then requests the health endpoint and editor workbench using bundled Node. Extensions from a marketplace, browser interaction, external authentication, and remote tunnels are not included."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "bf9b8b370e7bc07f9d0db9e7",
+          "report": "records/bf9b8b370e7bc07f9d0db9e7/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "0fa8bb133f9dcc66647fe2443c25946ef8818997043db05bc3eb5a43691c43d7",
+          "verified_at": "2026-11-09T13:18:41.650718+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "dagger",
+      "name": "dagger",
+      "version": "0.21.11",
+      "target": "linux-x86_64",
+      "recipe_sha256": "28def50164cca8e2c6f741152441591a859be0f6e4afcd2ce12c9c8add53c580",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completion and validate its syntax; engine execution requires separate images.",
+      "requires": [
+        "sh",
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official installer with local downloads and fixed version resolution; preserves upstream release checksum verification. Scope is the CLI and local completion generation; Dagger engine/container execution requires separately prepared engine images."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "43514990ef2c31aa4d183079",
+          "report": "records/43514990ef2c31aa4d183079/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "97bbd6ab9450f426feaa83402975fab5711c64f1ba54bd67bd2e8524b8ce181b",
+          "verified_at": "2026-11-09T11:45:46.551085+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "deno",
+      "name": "deno",
+      "version": "2.9.8",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b65205d3c9aeeab95e93297c2d169c3d73b457a41cd91a95b542ab3e1b4756b9",
+      "kind": "shell-installer",
+      "functional_summary": "Run the local JSR second stage and execute JavaScript.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "unzip"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves upstream installer and runs bundled second-stage shell setup from pinned JSR file; --cached-only disallows remote module fetching.",
+        "Runs --yes --no-modify-path in validation. Deno binary runtime/project dependencies are outside this installer conversion.",
+        "Quotes upstream executable invocation to support prefix paths containing spaces."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "57baf4989916038629f16f1a",
+          "report": "records/57baf4989916038629f16f1a/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "053881100a779b0dccde4b7967aa796a52e4dd481c8176cdc793816c1c6f6287",
+          "verified_at": "2026-11-09T11:51:09.091068+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "direnv",
+      "name": "direnv",
+      "version": "2.38.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "15348a0918b919408516389ce66ae4e4a97671863e20739a1befc771c0d640d4",
+      "kind": "shell-installer",
+      "functional_summary": "Authorize .envrc and load a local variable.",
+      "requires": [
+        "bash"
+      ],
+      "runtime": {},
+      "notes": [
+        "Pins release and replaces API discovery and binary download. Shell hook remains the user's explicit setup step.",
+        "Functional test exposed Text file busy during overwrite after direnv exec. Download now stages a sibling file and atomically renames it, supporting reinstall while old processes exit."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "5c664f2a746f4b812ac606cf",
+          "report": "records/5c664f2a746f4b812ac606cf/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "cc2c5ea8eb76252f67ced1ae7556b8ca36b02931cb2377d57ec3dcd43438044b",
+          "verified_at": "2026-11-09T11:51:06.638730+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "dolt",
+      "name": "dolt",
+      "version": "2.7.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ebd4355991d4cfadcd0238f3f852a23fdfa515f5d83fd57141b24c69768891da",
+      "kind": "shell-installer",
+      "functional_summary": "Initialize a local repository, create a table, and execute SQL.",
+      "requires": [
+        "sh",
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official release installer converted to ordinary-user prefix: removes root-only ownership settings and writes binary/license under the selected prefix. Original platform/dependency checks remain. Smoke initializes a local repository and executes SQL."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "4fe2f2bea958f73008805cf4",
+          "report": "records/4fe2f2bea958f73008805cf4/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "b9c17b51bdff959ab4533747c46d1fb901233d4928ef1b834c3f1d0be3a8ae8a",
+          "verified_at": "2026-11-09T11:45:51.635217+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "dotnet",
+      "name": "dotnet",
+      "version": "10.0.403",
+      "target": "linux-x86_64",
+      "recipe_sha256": "acac56c686dd5f46d5f1d1b4a65fa0ee26c922f98c547199657a13c6a6995ebc",
+      "kind": "shell-installer",
+      "functional_summary": "Create, restore without NuGet feeds, compile and run a C# console app; assert LINQ, JSON and ICU culture data",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "find",
+        "sort",
+        "uniq",
+        "tr",
+        "cut",
+        "head",
+        "tail",
+        "wc",
+        "sha256sum",
+        "sha512sum"
+      ],
+      "runtime": {
+        "libc": "glibc",
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts Microsoft dotnet-install.sh at a fixed commit; current official dot.net/v1 entrypoint had identical bytes. Pins active LTS .NET 10 SDK 10.0.403 with runtime 10.0.14.",
+        "Preserves official argument parsing, OS/architecture/product-version selection, archive extraction, version-directory install behavior, size comparison, and already-installed handling. Only downloader prerequisite, network transport, product-version fetch transport, and HTTP size lookup are adapted.",
+        "SDK archive matches Microsoft official release-metadata SHA-512; the offline download adapter verifies that SHA-512 again before the original installer extracts it. Every source and resource also has a SHA-256 pin.",
+        "Includes the complete SDK, C# compiler, .NET/ASP.NET runtimes, reference packs and templates from the official SDK archive. Does not include optional workloads, cross-target runtime packs or external NuGet packages.",
+        "Ubuntu 22.04 runtime library prerequisites: libc6, libgcc-s1, libgssapi-krb5-2, libicu70, libssl3, libstdc++6, zlib1g (plus ca-certificates for future HTTPS use). These are explicitly prepared in the recorded test image and are not bundled system-library installers.",
+        "The offline C# test creates a fresh console project, clears all NuGet feeds, restores only SDK-provided framework references, builds and runs it, and asserts LINQ, JSON serialization and real French ICU culture data. Telemetry, workload update notifications and development-certificate generation are disabled.",
+        "Installs directly under the requested prefix. Run <prefix>/dotnet or add that prefix to PATH; the official --no-path option is preserved. No host installation or shell profile editing is performed."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "fcc9a067527e1918deff13c9",
+          "report": "records/fcc9a067527e1918deff13c9/report.json",
+          "image": "localhost/shellferry-dotnet-test:ubuntu22",
+          "image_id": "b1f078f4dba623e2e4f6adc5e6103625ca3f088af4695a4dc1fa226c3f427a91",
+          "archive_sha256": "eb1a902f23b3912c44a00d205c9f39cb7b76b32a69ce377081cfd527c244450a",
+          "verified_at": "2026-11-09T13:10:39.722743+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "dprint",
+      "name": "dprint",
+      "version": "0.64.3",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ed08d83b5dec409ee1512cbdca1918e480481dddc5bb1422bd61afa36b1f6258",
+      "kind": "shell-installer",
+      "functional_summary": "Formats JSON using a bundled pinned WebAssembly plugin.",
+      "requires": [
+        "sh",
+        "unzip",
+        "realpath",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Includes a pinned JSON WebAssembly formatting plugin so the real formatting test does not download a plugin.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "2b2f0dcd75f61b04bba0fd4c",
+          "report": "records/2b2f0dcd75f61b04bba0fd4c/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "3d7989418bdbfac2003fbe500437808c76d05b7c804cc39aba788001012874b0",
+          "verified_at": "2026-11-09T11:34:21.018891+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "dust",
+      "name": "dust",
+      "version": "1.2.7",
+      "target": "linux-x86_64",
+      "recipe_sha256": "1199d8fdc0375dc555e2faa3a936cc1ce133c6344412ec2174aa6cc0c8db5483",
+      "kind": "shell-installer",
+      "functional_summary": "Measure a local directory and report its file",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "find",
+        "head",
+        "mv"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+        "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+        "Creates the explicitly requested install directory before the upstream writability test; otherwise its user-prefix branch incorrectly tries sudo on a new directory.",
+        "Fixes reproduced upstream repeat-install Text file busy error by copying to a same-directory temporary binary and renaming over the old executable."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "d4b2a4d7724a79a9f5475593",
+          "report": "records/d4b2a4d7724a79a9f5475593/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "c034011fc84002159faccfacc693548ef97fda3d257b52fd0c1fb491ae2a1491",
+          "verified_at": "2026-11-09T11:49:35.842742+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "elan",
+      "name": "elan",
+      "version": "4.2.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "9cbec49f1036bc9f8753e91f0869667e7c6a12f29a40d2cd5614ff63f65a4748",
+      "kind": "shell-installer",
+      "functional_summary": "Generates Bash completions; Lean toolchains excluded.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager only. Explicit upstream --default-toolchain none avoids implicit Lean downloads; Lean compiler/toolchains are not included. Functional test generates shell completions.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "e352c981090d0efc3ec378aa",
+          "report": "records/e352c981090d0efc3ec378aa/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "b850dd70ae91b92b4549fa26e6b79aff6cff195243b05bbd1728b938f8834eab",
+          "verified_at": "2026-11-09T11:34:20.085561+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "flux",
+      "name": "flux",
+      "version": "2.10.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "7a489dc36a0833267f40b5cb5f9569ca1021cbac1b8521f1c015f753340b052a",
+      "kind": "shell-installer",
+      "functional_summary": "Export a GitRepository manifest locally (no cluster access)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "9df49a7af50c6b4936ee3212",
+          "report": "records/9df49a7af50c6b4936ee3212/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "ec8ab7bb1606a9719403fd76320bf16712c4387c51a485474b2bdd8e36fbd26a",
+          "verified_at": "2026-11-09T11:40:14.879512+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "flyctl",
+      "name": "flyctl",
+      "version": "0.5.5",
+      "target": "linux-x86_64",
+      "recipe_sha256": "94aad8374347b568fa2775bedfba6eb97d5e3dc3effa44774f771923ec37d8a5",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (no Fly.io authentication or deployment)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer fetched from fly.io/install.sh at a pinned SHA-256 rather than vendoring it.",
+        "Official fly.io/install.sh is pinned by SHA-256 rather than Git commit; changed upstream bytes cause the build to fail for reanalysis. Retains its MIT attribution to the Deno authors. Fixes unquoted symlink paths. Cloud authentication/deployment is outside this scope."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "496fd3dbf5f46232393d41c7",
+          "report": "records/496fd3dbf5f46232393d41c7/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "9337edf5a6717bbc7fddbc4f15fde53a2026417ef1586811ce9f1488dfbafa67",
+          "verified_at": "2026-11-09T12:15:26.942291+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "fnm",
+      "name": "fnm",
+      "version": "1.39.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "4b4a8b199ad3666be0e7992f49c102c2ef535094da7db32cd253ba08a45c6b99",
+      "kind": "shell-installer",
+      "functional_summary": "Generate the manager shell environment; managed Node runtimes are outside scope.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "bash",
+        "unzip"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves native unzip/move installation and version argument handling. Shell config edits disabled using upstream --skip-shell.",
+        "fnm itself is offline-installable; Node.js versions managed by fnm need separate offline preparation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "386fb34733774cd33dc657e7",
+          "report": "records/386fb34733774cd33dc657e7/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "ee8d7a6c13954335da4b1cc90a70fb825d83edd2260b3805b281b0e34c0a57db",
+          "verified_at": "2026-11-09T11:51:09.750501+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "fzf",
+      "name": "fzf",
+      "version": "0.75.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "acd15c26e00dca9f82ef6eb56b523747bda86f0c4a1db1bb6b026bea956f9a4e",
+      "kind": "shell-installer",
+      "functional_summary": "Filter local input and validate generated Bash initialization.",
+      "requires": [
+        "sh",
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official installer and complete pinned source tree preserve Bash completion/key bindings and generated initialization. Shell profile editing is disabled with upstream --no-update-rc; source ~/.fzf.bash to enable."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "8680a1c3024ade0859d69631",
+          "report": "records/8680a1c3024ade0859d69631/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "eaf2827cb2912b03f949ad76eb274b9a3df0d1a54e254847573c025dfa300852",
+          "verified_at": "2026-11-09T11:45:44.599709+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "garden",
+      "name": "garden",
+      "version": "0.14.20",
+      "target": "linux-x86_64",
+      "recipe_sha256": "3c1af107da29ee48b60e2caec32232d6edb4e095d20ca792da40b8ac8413b104",
+      "kind": "shell-installer",
+      "functional_summary": "Create a local Garden project and inspect its configuration",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "openssl"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "633ad8ce4b029cba4149111e",
+          "report": "records/633ad8ce4b029cba4149111e/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "bda199feaa33eeeac503451d615d8b644e2886ca6fe8cf03bbca01d9648d7091",
+          "verified_at": "2026-11-09T11:57:33.574385+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "ghcup",
+      "name": "ghcup",
+      "version": "0.2.6.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "569369159f56344dbdf64a44e1df57310a7c6af8d0ee60a95395ca51c1decd75",
+      "kind": "shell-installer",
+      "functional_summary": "Lists GHC releases from pinned local metadata; Haskell toolchains excluded.",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "file",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "GHCup manager only using upstream BOOTSTRAP_HASKELL_MINIMAL. Includes pinned official metadata so tool-requirements and local list work offline; GHC, Cabal, Stack and HLS not included. Runtime needs libgmp and libtinfo.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "dd80310370a51a2ca18359b3",
+          "report": "records/dd80310370a51a2ca18359b3/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "0f278793a1e888e37bc7ecc9c9292ac2ebffa4c73f147e9b01a9ff0702789ebe",
+          "verified_at": "2026-11-09T11:54:58.434765+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "git-standup",
+      "name": "git-standup",
+      "version": "2.3.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "e30623d361a85f25fa6179c96614d7d10ff9e382fc405c3c894ad60d461b1fc7",
+      "kind": "source-installer",
+      "functional_summary": "Report a commit from a local Git repository",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "sha256sum",
+        "git",
+        "make",
+        "install",
+        "date",
+        "cut",
+        "sort",
+        "uniq"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official git clone + make install shell installer. Bundles the exact Git commit archive, preserving make install, and quotes BINDIR in the upstream Makefile invocation to support spaces.",
+        "Git and make are explicit prerequisites. Functional check creates a local Git commit and asserts the standup report includes it."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "8f39de6c72100478bc271cb8",
+          "report": "records/8f39de6c72100478bc271cb8/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "7dc6e664d57581f24aa0a03d9d13af1d262992579e69e3fbd35570c2a6496d20",
+          "verified_at": "2026-11-09T12:04:50.154103+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "golangci-lint",
+      "name": "golangci-lint",
+      "version": "2.15.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "1b48357dfbcd7a1a34b5e36827ebc782ed00fb6064475fc8f806052b546dd796",
+      "kind": "shell-installer",
+      "functional_summary": "Format Go source supplied on standard input",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "e0cbaa64b0b6e53713178745",
+          "report": "records/e0cbaa64b0b6e53713178745/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "b6eed1c71c61618542a5fd23a9254f8dafa5b823a58561bef65a6b779bc29de0",
+          "verified_at": "2026-11-09T11:39:59.210502+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "google-cloud-cli",
+      "name": "google-cloud-cli",
+      "version": "592.0.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "68aa6e7962bef83aa1d32c5a3f962beb56b503fe9517204f5fb60411130c1265",
+      "kind": "shell-installer",
+      "functional_summary": "Run the official archive installer with bundled Python; verify profile/completion, local configuration and component listing",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official sdk.cloud.google.com bootstrap and its install_google_cloud_sdk.bash child. Both hosted originals are fetched at build time with pinned SHA-256 values. Only minimal call anchors are published for these bootstrap stages; changed bytes require reanalysis.",
+        "The bootstrap download selects the official complete versioned Linux x86_64 archive instead of the seed archive that would fetch components online. Preserves extraction, overwrite rejection, the archive install.sh and its unmodified Python initialization, official PATH updates and Bash completion.",
+        "The archive install.sh is retained as an audited source snapshot in scripts/provenance. The extracted original is checked against that exact source digest and executed in place without adding offline-lib.sh to the installed copy. Its reviewed Python initializer uses the native file:// component snapshot override; no downstream online installer is skipped.",
+        "For the upstream noninteractive prompt branch, use Bash printf -v to assign the supplied default directory literally before the interactive eval-based expansion. This preserves dollar signs, repeated spaces and command-like characters in explicit paths; the original interactive branch remains intact.",
+        "The full archive includes Python 3.14.9, bq and gsutil. No system Python or pip download is needed. The versioned official components-v592.0.0.json is bundled and supplied through the native component_manager/snapshot_url file:// override for installer component listing.",
+        "Normal installation retains the upstream refusal to overwrite an existing google-cloud-sdk directory. Explicit --reinitialize verifies the exact installed version and reruns the official archive installer for repeat initialization; it does not delete an existing installation.",
+        "Tests bundled Python ssl/sqlite3, gcloud/bq/gsutil versions, offline component listing, local project/logging configuration, and official profile/completion activation. Cloud login, API requests and extra components are outside scope.",
+        "Ubuntu 22.04 x86_64 glibc test baseline. The archived Google Cloud CLI LICENSE declares Apache-2.0 unless an alternate license applies; its included Python and third-party dependency notices remain in the original archive."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "70f710a543e846dfc4daebe7",
+          "report": "records/70f710a543e846dfc4daebe7/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "eaaed883788d86c4de9a41a4d3d9433b402d04035fa67e533fa4a654cc24449e",
+          "verified_at": "2026-11-09T13:33:18.407622+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "goose",
+      "name": "goose",
+      "version": "3.29.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "94ad30d4faddf3c343b9f086d0616b50a91ae25faff32e357742f8266b9cf649",
+      "kind": "shell-installer",
+      "functional_summary": "Apply a SQLite schema migration and inspect its applied status",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "66f1564175c3d4fa73f9e57c",
+          "report": "records/66f1564175c3d4fa73f9e57c/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "8c7940a0662651b7b7b0eab03a8c428e1b954db1e657b6050321d2069e681d93",
+          "verified_at": "2026-11-09T11:42:53.720535+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "goreleaser",
+      "name": "goreleaser",
+      "version": "2.20.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "45c61cffd8e4ccea3db8ebd2f69bf6684ac4880f0492afcfd902b802cacf1c5a",
+      "kind": "shell-installer",
+      "functional_summary": "Generate and inspect a GoReleaser project configuration",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "The official www/static/run is a download-verify-run launcher. This adaptation additionally retains the verified binary in prefix/bin before executing the requested --version command. Official optional cosign verification remains conditional on cosign availability; the test image does not include cosign."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "91f1f21f7b931dc6bfbf1756",
+          "report": "records/91f1f21f7b931dc6bfbf1756/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "2323809c205b888708c3cc495786fd1ed1a40b976a59afb2a5e0ead51f0f3f0d",
+          "verified_at": "2026-11-09T11:43:06.006885+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "grype",
+      "name": "grype",
+      "version": "0.121.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "921a8b2c1f51387f6bf868227b525718bdb3885434d6412e8a231b9b272a1bff",
+      "kind": "shell-installer",
+      "functional_summary": "Render effective configuration (vulnerability database and scanning excluded)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Validates local effective configuration rendering. Vulnerability scanning requires an independently collected Grype database, which is not included or claimed.",
+        "The included official installer is fetched at the release tag commit, so the redundant release-script refetch is disabled. Upstream SHA-256 verification is preserved; optional cosign verification was not enabled in the original default."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "ff8c0d9cb404583416db0358",
+          "report": "records/ff8c0d9cb404583416db0358/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "3a216f9aaa6aeac6fd1174ca909d27bf7ba7d6a0fab8dd6575e4a518c3e2406e",
+          "verified_at": "2026-11-09T12:02:54.362313+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "helm",
+      "name": "helm",
+      "version": "3.22.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b49f1cd754b00286eaff5ad8a83458e930e793175a6be059f13d96888a46a716",
+      "kind": "shell-installer",
+      "functional_summary": "Verify the release, inspect the version and Helm environment.",
+      "requires": [
+        "bash",
+        "tar",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Pinned Helm v3.22.1; preserves official tar extraction, version checks and SHA-256 verification. Equivalent sha256sum replaces openssl. Plugins and cluster access are separate workflows."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "8265b0a99b16b76b36be4410",
+          "report": "records/8265b0a99b16b76b36be4410/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "6ca5266449dc1663b6d6df41677d70a4757805f3b5c7715ab5f70720de7050e7",
+          "verified_at": "2026-11-09T11:51:13.218555+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "infracost",
+      "name": "infracost",
+      "version": "0.10.47",
+      "target": "linux-x86_64",
+      "recipe_sha256": "a425ed31eac9f9e196600a3e8e82f3e6c9b27f733847bd6ff408ec62849e89d7",
+      "kind": "shell-installer",
+      "functional_summary": "Set and read local currency configuration (pricing API excluded)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Uses the official legacy <1.0 installer and pins v0.10.47. Replaces shasum checksum validation with equivalent sha256sum validation. Tests local configuration, not cloud pricing or API estimates."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "3cb6141ed12964fce49e2cd0",
+          "report": "records/3cb6141ed12964fce49e2cd0/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "c68998a1c76a24116698aff86cb8269e17e380f73fce275dd30bf2e246d1d605",
+          "verified_at": "2026-11-09T12:04:04.587366+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "istioctl",
+      "name": "istioctl",
+      "version": "1.31.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "46ab4a0724984b49c2c73b6fc02e45015b9cd1f44d61bb50887f03e924cf6323",
+      "kind": "shell-installer",
+      "functional_summary": "Render the default Istio manifest locally (no cluster installation)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Converts the official release/downloadIstioCtl.sh CLI-only installer. Tests local manifest generation; cluster installation and container images are outside this scope."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "76cbd2898f975744acbad487",
+          "report": "records/76cbd2898f975744acbad487/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "d224f6293e4d0bb26c9f02d02b584c2ff0fd65d1bfe079dff0be0b2670eb9c9b",
+          "verified_at": "2026-11-09T12:07:52.454800+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "jet",
+      "name": "jet",
+      "version": "0.7.27",
+      "target": "linux-x86_64",
+      "recipe_sha256": "599ea55bdedf2a46f7656235497929880ede0e6edf36acdc1bc04e3c14e5e0d4",
+      "kind": "shell-installer",
+      "functional_summary": "Converts local JSON to keywordized EDN and checks the value.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Creates the requested install directory before upstream cd; all extraction and install logic retained.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "e29b2f55c53d2bb20c945846",
+          "report": "records/e29b2f55c53d2bb20c945846/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "6dc135633cfafa7906f0673e6fb18bd6f889bcee6946f64f82f68ac7990d3a1d",
+          "verified_at": "2026-11-09T11:34:16.434521+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "jfrog-cli",
+      "name": "jfrog-cli",
+      "version": "2.131.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "11484764df37982be15f541f0cea8617d7d668f9dea2b8819d5d21056bfc53d3",
+      "kind": "shell-installer",
+      "functional_summary": "Collect local build environment metadata (no Artifactory server)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Installs into explicit user prefix instead of privileged PATH directories. Uses local build environment collection as functional test; no Artifactory server is required."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "25e1b3f66c3e6d8bd9ad1d2e",
+          "report": "records/25e1b3f66c3e6d8bd9ad1d2e/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "6e31dc2aa95ee38b57bde467175d0717ddc97688bd7c9cad05317d4095d290c2",
+          "verified_at": "2026-11-09T11:56:23.630978+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "just",
+      "name": "just",
+      "version": "1.59.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "9aef2b2743eb4b54d830fd165d0522e671c1876367dbe4b7964e0086534e4130",
+      "kind": "shell-installer",
+      "functional_summary": "Execute a local justfile task and preserve default overwrite protection.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "bash"
+      ],
+      "runtime": {},
+      "notes": [
+        "Pins default tag to avoid GitHub latest API dependency; preserves stream-to-tar download semantics and native overwrite guard."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "ea9f1e349ec955d193c67fb7",
+          "report": "records/ea9f1e349ec955d193c67fb7/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "0c2c4456c39590273e32d7209901c5165a0db5291cc6af03263b42d8e5ffbb63",
+          "verified_at": "2026-11-09T11:51:12.586576+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "k0s",
+      "name": "k0s",
+      "version": "1.37.2+k0s.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "c02de41ed376940a8bddfa8b0a1183078339f0fd56efc1f358f1d37f658162f1",
+      "kind": "shell-installer",
+      "functional_summary": "Generate a local cluster configuration (no cluster startup)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Installs the k0s CLI and validates local cluster configuration generation. Cluster services and the separate airgap container image bundle are outside this tested scope.",
+        "The official k0sproject/get source repository has no explicit license. The catalog retains only the minimal download-call anchor; it fetches the complete original by fixed commit and SHA-256 during a user-requested build."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "9ae96db7f34daa96b6f68593",
+          "report": "records/9ae96db7f34daa96b6f68593/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "3d744b2ca9f9c50a101fc745c49ebf1e18fe2c68f687439e1ba218b2fcf87682",
+          "verified_at": "2026-11-09T12:15:38.902953+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "k3d",
+      "name": "k3d",
+      "version": "5.9.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "3119cbb45088cd429f820d58aad9ddd2f5f070fe1dd8a1ca215db573355dccd2",
+      "kind": "shell-installer",
+      "functional_summary": "Generate and inspect a local k3d cluster configuration (no Docker cluster)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Fixes upstream runAsRoot argument reconstruction to preserve spaces. Tests configuration generation, not containerized cluster creation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "b82ec7005060f33465637593",
+          "report": "records/b82ec7005060f33465637593/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "1d3e340a4acdfdebf7a35c827818676a3bfb3da7c8cca09e3567d299a95d1bcd",
+          "verified_at": "2026-11-09T11:45:59.523434+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "k3sup",
+      "name": "k3sup",
+      "version": "0.13.14",
+      "target": "linux-x86_64",
+      "recipe_sha256": "c35d7c997069a0ed867824b1e88c75237551688a23c81cd6335d1167a6bbf429",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (no remote Kubernetes deployment)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Pins release, enables equivalent official SHA-256 verification using the expected digest rather than upstream build-time bin/ paths, quotes upstream paths with spaces. Completion rendering is local; fetching additional programs or deploying clusters is separate."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "cf8a2e6b932ff05e926ae3a2",
+          "report": "records/cf8a2e6b932ff05e926ae3a2/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "8f20fff42156a3d27865d8063055da36b61d271dc0419e926d9b3b10d359d5f5",
+          "verified_at": "2026-11-09T11:45:58.082221+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "kubescape",
+      "name": "kubescape",
+      "version": "4.0.20",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b47475e9090b65e4a8701b9450e1d0b09c9595955fd03b6959e6dd595fd5a70b",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (cluster scans and control downloads excluded)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Preserves checksum-manifest verification. Explicit prefix replaces both privileged and HOME destinations and confines removal of prior binaries to that prefix. Tests CLI completion generation; Kubernetes cluster scans and separately downloaded control libraries are outside this scope."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "f243769d153066aea991806d",
+          "report": "records/f243769d153066aea991806d/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "ed29c2234415a26060e84275a627a47c63c63ecf6b4f81f21a715834fa1a2acb",
+          "verified_at": "2026-11-09T12:03:31.998121+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "kustomize",
+      "name": "kustomize",
+      "version": "5.8.3",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b98b04f8cab4868f9e09812d81e5a5192beccd80faa91544c7eabd361da8fb34",
+      "kind": "shell-installer",
+      "functional_summary": "Build a local ConfigMap manifest with a name prefix",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "An existing binary is accepted only after its exact pinned version is checked; original overwrite rejection is otherwise retained."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "7c75bbd8b09a21ee15455c8e",
+          "report": "records/7c75bbd8b09a21ee15455c8e/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "e9cde4a8f10786b38e12bb9b3e6a8090226f015f0b7683d4606231dafcd22dd9",
+          "verified_at": "2026-11-09T11:43:00.598879+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "linkerd",
+      "name": "linkerd",
+      "version": "edge-26.11.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "1ed8e23fb5bb187a809fdc5d952077ae311d9fbef6e5259f78cbf9aebee57a67",
+      "kind": "shell-installer",
+      "functional_summary": "Add Linkerd injection annotations to a local manifest without cluster access",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Pins the upstream edge release. Validates local manifest processing; no cluster install or Kubernetes API access is included."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "157ce9944cc475474827ed08",
+          "report": "records/157ce9944cc475474827ed08/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "dffd2f5afcd4669d214e8e24b2d2ceacd2bba52fa34f911f7d088fe07d61244c",
+          "verified_at": "2026-11-09T11:57:34.295180+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "mcfly",
+      "name": "mcfly",
+      "version": "0.9.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b35721370100e81da3294d295ad89028db75cb2639afcfe841adc6a4eaa16148",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash initialization and validate syntax",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "install",
+        "basename",
+        "cut"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+        "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "40993c23b449eeb0d4b7e82d",
+          "report": "records/40993c23b449eeb0d4b7e82d/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "9b1159d84d1aaefcb9ad166d789ee1366ecdf7991e4f4806a2886cf75a13eda5",
+          "verified_at": "2026-11-09T11:47:37.147228+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "micromamba",
+      "name": "micromamba",
+      "version": "2.10.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "70e26b62d275151727c6ba70e6b237fa97ee3473ae253d152762f6c913da467c",
+      "kind": "shell-installer",
+      "functional_summary": "Creates an empty offline environment and runs a local command within it.",
+      "requires": [
+        "bash",
+        "ps",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager binary only; package environments need separately collected packages. Uses supported no-shell-init/no-channel-configuration options. Tests creation of an empty offline environment and command execution in it.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "Installer repository has no established license grant; full script is runtime-fetch-only and patch anchors are kept minimal. Generated bundles require separate redistribution review."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "3f99711b88658e56f6495bfc",
+          "report": "records/3f99711b88658e56f6495bfc/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "d4e22c73f0f9c4755dcbc90ac9fe7a04a970cecd935070476e6c5b9e9b0b47a7",
+          "verified_at": "2026-11-09T12:14:38.890372+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "minijinja-cli",
+      "name": "minijinja-cli",
+      "version": "3.1.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "2913749c9d156646c23baa9b6765f9b84c9e570f2e8e3150726bf50f8d18c4ae",
+      "kind": "shell-installer",
+      "functional_summary": "Render a template with local JSON data",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "d34418dd905fabe85189916b",
+          "report": "records/d34418dd905fabe85189916b/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "2d3a0a57573c63f4f3c0ed69ec7531982c74df97be79e19f89aa5f1f15e1c6c9",
+          "verified_at": "2026-11-09T11:40:38.923129+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "mise",
+      "name": "mise",
+      "version": "2026.11.5",
+      "target": "linux-x86_64",
+      "recipe_sha256": "465f782015d52fc12054ae518f73a00cde8f14c5f16e57e28e0bade7ca3dd68c",
+      "kind": "shell-installer",
+      "functional_summary": "Run a local command through the manager; managed runtimes are outside scope.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Pinned installer version uses upstream embedded SHA-256 verification unchanged.",
+        "Uses gzip archive to avoid requiring zstd. mise-managed runtimes need separate offline packages."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "b7bf56192251e41d5000bbb9",
+          "report": "records/b7bf56192251e41d5000bbb9/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "3b8c186b7ce6a110606316b4107c002e39659101fa31954694b5d7611ae077ed",
+          "verified_at": "2026-11-09T11:51:20.258323+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "near-cli",
+      "name": "near-cli",
+      "version": "0.31.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "fa237523ccf25fd9e2f0b83ad071d89ea110a9e398c3e63f2c4fbc28a3ea8151",
+      "kind": "shell-installer",
+      "functional_summary": "Create and read local connection configuration in offline mode",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "b83de031031891431205d40e",
+          "report": "records/b83de031031891431205d40e/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "cf2c20098b3d50598e4b4adbec7f7679f394a8728cbc134abb51d8e384ed5a1d",
+          "verified_at": "2026-11-09T11:59:27.526922+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "nvm",
+      "name": "nvm",
+      "version": "0.40.3-node26.13.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "53e39fe029df3a5b2e95136d4967714f4280f70a3c111b3171186da1b816e0fe",
+      "kind": "shell-installer",
+      "functional_summary": "Install Node 26, execute JavaScript and npm with the bundled Ubuntu library.",
+      "requires": [
+        "bash",
+        "tar",
+        "dpkg-deb"
+      ],
+      "runtime": {
+        "libc": "glibc",
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "notes": [
+        "Preserves official nvm installer with METHOD=script, downloading nvm.sh/nvm-exec/bash_completion locally. Installs pinned official Node.js tarball into nvm's version layout and sets default with nvm itself. Avoids calling online nvm install/version discovery. nvm future versions and npm package installation require separate resources.",
+        "Clean Ubuntu test exposed Node 26 libatomic.so.1 dependency. Bundle includes Ubuntu libatomic1 deb with archive SHA-256, extracts its library into the private Node prefix and uses a Node launcher with process-local LD_LIBRARY_PATH. Requires dpkg-deb; tested on Ubuntu 26.04, not arbitrary distributions. Original Node binary is preserved as node.real."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "2ba74cea6b6f35bd94c2d6ae",
+          "report": "records/2ba74cea6b6f35bd94c2d6ae/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "6b2abd9190db201401cbb33333cfd9b6e247af66a3d8f77cff9e3f4e68400b88",
+          "verified_at": "2026-11-09T11:51:22.566487+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "oh-my-posh",
+      "name": "oh-my-posh",
+      "version": "32.0.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "5530c27602c92b024f1f34b378734ec84a029d214715900127262e6d9cff0b95",
+      "kind": "shell-installer",
+      "functional_summary": "Load a bundled theme and generate shell initialization.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "bash",
+        "unzip",
+        "realpath",
+        "dirname"
+      ],
+      "runtime": {},
+      "notes": [
+        "Main binary and theme archive both pinned to v32.0.0, replacing upstream latest themes to avoid mismatched versions.",
+        "Creates requested install directory and quotes upstream path expansions; required for a fresh custom prefix containing spaces."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "e78c4f00c9af367c07459d78",
+          "report": "records/e78c4f00c9af367c07459d78/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "b80b808be9ca38602ea4420ba8c60d1db0faa7a0a5852672bbf93357a3a48d99",
+          "verified_at": "2026-11-09T11:51:24.838900+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "oh-my-zsh",
+      "name": "oh-my-zsh",
+      "version": "commit-cca3bdfbef8c",
+      "target": "linux-x86_64",
+      "recipe_sha256": "03bb163d2d8f6ade4f28d940aaceaae8234d80e6e4e87a4a88528918588fab5a",
+      "kind": "shell-installer",
+      "functional_summary": "Loads the Git plugin and checks the gst alias.",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "git",
+        "zsh",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Fetches a complete pinned source tree in place of git network transport, preserving config generation and supported --unattended behavior. Explicit --verify-existing repeat mode accepts only the same pinned source marker; normal first-install overwrite protection remains upstream behavior.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "eb1c64eebf99bd728310ec4a",
+          "report": "records/eb1c64eebf99bd728310ec4a/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "5a5082b424e707c00660394afa79199db8c14cd8c042adeda413cd6fc806a356",
+          "verified_at": "2026-11-09T11:45:43.470755+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "opam",
+      "name": "opam",
+      "version": "2.6.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "003fc48e780414c7588a8b263b1ab77ffd10fb6617d7c33e54d6d46a441fcb8f",
+      "kind": "shell-installer",
+      "functional_summary": "Lints a complete local .opam package definition without a repository or compiler.",
+      "requires": [
+        "sh",
+        "openssl",
+        "sha256sum",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves embedded upstream SHA-512 verification. Manager only: no OCaml compiler, package repository, switch or package downloads are included. Wrapper supplies installation directory through installer stdin.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "ea1d1614efbe17b3ce76c516",
+          "report": "records/ea1d1614efbe17b3ce76c516/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "459cb6864ee6389262e1f68e2fa361a61095fea11ae338e4db99f9ee3467777b",
+          "verified_at": "2026-11-09T11:51:46.962716+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "opentofu",
+      "name": "opentofu",
+      "version": "1.13.9",
+      "target": "linux-x86_64",
+      "recipe_sha256": "79155c1285208a080f866938fa386fc1fa4bc12a04157eb5691b3787d883c366",
+      "kind": "shell-installer",
+      "functional_summary": "Format and validate local HCL without external providers; retain GPG verification",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "unzip",
+        "gpg"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Preserves the default signature verification using bundled release signatures and the pinned upstream GPG public key; GnuPG is an explicit target prerequisite. Tests local HCL formatting and validation with no external provider dependency."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "2a53cdabcde72d5f282d6e2b",
+          "report": "records/2a53cdabcde72d5f282d6e2b/report.json",
+          "image": "localhost/offline-install-test:ubuntu22-gpg",
+          "image_id": "98b83ed5168d408e5fc794ce968d5f2c6e077d9e1d2961b38566546a59935500",
+          "archive_sha256": "d25776f9971fca8515b35f4357c0f4db1416638a92ea6e9eec79c2e418bb294c",
+          "verified_at": "2026-11-09T12:07:58.214713+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "oranda",
+      "name": "oranda",
+      "version": "0.6.5",
+      "target": "linux-x86_64",
+      "recipe_sha256": "550dc0d78f2a760b9b953a7d1a624c80881da3561b4a37685dc31cedc8880ee3",
+      "kind": "shell-installer",
+      "functional_summary": "Serve and retrieve a local HTML page over loopback",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "python3"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The official install-directory override selects the ordinary-user prefix and INSTALLER_NO_MODIFY_PATH disables profile editing. Other upstream installation metadata is preserved.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Selects the official GitHub release through the upstream INSTALLER_DOWNLOAD_URL override; pins the same release archives instead of the default axo artifact host.",
+        "Functional check serves a local HTML site on loopback with external networking disabled. Python 3 is a verification prerequisite for the loopback HTTP assertion; not required to install or run oranda itself."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "f3531535280a22736f975371",
+          "report": "records/f3531535280a22736f975371/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "e0af903ee0508c437c3445560302b274a6106e213b4354665d6675374a1779df",
+          "verified_at": "2026-11-09T12:14:59.442469+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "pdm",
+      "name": "pdm",
+      "version": "2.29.7",
+      "target": "linux-x86_64",
+      "recipe_sha256": "56c88dd111027628ba3f97b82c5247f6f8f3911931f51711773dc34a3597856f",
+      "kind": "python-installer",
+      "functional_summary": "Sets and reads local manager configuration and generates completions; offline CPython 3.10 wheelhouse.",
+      "requires": [
+        "sh",
+        "python3",
+        "sha256sum"
+      ],
+      "runtime": {
+        "libc": "glibc",
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Python-installer adaptation: unmodified official Python entrypoint is a resource; authored wrapper performs hash/count-checked transformation where needed and stores applied diff beside installed state. All pip dependencies are pinned CPython 3.10 Linux x86_64 wheels with PyPI-published hashes. Python 3.10 and venv/ensurepip are prerequisites; project dependencies and additional interpreters are outside scope.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "Official Python installer runs unmodified. PIP_NO_INDEX/PIP_FIND_LINKS select the bundled wheelhouse; Python venv/ensurepip availability is checked before installer execution to prevent fallback bootstrap downloads."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "9b03e7f3b892e7f7b6e86ac8",
+          "report": "records/9b03e7f3b892e7f7b6e86ac8/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "74f51e7657263b3cdf55dddeec5f800fd01b0bd5442118d4877ed2393a15dd4c",
+          "verified_at": "2026-11-09T11:59:07.631299+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "perlbrew",
+      "name": "perlbrew",
+      "version": "1.02",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b7203da4a429c48fe76f52a69c63144b03306be638b867acae00ea4668b7ada0",
+      "kind": "shell-installer",
+      "functional_summary": "Initializes shell integration, prints environment and runs bundled patchperl.",
+      "requires": [
+        "sh",
+        "perl",
+        "install",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Installs manager and official patchperl companion. Managed Perl builds and CPAN modules are not included. Preserves self-install; nested patchperl HTTP fetch is replaced with the equivalent copy+executable permission from its pinned official source.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "00fb148245ab16000fa6332e",
+          "report": "records/00fb148245ab16000fa6332e/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "112248131c9816ff065e007ede32286c4d694e7d6baf0ca615d80ca64f50d368",
+          "verified_at": "2026-11-09T11:54:55.806696+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "pixi",
+      "name": "pixi",
+      "version": "0.84.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b790e2312af9b8805de276e032313af95fe4e6e5fa6011629faf2b8aeba4209b",
+      "kind": "shell-installer",
+      "functional_summary": "Initialize a local project; Conda environments are outside scope.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Optional installation telemetry is removed because the downloaded binary would otherwise issue a network request.",
+        "Does not prefetch Conda/PyPI environments; this verifies pixi itself. PATH editing disabled."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "694fb74a85770e888599896c",
+          "report": "records/694fb74a85770e888599896c/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "bfdbf6c218102aa428764b5df4beb3141dc1a2b7d27bf151cabbede1ca53c07d",
+          "verified_at": "2026-11-09T11:51:27.436621+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "pnpm",
+      "name": "pnpm",
+      "version": "12.18.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "cea1386e2679d8c216f012d8e4d8bec4bced9f1bdeaac91a28fb61d862fbe79f",
+      "kind": "shell-installer",
+      "functional_summary": "Verify upstream signatures and execute local package scripts.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "gzip",
+        "openssl",
+        "base64",
+        "od",
+        "sha512sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Retains npm registry signature verification and SHA-512 integrity verification. Packages include the platform executable and pnpm dist tree.",
+        "Pinned full version bypasses live latest lookup. PNPM_NO_MODIFY_PATH uses upstream supported option.",
+        "The upstream get.pnpm.io installer has no confirmed distribution license. This repository does not vendor its source; it is fetched at build time from a fixed commit and verified by SHA-256. Obtain upstream permission before publicly redistributing generated bundles containing that script."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "3d870c35dc1734c01cf358ef",
+          "report": "records/3d870c35dc1734c01cf358ef/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "2c4cf935b4db588b5f979ca911e43a2374896e3023121a17f1b94ecf61587b2e",
+          "verified_at": "2026-11-09T10:31:15.479225+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "poetry",
+      "name": "poetry",
+      "version": "2.5.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "e201162aaba250f1cc6101ceca562aedf8aae3694e52482852c29ba590e9c4e8",
+      "kind": "python-installer",
+      "functional_summary": "Creates a local project and validates its pyproject.toml; offline CPython 3.10 wheelhouse.",
+      "requires": [
+        "sh",
+        "python3",
+        "sha256sum"
+      ],
+      "runtime": {
+        "libc": "glibc",
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Python-installer adaptation: unmodified official Python entrypoint is a resource; authored wrapper performs hash/count-checked transformation where needed and stores applied diff beside installed state. All pip dependencies are pinned CPython 3.10 Linux x86_64 wheels with PyPI-published hashes. Python 3.10 and venv/ensurepip are prerequisites; project dependencies and additional interpreters are outside scope.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "Exact metadata lookup replacement restricts releases to the pinned version; venv creation, pip upgrade/install and symlink logic stay upstream. No online fallback is used."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "b8890f3ebff7d5ea35df6132",
+          "report": "records/b8890f3ebff7d5ea35df6132/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "ec0ed1373e871d5a9ad0eb97ca44d490a64464b2f7d9bad89edff562d9527706",
+          "verified_at": "2026-11-09T11:56:33.450299+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "porter",
+      "name": "porter",
+      "version": "1.6.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "21502e19f832ce2cec8d7ab951fb4a7dbda92b8cef5dd36eec6fce4c862e0882",
+      "kind": "shell-installer",
+      "functional_summary": "Install the exec mixin from a temporary loopback mirror and create a local project",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "python3"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Preserves Porter native exec-mixin installation by serving only the bundled exec release through a temporary loopback HTTP mirror. Python 3 is an explicit prerequisite; server binds 127.0.0.1 on an ephemeral port and is stopped after installation. No external network is used, but loopback network is used. Both mixin client and runtime binaries are installed by Porter itself. Validates mixin listing and local project creation, not Docker/CNAB bundle execution."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "cb1ba62204e01b3ff56c23ac",
+          "report": "records/cb1ba62204e01b3ff56c23ac/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "f21fdbd74c70fd9e58df93960af4fdef51b726be95fd4ac4f73a21fa9f274a42",
+          "verified_at": "2026-11-09T12:11:31.587778+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "posit-air",
+      "name": "posit-air",
+      "version": "0.13.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ac77824bca81d76424309d67a4315b631a69bb9286cb352ed8fb83481c3966b5",
+      "kind": "shell-installer",
+      "functional_summary": "Format a local R source file",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "065cee3d59bde258de863f54",
+          "report": "records/065cee3d59bde258de863f54/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "5814e95859cf66fd544a3814e7ebcab83cde00dfaf2dd366eab2aa840a9209ae",
+          "verified_at": "2026-11-09T11:40:41.779387+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "prek",
+      "name": "prek",
+      "version": "0.5.10",
+      "target": "linux-x86_64",
+      "recipe_sha256": "1a87c257322a8016e06055a653ea646572aae85f3a4f3f3ed0f2b28f2a86a253",
+      "kind": "shell-installer",
+      "functional_summary": "Validate a local pre-commit configuration",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "2ec68362ea9bd594ebb9112f",
+          "report": "records/2ec68362ea9bd594ebb9112f/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "77eb98ec28d0f89fc2d81f65218c311a1550043d0b87d07c4090ae9252cc7d50",
+          "verified_at": "2026-11-09T11:40:44.702884+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "pulumi",
+      "name": "pulumi",
+      "version": "3.274.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "87aa016d0dd9eea201efbb68d1c9f78ff66598438ef006dfb7c3e448c3307993",
+      "kind": "shell-installer",
+      "functional_summary": "Install the random provider and run a local YAML resource lifecycle with a file backend; verify completion",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the actual get.pulumi.com shell installer with a minimal independently authored download_tarball override and one argument-quoting fix. The hosted entrypoint is pinned by SHA-256; a public Git commit or complete installer license has not been established. Changed source bytes fail the build for reanalysis.",
+        "Keeps upstream extraction, existing-install upgrade behavior and CLI layout. Uses the official --no-edit-path option; the authored wrapper writes prefix/env.sh and Bash completion so users can explicitly source that file. The environment file persists update-check suppression and disabled automatic plugin acquisition.",
+        "Before creating installation directories, the wrapper rejects forwarded --version or --install-root values that differ from the fixed recipe version and outer --prefix. It permits --silent and --no-edit-path, validates arguments, and invokes the installed CLI by absolute path.",
+        "Installs official random provider v4.21.6 through pulumi plugin install --file with its SHA-256 and --reinstall. The YAML language runtime is included in the official CLI archive. Other providers and language package dependencies are not included.",
+        "Tests a file backend and a deterministic local RandomInteger resource, including up, output, destroy and stack removal. This needs no cloud account; cloud deployment is outside scope. Native Pulumi engine/provider communication uses loopback RPC while the container has no external network.",
+        "Ubuntu 22.04 x86_64 glibc test baseline. The bundled CLI and random provider are binary resources; source-license notices for this catalog do not establish redistribution rights for every bundled binary dependency."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "38a142101d38e2ebc9e6f1e4",
+          "report": "records/38a142101d38e2ebc9e6f1e4/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "838c8964eb45a04ce2437604dbcd97a138f0fee2ca6cf187b5e0ae189303221d",
+          "verified_at": "2026-11-09T13:36:02.471108+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "pyenv",
+      "name": "pyenv",
+      "version": "2.8.14",
+      "target": "linux-x86_64",
+      "recipe_sha256": "df8f5c545583921dc24087749aefcb35b74b65ab7ffd739b09ba822b6b0dd7b9",
+      "kind": "shell-installer",
+      "functional_summary": "Sets and reads a local system-Python selection, then regenerates shims.",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "git",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager plus official doctor, update and virtualenv plugins. Does not include managed Python interpreters. Git transport replaced by four pinned source trees. Explicit repeat verification preserves upstream default refusal to overwrite.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "8e45455bea8b07ab1e937109",
+          "report": "records/8e45455bea8b07ab1e937109/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "1b4a1aaf1312a3f5d66342d4ce10467d0af8835636cde52201a4df0afae2be34",
+          "verified_at": "2026-11-09T11:50:01.022130+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "railway",
+      "name": "railway",
+      "version": "5.71.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "6d7c40fd753999c040e18a5e8ce6be0d4fc3dc601dd1e1d33a0fca2bd79532f9",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (cloud deployment excluded)",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Core CLI installation only; optional cloud-agent setup is not requested. Uses official musl release for the Linux x86_64 target."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "cc76443173e88bb716934bcd",
+          "report": "records/cc76443173e88bb716934bcd/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "15a186b81cce5c24e06123be3e47f791c82089a7bef6e98b6f63c2b4f45476d4",
+          "verified_at": "2026-11-09T11:48:19.874966+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "rbenv",
+      "name": "rbenv",
+      "version": "1.3.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b7d61dcb8a948d0a92f0beed0c2f1b004f63d03be1c7beda83e32372abd5422b",
+      "kind": "shell-installer",
+      "functional_summary": "Generates shell initialization and rebuilds the shim directory; Ruby excluded.",
+      "requires": [
+        "bash",
+        "git",
+        "tar",
+        "gzip",
+        "ps",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager and ruby-build plugin only, no Ruby runtimes. Preserves official install/init workflow while redirecting git source transport to pinned archives and replacing hardcoded ~/.rbenv with RBENV_ROOT.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "7d99402b2fd623327e0a3fb0",
+          "report": "records/7d99402b2fd623327e0a3fb0/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "e08eaa3146ab6dfb9d47de76b90c0815c289a2ceafb2049616cdcebdb3c770c8",
+          "verified_at": "2026-11-09T11:51:45.337886+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "rclone",
+      "name": "rclone",
+      "version": "1.76.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "0a6bbc7f2aa2da177b8082996e73856df13dc452002e88789b69e7fe83280d8b",
+      "kind": "shell-installer",
+      "functional_summary": "Copy and compare local files.",
+      "requires": [
+        "bash",
+        "unzip"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts official rclone install.sh source from upstream GitHub (rclone.org endpoint timed out). Pins release v1.76.0. Changes system /usr/bin installation to explicit user prefix; preserves original extraction and platform selection. No remote/storage credentials required for tests.",
+        "Wrapper accepts upstream already-current exit code 3 only after checking installed binary version."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "0e5aa1f5acbdb072a788b59f",
+          "report": "records/0e5aa1f5acbdb072a788b59f/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "b3f5d8b6d6f22149b1699ff3fbe4919576544712ea0e7ab88957fbd00b961929",
+          "verified_at": "2026-11-09T11:51:29.846104+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "rqlite",
+      "name": "rqlite",
+      "version": "10.6.6",
+      "target": "linux-x86_64",
+      "recipe_sha256": "e68eca5cd1471c3ac41b9181386f80eb5b951c1b3a6a0e84a7472fca1a788841",
+      "kind": "shell-installer",
+      "functional_summary": "Start a local node and query SQLite over container loopback.",
+      "requires": [
+        "sh",
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official website installer with pinned release and local resource reads. Smoke test starts a single-node server on container loopback and queries SQLite; clustering and external connectivity are outside this test."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "daad20bc5eafb89058a6db4a",
+          "report": "records/daad20bc5eafb89058a6db4a/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "9c9d71b5927475ccee5bed36e07b9297ec15d7a9ed6b028d1923622a356f8940",
+          "verified_at": "2026-11-09T11:53:29.746315+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "ruff",
+      "name": "ruff",
+      "version": "0.17.4",
+      "target": "linux-x86_64",
+      "recipe_sha256": "571be88aa12823d9ca3c83a02b828938c9f34952b2ce9379c2ec3d7074770755",
+      "kind": "shell-installer",
+      "functional_summary": "Lint a local Python file.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves cargo-dist upstream checksum verification. Unmanaged installation suppresses PATH editing and installer receipt metadata."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "e2d2555ca173978f3e482047",
+          "report": "records/e2d2555ca173978f3e482047/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "2e95ce6b3010d34f94f0d87a2237b97a8e93a774b5b5b02a6b8437b112e27e26",
+          "verified_at": "2026-11-09T11:51:30.962645+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "rustup",
+      "name": "rustup",
+      "version": "1.29.3-rust1.90.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "0b70722bdb1042eff550d866fb6bf40298ae43a11915cc2d2e74853710dc3ee4",
+      "kind": "shell-installer",
+      "functional_summary": "Install the Rust 1.90 toolchain and compile metadata.",
+      "requires": [
+        "sh"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts official rustup shell bootstrap and includes actual minimal Rust toolchain rustc/cargo/rust-std 1.90.0. rustup-init consumes a local file:// distribution tree. Full arbitrary Cargo dependency builds and native linking tools require additional dependencies; smoke compiles Rust metadata without a linker."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "5af06fd50fbf486ab314683e",
+          "report": "records/5af06fd50fbf486ab314683e/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "e9113ee3fd7579228243df6e3c80cd66cb56707756afdeec1cea3afeef2d0a7f",
+          "verified_at": "2026-11-09T11:51:47.386927+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "samply",
+      "name": "samply",
+      "version": "0.13.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "e963c43482497cff245e4c5f0b3756a0ce0c738618a1710c96df5aadde8ae6ec",
+      "kind": "shell-installer",
+      "functional_summary": "Load a synthetic profile and retrieve its JSON over loopback",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "python3"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Python 3 is used only by the local loopback functional assertion. External network remains disabled; no browser, external API or live service is required for this checked local operation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "e2cdc9aa5609f5ad6a50373c",
+          "report": "records/e2cdc9aa5609f5ad6a50373c/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "b0c49485c9804ca72c477de8636effaab55a63cef7eeec193f013d7bf571070b",
+          "verified_at": "2026-11-09T12:06:10.686273+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "scala-cli",
+      "name": "scala-cli",
+      "version": "1.18.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "4c963ca5a7e677dcd907bb86d473741a3ba0b4dbc59f4f2dd474c2795ebec54b",
+      "kind": "shell-installer",
+      "functional_summary": "Discovers local cache and configuration directories; JDK and Scala compiler excluded.",
+      "requires": [
+        "bash",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Native Scala CLI executable only. JDK, Scala compiler artifacts, Bloop and Maven dependencies are not included. Preserves official install-home operation with explicit bin-dir options; local functional scope is directory/configuration discovery.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "The separate scala-cli-packages installer repository has no established license grant. Complete script is fetched at build time; recipe includes minimal anchors only, not a grant covering redistribution of generated bundles."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "97b2bf860b4586af83b8d58f",
+          "report": "records/97b2bf860b4586af83b8d58f/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "df342fb064d6fd93a4cd39feb45589d9f25db64cd798b23d3cf719fc77467da9",
+          "verified_at": "2026-11-09T12:14:40.098144+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "sdkman",
+      "name": "sdkman",
+      "version": "5.24.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "099d9b7a497285be7f3b88f37a25ac0ead3952d55a82e631b944304fca6dcc68",
+      "kind": "shell-installer",
+      "functional_summary": "Initializes SDKMAN script/native CLI, installs the full Temurin JDK through the original Java hook, exercises native current/default and sdk use, then compiles and executes a Java program from a fresh shell without bundle environment variables.",
+      "requires": [
+        "bash",
+        "unzip",
+        "zip",
+        "tar",
+        "find",
+        "sed",
+        "sha256sum",
+        "cp",
+        "grep",
+        "readlink"
+      ],
+      "runtime": {},
+      "notes": [
+        "Includes SDKMAN script CLI 5.24.0, native CLI 0.8.0 and Eclipse Temurin JDK 21.0.13+9 (SDKMAN identifier 21.0.13.0+9-tem).",
+        "Preserves official bootstrap extraction, native binaries, Bash/Zsh initialization and original sdk install/default/use behavior. Java post-install hook still repackages the official tarball to zip.",
+        "Original official generated bootstrap and Java hook are Apache-2.0 source snapshots with endpoint SHA-256 and sdkman-hooks template commit provenance. Neither script is synthesized from a different installer.",
+        "Local transport overrides apply only in the wrapper process during SDKMAN installation, and serve only the explicitly allowed Java identifier and map its pinned download and hook resources. Installed SDKMAN remains usable without the bundle. Other SDK versions, Maven/Gradle caches and arbitrary project dependencies are not included.",
+        "Sets supported auto_answer=true, healthcheck_enable=false and selfupdate_feature=false for the disconnected target. Bash completions remain enabled. Version-completion requests for remote candidates are outside the tested local compiler workflow.",
+        "Publisher SHA-256 lists verify CLI/native release archives; the original JDK tarball is verified against Temurin release SHA-256 before the original repackaging hook. SDKMAN broker supplies only archive-type metadata for this JDK, not a checksum for the locally regenerated zip.",
+        "Needs zip/unzip/tar, Bash 4+, and Ubuntu22-compatible glibc/runtime libraries. Prepared image adds zip; no software is fetched during installation or smoke tests.",
+        "The candidate list is explicitly restricted to java, and the installer-only transport accepts only Java 21.0.13.0+9-tem on linuxx64. These are authored offline allowlist values, not claims of a live API response. Mutable candidates/all and validate APIs are not fetched during builds; reviewed response hashes are retained in PROVENANCE.json. All downloaded resources use fixed release URLs.",
+        "Repairs upstream shell-initialization path quoting: Bash printf %q serializes the exact chosen prefix, initialization references the literal SDKMAN_DIR variable, and printf writes the generated snippet without interpreting backslash escapes. Original profile selection and append conditions are preserved; fresh-shell smoke verifies the restored prefix byte for byte."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "94f3b7abaa59cb7be4b787ea",
+          "report": "records/94f3b7abaa59cb7be4b787ea/report.json",
+          "image": "localhost/shellferry-sdkman:ubuntu22",
+          "image_id": "58129ddbcc6fd44a14d838ee5e4c3600077ca300b4fefd08042406fb67879df9",
+          "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
+          "verified_at": "2026-11-09T13:35:17.530164+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "secretspec",
+      "name": "secretspec",
+      "version": "0.21.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "b8bf487bba09ae51f4dcf3c809661aa7b593beaef7a2407eda0889abb05ff3ed",
+      "kind": "shell-installer",
+      "functional_summary": "Generate and validate the project configuration JSON schema",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "50d4f65c9b958b7045b6ea46",
+          "report": "records/50d4f65c9b958b7045b6ea46/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "4e334a12467876e44d1341e802b329b335440bc3bcf2711b90c86877f00a5561",
+          "verified_at": "2026-11-09T11:49:41.146985+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "sheldon",
+      "name": "sheldon",
+      "version": "0.8.5",
+      "target": "linux-x86_64",
+      "recipe_sha256": "4b6c076bba5839b9dc4dea6f7a0ff038a386ff27512380d1fb6abf7efc32c0e7",
+      "kind": "shell-installer",
+      "functional_summary": "Lock an empty local plugin configuration and generate shell source",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "cut",
+        "head",
+        "install",
+        "basename"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+        "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+        "Pins the release asset list for the requested version/target instead of hashing mutable GitHub API metadata. Original archive scoring, extraction, overwrite protection and installation remain active; first-use builds require only immutable source/archive URLs."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "ebf67ccd1282d5bf540cf521",
+          "report": "records/ebf67ccd1282d5bf540cf521/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "cb23da74ac2e96484a788d98c70736a5d939e6e79fc8bf3433281638f290fc7a",
+          "verified_at": "2026-11-09T12:12:02.087214+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "skim",
+      "name": "skim",
+      "version": "5.9.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "0d13bcaba6b9f8ffc7d42d04a56adb048569aeec1f8100832e92076a963900b0",
+      "kind": "shell-installer",
+      "functional_summary": "Filter piped candidates and assert exact match",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "865570ffba9bea1578661ee8",
+          "report": "records/865570ffba9bea1578661ee8/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "61b53ea5827b411ce597a97703e92b440d0dd174706a6a758a1bf573a0e51b62",
+          "verified_at": "2026-11-09T11:40:36.234857+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "sql-studio",
+      "name": "sql-studio",
+      "version": "0.1.53",
+      "target": "linux-x86_64",
+      "recipe_sha256": "77ef936ede80b84130db404748355a909d4608bb1817caac661c2b1fca69b953",
+      "kind": "shell-installer",
+      "functional_summary": "Open a local SQLite database and retrieve its web UI over loopback",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "python3"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Python 3 is used only by the local loopback functional assertion. External network remains disabled; no browser, external API or live service is required for this checked local operation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "0ce12dd712dd9a197c3e4cd5",
+          "report": "records/0ce12dd712dd9a197c3e4cd5/report.json",
+          "image": "localhost/shellferry-rust-test:ubuntu22",
+          "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
+          "archive_sha256": "89b677a68b0ac3978c75d666f5cebbe09310ead1aeb7ac8560b896d3cb360367",
+          "verified_at": "2026-11-09T12:06:07.330586+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "stack",
+      "name": "stack",
+      "version": "3.11.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "9ffca077c02ec215f19bdb49cf8160d82c5226c9ebb52b64c05e88e1e7bc5ed6",
+      "kind": "shell-installer",
+      "functional_summary": "Generates Bash command completion; GHC and project dependencies excluded.",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "perl",
+        "file",
+        "install",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager/CLI only: no GHC compiler or project dependencies. Distro apt step is replaced by explicit preinstalled runtime prerequisites (glibc/libgmp/libffi/zlib); all upstream binary extraction/install logic retained. Fixes unquoted dirname for spaces. Functional test generates the command-completion script.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "428aee037b2d6bc67525aa4b",
+          "report": "records/428aee037b2d6bc67525aa4b/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "fbac36060ba2e2c40b4e4c200f828452c31d49cf89b2968fcf5664aa18ea1c27",
+          "verified_at": "2026-11-09T11:59:00.954357+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "starship",
+      "name": "starship",
+      "version": "1.27.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ff8c468b07173576115dfb3cdf645a57674b09b5956902bb7098d8aeb2608759",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash initialization and validate its syntax.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Pins default version and creates selected bin directory before upstream validation. --yes skips confirmation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "a9e642fa3d47c40f3e69beaa",
+          "report": "records/a9e642fa3d47c40f3e69beaa/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "94a62bab64776e5b445d243c64b0521096a2ec8e2fa6f4cdc2484d18d0ba8aaa",
+          "verified_at": "2026-11-09T11:51:34.286432+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "svix-cli",
+      "name": "svix-cli",
+      "version": "2.9.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "d5e3718be9ef7e651f804a97a63b66eca36a1d371334226f5dd45527fc32bfd5",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completion and validate syntax",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "efb8b141cd6a3ccf11f5e3fe",
+          "report": "records/efb8b141cd6a3ccf11f5e3fe/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "2f5cfbd98b503f86edd1bc9b505705212217fe3a8a3939f2c4723beab6ca04ed",
+          "verified_at": "2026-11-09T11:59:30.739412+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "syft",
+      "name": "syft",
+      "version": "1.57.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "2a4da90d235c1a15ce10f3e7994eaf12a20703579afd6ed68a43172e0a14028a",
+      "kind": "shell-installer",
+      "functional_summary": "Generate an SBOM from pinned local Python requirements and assert package/version",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "The included official installer is fetched at the release tag commit, so the redundant release-script refetch is disabled. Upstream SHA-256 verification is preserved; optional cosign verification was not enabled in the original default."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "b083357d3d7a661e85c261d1",
+          "report": "records/b083357d3d7a661e85c261d1/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "97587b02e8bc660644ed0d00d47c5ebd8abd1204da4fd9e6f75c351c33a89151",
+          "verified_at": "2026-11-09T12:11:15.090456+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "systemfd",
+      "name": "systemfd",
+      "version": "0.4.6",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ad45fcc0c939c1a5d8e2d553bc861e4aaefa3938354af1667c77a6ea616ee05d",
+      "kind": "shell-installer",
+      "functional_summary": "Pass a Unix listening socket to a child process",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "49c85f5f41d5fce2827db46d",
+          "report": "records/49c85f5f41d5fce2827db46d/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "6f8f48ad243f065e4f3676a2a8dc0b69490f500b98239970cd676d4d3cff77e2",
+          "verified_at": "2026-11-09T11:45:27.674934+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "task",
+      "name": "task",
+      "version": "3.54.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "5860be96bbed87b282875bbc030ab5590ea41c171af794e7d41041d8cfc1d455",
+      "kind": "shell-installer",
+      "functional_summary": "Run a local Taskfile.",
+      "requires": [
+        "sh",
+        "tar",
+        "sha256sum",
+        "install",
+        "gzip"
+      ],
+      "runtime": {},
+      "notes": [
+        "Retains official checksum-file verification and install behavior. Version discovery fixed to pinned release."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "612880e7f03216d2374b257d",
+          "report": "records/612880e7f03216d2374b257d/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "555777ef94e2faf8c0ba6006fc6a4ba6416e0f3a2281e105623b869b7c81865c",
+          "verified_at": "2026-11-09T11:51:38.678720+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "tfswitch",
+      "name": "tfswitch",
+      "version": "1.20.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "d3464530ad817622dee6a27c0d428fe9d583e5ad4f89facd93ee1b3bd52adb96",
+      "kind": "shell-installer",
+      "functional_summary": "Check accepted and rejected Terraform version constraints from a local project.",
+      "requires": [
+        "sh",
+        "bash",
+        "tar",
+        "gzip",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official installer retains archive checksum validation. Functional scope is local Terraform constraint matching; Terraform/OpenTofu binaries and providers are not bundled."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "d4b27fb958821b311cb08f1f",
+          "report": "records/d4b27fb958821b311cb08f1f/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "a18412707dbc3148871f7fab0d8e5cfb69a4c5394835a2a5d9f87ca7268933d1",
+          "verified_at": "2026-11-09T11:45:45.066589+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "tilt",
+      "name": "tilt",
+      "version": "0.37.8",
+      "target": "linux-x86_64",
+      "recipe_sha256": "61c552d1ba077338c3649b7acfe0720b0b1b8347ad572495314d9d31d76382d7",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash completions (Docker and Kubernetes runtime excluded)",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+        "Adapts copy destination to explicit user prefix. CLI local command/completion generation tested; Docker/Kubernetes runtime is not included."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "62c4e59949319d98a4a9042c",
+          "report": "records/62c4e59949319d98a4a9042c/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "484aae95fa10eb3f17fd443ce42190e25e8bd096837a869db0d5ec536b03c47e",
+          "verified_at": "2026-11-09T11:48:25.708310+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "trivy",
+      "name": "trivy",
+      "version": "0.76.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "161eca8410b755f2630c261d2d23d351bb678bb5516ac1025db512ce2772a76a",
+      "kind": "shell-installer",
+      "functional_summary": "Scan a local directory for secrets with database updates disabled",
+      "requires": [
+        "sh",
+        "tar",
+        "gzip",
+        "sha256sum",
+        "install"
+      ],
+      "runtime": {},
+      "notes": [
+        "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "37be948eba648006359a7613",
+          "report": "records/37be948eba648006359a7613/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "82c363a83691ab9714f4c6a360dc8b94bf317da52f35fb40683cfcd5ac248216",
+          "verified_at": "2026-11-09T11:40:03.634879+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "uutils-findutils",
+      "name": "uutils-findutils",
+      "version": "0.11.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "229c0d44eafc5d46756be1adebd7008ffcadffd8ed06c9f53280aea24e7ffefc",
+      "kind": "shell-installer",
+      "functional_summary": "Find a local file by name and type",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "4cbe7b7ad74ed6b76c0ed9ca",
+          "report": "records/4cbe7b7ad74ed6b76c0ed9ca/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "1a709284dc708efa372e3d805b86b3ecacc12e3b1c9c355e9c5ae3ff94d25ae6",
+          "verified_at": "2026-11-09T11:40:47.679086+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "uv",
+      "name": "uv",
+      "version": "0.13.7",
+      "target": "linux-x86_64",
+      "recipe_sha256": "858693283c6a6458d3f2dccb77cd369fc6c6c0e41b4a9b1283dc2856fb0cc8be",
+      "kind": "shell-installer",
+      "functional_summary": "Create a local project without downloading an interpreter.",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk"
+      ],
+      "runtime": {},
+      "notes": [
+        "Preserves cargo-dist upstream checksum verification. Unmanaged installation suppresses PATH editing and installer receipt metadata.",
+        "uv init without explicit Python metadata attempted a Python download in an empty container. Functional validation now uses a declared Python requirement with --no-pin-python; managed Python/runtime/package installation remains separate offline scope."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "26.04",
+          "id": "2a14f966bd63206e915fbd1a",
+          "report": "records/2a14f966bd63206e915fbd1a/report.json",
+          "image": "localhost/offline-install-test:ubuntu",
+          "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+          "archive_sha256": "28bda56a98bf56ab6761bfab77a73f579590a4928eabee7d08e1b4a4236c6a35",
+          "verified_at": "2026-11-09T11:51:42.650200+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "volta",
+      "name": "volta",
+      "version": "2.0.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "d7c316f6f0fef739b62f4d926e28cf5e14307d811bbf32aba928db4707992962",
+      "kind": "shell-installer",
+      "functional_summary": "Generates Bash command completions; manager only, Node runtimes excluded.",
+      "requires": [
+        "tar",
+        "gzip",
+        "bash",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Manager only: Volta binary and shims. Managed Node.js runtimes and project packages are not included. Uses upstream --skip-setup; functional test generates Bash completions. Fixes upstream executable path quoting for repeat installs with spaces.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "8aa424e2d05ad21899f7d7cf",
+          "report": "records/8aa424e2d05ad21899f7d7cf/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "4cdc261f7c8b0823c88993372253dffc14d5aaf5d3eb19d6674762c7ad7a280e",
+          "verified_at": "2026-11-09T11:34:11.770843+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "worktrunk",
+      "name": "worktrunk",
+      "version": "0.81.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "06948a8d1c0e96abd9e810f892316473150bdb39384322d969a824495c3bbc2f",
+      "kind": "shell-installer",
+      "functional_summary": "Generate Bash integration and validate syntax; Git >=2.43 needed for worktree operations",
+      "requires": [
+        "tar",
+        "gzip",
+        "xz",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+        "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+        "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+        "Functional scope is shell integration generation and syntax validation. Worktree operations additionally require Git >= 2.43; Ubuntu 22.04 default Git 2.34 is insufficient and is not claimed supported."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "7560d762497ebb7ac1f7e1fd",
+          "report": "records/7560d762497ebb7ac1f7e1fd/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "18c1e3d3f65fc5dc32959cc443aefba370281bf3337249dcb019dd3c9ef7bc21",
+          "verified_at": "2026-11-09T11:49:44.806704+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "xh",
+      "name": "xh",
+      "version": "0.26.3",
+      "target": "linux-x86_64",
+      "recipe_sha256": "f2497e3339811b427709b314bac39bd6c676145bf95a553f5caab6ada52eb9c0",
+      "kind": "shell-installer",
+      "functional_summary": "Generate an offline JSON POST request",
+      "requires": [
+        "tar",
+        "gzip",
+        "cp",
+        "mkdir",
+        "mktemp",
+        "grep",
+        "sed",
+        "awk",
+        "sha256sum",
+        "mv",
+        "ln"
+      ],
+      "runtime": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "notes": [
+        "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+        "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+        "Pins the latest-release lookup and creates the explicit XH_BINDIR before preserving upstream move and xhs symlink installation."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "c3734d919a7c292e1006b13a",
+          "report": "records/c3734d919a7c292e1006b13a/report.json",
+          "image": "localhost/offline-install-test:ubuntu22",
+          "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+          "archive_sha256": "c9036a7fecfd7abe20b711a37655c9f078506974a1a7d95718a5eeec9f556a8e",
+          "verified_at": "2026-11-09T11:47:34.442695+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "xmake",
+      "name": "xmake",
+      "version": "3.1.2",
+      "target": "linux-x86_64",
+      "recipe_sha256": "ba928a770a4107dcb8c1c04a4cab65f7066f2dd82894c096fb899cdddd85b6b0",
+      "kind": "shell-installer",
+      "functional_summary": "Builds and executes a local C application; no external package dependencies.",
+      "requires": [
+        "bash",
+        "git",
+        "make",
+        "gcc",
+        "g++",
+        "tar",
+        "gzip",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Official get.sh conversion: fixed runfile release replaces git latest lookup and download helper; upstream configure, make and install are retained. Prepared image supplies C/C++ build toolchain and libreadline development files. Functional test compiles and executes a local C application without package dependencies.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "Fixes reproduced upstream Makefile installation quoting: the PREFIX make variable is passed as a shell-quoted path, preserving install targets while supporting spaces. Upstream does not intentionally forbid spaces.",
+        "Disables optional build statistics with the supported XMAKE_STATS=false setting. The first disconnected build exposed downloader probes by the statistics subsystem; the final report requires no guarded downloader calls."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "5217d75d77e998f584bc4357",
+          "report": "records/5217d75d77e998f584bc4357/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "d5108901917ec135b36017bf4596f0dde3f85543a5410966c4a643046d49d78d",
+          "verified_at": "2026-11-09T12:14:01.578730+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "yarn",
+      "name": "yarn",
+      "version": "1.22.22",
+      "target": "linux-x86_64",
+      "recipe_sha256": "c440b461446d66c516bd4b5e26999ec4b878f76ab0b1cad9c163631f06aa3e1d",
+      "kind": "shell-installer",
+      "functional_summary": "Runs a local package script with bundled Node.js and verifies its numeric output.",
+      "requires": [
+        "bash",
+        "gpg",
+        "tar",
+        "gzip",
+        "xz",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Yarn Classic official installer with release tarball, detached GPG signature and official public key; native GPG verification retained. Includes Node.js 22.15.0 so local package scripts execute offline. Adjusts hardcoded ~/.yarn to requested prefix and quotes binary paths. Yarn packages beyond the bundled manager/runtime require a separate offline cache.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+        "Installer repository has no established license grant. Full script remains runtime-fetch-only; recipe retains only minimal identification anchors and independently authored replacements. Generated bundles require their own redistribution review."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "7633f42b7020453d3dca47be",
+          "report": "records/7633f42b7020453d3dca47be/report.json",
+          "image": "localhost/shellferry-misc-full:ubuntu22",
+          "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
+          "archive_sha256": "7f120ca2d267ac3cdb22158cef694f310f73c29b383ea1549f65222b6b7c3f2a",
+          "verified_at": "2026-11-09T12:14:41.928008+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "zinit",
+      "name": "zinit",
+      "version": "3.17.1",
+      "target": "linux-x86_64",
+      "recipe_sha256": "cd08779492f601fcd9141ec618423e40c769a8f178452bf6b4622a2ddede8801",
+      "kind": "shell-installer",
+      "functional_summary": "Loads a local plugin and invokes the function it defines.",
+      "requires": [
+        "bash",
+        "tar",
+        "gzip",
+        "git",
+        "zsh",
+        "sha256sum"
+      ],
+      "runtime": {},
+      "notes": [
+        "Uses the official installer with fixed source archive for install/update transport. Git progress helper is not needed for local extraction. Supported NO_EDIT/NO_ANNEXES options avoid shell config edits and unrelated plugin downloads. Tests loading and invoking a local plugin.",
+        "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "1bc45da8853bd753f077e9b0",
+          "report": "records/1bc45da8853bd753f077e9b0/report.json",
+          "image": "localhost/shellferry-misc:ubuntu22",
+          "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
+          "archive_sha256": "0fcf3c74708d9798d21d163a793817ed64b1093afefe0cb1ac21a744781dfe41",
+          "verified_at": "2026-11-09T11:45:43.417254+00:00"
+        }
+      ]
+    },
+    {
+      "recipe": "zoxide",
+      "name": "zoxide",
+      "version": "0.10.0",
+      "target": "linux-x86_64",
+      "recipe_sha256": "d0e9dd362fee0e92f890926738243ddfa41f981977865241aacdaa4055eed971",
+      "kind": "shell-installer",
+      "functional_summary": "Add and query a local directory.",
+      "requires": [
+        "sh",
+        "tar",
+        "cp",
+        "chmod",
+        "mkdir",
+        "mktemp",
+        "grep"
+      ],
+      "runtime": {},
+      "notes": [
+        "Replaces GitHub latest API lookup and release download with pinned local archive; preserves binary/manpage installation and permission handling."
+      ],
+      "matching_evidence": [
+        {
+          "os_id": "ubuntu",
+          "os_version": "22.04",
+          "id": "1f82f07f38f3cb5a8c095fb5",
+          "report": "records/1f82f07f38f3cb5a8c095fb5/report.json",
+          "image": "docker.io/library/ubuntu:22.04",
+          "image_id": "a7b0f6af325461862a99c677cf3229ca5241d9f4f4289bd00cc2cce91a3aff23",
+          "archive_sha256": "8d0a97d1d932c3dbe6993f48a80979d0159a5e028e34d5932738505c49b5a927",
+          "verified_at": "2026-11-09T10:11:33.003451+00:00"
+        }
+      ]
+    }
+  ]
+}

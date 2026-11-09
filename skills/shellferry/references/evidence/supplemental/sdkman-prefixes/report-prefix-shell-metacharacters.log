@@ -1,0 +1,287 @@
+install.sh: OK
+INSTALL.txt: OK
+manifest.json: OK
+offline-lib.sh: OK
+provenance/upstream/install.sh: OK
+provenance/upstream/install.sh.diff: OK
+provenance/upstream/java-post.sh: OK
+provenance/upstream/java-post.sh.diff: OK
+provenance/upstream/offline-transport.sh: OK
+provenance/upstream/offline-transport.sh.diff: OK
+provenance/upstream/wrapper.sh: OK
+provenance/upstream/wrapper.sh.diff: OK
+recipe.json: OK
+repeat.sh: OK
+resources/sdkman-cli-checksums.txt: OK
+resources/sdkman-cli.zip: OK
+resources/sdkman-native-checksums.txt: OK
+resources/sdkman-native.zip: OK
+resources/temurin-jdk.sha256.txt: OK
+resources/temurin-jdk.tar.gz: OK
+smoke.sh: OK
+upstream/install.sh: OK
+upstream/java-post.sh: OK
+upstream/offline-transport.sh: OK
+upstream/wrapper.sh: OK
+Verification passed; nothing installed.
+install.sh: OK
+INSTALL.txt: OK
+manifest.json: OK
+offline-lib.sh: OK
+provenance/upstream/install.sh: OK
+provenance/upstream/install.sh.diff: OK
+provenance/upstream/java-post.sh: OK
+provenance/upstream/java-post.sh.diff: OK
+provenance/upstream/offline-transport.sh: OK
+provenance/upstream/offline-transport.sh.diff: OK
+provenance/upstream/wrapper.sh: OK
+provenance/upstream/wrapper.sh.diff: OK
+recipe.json: OK
+repeat.sh: OK
+resources/sdkman-cli-checksums.txt: OK
+resources/sdkman-cli.zip: OK
+resources/sdkman-native-checksums.txt: OK
+resources/sdkman-native.zip: OK
+resources/temurin-jdk.sha256.txt: OK
+resources/temurin-jdk.tar.gz: OK
+smoke.sh: OK
+upstream/install.sh: OK
+upstream/java-post.sh: OK
+upstream/offline-transport.sh: OK
+upstream/wrapper.sh: OK
+
+                                -+syyyyyyys:
+                            `/yho:`       -yd.
+                         `/yh/`             +m.
+                       .oho.                 hy                          .`
+                     .sh/`                   :N`                `-/o`  `+dyyo:.
+                   .yh:`                     `M-          `-/osysoym  :hs` `-+sys:      hhyssssssssy+
+                 .sh:`                       `N:          ms/-``  yy.yh-      -hy.    `.N-````````+N.
+               `od/`                         `N-       -/oM-      ddd+`     `sd:     hNNm        -N:
+              :do`                           .M.       dMMM-     `ms.      /d+`     `NMMs       `do
+            .yy-                             :N`    ```mMMM.      -      -hy.       /MMM:       yh
+          `+d+`           `:/oo/`       `-/osyh/ossssssdNMM`           .sh:         yMMN`      /m.
+         -dh-           :ymNMMMMy  `-/shmNm-`:N/-.``   `.sN            /N-         `NMMy      .m/
+       `oNs`          -hysosmMMMMydmNmds+-.:ohm           :             sd`        :MMM/      yy
+      .hN+           /d:    -MMMmhs/-.`   .MMMh   .ss+-                 `yy`       sMMN`     :N.
+     :mN/           `N/     `o/-`         :MMMo   +MMMN-         .`      `ds       mMMh      do
+    /NN/            `N+....--:/+oooosooo+:sMMM:   hMMMM:        `my       .m+     -MMM+     :N.
+   /NMo              -+ooooo+/:-....`...:+hNMN.  `NMMMd`        .MM/       -m:    oMMN.     hs
+  -NMd`                                    :mm   -MMMm- .s/     -MMm.       /m-   mMMd     -N.
+ `mMM/                                      .-   /MMh. -dMo     -MMMy        od. .MMMs..---yh
+ +MMM.                                           sNo`.sNMM+     :MMMM/        sh`+MMMNmNm+++-
+ mMMM-                                           /--ohmMMM+     :MMMMm.       `hyymmmdddo
+ MMMMh.                  ````                  `-+yy/`yMMM/     :MMMMMy       -sm:.``..-:-.`
+ dMMMMmo-.``````..-:/osyhddddho.           `+shdh+.   hMMM:     :MmMMMM/   ./yy/` `:sys+/+sh/
+ .dMMMMMMmdddddmmNMMMNNNNNMMMMMs           sNdo-      dMMM-  `-/yd/MMMMm-:sy+.   :hs-      /N`
+  `/ymNNNNNNNmmdys+/::----/dMMm:          +m-         mMMM+ohmo/.` sMMMMdo-    .om:       `sh
+     `.-----+/.`       `.-+hh/`         `od.          NMMNmds/     `mmy:`     +mMy      `:yy.
+           /moyso+//+ossso:.           .yy`          `dy+:`         ..       :MMMN+---/oys:
+         /+m:  `.-:::-`               /d+                                    +MMMMMMMNh:`
+        +MN/                        -yh.                                     `+hddhy+.
+       /MM+                       .sh:
+      :NMo                      -sh/
+     -NMs                    `/yy:
+    .NMy                  `:sh+.
+   `mMm`               ./yds-
+  `dMMMmyo:-.````.-:oymNy:`
+  +NMMMMMMMMMMMMMMMMms:`
+    -+shmNMMMNmdy+:`
+
+
+                                                                 Now attempting installation...
+
+
+Looking for a previous installation of SDKMAN...
+Checking Bash version...
+Looking for unzip...
+Looking for zip...
+Looking for tar...
+Looking for find...
+Looking for curl...
+Looking for sed...
+Installing SDKMAN scripts...
+Create distribution directories...
+Getting available candidates...
+Prime platform file...
+Prime the config file...
+Installing script cli archive...
+* Downloading...
+* Checking archive integrity...
+* Extracting archive...
+* Copying archive contents...
+* Cleaning up...
+
+Installing script cli archive...
+* Downloading...
+* Checking archive integrity...
+* Extracting archive...
+* Copying archive contents...
+* Cleaning up...
+
+Set version to 5.24.0 ...
+Set native version to 0.8.0 ...
+Attempt update of interactive bash profile on regular UNIX...
+Added sdkman init snippet to /tmp/offline-home/.bashrc
+Attempt update of zsh profile...
+
+
+
+All done!
+
+
+You are subscribed to the STABLE channel.
+
+Please open a new terminal, or run the following in the existing one:
+
+    source "/tmp/offline-home/literal $(printf SUBSTITUTION_RAN) `printf BACKTICK_RAN` "quoted" back\slash/bin/sdkman-init.sh"
+
+Then issue the following command:
+
+    sdk help
+
+Enjoy!!!
+
+Downloading: java 21.0.13.0+9-tem
+
+In progress...
+
+Temurin publisher checksum mismatch
+grep: /tmp/offline-home/literal $(printf SUBSTITUTION_RAN) `printf BACKTICK_RAN` "quoted" back\slash/tmp/java-21.0.13.0+9-tem.headers.tmp: No such file or directory
+
+Repackaging Java 21.0.13.0+9-tem...
+
+Done repackaging...
+
+Installing: java 21.0.13.0+9-tem
+Done installing!
+
+
+Setting java 21.0.13.0+9-tem as default.
+✓ Set java 21.0.13.0+9-tem as the default version
+
+Using java version 21.0.13.0+9-tem in this shell.
+
+SDKMAN!
+core:   5.24.0
+native: 0.8.0 (linux x86_64)
+
+21.0.13.0+9-tem
+
+Using java version 21.0.13.0+9-tem in this shell.
+✓ Set java 21.0.13.0+9-tem as the default version
+javac 21.0.13
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR=/tmp/offline-home/literal\ \$\(printf\ SUBSTITUTION_RAN\)\ \`printf\ BACKTICK_RAN\`\ \"quoted\"\ back\\slash
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+install.sh: OK
+INSTALL.txt: OK
+manifest.json: OK
+offline-lib.sh: OK
+provenance/upstream/install.sh: OK
+provenance/upstream/install.sh.diff: OK
+provenance/upstream/java-post.sh: OK
+provenance/upstream/java-post.sh.diff: OK
+provenance/upstream/offline-transport.sh: OK
+provenance/upstream/offline-transport.sh.diff: OK
+provenance/upstream/wrapper.sh: OK
+provenance/upstream/wrapper.sh.diff: OK
+recipe.json: OK
+repeat.sh: OK
+resources/sdkman-cli-checksums.txt: OK
+resources/sdkman-cli.zip: OK
+resources/sdkman-native-checksums.txt: OK
+resources/sdkman-native.zip: OK
+resources/temurin-jdk.sha256.txt: OK
+resources/temurin-jdk.tar.gz: OK
+smoke.sh: OK
+upstream/install.sh: OK
+upstream/java-post.sh: OK
+upstream/offline-transport.sh: OK
+upstream/wrapper.sh: OK
+
+                                -+syyyyyyys:
+                            `/yho:`       -yd.
+                         `/yh/`             +m.
+                       .oho.                 hy                          .`
+                     .sh/`                   :N`                `-/o`  `+dyyo:.
+                   .yh:`                     `M-          `-/osysoym  :hs` `-+sys:      hhyssssssssy+
+                 .sh:`                       `N:          ms/-``  yy.yh-      -hy.    `.N-````````+N.
+               `od/`                         `N-       -/oM-      ddd+`     `sd:     hNNm        -N:
+              :do`                           .M.       dMMM-     `ms.      /d+`     `NMMs       `do
+            .yy-                             :N`    ```mMMM.      -      -hy.       /MMM:       yh
+          `+d+`           `:/oo/`       `-/osyh/ossssssdNMM`           .sh:         yMMN`      /m.
+         -dh-           :ymNMMMMy  `-/shmNm-`:N/-.``   `.sN            /N-         `NMMy      .m/
+       `oNs`          -hysosmMMMMydmNmds+-.:ohm           :             sd`        :MMM/      yy
+      .hN+           /d:    -MMMmhs/-.`   .MMMh   .ss+-                 `yy`       sMMN`     :N.
+     :mN/           `N/     `o/-`         :MMMo   +MMMN-         .`      `ds       mMMh      do
+    /NN/            `N+....--:/+oooosooo+:sMMM:   hMMMM:        `my       .m+     -MMM+     :N.
+   /NMo              -+ooooo+/:-....`...:+hNMN.  `NMMMd`        .MM/       -m:    oMMN.     hs
+  -NMd`                                    :mm   -MMMm- .s/     -MMm.       /m-   mMMd     -N.
+ `mMM/                                      .-   /MMh. -dMo     -MMMy        od. .MMMs..---yh
+ +MMM.                                           sNo`.sNMM+     :MMMM/        sh`+MMMNmNm+++-
+ mMMM-                                           /--ohmMMM+     :MMMMm.       `hyymmmdddo
+ MMMMh.                  ````                  `-+yy/`yMMM/     :MMMMMy       -sm:.``..-:-.`
+ dMMMMmo-.``````..-:/osyhddddho.           `+shdh+.   hMMM:     :MmMMMM/   ./yy/` `:sys+/+sh/
+ .dMMMMMMmdddddmmNMMMNNNNNMMMMMs           sNdo-      dMMM-  `-/yd/MMMMm-:sy+.   :hs-      /N`
+  `/ymNNNNNNNmmdys+/::----/dMMm:          +m-         mMMM+ohmo/.` sMMMMdo-    .om:       `sh
+     `.-----+/.`       `.-+hh/`         `od.          NMMNmds/     `mmy:`     +mMy      `:yy.
+           /moyso+//+ossso:.           .yy`          `dy+:`         ..       :MMMN+---/oys:
+         /+m:  `.-:::-`               /d+                                    +MMMMMMMNh:`
+        +MN/                        -yh.                                     `+hddhy+.
+       /MM+                       .sh:
+      :NMo                      -sh/
+     -NMs                    `/yy:
+    .NMy                  `:sh+.
+   `mMm`               ./yds-
+  `dMMMmyo:-.````.-:oymNy:`
+  +NMMMMMMMMMMMMMMMMms:`
+    -+shmNMMMNmdy+:`
+
+
+                                                                 Now attempting installation...
+
+
+Looking for a previous installation of SDKMAN...
+SDKMAN found.
+
+======================================================================================================
+ You already have SDKMAN installed.
+ SDKMAN was found at:
+
+    /tmp/offline-home/literal $(printf SUBSTITUTION_RAN) `printf BACKTICK_RAN` "quoted" back\slash
+
+ Please consider running the following if you need to upgrade.
+
+    $ sdk selfupdate force
+
+======================================================================================================
+
+
+java 21.0.13.0+9-tem is already installed.
+✓ Set java 21.0.13.0+9-tem as the default version
+
+Using java version 21.0.13.0+9-tem in this shell.
+
+SDKMAN!
+core:   5.24.0
+native: 0.8.0 (linux x86_64)
+
+21.0.13.0+9-tem
+
+Using java version 21.0.13.0+9-tem in this shell.
+✓ Set java 21.0.13.0+9-tem as the default version
+javac 21.0.13
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR=/tmp/offline-home/literal\ \$\(printf\ SUBSTITUTION_RAN\)\ \`printf\ BACKTICK_RAN\`\ \"quoted\"\ back\\slash
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+OFFLINE_INSTALL_TEST_PASS

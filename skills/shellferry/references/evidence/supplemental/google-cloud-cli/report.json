@@ -1,0 +1,40 @@
+{
+  "name": "google-cloud-cli",
+  "version": "592.0.0",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/offline-install-test:ubuntu22",
+  "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
+  "network": "none",
+  "user": "1000:1000",
+  "capabilities": "all dropped",
+  "new_privileges": false,
+  "artifact_report": "../../records/70f710a543e846dfc4daebe7/report.json",
+  "archive_sha256": "eaaed883788d86c4de9a41a4d3d9433b402d04035fa67e533fa4a654cc24449e",
+  "recipe_sha256": "68aa6e7962bef83aa1d32c5a3f962beb56b503fe9517204f5fb60411130c1265",
+  "manifest_sha256": "ff8136fd8a427463c2b2cdc037a9cbb903334efa0072ebfe444dfb8a608acb38",
+  "checksum_list_sha256": "195b16242923e98d5bf978e819b37732866ad4b585840361df47f6076b1be667",
+  "installed_original_source_sha256": "db69ff9ac4c55c8b18c1041b717ba1370e4d921ace4d67c05088d4411d75282a",
+  "harness": "post-install-gcloud.sh",
+  "harness_sha256": "7be5bfcb97d1d394f82324f46999e795f8d27967ac468b7123bb19eaa54030be",
+  "log": "post-install-gcloud.log",
+  "log_sha256": "2a283314136e66d794437e22f07a89438309f797986a1ec8fca92ac6d7a9b229",
+  "verified_at": "2026-11-09T13:34:59.829920+00:00",
+  "checks": [
+    "Install from empty HOME with prefix containing literal $HOME, double spaces, backticks and $(printf INJECTED)",
+    "Default repeat install rejects existing directory and preserves bin/gcloud digest",
+    "Fresh shell clears OFFLINE_ROOT, OFFLINE_PREFIX, OFFLINE_AUDIT and recipe-only CLOUDSDK settings",
+    "Official ~/.bashrc supplies correct literal PATH and Bash completion",
+    "gcloud version, components list --only-local-state and valid config JSON work",
+    "Installed original install.sh executes directly with only native local snapshot URL override",
+    "Installed install.sh digest exactly matches original archive source",
+    "Download guards remain unused"
+  ],
+  "observed_markers": [
+    "POST_INSTALL_NO_RECIPE_ENV_PASS",
+    "DEFAULT_OVERWRITE_REJECTED_PASS",
+    "INSTALLED_ORIGINAL_REINITIALIZE_PASS",
+    "LITERAL_PREFIX_PASS"
+  ],
+  "scope": "Supplementary check uses the unchanged final build directory whose recipe, manifest and checksum list match the final archive validation. The primary report provides archive roundtrip coverage."
+}

@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "name": "oh-my-posh",
+  "version": "32.0.0",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://ohmyposh.dev/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "    validate_dependency curl",
+          "new": "    validate_dependency cp",
+          "count": 1
+        },
+        {
+          "old": "    url=\"https://cdn.ohmyposh.dev/releases/latest/themes.zip\"",
+          "new": "    url=\"https://cdn.ohmyposh.dev/releases/v32.0.0/themes.zip\"",
+          "count": 1
+        },
+        {
+          "old": "http_response=$(curl -s -f -L $url -o $zip_file -w \"%{http_code}\")",
+          "new": "http_response=$(offline_fetch \"$url\" \"$zip_file\" && printf 200)",
+          "count": 1
+        },
+        {
+          "old": "http_response=$(curl -s -f -L $url -o $executable -w \"%{http_code}\")",
+          "new": "http_response=$(offline_fetch \"$url\" \"$executable\" && printf 200)",
+          "count": 1
+        },
+        {
+          "old": "validate_install_directory() {\n",
+          "new": "validate_install_directory() {\n    mkdir -p -- \"$install_dir\" || error \"Cannot create install directory\"\n",
+          "count": 1
+        },
+        {
+          "old": "cache_dir=$($executable cache path)",
+          "new": "cache_dir=$(\"$executable\" cache path)",
+          "count": 1
+        },
+        {
+          "old": "if [ $http_response = \"200\" ] && [ -f $zip_file ]; then",
+          "new": "if [ \"$http_response\" = \"200\" ] && [ -f \"$zip_file\" ]; then",
+          "count": 1
+        },
+        {
+          "old": "unzip -o -q $zip_file -d $themes_dir",
+          "new": "unzip -o -q \"$zip_file\" -d \"$themes_dir\"",
+          "count": 1
+        },
+        {
+          "old": "chmod a+rwX ${themes_dir}/*.omp.*",
+          "new": "chmod a+rwX \"${themes_dir}\"/*.omp.*",
+          "count": 1
+        },
+        {
+          "old": "rm $zip_file",
+          "new": "rm \"$zip_file\"",
+          "count": 1
+        },
+        {
+          "old": "if [ $http_response != \"200\" ] || [ ! -f $executable ]; then",
+          "new": "if [ \"$http_response\" != \"200\" ] || [ ! -f \"$executable\" ]; then",
+          "count": 1
+        },
+        {
+          "old": "chmod +x $executable",
+          "new": "chmod +x \"$executable\"",
+          "count": 1
+        }
+      ],
+      "sha256": "2e03d4e90e0d390f28ce739fbd90ed2a14f1e7b48bf693d538bede460b547560",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://cdn.ohmyposh.dev/releases/v32.0.0/posh-linux-amd64",
+      "path": "resources/posh-linux-amd64",
+      "sha256": "55f9b15e49827bf2d79bdafde28e93808b6f84be7677db8e3b2196772b081a26",
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "url": "https://cdn.ohmyposh.dev/releases/v32.0.0/themes.zip",
+      "path": "resources/themes.zip",
+      "sha256": "49eae266efd1705d68582d425b4d94ffe4b06fba7defab4bf7163e75768ea180",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {
+    "SHELL": "/bin/bash"
+  },
+  "args": [
+    "-d",
+    "{prefix}",
+    "-t",
+    "{prefix}/themes",
+    "-v",
+    "v32.0.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "bash",
+    "unzip",
+    "realpath",
+    "dirname"
+  ],
+  "smoke": [
+    [
+      "{prefix}/oh-my-posh",
+      "--version"
+    ],
+    [
+      "sh",
+      "-c",
+      "theme=$(find \"$1/themes\" -name \"*.omp.json\" -print -quit); test -n \"$theme\"; \"$1/oh-my-posh\" init bash --config \"$theme\" > /tmp/offline-posh-init.sh; test -s /tmp/offline-posh-init.sh",
+      "sh",
+      "{prefix}"
+    ]
+  ],
+  "notes": [
+    "Main binary and theme archive both pinned to v32.0.0, replacing upstream latest themes to avoid mismatched versions.",
+    "Creates requested install directory and quotes upstream path expansions; required for a fresh custom prefix containing spaces."
+  ],
+  "repeat_args": [],
+  "validation_scope": {
+    "target": "linux-x86_64",
+    "userspace": "Ubuntu 26.04.1 prepared image; unzip and OpenSSL available",
+    "network": "none",
+    "runtime_scope": "Executable, bundled themes and local shell initialization; online prompt segments not included"
+  }
+}

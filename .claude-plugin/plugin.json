@@ -1,0 +1,11 @@
+{
+  "name": "shellferry",
+  "version": "0.1.0",
+  "description": "Convert online shell installers into portable offline bundles and verify them without network access.",
+  "author": {
+    "name": "nanocm"
+  },
+  "license": "MIT",
+  "keywords": ["offline", "installer", "shell", "podman", "docker"],
+  "skills": "./skills/"
+}

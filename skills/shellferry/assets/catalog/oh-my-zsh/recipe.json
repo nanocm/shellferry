@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "name": "oh-my-zsh",
+  "version": "commit-cca3bdfbef8c",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/cca3bdfbef8c52ef8939ce7911ff68852b949daa/tools/install.sh",
+      "sha256": "5574b96e94dbcb769f0d1592fa83aeb6ca2caf41c6ae5d76fcc7f04c524b4f55",
+      "patches": [
+        {
+          "old": "  git init --quiet \"$ZSH\" && cd \"$ZSH\" \\\n  && git config core.eol lf \\\n  && git config core.autocrlf false \\\n  && git config fsck.zeroPaddedFilemode ignore \\\n  && git config fetch.fsck.zeroPaddedFilemode ignore \\\n  && git config receive.fsck.zeroPaddedFilemode ignore \\\n  && git config oh-my-zsh.remote origin \\\n  && git config oh-my-zsh.branch \"$BRANCH\" \\\n  && git remote add origin \"$REMOTE\" \\\n  && git fetch --depth=1 origin \\\n  && git checkout -b \"$BRANCH\" \"origin/$BRANCH\" || {\n    [ ! -d \"$ZSH\" ] || {\n      cd -\n      rm -rf \"$ZSH\" 2>/dev/null\n    }\n    fmt_error \"git clone of oh-my-zsh repo failed\"\n    exit 1\n  }\n",
+          "new": "  mkdir -p \"$ZSH\"\n  tar -xzf \"$OFFLINE_ROOT/resources/oh-my-zsh-source.tar.gz\" --strip-components=1 -C \"$ZSH\"\n  cd \"$ZSH\"\n",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "541a3a2b6db36d7c0439e3d2fad62c4a0485e32c1db0b1e756515cbf19235fbd",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/ohmyzsh/ohmyzsh/tar.gz/cca3bdfbef8c52ef8939ce7911ff68852b949daa",
+      "path": "resources/oh-my-zsh-source.tar.gz",
+      "sha256": "d7b44efa4cc13e19b8973ad73b7e447c617acdf8d139f8cccca5992f8d50ba5c",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "ZSH": "{prefix}/oh-my-zsh",
+    "CHSH": "no",
+    "RUNZSH": "no",
+    "KEEP_ZSHRC": "yes",
+    "USER": "offline",
+    "SHELL": "/usr/bin/zsh"
+  },
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "git",
+    "zsh",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "zsh",
+      "-fc",
+      "export ZSH=\"$OFFLINE_PREFIX/oh-my-zsh\"; zstyle \":omz:update\" mode disabled; plugins=(git); source \"$ZSH/oh-my-zsh.sh\"; alias gst | grep -q \"git status\"; autoload -Uz colors; colors; print -r -- omz-local-ok"
+    ]
+  ],
+  "notes": [
+    "Fetches a complete pinned source tree in place of git network transport, preserving config generation and supported --unattended behavior. Explicit --verify-existing repeat mode accepts only the same pinned source marker; normal first-install overwrite protection remains upstream behavior.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  },
+  "repeat_args": [
+    "--verify-existing"
+  ]
+}

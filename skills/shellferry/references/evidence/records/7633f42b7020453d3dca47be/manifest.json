@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "yarn",
+  "version": "1.22.22",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/yarn-v1.22.22.tar.gz",
+      "url": "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-v1.22.22.tar.gz",
+      "sha256": "88268464199d1611fcf73ce9c0a6c4d44c7d5363682720d8506f6508addf36a0",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/yarn-v1.22.22.tar.gz.asc",
+      "url": "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-v1.22.22.tar.gz.asc",
+      "sha256": "ce5a2cc19283cee2a4f931cc50769dcf695afb0dd40657d374f50f573bcb6cac",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/yarn-pubkey.gpg",
+      "url": "https://dl.yarnpkg.com/debian/pubkey.gpg",
+      "sha256": "f8f78154312934e7894e29da119c9fb06b489d36e0b36ec1538a5b8486a2f59e",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/node-v22.15.0-linux-x64.tar.xz",
+      "url": "https://nodejs.org/dist/v22.15.0/node-v22.15.0-linux-x64.tar.xz",
+      "sha256": "dafe2e8f82cb97de1bd10db9e2ec4c07bbf53389b0799b1e095a918951e78fd4",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/yarnpkg/website/c6faf3f95dabb4a90789431fb1cf404e46d7ced1/install.sh",
+      "sha256_original": "19f48dbd5049613c1a285ec9d92d716879965456cd7ff60169e14503b588f40e",
+      "sha256_patched": "27f4add2556785bec455e3755dabb78a5df27a8ab51278b73a59751c2b2360fe",
+      "patch_count": 6
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "87ad97b5dc67fde5a340ee6051ce0376f4800e7bc8da77ff60293315fc9f6d39",
+      "sha256_patched": "78a10bee0f34e84562acd6e9cf1c3f69ad50a148166a2d88d86b5dd0fb960849",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "gpg",
+    "tar",
+    "gzip",
+    "xz",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Yarn Classic official installer with release tarball, detached GPG signature and official public key; native GPG verification retained. Includes Node.js 22.15.0 so local package scripts execute offline. Adjusts hardcoded ~/.yarn to requested prefix and quotes binary paths. Yarn packages beyond the bundled manager/runtime require a separate offline cache.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Installer repository has no established license grant. Full script remains runtime-fetch-only; recipe retains only minimal identification anchors and independently authored replacements. Generated bundles require their own redistribution review."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "c440b461446d66c516bd4b5e26999ec4b878f76ab0b1cad9c163631f06aa3e1d",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

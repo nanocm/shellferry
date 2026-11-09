@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "task",
+  "version": "3.54.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/task_linux_amd64.tar.gz",
+      "url": "https://github.com/go-task/task/releases/download/v3.54.0/task_linux_amd64.tar.gz",
+      "sha256": "680859dbb4d881a9c72d4d9a8f510825450849af8567deacd7302c01124416fb",
+      "expected_checksum_matched": true,
+      "checksum_source": "https://github.com/go-task/task/releases/download/v3.54.0/task_checksums.txt"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/task_checksums.txt",
+      "url": "https://github.com/go-task/task/releases/download/v3.54.0/task_checksums.txt",
+      "sha256": "1c81a44f7f5e7c06dd3b696be47c7d10cad26c1a12d0cde780a4114649c5e259",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://taskfile.dev/install.sh",
+      "sha256_original": "e360c4d49273347e8ceb740f98d81d0b8b753de7d1b3c3452bdae7ec54289b99",
+      "sha256_patched": "fcc43aea754df1e477f56d3394a007e71059750ed737feef6b37acbd55ceafd4",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "install",
+    "gzip"
+  ],
+  "runtime": {},
+  "notes": [
+    "Retains official checksum-file verification and install behavior. Version discovery fixed to pinned release."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "5860be96bbed87b282875bbc030ab5590ea41c171af794e7d41041d8cfc1d455"
+}

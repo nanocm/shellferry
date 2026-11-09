@@ -1,0 +1,4545 @@
+{
+  "review_date": "2026-11-09",
+  "scope": "Installer source files and copied recipe patch text, not downloaded software binaries",
+  "components": [
+    {
+      "component": "atuin",
+      "repository": "atuinsh/atuin",
+      "requested_ref": "v18.24.5",
+      "commit": "ad5bf5c35b7788c05b8d936f5da59c9ab1ac320e",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/atuin-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/atuinsh/atuin/ad5bf5c35b7788c05b8d936f5da59c9ab1ac320e/LICENSE",
+          "sha256": "23ee4dd12c9fc8c59303caeb0f8ac300bf57e549d052f44f00d98c1edb11be91",
+          "size": 1068
+        }
+      ]
+    },
+    {
+      "component": "bun",
+      "repository": "oven-sh/bun",
+      "requested_ref": "bun-v1.4.4",
+      "commit": "38afee6c84fcf48c0edb2466aa4b27d287a59c30",
+      "license": "MIT (upstream declaration)",
+      "files": [
+        {
+          "path": "LICENSES/bun-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/oven-sh/bun/38afee6c84fcf48c0edb2466aa4b27d287a59c30/LICENSE.md",
+          "sha256": "362fe32c954ec829240bd7429c53d705eef08c6bfa45ffc2d02005f857cba4dd",
+          "size": 14778
+        }
+      ]
+    },
+    {
+      "component": "chezmoi",
+      "repository": "twpayne/chezmoi",
+      "requested_ref": "v2.74.0",
+      "commit": "fcc38cf6fdb3a79ae4afae9ef6ad241890db6cde",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/chezmoi-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/twpayne/chezmoi/fcc38cf6fdb3a79ae4afae9ef6ad241890db6cde/LICENSE",
+          "sha256": "6ce2375d89522ac7a1417320c8406886bc0ecb984baf41e3c27b8a07a81a30b2",
+          "size": 1076
+        }
+      ]
+    },
+    {
+      "component": "deno-install",
+      "repository": "denoland/deno_install",
+      "requested_ref": "HEAD",
+      "commit": "41d4676f8677ec16449b9e2303e7bd52ed81f03b",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/deno-install-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/denoland/deno_install/41d4676f8677ec16449b9e2303e7bd52ed81f03b/LICENSE",
+          "sha256": "d05b09e3cf2c79d84622d51db741eb263950d97fbc7a8c1811675f3287035d8f",
+          "size": 1074
+        }
+      ]
+    },
+    {
+      "component": "direnv",
+      "repository": "direnv/direnv",
+      "requested_ref": "v2.38.2",
+      "commit": "28a73d1df3f387e16f3c7fa888c2a049e0059e7a",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/direnv-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/direnv/direnv/28a73d1df3f387e16f3c7fa888c2a049e0059e7a/LICENSE",
+          "sha256": "573de0461625352c50c47a63e7506873bf93d1a8a96bd29c3fef115ff3ed6b48",
+          "size": 1081
+        }
+      ]
+    },
+    {
+      "component": "fnm",
+      "repository": "Schniz/fnm",
+      "requested_ref": "v1.39.0",
+      "commit": "d2555b46362ad8888213b76822631561371ce199",
+      "license": "GPL-3.0",
+      "files": [
+        {
+          "path": "LICENSES/fnm-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/Schniz/fnm/d2555b46362ad8888213b76822631561371ce199/LICENSE",
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "size": 35149
+        }
+      ]
+    },
+    {
+      "component": "helm",
+      "repository": "helm/helm",
+      "requested_ref": "v3.22.1",
+      "commit": "d6c1a0e4027caa6abc7892e7ea9f0cda7447baa3",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/helm-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/helm/helm/d6c1a0e4027caa6abc7892e7ea9f0cda7447baa3/LICENSE",
+          "sha256": "881467e52efeb1807406134b0ec04b1c6f52dc9dc49382713ef9ac4e0cae42f8",
+          "size": 11373
+        }
+      ]
+    },
+    {
+      "component": "just",
+      "repository": "casey/just",
+      "requested_ref": "1.59.0",
+      "commit": "2638e9c0941edb1f409da7426fa7842887656973",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "LICENSES/just-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/casey/just/2638e9c0941edb1f409da7426fa7842887656973/LICENSE",
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "size": 7048
+        }
+      ]
+    },
+    {
+      "component": "mise",
+      "repository": "jdx/mise",
+      "requested_ref": "v2026.11.5",
+      "commit": "32c96c4d51d3abe9af0c868eda63aabe77efddb0",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/mise-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/jdx/mise/32c96c4d51d3abe9af0c868eda63aabe77efddb0/LICENSE",
+          "sha256": "4d22d6f9222adef0a45ef895bfdd6f71d6394b1784b1001a4bebb4298b8ddc69",
+          "size": 1068
+        }
+      ]
+    },
+    {
+      "component": "nvm",
+      "repository": "nvm-sh/nvm",
+      "requested_ref": "v0.40.3",
+      "commit": "977563e97ddc66facf3a8e31c6cff01d236f09bd",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/nvm-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/nvm-sh/nvm/977563e97ddc66facf3a8e31c6cff01d236f09bd/LICENSE.md",
+          "sha256": "681a12d1a1367b5890be9bc71a70466633d28fd32397be9b72d69d9bfb243492",
+          "size": 1113
+        }
+      ]
+    },
+    {
+      "component": "oh-my-posh",
+      "repository": "JanDeDobbeleer/oh-my-posh",
+      "requested_ref": "v32.0.0",
+      "commit": "d01ca021d6ceb899e252884f3a95db5969a4b8fd",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/oh-my-posh-COPYING.txt",
+          "source": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/d01ca021d6ceb899e252884f3a95db5969a4b8fd/COPYING",
+          "sha256": "a5308c4e51268229a039ec4ec9a251a4cdb89d9380383e6e13aeba64a74f19ad",
+          "size": 1056
+        }
+      ]
+    },
+    {
+      "component": "pixi",
+      "repository": "prefix-dev/pixi",
+      "requested_ref": "v0.84.1",
+      "commit": "cfac95f7ec9c6bdae6f248338371cc396163550e",
+      "license": "BSD-3-Clause",
+      "files": [
+        {
+          "path": "LICENSES/pixi-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/prefix-dev/pixi/cfac95f7ec9c6bdae6f248338371cc396163550e/LICENSE",
+          "sha256": "679d42a76b82a6dc20ffd9048ab45fb2e5557a526113aaedc7419e12f3cfab38",
+          "size": 1502
+        }
+      ]
+    },
+    {
+      "component": "rclone",
+      "repository": "rclone/rclone",
+      "requested_ref": "v1.76.0",
+      "commit": "e982ff36668f5130d94b4f70409babb3d964df42",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/rclone-COPYING.txt",
+          "source": "https://raw.githubusercontent.com/rclone/rclone/e982ff36668f5130d94b4f70409babb3d964df42/COPYING",
+          "sha256": "8cd2e9e750b90a04b7d82dbbca3930c696ae0309d7c10464f90a44f45754cd04",
+          "size": 1095
+        }
+      ]
+    },
+    {
+      "component": "ruff",
+      "repository": "astral-sh/ruff",
+      "requested_ref": "0.17.4",
+      "commit": "05cdc36a45a29e078c2af9358969d0f576408bef",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/ruff-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/astral-sh/ruff/05cdc36a45a29e078c2af9358969d0f576408bef/LICENSE",
+          "sha256": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18",
+          "size": 20731
+        }
+      ]
+    },
+    {
+      "component": "rustup",
+      "repository": "rust-lang/rustup",
+      "requested_ref": "1.29.3",
+      "commit": "edbc831cec44dc2858a4a4dce768c74361d027dc",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/rustup-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/rust-lang/rustup/edbc831cec44dc2858a4a4dce768c74361d027dc/LICENSE-MIT",
+          "sha256": "c9a75f18b9ab2927829a208fc6aa2cf4e63b8420887ba29cdb265d6619ae82d5",
+          "size": 1071
+        },
+        {
+          "path": "LICENSES/rustup-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/rust-lang/rustup/edbc831cec44dc2858a4a4dce768c74361d027dc/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "size": 10850
+        }
+      ]
+    },
+    {
+      "component": "starship",
+      "repository": "starship/starship",
+      "requested_ref": "v1.27.0",
+      "commit": "f8e4e2155542cc84f49b342122d371f74e0ad253",
+      "license": "ISC",
+      "files": [
+        {
+          "path": "LICENSES/starship-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/starship/starship/f8e4e2155542cc84f49b342122d371f74e0ad253/LICENSE",
+          "sha256": "2587580d0ec4ddc43d1534745a19ffeec0b63186497c2ed4bc36832da91b13e2",
+          "size": 758
+        }
+      ]
+    },
+    {
+      "component": "task",
+      "repository": "go-task/task",
+      "requested_ref": "v3.54.0",
+      "commit": "b5aef1c287a9be8038347a17646bdf4bc7185bce",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/task-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/go-task/task/b5aef1c287a9be8038347a17646bdf4bc7185bce/LICENSE",
+          "sha256": "ae22882adc54d4c2cec2bb1ce5e0b252c7f3344efd55c72144738e8fcc89509b",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "uv",
+      "repository": "astral-sh/uv",
+      "requested_ref": "0.13.7",
+      "commit": "316c827e058c16b71d5c507a20729c2995a7bcce",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/uv-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/astral-sh/uv/316c827e058c16b71d5c507a20729c2995a7bcce/LICENSE-MIT",
+          "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+          "size": 1077
+        },
+        {
+          "path": "LICENSES/uv-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/astral-sh/uv/316c827e058c16b71d5c507a20729c2995a7bcce/LICENSE-APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "zoxide",
+      "repository": "ajeetdsouza/zoxide",
+      "requested_ref": "v0.10.0",
+      "commit": "f84f9a3e1d16fabf3e34b199ec7d552993b41f29",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/zoxide-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/ajeetdsouza/zoxide/f84f9a3e1d16fabf3e34b199ec7d552993b41f29/LICENSE",
+          "sha256": "23aa3b08366e4ed6050f3d9950070201802aadbe5675fa1c19f24f4de91cf294",
+          "size": 1053
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.31",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.31.0",
+      "commit": "f9e8829f2e537b7c6648c11bf05cc0f69c1eee08",
+      "license": "MIT (shell template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.31-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/f9e8829f2e537b7c6648c11bf05cc0f69c1eee08/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.32",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.32.0",
+      "commit": "6886366640dd4da83d33ba55cc04aa58423cbad2",
+      "license": "MIT (shell template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.32-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/6886366640dd4da83d33ba55cc04aa58423cbad2/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "godownloader",
+      "repository": "goreleaser/godownloader",
+      "requested_ref": "HEAD",
+      "commit": "632441f5a29bac9ac3088f139477b364ff525041",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/godownloader-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/goreleaser/godownloader/632441f5a29bac9ac3088f139477b364ff525041/LICENSE.md",
+          "sha256": "e10b4c96b6522c60bfe8f2fa90f47988d59e0c47842eb88981018bdb7e321d80",
+          "size": 1071
+        }
+      ]
+    },
+    {
+      "component": "shlib",
+      "repository": "client9/shlib",
+      "requested_ref": "HEAD",
+      "commit": "93c2088c49bd551c1c4af4ad4957f515571ab0a4",
+      "license": "Unlicense",
+      "files": [
+        {
+          "path": "LICENSES/shlib-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/client9/shlib/93c2088c49bd551c1c4af4ad4957f515571ab0a4/LICENSE.md",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+          "size": 1211
+        }
+      ]
+    },
+    {
+      "component": "homebrew-install",
+      "repository": "Homebrew/install",
+      "requested_ref": "HEAD",
+      "commit": "7986efac25016e41eed7e471666140c06f9d97cf",
+      "license": "BSD-2-Clause",
+      "files": [
+        {
+          "path": "LICENSES/homebrew-install-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/Homebrew/install/7986efac25016e41eed7e471666140c06f9d97cf/LICENSE.txt",
+          "sha256": "f80329e58613ad669c0e73cb132d8060b9b2c55e339c73848068e4d1567f4627",
+          "size": 1334
+        }
+      ]
+    },
+    {
+      "component": "glide",
+      "repository": "Masterminds/glide",
+      "requested_ref": "HEAD",
+      "commit": "b94b39d657d8abcccba6545e148f1201aee6ffec",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/glide-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/Masterminds/glide/b94b39d657d8abcccba6545e148f1201aee6ffec/LICENSE",
+          "sha256": "ff505b08691ce248f27dfe94d605419e6514c8b60912c7f4188a3e3168ad338f",
+          "size": 1189
+        }
+      ]
+    },
+    {
+      "component": "rustup-zoxide-origin",
+      "repository": "rust-lang/rustup",
+      "requested_ref": "4c1289b2c3f3702783900934a38d7c5f912af787",
+      "commit": "4c1289b2c3f3702783900934a38d7c5f912af787",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/rustup-zoxide-origin-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/rust-lang/rustup/4c1289b2c3f3702783900934a38d7c5f912af787/LICENSE-MIT",
+          "sha256": "c9a75f18b9ab2927829a208fc6aa2cf4e63b8420887ba29cdb265d6619ae82d5",
+          "size": 1071
+        },
+        {
+          "path": "LICENSES/rustup-zoxide-origin-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/rust-lang/rustup/4c1289b2c3f3702783900934a38d7c5f912af787/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "size": 10850
+        }
+      ]
+    },
+    {
+      "component": "dagger",
+      "repository": "dagger/dagger",
+      "requested_ref": "v0.21.11",
+      "commit": "631cdb609aaddc0037c2ba713e7642cadf645ff4",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/dagger-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/dagger/dagger/631cdb609aaddc0037c2ba713e7642cadf645ff4/LICENSE",
+          "sha256": "4442a42853bd02d190ce5f06f76ba62f1a0ff803e8cc1a524dcaa7085a0b100b",
+          "size": 10758
+        }
+      ]
+    },
+    {
+      "component": "tfswitch",
+      "repository": "warrensbox/terraform-switcher",
+      "requested_ref": "v1.20.0",
+      "commit": "7f8cf2c8c1e995d3793eab4da120264981695192",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/tfswitch-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/warrensbox/terraform-switcher/7f8cf2c8c1e995d3793eab4da120264981695192/LICENSE",
+          "sha256": "9d28606c0b277cbdae5900dc843f647f95990210e94062145b2db37f7fd4a978",
+          "size": 1067
+        }
+      ]
+    },
+    {
+      "component": "fzf",
+      "repository": "junegunn/fzf",
+      "requested_ref": "v0.75.0",
+      "commit": "c7bf2b8eea25952dd257a466c0afa72faae206fb",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/fzf-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/junegunn/fzf/c7bf2b8eea25952dd257a466c0afa72faae206fb/LICENSE",
+          "sha256": "a296f423c0d30ce3581435e78e7e36c5fe73984a882d8720c72e713b4593588b",
+          "size": 1085
+        }
+      ]
+    },
+    {
+      "component": "rqlite",
+      "repository": "rqlite/rqlite.io",
+      "requested_ref": "master",
+      "commit": "24e1b8a69d8a01e0c265bc7a001b89dca4d9532b",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/rqlite-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/rqlite/rqlite.io/24e1b8a69d8a01e0c265bc7a001b89dca4d9532b/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "dolt",
+      "repository": "dolthub/dolt",
+      "requested_ref": "v2.7.2",
+      "commit": "6015c445edfe75806e2e1d010a401a7fddb9ee3e",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/dolt-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/dolthub/dolt/6015c445edfe75806e2e1d010a401a7fddb9ee3e/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        }
+      ]
+    },
+    {
+      "component": "cargo-auditable",
+      "repository": "rust-secure-code/cargo-auditable",
+      "requested_ref": "v0.7.7",
+      "commit": "3d3bb574f97dc09a264cfc666ec5d40790f6b3ba",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/cargo-auditable-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/rust-secure-code/cargo-auditable/3d3bb574f97dc09a264cfc666ec5d40790f6b3ba/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        },
+        {
+          "path": "LICENSES/cargo-auditable-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/rust-secure-code/cargo-auditable/3d3bb574f97dc09a264cfc666ec5d40790f6b3ba/LICENSE-MIT",
+          "sha256": "e3a8938c0304a5d418b6f7453c2f60fd6b590d486c798879063373e3acc94bf1",
+          "size": 1070
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.16.0-prerelease.6",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.16.0-prerelease.6",
+      "commit": "1915a47e1ff173f7b1948c546d2db038d1aeb406",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.16.0-prerelease.6-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/1915a47e1ff173f7b1948c546d2db038d1aeb406/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.28.0",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.28.0",
+      "commit": "b96f4b7d6f3e9e5c36e25b08a63306df83d8893f",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.28.0-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/b96f4b7d6f3e9e5c36e25b08a63306df83d8893f/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.29.0",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.29.0",
+      "commit": "0614b52d81716b84e9ab9244866b8cf6b17cfb4b",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.29.0-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/0614b52d81716b84e9ab9244866b8cf6b17cfb4b/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.30.2",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.30.2",
+      "commit": "cc9747915e199fe974837a04adf6bd0648ee718d",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.30.2-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/cc9747915e199fe974837a04adf6bd0648ee718d/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.30.3",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.30.3",
+      "commit": "293b6e83deba37e51c47d3017d57d6d19f79f581",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.30.3-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/293b6e83deba37e51c47d3017d57d6d19f79f581/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.33.0",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.33.0",
+      "commit": "a1c829ffacb7ce98fb617b7acd7ffdd2282b45c2",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.33.0-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/a1c829ffacb7ce98fb617b7acd7ffdd2282b45c2/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.34.0-prerelease.1",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.34.0-prerelease.1",
+      "commit": "378d2107d99fc59e135ecd5f9a63f4248b203a38",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.34.0-prerelease.1-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/378d2107d99fc59e135ecd5f9a63f4248b203a38/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.34.0",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.34.0",
+      "commit": "294c1b25d372d86e74cafead8469b9f36d02da29",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.34.0-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/294c1b25d372d86e74cafead8469b9f36d02da29/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist-0.4.3",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.4.3",
+      "commit": "ed5521f72a548de225da17ec02d4d24b97246aaf",
+      "license": "MIT (shell installer template)",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-0.4.3-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/ed5521f72a548de225da17ec02d4d24b97246aaf/LICENSE-MIT",
+          "sha256": "41551a2f2928f6ecf4928333f1982a611b1f50c13460fabd9b19dd497537ab81",
+          "size": 1061
+        }
+      ]
+    },
+    {
+      "component": "cargo-dist",
+      "repository": "axodotdev/cargo-dist",
+      "requested_ref": "v0.34.0",
+      "commit": "294c1b25d372d86e74cafead8469b9f36d02da29",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/cargo-dist-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/294c1b25d372d86e74cafead8469b9f36d02da29/LICENSE-APACHE",
+          "sha256": "a1a8a2e3a8507563992c8d80b8f8e4a763f01913baf8bc54dce498b97b530653",
+          "size": 10845
+        },
+        {
+          "path": "LICENSES/cargo-dist-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/cargo-dist/294c1b25d372d86e74cafead8469b9f36d02da29/LICENSE-MIT",
+          "sha256": "2ce5e1d08376297da8a0623f5b576d0c637bb3e696d95bb6927414e5db64b40a",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "cargo-insta",
+      "repository": "mitsuhiko/insta",
+      "requested_ref": "1.49.0",
+      "commit": "5df39ceafc8a47f82ec9953aaba12072d316adc8",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/cargo-insta-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/mitsuhiko/insta/5df39ceafc8a47f82ec9953aaba12072d316adc8/LICENSE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        }
+      ]
+    },
+    {
+      "component": "cargo-leptos",
+      "repository": "leptos-rs/cargo-leptos",
+      "requested_ref": "v0.3.11",
+      "commit": "153c99bac559499a03b90c6e021c6ec0dd8775da",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/cargo-leptos-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/leptos-rs/cargo-leptos/153c99bac559499a03b90c6e021c6ec0dd8775da/LICENSE",
+          "sha256": "1b0d1e7917efde55533ec472f60b5d1a44c872a06faa2936edbbf37aac880c31",
+          "size": 1063
+        }
+      ]
+    },
+    {
+      "component": "cargo-mommy",
+      "repository": "Gankra/cargo-mommy",
+      "requested_ref": "v0.3.1",
+      "commit": "ddc833fd04cd4392403506360259f4fb9778d1d4",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/cargo-mommy-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/Gankra/cargo-mommy/ddc833fd04cd4392403506360259f4fb9778d1d4/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+          "size": 9723
+        },
+        {
+          "path": "LICENSES/cargo-mommy-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/Gankra/cargo-mommy/ddc833fd04cd4392403506360259f4fb9778d1d4/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "size": 1023
+        }
+      ]
+    },
+    {
+      "component": "chsrc",
+      "repository": "RubyMetric/chsrc",
+      "requested_ref": "v0.2.7",
+      "commit": "b2b714d7bf72727b36d7d1321f53bb9a1e97f008",
+      "license": "GPL-3.0-or-later (installer); MIT for xy.h",
+      "files": [
+        {
+          "path": "LICENSES/chsrc-COPYING.txt",
+          "source": "https://raw.githubusercontent.com/RubyMetric/chsrc/b2b714d7bf72727b36d7d1321f53bb9a1e97f008/COPYING",
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "size": 35149
+        },
+        {
+          "path": "LICENSES/chsrc-LICENSE-MIT.txt.txt",
+          "source": "https://raw.githubusercontent.com/RubyMetric/chsrc/b2b714d7bf72727b36d7d1321f53bb9a1e97f008/LICENSE-MIT.txt",
+          "sha256": "64fbbf5be547a2de5ff9f49591e0a57e6e1e15b989a5da8e786bc40b5dca0907",
+          "size": 1134
+        }
+      ]
+    },
+    {
+      "component": "dust",
+      "repository": "bootandy/dust",
+      "requested_ref": "079c55266917387e416e0f871c97c06da52df12d",
+      "commit": "079c55266917387e416e0f871c97c06da52df12d",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/dust-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/bootandy/dust/079c55266917387e416e0f871c97c06da52df12d/LICENSE",
+          "sha256": "aee6e2d13d3a55c7881630c09b41ca7b3b44bb1437b5d36695d22decc3655160",
+          "size": 11345
+        }
+      ]
+    },
+    {
+      "component": "git-standup",
+      "repository": "nilbuild/git-standup",
+      "requested_ref": "2.3.2",
+      "commit": "cd516e0ee81649253b9c2e7c94bb43a34714aa94",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/git-standup-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/nilbuild/git-standup/cd516e0ee81649253b9c2e7c94bb43a34714aa94/LICENSE",
+          "sha256": "a3a64db09ae015731739b383c6ee868fca6e1be6491b1f0a6b6f3cdfa20895d4",
+          "size": 1069
+        }
+      ]
+    },
+    {
+      "component": "japaric-trust",
+      "repository": "japaric/trust",
+      "requested_ref": "master",
+      "commit": "54884a59a050bd96e51be85d9ae7f0262bc8e5ea",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/japaric-trust-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/japaric/trust/54884a59a050bd96e51be85d9ae7f0262bc8e5ea/LICENSE-MIT",
+          "sha256": "0a633406531735659d570e7903394ec52f7707195a3c4af10279f06eec7acc76",
+          "size": 1058
+        },
+        {
+          "path": "LICENSES/japaric-trust-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/japaric/trust/54884a59a050bd96e51be85d9ae7f0262bc8e5ea/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        }
+      ]
+    },
+    {
+      "component": "mcfly",
+      "repository": "cantino/mcfly",
+      "requested_ref": "6eed8ebd879c257249f1f4e07b8515edb1e9e395",
+      "commit": "6eed8ebd879c257249f1f4e07b8515edb1e9e395",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/mcfly-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/cantino/mcfly/6eed8ebd879c257249f1f4e07b8515edb1e9e395/LICENSE",
+          "sha256": "2ad7ccca027878f515366628a2fadff0cd684a2e62692bfd806977f1e5527989",
+          "size": 1076
+        }
+      ]
+    },
+    {
+      "component": "minijinja-cli",
+      "repository": "mitsuhiko/minijinja",
+      "requested_ref": "3.1.0",
+      "commit": "92956d06cd6a423a7669e87a2401453d3edeade1",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/minijinja-cli-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/mitsuhiko/minijinja/92956d06cd6a423a7669e87a2401453d3edeade1/LICENSE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        }
+      ]
+    },
+    {
+      "component": "near-cli",
+      "repository": "near/near-cli-rs",
+      "requested_ref": "v0.31.1",
+      "commit": "5cdedc38e09b23b84ae9d69f6abbb26568dda579",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/near-cli-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/near/near-cli-rs/5cdedc38e09b23b84ae9d69f6abbb26568dda579/LICENSE-APACHE",
+          "sha256": "79cb9214feeea0ed174302141da3879824d9546650f19bd2ae5a772c4a9af78a",
+          "size": 11343
+        },
+        {
+          "path": "LICENSES/near-cli-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/near/near-cli-rs/5cdedc38e09b23b84ae9d69f6abbb26568dda579/LICENSE-MIT",
+          "sha256": "79f4477db66ddcfe69294b5cc34f6f20c790c4a985ec33c6cb952dfbb3722ff3",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "oranda",
+      "repository": "axodotdev/oranda",
+      "requested_ref": "v0.6.5",
+      "commit": "e42ec68c7639ba4ee2dc6d2d868c5b55562c62fe",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/oranda-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/oranda/e42ec68c7639ba4ee2dc6d2d868c5b55562c62fe/LICENSE-APACHE",
+          "sha256": "4fa01c2031933992a1f9b40bd8ecf6d0ecf5b702d8b2f3cd770b7f9a2aca048e",
+          "size": 10840
+        },
+        {
+          "path": "LICENSES/oranda-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/axodotdev/oranda/e42ec68c7639ba4ee2dc6d2d868c5b55562c62fe/LICENSE-MIT",
+          "sha256": "46ef3b7986a58a36be4e559b9fcb7db2a9b0556705718e74e98efd692467b0eb",
+          "size": 1061
+        }
+      ]
+    },
+    {
+      "component": "posit-air",
+      "repository": "posit-dev/air",
+      "requested_ref": "0.13.0",
+      "commit": "b0f95d3b6782d0bf50b0240a3d947a8973c0ab36",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/posit-air-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/posit-dev/air/b0f95d3b6782d0bf50b0240a3d947a8973c0ab36/LICENSE",
+          "sha256": "19713ea69a4231105033c381dc2145148d26eab51e0b7e458ef4e775db531863",
+          "size": 1076
+        }
+      ]
+    },
+    {
+      "component": "prek",
+      "repository": "j178/prek",
+      "requested_ref": "e30aa491da84fd2b76d041f69adcc55eae9c0583",
+      "commit": "e30aa491da84fd2b76d041f69adcc55eae9c0583",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/prek-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/j178/prek/e30aa491da84fd2b76d041f69adcc55eae9c0583/LICENSE",
+          "sha256": "08215c44c901c7edf78c3a2b1e02558b0646a3ffa8161be0c112acfd3fb0c100",
+          "size": 1061
+        }
+      ]
+    },
+    {
+      "component": "samply",
+      "repository": "mstange/samply",
+      "requested_ref": "samply-v0.13.1",
+      "commit": "da75c28f367454c621e690eeb4e44ec2ebb29a78",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/samply-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/mstange/samply/da75c28f367454c621e690eeb4e44ec2ebb29a78/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        },
+        {
+          "path": "LICENSES/samply-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/mstange/samply/da75c28f367454c621e690eeb4e44ec2ebb29a78/LICENSE-MIT",
+          "sha256": "a59f933e4ae3a569f798c651e3214a3576ce82d25d3d731158def05669dab79f",
+          "size": 1067
+        }
+      ]
+    },
+    {
+      "component": "secretspec",
+      "repository": "cachix/secretspec",
+      "requested_ref": "v0.21.1",
+      "commit": "5a8927d2b800c604fee72970ffbd137c57820fd5",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/secretspec-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/cachix/secretspec/5a8927d2b800c604fee72970ffbd137c57820fd5/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "sheldon",
+      "repository": "rossmacarthur/install",
+      "requested_ref": "d8c82abdf1cdd67e3a0f494f497e0876f97506f7",
+      "commit": "d8c82abdf1cdd67e3a0f494f497e0876f97506f7",
+      "license": "MIT OR Apache-2.0 (rossmacarthur/install)",
+      "files": [
+        {
+          "path": "LICENSES/sheldon-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/LICENSE-APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "path": "LICENSES/sheldon-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/LICENSE-MIT",
+          "sha256": "f9c4c77baa3828004ee54b8a4f2db2e88ed44a6237a493965bf551fac0fcb62d",
+          "size": 1023
+        }
+      ]
+    },
+    {
+      "component": "skim",
+      "repository": "skim-rs/skim",
+      "requested_ref": "v5.9.0",
+      "commit": "fe2bfbed9f85712e31d4fd5fedb6f15a81bb1a57",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/skim-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/skim-rs/skim/fe2bfbed9f85712e31d4fd5fedb6f15a81bb1a57/LICENSE",
+          "sha256": "97b46715104924e7ceb1f9061c21bcc13d61322f306d6b119cd47ccbf86b22ea",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "sql-studio",
+      "repository": "frectonz/sql-studio",
+      "requested_ref": "0.1.53",
+      "commit": "df09c6cc30cc5da2c0193182d41fe0fc86f9f5db",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/sql-studio-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/frectonz/sql-studio/df09c6cc30cc5da2c0193182d41fe0fc86f9f5db/LICENSE",
+          "sha256": "1ec70cd6b397e660114ba196e2c6c6d21c949360c7393199df3d746dcb1b03c4",
+          "size": 1087
+        }
+      ]
+    },
+    {
+      "component": "svix-cli",
+      "repository": "svix/svix-webhooks",
+      "requested_ref": "v2.9.1",
+      "commit": "76606915475f9239eaad664398ca2e4c7c72ce49",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/svix-cli-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/svix/svix-webhooks/76606915475f9239eaad664398ca2e4c7c72ce49/LICENSE",
+          "sha256": "5962c28427cb0c49b4782932eeeb9dfd3fcd14002755a68155bd6bb306717ced",
+          "size": 1088
+        }
+      ]
+    },
+    {
+      "component": "systemfd",
+      "repository": "mitsuhiko/systemfd",
+      "requested_ref": "0.4.6",
+      "commit": "82323e38ddda227199f7a0baff088980f7bfaf26",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/systemfd-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/mitsuhiko/systemfd/82323e38ddda227199f7a0baff088980f7bfaf26/LICENSE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+          "size": 10847
+        }
+      ]
+    },
+    {
+      "component": "uutils-findutils",
+      "repository": "uutils/findutils",
+      "requested_ref": "0.11.0",
+      "commit": "2cb3adea013fbbe4c01750224183c95d8900416f",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/uutils-findutils-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/uutils/findutils/2cb3adea013fbbe4c01750224183c95d8900416f/LICENSE",
+          "sha256": "b2888851106d2281b01ff2b807b4950463725c39895dd064770c43d28d419a71",
+          "size": 1051
+        }
+      ]
+    },
+    {
+      "component": "worktrunk",
+      "repository": "max-sixty/worktrunk",
+      "requested_ref": "v0.81.0",
+      "commit": "e42f0f6fef2fdbd98fc92e5cd6c3cbea55b65b38",
+      "license": "MIT OR Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/worktrunk-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/max-sixty/worktrunk/e42f0f6fef2fdbd98fc92e5cd6c3cbea55b65b38/LICENSE",
+          "sha256": "eda019abe602c101e9d9c2d7723aa4c4cb2b1ae0e0e0915c37976d5c1d3bb632",
+          "size": 11813
+        }
+      ]
+    },
+    {
+      "component": "xh",
+      "repository": "ducaale/xh",
+      "requested_ref": "8b21cc07a6deeff0ca50ba2a4bfa8d34daffd94f",
+      "commit": "8b21cc07a6deeff0ca50ba2a4bfa8d34daffd94f",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/xh-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/ducaale/xh/8b21cc07a6deeff0ca50ba2a4bfa8d34daffd94f/LICENSE",
+          "sha256": "6b564376135d00cc681d7b97107955b64d8906389a96946d125e357ec258e0ce",
+          "size": 1071
+        }
+      ]
+    },
+    {
+      "component": "misc-volta",
+      "repository": "volta-cli/volta",
+      "commit": "5eedd5fb2f682baceb47a242289111fcd79435a5",
+      "license": "BSD-2-Clause",
+      "files": [
+        {
+          "path": "LICENSES/misc-volta-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/volta-cli/volta/5eedd5fb2f682baceb47a242289111fcd79435a5/LICENSE",
+          "sha256": "ae2964ee7d12ac050a3be5d429456894cad909e3a8c87c8ebb51f4e20cdd0369",
+          "size": 1652
+        }
+      ]
+    },
+    {
+      "component": "misc-dprint",
+      "repository": "dprint/dprint",
+      "commit": "9c48f60bb912c1fd1aedd545f472f7fc5427cf6e",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-dprint-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/dprint/dprint/9c48f60bb912c1fd1aedd545f472f7fc5427cf6e/LICENSE",
+          "sha256": "f49eac7bc59816a4b7fffd64914169ef46deb636f94b77eaa274e7352983c3fa",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "misc-pdm",
+      "repository": "pdm-project/pdm",
+      "commit": "112d7b8a1605fb409449a3ec5be370a177be0639",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-pdm-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/pdm-project/pdm/112d7b8a1605fb409449a3ec5be370a177be0639/LICENSE",
+          "sha256": "9db7ebdae98d7719291030f5b26bed1e798cf9dcbd1850d498714d859908f220",
+          "size": 1075
+        }
+      ]
+    },
+    {
+      "component": "misc-elan",
+      "repository": "leanprover/elan",
+      "commit": "9605b24b08cf68b78dce0014b6fa01be1f8e2cee",
+      "license": "MIT OR Apache-2.0 (Rustup-derived installer)",
+      "files": [
+        {
+          "path": "LICENSES/misc-elan-LICENSE-MIT.txt",
+          "source": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/LICENSE-MIT",
+          "sha256": "920d8685aa3276617133e07d67502148a619eb274b3bba58c9b45d718b687831",
+          "size": 1122
+        },
+        {
+          "path": "LICENSES/misc-elan-LICENSE-APACHE.txt",
+          "source": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "size": 10850
+        },
+        {
+          "path": "LICENSES/misc-elan-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "misc-ghcup",
+      "repository": "haskell/ghcup-hs",
+      "commit": "e24077bc3640f55171735b11dffc0223dacfc7fe",
+      "license": "LGPL-3.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-ghcup-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/haskell/ghcup-hs/e24077bc3640f55171735b11dffc0223dacfc7fe/LICENSE",
+          "sha256": "f3834b4a6b6e7c112207c84a11e87d4255bee0310b90338b5aaccd849fab1afb",
+          "size": 7650
+        },
+        {
+          "path": "LICENSES/misc-ghcup-GPL-3.0.txt",
+          "source": "https://www.gnu.org/licenses/gpl-3.0.txt",
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "size": 35149,
+          "note": "GNU GPLv3 text incorporated by upstream LGPLv3; same canonical license text preserved from the existing fnm license inventory."
+        }
+      ]
+    },
+    {
+      "component": "misc-stack",
+      "repository": "commercialhaskell/stack",
+      "commit": "3e8fff0c6875ef85cb184eaba658825aa3c1fbed",
+      "license": "BSD-3-Clause",
+      "files": [
+        {
+          "path": "LICENSES/misc-stack-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/commercialhaskell/stack/3e8fff0c6875ef85cb184eaba658825aa3c1fbed/etc/scripts/LICENSE",
+          "sha256": "de1ad17dfe29aacb73aff72a8c781eba821702857d9f1c35729aa7241d25fede",
+          "size": 1537
+        }
+      ]
+    },
+    {
+      "component": "misc-babashka",
+      "repository": "babashka/babashka",
+      "commit": "5099cbfbf8d6fd4cd82fd5033370c5c467601acb",
+      "license": "EPL-1.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-babashka-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/babashka/babashka/5099cbfbf8d6fd4cd82fd5033370c5c467601acb/LICENSE",
+          "sha256": "cc07bd2bd6ba843a9a2865ed891d5a3b5835a64bab6fa90945403ee53965d46f",
+          "size": 11514
+        }
+      ]
+    },
+    {
+      "component": "misc-clj-kondo",
+      "repository": "clj-kondo/clj-kondo",
+      "commit": "a4edb32ce85c2a7f7d08cdce5baf0fd32c6467ba",
+      "license": "EPL-1.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-clj-kondo-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/clj-kondo/clj-kondo/a4edb32ce85c2a7f7d08cdce5baf0fd32c6467ba/LICENSE",
+          "sha256": "cc07bd2bd6ba843a9a2865ed891d5a3b5835a64bab6fa90945403ee53965d46f",
+          "size": 11514
+        }
+      ]
+    },
+    {
+      "component": "misc-clojure-lsp",
+      "repository": "clojure-lsp/clojure-lsp",
+      "commit": "3ef962ffa9c79c3360b3119af102d7d62b1d8eac",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-clojure-lsp-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/3ef962ffa9c79c3360b3119af102d7d62b1d8eac/LICENSE",
+          "sha256": "f2ea07ed625651b1e4a88ae49b620f0fecd32b64fe1f6609e4d0f12754d77e72",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "misc-jet",
+      "repository": "borkdude/jet",
+      "commit": "3d990da120b82c0375599577b897b63b5fe67942",
+      "license": "EPL-1.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-jet-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/borkdude/jet/3d990da120b82c0375599577b897b63b5fe67942/LICENSE",
+          "sha256": "cc07bd2bd6ba843a9a2865ed891d5a3b5835a64bab6fa90945403ee53965d46f",
+          "size": 11514
+        }
+      ]
+    },
+    {
+      "component": "misc-opam",
+      "repository": "ocaml/opam",
+      "commit": "ac518a2fa874b957e109fdd178c0cf36c06ae95b",
+      "license": "LGPL-2.1 with upstream linking exception",
+      "files": [
+        {
+          "path": "LICENSES/misc-opam-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/ocaml/opam/ac518a2fa874b957e109fdd178c0cf36c06ae95b/LICENSE",
+          "sha256": "e2d778ba044c99a177fdcd16c8ff3efe8072171f2a5adc61784ce6638efcfc5b",
+          "size": 26959
+        }
+      ]
+    },
+    {
+      "component": "misc-bats",
+      "repository": "bats-core/bats-core",
+      "commit": "9c153ec126fa6c005dfc6d2a39c04bb81a329e9b",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-bats-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/bats-core/bats-core/9c153ec126fa6c005dfc6d2a39c04bb81a329e9b/LICENSE.md",
+          "sha256": "80c328583f55ee375a78beffb512550069d55add0a6fae979d881abe45a58f06",
+          "size": 1113
+        }
+      ]
+    },
+    {
+      "component": "misc-bash-it",
+      "repository": "Bash-it/bash-it",
+      "commit": "72ea9e285fe1828977d1cd2bc596b901bcc57440",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-bash-it-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/Bash-it/bash-it/72ea9e285fe1828977d1cd2bc596b901bcc57440/LICENSE",
+          "sha256": "c95b9fb66477b645a351225d7784dfd6447523bbcd613ae30d55e2ee3cf7b075",
+          "size": 1069
+        }
+      ]
+    },
+    {
+      "component": "misc-basher",
+      "repository": "basherpm/basher",
+      "commit": "7c3d238ce263856edbb99fee000613c01ba5712d",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-basher-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/basherpm/basher/7c3d238ce263856edbb99fee000613c01ba5712d/LICENSE",
+          "sha256": "e80efe43ab3cd02d5784f3a7f4488a527ee349bcab8a4da9c5c12aed14c816d4",
+          "size": 1080
+        }
+      ]
+    },
+    {
+      "component": "misc-bpkg",
+      "repository": "bpkg/bpkg",
+      "commit": "c7f5a467ec53e61d2344f5d1ab5766949c3bffdf",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-bpkg-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/bpkg/bpkg/c7f5a467ec53e61d2344f5d1ab5766949c3bffdf/LICENSE",
+          "sha256": "d7da88331431702357423d5e27c93dc71db869aff2db52e4f8b6cf779905b6e5",
+          "size": 1076
+        }
+      ]
+    },
+    {
+      "component": "misc-oh-my-zsh",
+      "repository": "ohmyzsh/ohmyzsh",
+      "commit": "cca3bdfbef8c52ef8939ce7911ff68852b949daa",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-oh-my-zsh-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/cca3bdfbef8c52ef8939ce7911ff68852b949daa/LICENSE.txt",
+          "sha256": "6772e603fd19666902ab7541f49f3d9e92637539fb0840605615d8c6d18fc3f6",
+          "size": 1142
+        }
+      ]
+    },
+    {
+      "component": "misc-zinit",
+      "repository": "zdharma-continuum/zinit",
+      "commit": "cb4968123979cf073384e93aa8066d8fd450580f",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-zinit-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/zdharma-continuum/zinit/cb4968123979cf073384e93aa8066d8fd450580f/LICENSE",
+          "sha256": "9d47ab1d2f16d2f6cc9931b41ff1b72528e612fa09a5d89b5356ea4c5d5a4e10",
+          "size": 1142
+        }
+      ]
+    },
+    {
+      "component": "misc-pyenv",
+      "repository": "pyenv/pyenv-installer",
+      "commit": "bdd89156f0e591558ca901c5984387dd993157f9",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-pyenv-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/pyenv/pyenv-installer/bdd89156f0e591558ca901c5984387dd993157f9/LICENSE",
+          "sha256": "9083bf4ed3c25012c72eae96c19739ffe795ed86af9991021cd040a1f2a698af",
+          "size": 1063
+        }
+      ]
+    },
+    {
+      "component": "misc-rbenv",
+      "repository": "rbenv/rbenv-installer",
+      "commit": "a5350919f70fd398f327b2efcd072500ab7f29ce",
+      "license": "CC0-1.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-rbenv-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/rbenv/rbenv-installer/a5350919f70fd398f327b2efcd072500ab7f29ce/LICENSE",
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "size": 7048
+        }
+      ]
+    },
+    {
+      "component": "misc-perlbrew",
+      "repository": "gugod/App-perlbrew",
+      "commit": "b5fc972f82f81d59113989afc9472fb3db32b201",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-perlbrew-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/LICENSE",
+          "sha256": "94883e4deed57cfea8d9b3c93a50e688276b4d3ec38aeb4f7c08508b6144be13",
+          "size": 1185
+        }
+      ]
+    },
+    {
+      "component": "misc-xmake",
+      "repository": "xmake-io/xmake",
+      "commit": "8dd9de1ff4e5070931d190c3a109d39825fd62ab",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-xmake-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/xmake-io/xmake/8dd9de1ff4e5070931d190c3a109d39825fd62ab/LICENSE.md",
+          "sha256": "67ec56025fd3f4fb2889106933b2bbae67d3df5369fdc643ff060e706650db69",
+          "size": 11367
+        },
+        {
+          "path": "LICENSES/misc-xmake-NOTICE.txt",
+          "source": "https://raw.githubusercontent.com/xmake-io/xmake/8dd9de1ff4e5070931d190c3a109d39825fd62ab/NOTICE.md",
+          "sha256": "56b1c899d3f91d195f8668b356fb9ebda7b099b555ff698d00689d257760a0cd",
+          "size": 1975
+        }
+      ]
+    },
+    {
+      "component": "misc-dprint-inherited",
+      "repository": "denoland/deno_install",
+      "commit": "41d4676f8677ec16449b9e2303e7bd52ed81f03b",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/misc-dprint-inherited-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/denoland/deno_install/41d4676f8677ec16449b9e2303e7bd52ed81f03b/LICENSE",
+          "sha256": "d05b09e3cf2c79d84622d51db741eb263950d97fbc7a8c1811675f3287035d8f",
+          "size": 1074
+        }
+      ]
+    },
+    {
+      "component": "misc-oh-my-zsh-inherited",
+      "repository": "zkat/supports-hyperlinks",
+      "commit": "d4729ba67b7d9be04169b2c96444488936cff58e",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/misc-oh-my-zsh-inherited-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/zkat/supports-hyperlinks/d4729ba67b7d9be04169b2c96444488936cff58e/LICENSE",
+          "sha256": "02872c3ff23e11da5a9b3289df11b581be36b4956bfb7cfdc3d8043f92d64794",
+          "size": 10440
+        }
+      ]
+    },
+    {
+      "component": "actionlint",
+      "repository": "rhysd/actionlint",
+      "requested_ref": "011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7",
+      "commit": "011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/actionlint-LICENSE.txt.txt",
+          "source": "https://raw.githubusercontent.com/rhysd/actionlint/011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7/LICENSE.txt",
+          "sha256": "03a26b06d224380a02bf100e05fff3b2dfc71b14d4e2fa685ec9963a87563c22",
+          "size": 1067
+        }
+      ]
+    },
+    {
+      "component": "air",
+      "repository": "air-verse/air",
+      "requested_ref": "71ea1dee05248122ed22b5870c7fb20a90d80ddd",
+      "commit": "71ea1dee05248122ed22b5870c7fb20a90d80ddd",
+      "license": "GPL-3.0",
+      "files": [
+        {
+          "path": "LICENSES/air-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/air-verse/air/71ea1dee05248122ed22b5870c7fb20a90d80ddd/LICENSE",
+          "sha256": "d62f065830aa3739cc031156b9690805c7b2e811b4a178c8b4acd8725d561c94",
+          "size": 35142
+        }
+      ]
+    },
+    {
+      "component": "arkade",
+      "repository": "alexellis/arkade",
+      "requested_ref": "a5f88e9316f954916ea8bf6fed53254417c2d9d6",
+      "commit": "a5f88e9316f954916ea8bf6fed53254417c2d9d6",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/arkade-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/alexellis/arkade/a5f88e9316f954916ea8bf6fed53254417c2d9d6/LICENSE",
+          "sha256": "686d8572347a695bfcabb7e998b32e3f50531767a998208704c07e248387bf19",
+          "size": 1066
+        }
+      ]
+    },
+    {
+      "component": "flux",
+      "repository": "fluxcd/flux2",
+      "requested_ref": "22c6ee1a6099ce252b729199c105a38319b587d4",
+      "commit": "22c6ee1a6099ce252b729199c105a38319b587d4",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/flux-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/fluxcd/flux2/22c6ee1a6099ce252b729199c105a38319b587d4/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "garden",
+      "repository": "garden-io/garden",
+      "requested_ref": "4e7128de8dfb5f38f76a5d005a65a78110be7553",
+      "commit": "4e7128de8dfb5f38f76a5d005a65a78110be7553",
+      "license": "MPL-2.0",
+      "files": [
+        {
+          "path": "LICENSES/garden-LICENSE.md.txt",
+          "source": "https://raw.githubusercontent.com/garden-io/garden/4e7128de8dfb5f38f76a5d005a65a78110be7553/LICENSE.md",
+          "sha256": "64b7244f3febb7e29114bde77c670011aa67a17bc98802b61974fb61b7cf17e5",
+          "size": 15579
+        }
+      ]
+    },
+    {
+      "component": "golangci-lint",
+      "repository": "golangci/golangci-lint",
+      "requested_ref": "b6379d175cf23337327359361a1876c44ae1e6ac",
+      "commit": "b6379d175cf23337327359361a1876c44ae1e6ac",
+      "license": "GPL-3.0",
+      "files": [
+        {
+          "path": "LICENSES/golangci-lint-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/golangci/golangci-lint/b6379d175cf23337327359361a1876c44ae1e6ac/LICENSE",
+          "sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+          "size": 35148
+        }
+      ]
+    },
+    {
+      "component": "goose",
+      "repository": "pressly/goose",
+      "requested_ref": "2d285d2249855c959765409c68b17a6634f0acb4",
+      "commit": "2d285d2249855c959765409c68b17a6634f0acb4",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/goose-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/pressly/goose/2d285d2249855c959765409c68b17a6634f0acb4/LICENSE",
+          "sha256": "f23985556a879c0e68bb4e136ee4b88a550d26fa33db77a65d76b721c93093ef",
+          "size": 1197
+        }
+      ]
+    },
+    {
+      "component": "goreleaser",
+      "repository": "goreleaser/goreleaser",
+      "requested_ref": "2c336825258ec3d4a690d5a0ed55b536b8e88785",
+      "commit": "2c336825258ec3d4a690d5a0ed55b536b8e88785",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/goreleaser-LICENSE.md.txt",
+          "source": "https://raw.githubusercontent.com/goreleaser/goreleaser/2c336825258ec3d4a690d5a0ed55b536b8e88785/LICENSE.md",
+          "sha256": "91de1bc95da05585bfbb163614e01a48b002cf9b27266a1f3e930fe454b17edd",
+          "size": 1085
+        }
+      ]
+    },
+    {
+      "component": "grype",
+      "repository": "anchore/grype",
+      "requested_ref": "82d7a0ea911946b99343c672056867d372f9b319",
+      "commit": "82d7a0ea911946b99343c672056867d372f9b319",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/grype-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/anchore/grype/82d7a0ea911946b99343c672056867d372f9b319/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "infracost",
+      "repository": "infracost/infracost",
+      "requested_ref": "93b9a2d921f19966b09a3d84d2e63bd86f8587d0",
+      "commit": "93b9a2d921f19966b09a3d84d2e63bd86f8587d0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/infracost-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/infracost/infracost/93b9a2d921f19966b09a3d84d2e63bd86f8587d0/LICENSE",
+          "sha256": "de34de041a08b4396b411d3c173132bbcafe902f90307cca5cc00aae00ae6bad",
+          "size": 11344
+        }
+      ]
+    },
+    {
+      "component": "istioctl",
+      "repository": "istio/istio",
+      "requested_ref": "a0956cb8565439ffc90c01562391a9dab3442d8a",
+      "commit": "a0956cb8565439ffc90c01562391a9dab3442d8a",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/istioctl-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/istio/istio/a0956cb8565439ffc90c01562391a9dab3442d8a/LICENSE",
+          "sha256": "9fa6e54dafda853bb3cdc01486b677a55102f0d488282a85ba6e426d9125f8c5",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "jfrog-cli",
+      "repository": "jfrog/jfrog-cli",
+      "requested_ref": "7f74a0887f859e0856e88dcfd26ba3e6f18ed421",
+      "commit": "7f74a0887f859e0856e88dcfd26ba3e6f18ed421",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/jfrog-cli-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/jfrog/jfrog-cli/7f74a0887f859e0856e88dcfd26ba3e6f18ed421/LICENSE",
+          "sha256": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851",
+          "size": 11356
+        }
+      ]
+    },
+    {
+      "component": "k3d",
+      "repository": "k3d-io/k3d",
+      "requested_ref": "fb87e3ab09b91db3dd85d46a6a9067e25db107c0",
+      "commit": "fb87e3ab09b91db3dd85d46a6a9067e25db107c0",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/k3d-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/k3d-io/k3d/fb87e3ab09b91db3dd85d46a6a9067e25db107c0/LICENSE",
+          "sha256": "8174fbb84d2253f37fbb00bb2378a1bbd622a73c450caf635f1bb65163a19a37",
+          "size": 1101
+        }
+      ]
+    },
+    {
+      "component": "k3sup",
+      "repository": "alexellis/k3sup",
+      "requested_ref": "07ee3911f65dc978899f036586c7a99317a31996",
+      "commit": "07ee3911f65dc978899f036586c7a99317a31996",
+      "license": "MIT (K3sup CE only; Pro is proprietary)",
+      "files": [
+        {
+          "path": "LICENSES/k3sup-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/alexellis/k3sup/07ee3911f65dc978899f036586c7a99317a31996/LICENSE",
+          "sha256": "12e56c6343db2c8ef75d8784c3981541621fabaa035fe2b709e8e3e812a3c433",
+          "size": 1246
+        }
+      ],
+      "scope": "Community Edition and public shell installer; excludes Pro binaries, assets, images, and logos."
+    },
+    {
+      "component": "kubescape",
+      "repository": "kubescape/kubescape",
+      "requested_ref": "ff2a50fca72911f8f8c8140a9192922a5f683716",
+      "commit": "ff2a50fca72911f8f8c8140a9192922a5f683716",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/kubescape-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/kubescape/kubescape/ff2a50fca72911f8f8c8140a9192922a5f683716/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        }
+      ]
+    },
+    {
+      "component": "kustomize",
+      "repository": "kubernetes-sigs/kustomize",
+      "requested_ref": "ace3fedfc2e404f835668905cffebcc62f3b8a39",
+      "commit": "ace3fedfc2e404f835668905cffebcc62f3b8a39",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/kustomize-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/ace3fedfc2e404f835668905cffebcc62f3b8a39/LICENSE",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+          "size": 11357
+        },
+        {
+          "path": "LICENSES/kustomize-LICENSE_TEMPLATE.txt",
+          "source": "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/ace3fedfc2e404f835668905cffebcc62f3b8a39/LICENSE_TEMPLATE",
+          "sha256": "4a3524b8a9c80ff8b3e8bcc5b5950bebbe8646c822cfc64fda97b6387531fac5",
+          "size": 68
+        }
+      ]
+    },
+    {
+      "component": "linkerd",
+      "repository": "linkerd/website",
+      "requested_ref": "a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d",
+      "commit": "a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/linkerd-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/linkerd/website/a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d/LICENSE",
+          "sha256": "000b4962e6b27176a0ff89cce4be555b16472cafb5671eb2804a8fdac6854793",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "opentofu",
+      "repository": "opentofu/get.opentofu.org",
+      "requested_ref": "3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e",
+      "commit": "3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e",
+      "license": "Apache-2.0 (installer SPDX declaration); MPL-2.0 (repository root license)",
+      "files": [
+        {
+          "path": "LICENSES/opentofu-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/LICENSE",
+          "sha256": "9a3b11ab54bc1b464e1e5d746d22648d551c90575f40b6438fc1f9ccae8795e9",
+          "size": 16369
+        },
+        {
+          "path": "LICENSES/opentofu-installer-Apache-2.0.txt",
+          "source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        }
+      ],
+      "scope": "Installer begins with Copyright (c) The OpenTofu Authors and SPDX-License-Identifier: Apache-2.0; retain the repository MPL-2.0 notice as well because the installer points to that LICENSE URL."
+    },
+    {
+      "component": "porter",
+      "repository": "getporter/porter",
+      "requested_ref": "f81c35438483d00038a040d1acde75f72542f1d7",
+      "commit": "f81c35438483d00038a040d1acde75f72542f1d7",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/porter-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/getporter/porter/f81c35438483d00038a040d1acde75f72542f1d7/LICENSE",
+          "sha256": "a1bfe19f63680ee87b88e1e356d172a95fcb2335a45cff3730409bd09d61c125",
+          "size": 11344
+        }
+      ]
+    },
+    {
+      "component": "railway",
+      "repository": "railwayapp/cli",
+      "requested_ref": "5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb",
+      "commit": "5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/railway-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/railwayapp/cli/5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb/LICENSE",
+          "sha256": "4a31388aeb41f97559f349ffca253e207181f2cf9d8a713e8891509333193da7",
+          "size": 1069
+        }
+      ]
+    },
+    {
+      "component": "syft",
+      "repository": "anchore/syft",
+      "requested_ref": "30f4bce762f31136e055f2965185f12eb95fbe47",
+      "commit": "30f4bce762f31136e055f2965185f12eb95fbe47",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/syft-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/anchore/syft/30f4bce762f31136e055f2965185f12eb95fbe47/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        }
+      ]
+    },
+    {
+      "component": "tilt",
+      "repository": "tilt-dev/tilt",
+      "requested_ref": "1d760f65afdce2efe4d74494043daa40d60422fd",
+      "commit": "1d760f65afdce2efe4d74494043daa40d60422fd",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/tilt-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/tilt-dev/tilt/1d760f65afdce2efe4d74494043daa40d60422fd/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "path": "LICENSES/tilt-NOTICE.txt",
+          "source": "https://raw.githubusercontent.com/tilt-dev/tilt/1d760f65afdce2efe4d74494043daa40d60422fd/NOTICE",
+          "sha256": "b017aa4bfb61304d6651bdd57779725f91845f653ae9a8b181cddbbda91b6c1d",
+          "size": 117
+        }
+      ]
+    },
+    {
+      "component": "trivy",
+      "repository": "aquasecurity/trivy",
+      "requested_ref": "10ab0f82f059f0913491ba91dea6ba25f850ea5a",
+      "commit": "10ab0f82f059f0913491ba91dea6ba25f850ea5a",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/trivy-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/aquasecurity/trivy/10ab0f82f059f0913491ba91dea6ba25f850ea5a/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "path": "LICENSES/trivy-NOTICE.txt",
+          "source": "https://raw.githubusercontent.com/aquasecurity/trivy/10ab0f82f059f0913491ba91dea6ba25f850ea5a/NOTICE",
+          "sha256": "aed9bc6dab87c6f6567d20bf0f5c0433a8ccd3ad7873322cf79b9244eb720a1f",
+          "size": 137
+        }
+      ]
+    },
+    {
+      "component": "code-server",
+      "repository": "coder/code-server",
+      "requested_ref": "v4.145.2",
+      "commit": "302bc77436721f5a474e06d1fe34cf8f86195d5e",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/code-server-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/coder/code-server/302bc77436721f5a474e06d1fe34cf8f86195d5e/LICENSE",
+          "sha256": "872184c17fe5a3379da02acd21949ea2fcf4793bd4a3b920a96ba8b147741745",
+          "size": 1084
+        }
+      ]
+    },
+    {
+      "component": "dotnet-install-scripts",
+      "repository": "dotnet/install-scripts",
+      "requested_ref": "ee83f9c42135205be4e0503bd472b6f99c9b7d51",
+      "commit": "ee83f9c42135205be4e0503bd472b6f99c9b7d51",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSES/dotnet-install-scripts-LICENSE.TXT.txt",
+          "source": "https://raw.githubusercontent.com/dotnet/install-scripts/ee83f9c42135205be4e0503bd472b6f99c9b7d51/LICENSE.TXT",
+          "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+          "size": 1115
+        }
+      ]
+    },
+    {
+      "component": "sdkman-hooks",
+      "repository": "sdkman/sdkman-hooks",
+      "commit": "a2eb0a137c9074d1aa2132cedc49d983080a2e10",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/sdkman-hooks-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/sdkman/sdkman-hooks/a2eb0a137c9074d1aa2132cedc49d983080a2e10/LICENSE",
+          "sha256": "719a9a4fff933e1e7a1c3dbf2ca67a0c134b2d3a4e04aedf53b5fc6d02572acd",
+          "size": 591
+        },
+        {
+          "path": "LICENSES/sdkman-hooks-APACHE-2.0.txt",
+          "source": "https://raw.githubusercontent.com/sdkman/sdkman-cli/5dbdea513a043658ab185ddf6de27a508a3486dc/LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "size": 10174,
+          "note": "Full Apache-2.0 text supplied alongside sdkman-hooks abbreviated declaration; text obtained from the companion SDKMAN CLI repository."
+        }
+      ]
+    },
+    {
+      "component": "sdkman-cli",
+      "repository": "sdkman/sdkman-cli",
+      "commit": "5dbdea513a043658ab185ddf6de27a508a3486dc",
+      "version": "5.24.0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/sdkman-cli-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/sdkman/sdkman-cli/5dbdea513a043658ab185ddf6de27a508a3486dc/LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "size": 10174
+        }
+      ]
+    },
+    {
+      "component": "sdkman-cli-native",
+      "repository": "sdkman/sdkman-cli-native",
+      "commit": "5b0b38ca644c2ee70cf0a8837b65d43ba7861dbf",
+      "version": "0.8.0",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSES/sdkman-cli-native-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/sdkman/sdkman-cli-native/5b0b38ca644c2ee70cf0a8837b65d43ba7861dbf/LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "size": 10174
+        }
+      ]
+    },
+    {
+      "component": "sdkman-temurin21",
+      "repository": "adoptium/temurin21-binaries",
+      "version": "21.0.13+9",
+      "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+      "distribution": "runtime-fetch-only",
+      "files": [
+        {
+          "path": "LICENSES/sdkman-temurin21-LICENSE.txt",
+          "source": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+          "sha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726",
+          "size": 19274,
+          "archive_sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+          "archive_member": "jdk-21.0.13+9/legal/java.base/LICENSE"
+        },
+        {
+          "path": "LICENSES/sdkman-temurin21-ASSEMBLY_EXCEPTION.txt",
+          "source": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+          "sha256": "75292f03bf23d3db7c985aecc191029b93883200721ed23ed34a2e601463df33",
+          "size": 1514,
+          "archive_sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+          "archive_member": "jdk-21.0.13+9/legal/java.base/ASSEMBLY_EXCEPTION"
+        },
+        {
+          "path": "LICENSES/sdkman-temurin21-NOTICE.txt",
+          "source": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+          "sha256": "c02756bcd9fa8191bf0fda4451bc018414dd44ee35bf09922c24377a475e4b5a",
+          "size": 2400,
+          "archive_sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+          "archive_member": "jdk-21.0.13+9/NOTICE"
+        }
+      ],
+      "notes": "The unmodified JDK archive and installed runtime retain the complete upstream legal/ tree and NOTICE, including third-party notices. This repository does not vendor the JDK binary; these three inventory copies do not replace the full legal/ tree. The original build release metadata reports SOURCE_REPO=https://github.com/adoptium/jdk21u.git, SOURCE=.:git:2ab10ca20c19, BUILD_SOURCE=git:1cf43d7a3e77886bfea7d550a902e151a87d724d."
+    },
+    {
+      "component": "pulumi-application",
+      "repository": "pulumi/pulumi",
+      "commit": "8f735e662d805b7a5bda70931bd627c69fbf38b8",
+      "requested_ref": "v3.274.1",
+      "license": "Apache-2.0",
+      "scope": "Release source repository license; does not establish a license for the separate hosted get.pulumi.com installer or all binary dependencies.",
+      "files": [
+        {
+          "path": "LICENSES/pulumi-pulumi-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/pulumi/pulumi/8f735e662d805b7a5bda70931bd627c69fbf38b8/LICENSE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+          "size": 10174
+        }
+      ]
+    },
+    {
+      "component": "pulumi-random-provider",
+      "repository": "pulumi/pulumi-random",
+      "commit": "49bdb4c03749cbcc916b3d876bd00a21695f0185",
+      "requested_ref": "v4.21.6",
+      "license": "Apache-2.0",
+      "scope": "Release source repository license; does not establish a license for the separate hosted get.pulumi.com installer or all binary dependencies.",
+      "files": [
+        {
+          "path": "LICENSES/pulumi-pulumi-random-LICENSE.txt",
+          "source": "https://raw.githubusercontent.com/pulumi/pulumi-random/49bdb4c03749cbcc916b3d876bd00a21695f0185/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        }
+      ]
+    },
+    {
+      "component": "google-cloud-cli-archive",
+      "repository": "Google Cloud CLI versioned distribution",
+      "requested_ref": "592.0.0",
+      "license": "Apache-2.0 unless an alternate license file applies",
+      "scope": "The versioned archive LICENSE explicitly covers Google Cloud CLI and its source code; alternate dependency notices remain with the complete archive.",
+      "files": [
+        {
+          "path": "LICENSES/google-cloud-cli-LICENSE.txt",
+          "source": "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-592.0.0-linux-x86_64.tar.gz",
+          "sha256": "d5f7fc037d5a22f75f64a78193fc7b02e49740cbcaa75992207ac6e92f76d432",
+          "size": 1001,
+          "archive_member": "google-cloud-sdk/LICENSE",
+          "archive_sha256": "2d841a23a681ab94486af6841e5f1cd123cd300fb8c4be6ba5b51350fca3d50b"
+        },
+        {
+          "path": "LICENSES/google-cloud-cli-Apache-2.0.txt",
+          "source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        }
+      ]
+    }
+  ],
+  "catalog_sources": [
+    {
+      "catalog": "atuin",
+      "path": "assets/catalog/atuin/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh",
+      "sha256": "6c4aba2c831734a8a3c9a924c1199cae05520bf0b359d5e996666a9e9f0e44bf",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "atuin",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "catalog": "atuin",
+      "path": "assets/catalog/atuin/sources/atuin-installer.sh",
+      "url": "https://github.com/atuinsh/atuin/releases/download/v18.24.5/atuin-installer.sh",
+      "sha256": "85742e9f87ab0d8d9c0ea53482c6e178d52599ef2b0fba4f4a336bf168934bce",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "atuin",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "catalog": "bun",
+      "path": "assets/catalog/bun/sources/install.sh",
+      "url": "https://bun.sh/install",
+      "sha256": "04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "bun"
+      ]
+    },
+    {
+      "catalog": "bun-ubuntu22",
+      "path": "assets/catalog/bun-ubuntu22/sources/install.sh",
+      "url": "https://bun.sh/install",
+      "sha256": "04882bf41679d49d9af108657a1e5515bf04fdf2940d12c0d0b1e5d79dc53be8",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "bun"
+      ]
+    },
+    {
+      "catalog": "bun-ubuntu22",
+      "path": "assets/catalog/bun-ubuntu22/sources/offline-bun.sh",
+      "url": null,
+      "sha256": "9aaef1bbb171f907830a9113e23d72012b5777e9c4c3d8ea54ab4f232a664343",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "chezmoi",
+      "path": "assets/catalog/chezmoi/sources/chezmoi.sh",
+      "url": "https://get.chezmoi.io",
+      "sha256": "d92ac6044ecfcd716c0c1d0512693e7d91c3002591cd6c871bb94ef227919982",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "chezmoi",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "catalog": "chezmoi",
+      "path": "assets/catalog/chezmoi/sources/chezmoi-wrapper.sh",
+      "url": null,
+      "sha256": "5ca8990a3e2cd47c3f8686705f467b85c9f498d5c296367518f64a1e2eec100f",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "deno",
+      "path": "assets/catalog/deno/sources/install.sh",
+      "url": "https://deno.land/install.sh",
+      "sha256": "83f19ea13f6d7884f4dc0e2f92e7e08e7589204138d9b6edfcd53c3f07b3273b",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "deno-install"
+      ]
+    },
+    {
+      "catalog": "direnv",
+      "path": "assets/catalog/direnv/sources/direnv.sh",
+      "url": "https://direnv.net/install.sh",
+      "sha256": "b1f9f698e959ed29e6f7b88bc8576c0ab2eb3d8444d30fcd84fbfc393d57034d",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "direnv"
+      ]
+    },
+    {
+      "catalog": "direnv",
+      "path": "assets/catalog/direnv/sources/direnv-wrapper.sh",
+      "url": null,
+      "sha256": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "fnm",
+      "path": "assets/catalog/fnm/sources/install.sh",
+      "url": "https://fnm.vercel.app/install",
+      "sha256": "8431644b1c205ad25d4b09cfe10e0688944d1d2cd542f38d7b3b10e954db8ad9",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "fnm"
+      ]
+    },
+    {
+      "catalog": "helm",
+      "path": "assets/catalog/helm/sources/helm.sh",
+      "url": "https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3",
+      "sha256": "08edc9569a7115a22fdc4ec164a653d072440ad14a8dbe51ca9b321c903c59a9",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "helm",
+        "glide"
+      ]
+    },
+    {
+      "catalog": "helm",
+      "path": "assets/catalog/helm/sources/helm-wrapper.sh",
+      "url": null,
+      "sha256": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "just",
+      "path": "assets/catalog/just/sources/install.sh",
+      "url": "https://just.systems/install.sh",
+      "sha256": "64738ce6bec65ba39848dad0da0b35a467ef32003603bd8e4a419167fa58b1d0",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "just"
+      ]
+    },
+    {
+      "catalog": "mise",
+      "path": "assets/catalog/mise/sources/install.sh",
+      "url": "https://mise.run",
+      "sha256": "ac90f00da1192e8a4b961f0a64399775979d2c75a380a38b7dcc0e41a52bb658",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "mise"
+      ]
+    },
+    {
+      "catalog": "nvm",
+      "path": "assets/catalog/nvm/sources/nvm.sh",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh",
+      "sha256": "2d8359a64a3cb07c02389ad88ceecd43f2fa469c06104f92f98df5b6f315275f",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "nvm"
+      ]
+    },
+    {
+      "catalog": "nvm",
+      "path": "assets/catalog/nvm/sources/nvm-wrapper.sh",
+      "url": null,
+      "sha256": "564873783e322eb936df8d4c762817656eb90c93378d286eb9dbb4c1ef398574",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "oh-my-posh",
+      "path": "assets/catalog/oh-my-posh/sources/install.sh",
+      "url": "https://ohmyposh.dev/install.sh",
+      "sha256": "2e03d4e90e0d390f28ce739fbd90ed2a14f1e7b48bf693d538bede460b547560",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "oh-my-posh"
+      ]
+    },
+    {
+      "catalog": "pixi",
+      "path": "assets/catalog/pixi/sources/install.sh",
+      "url": "https://pixi.sh/install.sh",
+      "sha256": "aad053bec1e6f26fc94e838963fe4dc1892a8e9095d147f78abc6ff15a284b19",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "pixi"
+      ]
+    },
+    {
+      "catalog": "pnpm",
+      "url": "https://raw.githubusercontent.com/pnpm/get.pnpm.io/7c26e549143daf5cf072a38c428170ad8eccaf2d/install.sh",
+      "sha256": "53d3ad6ef67d49d6951f3326bd3180e5c504c8f695bcdf73bb61ec7a4d4c9407",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only; source not included in repository or installed skill",
+      "license_components": [
+        "homebrew-install"
+      ],
+      "excluded_source_path": "assets/catalog/pnpm/sources/install.sh",
+      "license": "Not established for complete installer",
+      "license_components_scope": "Homebrew-derived helper portion only; does not license remaining installer",
+      "recipe_change": "Independently authored download() override inserted immediately before the final download_and_install entrypoint; no copied download function body."
+    },
+    {
+      "catalog": "rclone",
+      "path": "assets/catalog/rclone/sources/rclone.sh",
+      "url": "https://raw.githubusercontent.com/rclone/rclone/master/docs/content/install.sh",
+      "sha256": "b0559bafefe496f29b8a3de47d5779d708ed8b6092d2a5cf7631b8788dac31c2",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "rclone"
+      ]
+    },
+    {
+      "catalog": "rclone",
+      "path": "assets/catalog/rclone/sources/rclone-wrapper.sh",
+      "url": null,
+      "sha256": "db7c9d531ed9cd99ffe9d365edbb102ea7c443d38eaef7ceaea5ddaf232f226e",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "ruff",
+      "path": "assets/catalog/ruff/sources/install.sh",
+      "url": "https://astral.sh/ruff/install.sh",
+      "sha256": "da6db9e18033d80a34c45ae79d1394b3ef5957341a0cab404ae2ed29492b0b80",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "ruff",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "catalog": "rustup",
+      "path": "assets/catalog/rustup/sources/rustup.sh",
+      "url": "https://sh.rustup.rs",
+      "sha256": "d890e2fef6fa991b19cde2e608199bc1dca4e37f41f884edf8849ff693048de6",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "rustup"
+      ]
+    },
+    {
+      "catalog": "starship",
+      "path": "assets/catalog/starship/sources/install.sh",
+      "url": "https://starship.rs/install.sh",
+      "sha256": "52c64f14a558034ebeb1907ea9364e802b32474576fd3e68265f73bc33cc8fbb",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "starship"
+      ]
+    },
+    {
+      "catalog": "task",
+      "path": "assets/catalog/task/sources/install.sh",
+      "url": "https://taskfile.dev/install.sh",
+      "sha256": "e360c4d49273347e8ceb740f98d81d0b8b753de7d1b3c3452bdae7ec54289b99",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "task",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "catalog": "uv",
+      "path": "assets/catalog/uv/sources/install.sh",
+      "url": "https://astral.sh/uv/install.sh",
+      "sha256": "d263ee68314cf5bea36b08e6bd9e2c4563240d7adb73756cf33af5c199b92db4",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "uv",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "zoxide",
+      "path": "assets/catalog/zoxide/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh",
+      "sha256": "0c25aed6cce9d56ee0596c9a5df8cbe99ffd0f7a7054de0262234dd268b61404",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "zoxide",
+        "rustup-zoxide-origin"
+      ]
+    },
+    {
+      "catalog": "dagger",
+      "path": "assets/catalog/dagger/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/dagger/dagger/631cdb609aaddc0037c2ba713e7642cadf645ff4/install.sh",
+      "sha256": "0e02969050598a7749167ff1ba1f8bdb1d823e3bdab1dc6b1e609e502450230c",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "dagger",
+        "shlib"
+      ]
+    },
+    {
+      "catalog": "tfswitch",
+      "path": "assets/catalog/tfswitch/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/warrensbox/terraform-switcher/7f8cf2c8c1e995d3793eab4da120264981695192/install.sh",
+      "sha256": "4e007eed8c12d154fdc3acbaf46cb4b1f64fb07445a9af51d209a1be300eeeb5",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "tfswitch",
+        "shlib"
+      ]
+    },
+    {
+      "catalog": "fzf",
+      "path": "assets/catalog/fzf/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/junegunn/fzf/c7bf2b8eea25952dd257a466c0afa72faae206fb/install",
+      "sha256": "f8e8573b51de1a0d7666fd55952576b83598638258071d1fd49ee3dffc4e3c1e",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "fzf"
+      ]
+    },
+    {
+      "catalog": "fzf",
+      "path": "assets/catalog/fzf/sources/wrapper.sh",
+      "sha256": "368766c120822550fa85c5be01ee1626be4f05d6506104f9a179cd3bafd71b34",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "rqlite",
+      "path": "assets/catalog/rqlite/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/rqlite/rqlite.io/24e1b8a69d8a01e0c265bc7a001b89dca4d9532b/static/install.sh",
+      "sha256": "ba6ff2fdc7a6c0d778b92bb2895ff037f29ec6f45c5f67a713a25388e621effd",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "rqlite"
+      ]
+    },
+    {
+      "catalog": "dolt",
+      "path": "assets/catalog/dolt/sources/install.sh",
+      "url": "https://github.com/dolthub/dolt/releases/download/v2.7.2/install.sh",
+      "sha256": "315e44d567f8a1de04cf4f9a472fe8ccd6c763e389979871b377023df6a5c61a",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "dolt"
+      ]
+    },
+    {
+      "catalog": "skim",
+      "path": "assets/catalog/skim/recipe.json",
+      "url": "https://github.com/skim-rs/skim/releases/download/v5.9.0/skim-installer.sh",
+      "sha256": "bd86c82becd63bb35e4cbb5789e618e071a2d85f586e2b8dd8980abc9534d097",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "skim",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "minijinja-cli",
+      "path": "assets/catalog/minijinja-cli/recipe.json",
+      "url": "https://github.com/mitsuhiko/minijinja/releases/download/3.1.0/minijinja-cli-installer.sh",
+      "sha256": "bbc8fb0f0d35c446e10186538c8ca3883c2adf6e3105de423061352e844f6afc",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "minijinja-cli",
+        "cargo-dist-0.30.3"
+      ]
+    },
+    {
+      "catalog": "posit-air",
+      "path": "assets/catalog/posit-air/recipe.json",
+      "url": "https://github.com/posit-dev/air/releases/download/0.13.0/air-installer.sh",
+      "sha256": "703fc72c0e680e355a8dde85ae74694f3b8b3b155cb55f0b4acd5dc9da278e5e",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "posit-air",
+        "cargo-dist-0.34.0"
+      ]
+    },
+    {
+      "catalog": "prek",
+      "path": "assets/catalog/prek/recipe.json",
+      "url": "https://github.com/j178/prek/releases/download/v0.5.10/prek-installer.sh",
+      "sha256": "953870801c84ffc0548b7ca4137caa6e64f395bbc461db8ad88c1d7209683544",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "prek",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "uutils-findutils",
+      "path": "assets/catalog/uutils-findutils/recipe.json",
+      "url": "https://github.com/uutils/findutils/releases/download/0.11.0/findutils-installer.sh",
+      "sha256": "b808496f27228c55e5afa5fcd094ab6159fa4aa7e7eb5a9cebea608b6219209e",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "uutils-findutils",
+        "cargo-dist-0.33.0"
+      ]
+    },
+    {
+      "catalog": "systemfd",
+      "path": "assets/catalog/systemfd/recipe.json",
+      "url": "https://github.com/mitsuhiko/systemfd/releases/download/0.4.6/systemfd-installer.sh",
+      "sha256": "06fa4d6d63d0e30bb38825563fe51ff5dcb2579eb4d788281fc157155d5c454a",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "systemfd",
+        "cargo-dist-0.28.0"
+      ]
+    },
+    {
+      "catalog": "worktrunk",
+      "path": "assets/catalog/worktrunk/recipe.json",
+      "url": "https://github.com/max-sixty/worktrunk/releases/download/v0.81.0/worktrunk-installer.sh",
+      "sha256": "5f16785e362a949b99451f63e81c10027e209c3f326e3fa95b81cf01e5494838",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "worktrunk",
+        "cargo-dist-0.30.2"
+      ]
+    },
+    {
+      "catalog": "secretspec",
+      "path": "assets/catalog/secretspec/recipe.json",
+      "url": "https://github.com/cachix/secretspec/releases/download/v0.21.1/secretspec-installer.sh",
+      "sha256": "f5962bdfe702f0ad0894f9c5ce9187b6a3228edb3b26526954e32f91dc10aec7",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "secretspec",
+        "cargo-dist-0.29.0"
+      ]
+    },
+    {
+      "catalog": "cargo-insta",
+      "path": "assets/catalog/cargo-insta/recipe.json",
+      "url": "https://github.com/mitsuhiko/insta/releases/download/1.49.0/cargo-insta-installer.sh",
+      "sha256": "bfddba1cf9a56aabba3a78e210a68805a92be6e2883d63793072d7e22eee8802",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "cargo-insta",
+        "cargo-dist-0.30.2"
+      ]
+    },
+    {
+      "catalog": "oranda",
+      "path": "assets/catalog/oranda/recipe.json",
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-installer.sh",
+      "sha256": "4a03a317b3e1b70efe79eaf85e078cdff99b523f320620f5a7d79f763d877a28",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "oranda",
+        "cargo-dist-0.16.0-prerelease.6"
+      ]
+    },
+    {
+      "catalog": "cargo-binstall",
+      "path": "assets/catalog/cargo-binstall/recipe.json",
+      "url": "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/734bf48fca953a635646ba559fa32ddad1e6b6bd/install-from-binstall-release.sh",
+      "sha256": "d3a93702160e0ec03e2a4e996855db1f01adee801fb84a43add24e0877ef8eae",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": []
+    },
+    {
+      "catalog": "dust",
+      "path": "assets/catalog/dust/recipe.json",
+      "url": "https://raw.githubusercontent.com/bootandy/dust/079c55266917387e416e0f871c97c06da52df12d/install.sh",
+      "sha256": "0968c7583d692de91ba1fae251afe8c0c5cefcf975f3ddf5a6538f43315d6f8c",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "dust"
+      ]
+    },
+    {
+      "catalog": "xh",
+      "path": "assets/catalog/xh/recipe.json",
+      "url": "https://raw.githubusercontent.com/ducaale/xh/8b21cc07a6deeff0ca50ba2a4bfa8d34daffd94f/install.sh",
+      "sha256": "dc47b7fc1e5997b81424f762ebe6aeda81be835c53f099e429ccb89cbca29842",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "xh"
+      ]
+    },
+    {
+      "catalog": "mcfly",
+      "path": "assets/catalog/mcfly/recipe.json",
+      "url": "https://raw.githubusercontent.com/cantino/mcfly/6eed8ebd879c257249f1f4e07b8515edb1e9e395/ci/install.sh",
+      "sha256": "356a67566d1b7b2975500878ae9e4e0f4a23052e57c846755169d242be00bba3",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "mcfly",
+        "japaric-trust"
+      ]
+    },
+    {
+      "catalog": "sheldon",
+      "path": "assets/catalog/sheldon/recipe.json",
+      "url": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/crate.sh",
+      "sha256": "9ff2b3ee918dd345807aece8abf2231fab4f1d827867c4e933d1da1a4924cc9d",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "sheldon"
+      ]
+    },
+    {
+      "catalog": "cargo-dist",
+      "path": "assets/catalog/cargo-dist/recipe.json",
+      "url": "https://github.com/axodotdev/cargo-dist/releases/download/v0.34.0/cargo-dist-installer.sh",
+      "sha256": "abb014a8486f08a3c2d9dd8bbf2c646c62fab61b1f1c9ff5bf2811ab305d17b1",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "cargo-dist",
+        "cargo-dist-0.34.0-prerelease.1"
+      ]
+    },
+    {
+      "catalog": "cargo-auditable",
+      "path": "assets/catalog/cargo-auditable/recipe.json",
+      "url": "https://github.com/rust-secure-code/cargo-auditable/releases/download/v0.7.7/cargo-auditable-installer.sh",
+      "sha256": "232904f2a30ecaf9027903f6327f08c8232917f8fa985540dce0ad9813e4dd92",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "cargo-auditable",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "catalog": "cargo-mommy",
+      "path": "assets/catalog/cargo-mommy/recipe.json",
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-installer.sh",
+      "sha256": "9bd7086ab196a830f269f5afc5c82222c2e5150f6e31ea25bd51dbf807e3b1a6",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "cargo-mommy",
+        "cargo-dist-0.4.3"
+      ]
+    },
+    {
+      "catalog": "near-cli",
+      "path": "assets/catalog/near-cli/recipe.json",
+      "url": "https://github.com/near/near-cli-rs/releases/download/v0.31.1/near-cli-rs-installer.sh",
+      "sha256": "d131d9953720f15d80758031b10915001ada18242a7bb14c82490b41a5d60a06",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "near-cli",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "svix-cli",
+      "path": "assets/catalog/svix-cli/recipe.json",
+      "url": "https://github.com/svix/svix-webhooks/releases/download/v2.9.1/svix-cli-installer.sh",
+      "sha256": "117f886f6022a12f8f4e3c5c4c225c959ba87d34482a3a66ad1cbe67eefc1db6",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "svix-cli",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "chsrc",
+      "path": "assets/catalog/chsrc/recipe.json",
+      "url": "https://raw.githubusercontent.com/RubyMetric/chsrc/03dd727e76b3510fc0f26f74c5cb1ec13702b0e0/tool/installer.sh",
+      "sha256": "3d953d22eeeaf411b5f453c3a5035937f96b6f44d4dab72531048229acd6f5c5",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "chsrc"
+      ]
+    },
+    {
+      "catalog": "git-standup",
+      "path": "assets/catalog/git-standup/recipe.json",
+      "url": "https://raw.githubusercontent.com/nilbuild/git-standup/a8031b89636791936fa00c3e64799748572a9e11/installer.sh",
+      "sha256": "30aebf5d9ddb571244a8fbd34ee934c9382b6527ffe21569c2d950cbf0292a29",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "git-standup"
+      ]
+    },
+    {
+      "catalog": "cargo-leptos",
+      "path": "assets/catalog/cargo-leptos/recipe.json",
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-installer.sh",
+      "sha256": "3104fd1818f6e4ae67974734f2cfa7e61ded88df11c184c6d4a94ac2bb9de8e9",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "cargo-leptos",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "catalog": "sql-studio",
+      "path": "assets/catalog/sql-studio/recipe.json",
+      "url": "https://github.com/frectonz/sql-studio/releases/download/0.1.53/sql-studio-installer.sh",
+      "sha256": "79447e11578219170f48edef18f1690d846d0843baab8881de9468d2f7e33518",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "sql-studio",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "catalog": "samply",
+      "path": "assets/catalog/samply/recipe.json",
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-installer.sh",
+      "sha256": "0573ba577d99bb14f2f9c612115866e03752be7717ce2eb8ab7eb66b9f60d510",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "samply",
+        "cargo-dist-0.28.0"
+      ]
+    },
+    {
+      "catalog": "volta",
+      "url": "https://raw.githubusercontent.com/volta-cli/volta/5eedd5fb2f682baceb47a242289111fcd79435a5/dev/unix/volta-install.sh",
+      "sha256": "fbdc4b8cb33fb6d19e5f07b22423265943d34e7e5c3d5a1efcecc9621854f9cb",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-volta"
+      ],
+      "excluded_source_path": "assets/catalog/volta/upstream/install.sh"
+    },
+    {
+      "catalog": "dprint",
+      "url": "https://raw.githubusercontent.com/dprint/dprint/9c48f60bb912c1fd1aedd545f472f7fc5427cf6e/website/src/assets/install.sh",
+      "sha256": "177d5f7623012b447ef9ea99c3a143bfe5061e7c3915bba746c8e1159898ef30",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-dprint",
+        "misc-dprint-inherited"
+      ],
+      "excluded_source_path": "assets/catalog/dprint/upstream/install.sh"
+    },
+    {
+      "catalog": "yarn",
+      "url": "https://raw.githubusercontent.com/yarnpkg/website/c6faf3f95dabb4a90789431fb1cf404e46d7ced1/install.sh",
+      "sha256": "19f48dbd5049613c1a285ec9d92d716879965456cd7ff60169e14503b588f40e",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "excluded_source_path": "assets/catalog/yarn/upstream/install.sh"
+    },
+    {
+      "catalog": "yarn",
+      "path": "assets/catalog/yarn/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "87ad97b5dc67fde5a340ee6051ce0376f4800e7bc8da77ff60293315fc9f6d39",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "poetry",
+      "path": "assets/catalog/poetry/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "3feb04ed19b03579cb6f8fa96928bf04639f07a6b39e4e5590c69d6fd255faa4",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "pdm",
+      "path": "assets/catalog/pdm/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "3f08d133dc9e6988c5ce7d5c50bb5acb2da3c44bbe859695b22f42b0bbd80293",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "micromamba",
+      "url": "https://raw.githubusercontent.com/mamba-org/micromamba-releases/346bb1cf50c51a92d58dd4c3063e7c70b78a8246/install.sh",
+      "sha256": "b0c482f627af23613f21b31bbaa70e4829544acc91430cafd3d5b4c37b5651ff",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "excluded_source_path": "assets/catalog/micromamba/upstream/install.sh"
+    },
+    {
+      "catalog": "scala-cli",
+      "url": "https://raw.githubusercontent.com/VirtusLab/scala-cli-packages/f4749ccacf7a9275fa667a3f9fd87faf5d916666/scala-setup.sh",
+      "sha256": "5efeef106c6e359152328afcf5177fac5343382b9809cb20680890c5c59fdd12",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "excluded_source_path": "assets/catalog/scala-cli/upstream/install.sh"
+    },
+    {
+      "catalog": "elan",
+      "url": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/elan-init.sh",
+      "sha256": "a620ff1641616222c8d37c54845492004bb84d6877cdbc944dd65c1aa685bf53",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-elan"
+      ],
+      "excluded_source_path": "assets/catalog/elan/upstream/install.sh"
+    },
+    {
+      "catalog": "ghcup",
+      "url": "https://raw.githubusercontent.com/haskell/ghcup-hs/e24077bc3640f55171735b11dffc0223dacfc7fe/scripts/bootstrap/bootstrap-haskell",
+      "sha256": "c85add4cdca779ea34bcbeeb3a311bbfed23fc96583311df41fe4e73554eba6d",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-ghcup"
+      ],
+      "excluded_source_path": "assets/catalog/ghcup/upstream/install.sh"
+    },
+    {
+      "catalog": "stack",
+      "url": "https://raw.githubusercontent.com/commercialhaskell/stack/3e8fff0c6875ef85cb184eaba658825aa3c1fbed/etc/scripts/get-stack.sh",
+      "sha256": "cfc74001e126a0fff5dad961aec5b3bda43f29b1174d3538d1ee56248cdf7e2a",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-stack"
+      ],
+      "excluded_source_path": "assets/catalog/stack/upstream/install.sh"
+    },
+    {
+      "catalog": "babashka",
+      "url": "https://raw.githubusercontent.com/babashka/babashka/5099cbfbf8d6fd4cd82fd5033370c5c467601acb/install",
+      "sha256": "85b4e836f50d64b0b1d28ae626865aef42ab9c7e488e177aa96ed5841bb52bc9",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-babashka"
+      ],
+      "excluded_source_path": "assets/catalog/babashka/upstream/install.sh"
+    },
+    {
+      "catalog": "clj-kondo",
+      "url": "https://raw.githubusercontent.com/clj-kondo/clj-kondo/a4edb32ce85c2a7f7d08cdce5baf0fd32c6467ba/script/install-clj-kondo",
+      "sha256": "d9cf19708152a1e1ea31774e4aa4b6cbf275fb01c5a5b1e758f92c8553710860",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-clj-kondo"
+      ],
+      "excluded_source_path": "assets/catalog/clj-kondo/upstream/install.sh"
+    },
+    {
+      "catalog": "clojure-lsp",
+      "url": "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/3ef962ffa9c79c3360b3119af102d7d62b1d8eac/install",
+      "sha256": "31d68f040afa20bada37e1e1f81846a96aa24c6be97e48cda67283bf39a10bf4",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-clojure-lsp",
+        "misc-babashka"
+      ],
+      "excluded_source_path": "assets/catalog/clojure-lsp/upstream/install.sh"
+    },
+    {
+      "catalog": "jet",
+      "url": "https://raw.githubusercontent.com/borkdude/jet/3d990da120b82c0375599577b897b63b5fe67942/install",
+      "sha256": "7ace41d8f212718f69f5274d1c0ff4da23f1b9ccd214aabea411dd62a757c6f7",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-jet"
+      ],
+      "excluded_source_path": "assets/catalog/jet/upstream/install.sh"
+    },
+    {
+      "catalog": "opam",
+      "url": "https://raw.githubusercontent.com/ocaml/opam/ac518a2fa874b957e109fdd178c0cf36c06ae95b/shell/install.sh",
+      "sha256": "152f07cead16dc5e99668dd32e3991c2a7957db9ce77e675c010a988f340f7de",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-opam"
+      ],
+      "excluded_source_path": "assets/catalog/opam/upstream/install.sh"
+    },
+    {
+      "catalog": "opam",
+      "path": "assets/catalog/opam/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "d1f7200beec211e37857591dfb874bb289272829b9ca60d8984c2210d7236db9",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "bats",
+      "url": "https://raw.githubusercontent.com/bats-core/bats-core/9c153ec126fa6c005dfc6d2a39c04bb81a329e9b/install.sh",
+      "sha256": "4c816c0f245784e190f2093cf6f3aa69e6a50a0d8d9e0a0c77d3f46a8178218b",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-bats"
+      ],
+      "excluded_source_path": "assets/catalog/bats/upstream/install.sh"
+    },
+    {
+      "catalog": "bats",
+      "path": "assets/catalog/bats/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "d0ece98a41e42ec499369ffebbb9d38125a5da132b50b9875fe5c0e0fdf2edb3",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "bash-it",
+      "url": "https://raw.githubusercontent.com/Bash-it/bash-it/72ea9e285fe1828977d1cd2bc596b901bcc57440/install.sh",
+      "sha256": "d67e459eae6417dcc7be72b12df533f8bf19bbe0b1aec5a06683ae470ab1568f",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-bash-it"
+      ],
+      "excluded_source_path": "assets/catalog/bash-it/upstream/install.sh"
+    },
+    {
+      "catalog": "bash-it",
+      "path": "assets/catalog/bash-it/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "dd492f797154a04d112cb5cbf16f9b7ec1f1b116c07f7a1d4c2d67afbd632059",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "basher",
+      "url": "https://raw.githubusercontent.com/basherpm/basher/7c3d238ce263856edbb99fee000613c01ba5712d/install.sh",
+      "sha256": "bc3b04b8e0566f62583dfea4fafdde3c0e11e86a11c9eaa880f4bfae8dac15e1",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-basher"
+      ],
+      "excluded_source_path": "assets/catalog/basher/upstream/install.sh"
+    },
+    {
+      "catalog": "basher",
+      "path": "assets/catalog/basher/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "2766c1309655dc187723315373192fdf1ee8fb191c4b93e96976780efcdfac2e",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "bpkg",
+      "url": "https://raw.githubusercontent.com/bpkg/bpkg/c7f5a467ec53e61d2344f5d1ab5766949c3bffdf/setup.sh",
+      "sha256": "77da7ff460c721749b8493f60ba6ec4c967f1109a28dc53a2962a6e6f7d6cc15",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-bpkg"
+      ],
+      "excluded_source_path": "assets/catalog/bpkg/upstream/install.sh"
+    },
+    {
+      "catalog": "bpkg",
+      "path": "assets/catalog/bpkg/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "3d3b80e252cb7cfeaf7df8f5d13d7b24986baf0a1813910c647b26b1770fd13e",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "oh-my-zsh",
+      "url": "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/cca3bdfbef8c52ef8939ce7911ff68852b949daa/tools/install.sh",
+      "sha256": "5574b96e94dbcb769f0d1592fa83aeb6ca2caf41c6ae5d76fcc7f04c524b4f55",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-oh-my-zsh",
+        "misc-oh-my-zsh-inherited"
+      ],
+      "excluded_source_path": "assets/catalog/oh-my-zsh/upstream/install.sh"
+    },
+    {
+      "catalog": "oh-my-zsh",
+      "path": "assets/catalog/oh-my-zsh/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "541a3a2b6db36d7c0439e3d2fad62c4a0485e32c1db0b1e756515cbf19235fbd",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "zinit",
+      "url": "https://raw.githubusercontent.com/zdharma-continuum/zinit/cb4968123979cf073384e93aa8066d8fd450580f/scripts/install.sh",
+      "sha256": "f08d2bf2b41106924db1c0b4ef561becf5b1228598b777b3ad9d5029fae94757",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-zinit"
+      ],
+      "excluded_source_path": "assets/catalog/zinit/upstream/install.sh"
+    },
+    {
+      "catalog": "pyenv",
+      "url": "https://raw.githubusercontent.com/pyenv/pyenv-installer/bdd89156f0e591558ca901c5984387dd993157f9/bin/pyenv-installer",
+      "sha256": "2bf587665219d2ed3e262fc2c3d9e6843b48f64435bc489d936f03e68b5f610d",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-pyenv"
+      ],
+      "excluded_source_path": "assets/catalog/pyenv/upstream/install.sh"
+    },
+    {
+      "catalog": "pyenv",
+      "path": "assets/catalog/pyenv/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "5432de8307c26e246c76279d09122c4ad46d16691ae168c907bafd40750b381d",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "rbenv",
+      "url": "https://raw.githubusercontent.com/rbenv/rbenv-installer/a5350919f70fd398f327b2efcd072500ab7f29ce/bin/rbenv-installer",
+      "sha256": "9a1f19c4564cc8954bca75640d320fcc98cf40187d73531156629edd36606f2f",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-rbenv"
+      ],
+      "excluded_source_path": "assets/catalog/rbenv/upstream/install.sh"
+    },
+    {
+      "catalog": "perlbrew",
+      "url": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew-install",
+      "sha256": "8f254651d2eee188199b3355228eb67166974716081b794ca93b69c8f949c38d",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-perlbrew"
+      ],
+      "excluded_source_path": "assets/catalog/perlbrew/upstream/install.sh"
+    },
+    {
+      "catalog": "xmake",
+      "url": "https://raw.githubusercontent.com/xmake-io/xmake/8dd9de1ff4e5070931d190c3a109d39825fd62ab/scripts/get.sh",
+      "sha256": "5b83584bf2d57aa96a1579398a8bbc2bab74d62680623ce1dd3fd73732c8b115",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-xmake"
+      ],
+      "excluded_source_path": "assets/catalog/xmake/upstream/install.sh"
+    },
+    {
+      "catalog": "poetry",
+      "excluded_source_path": "resources/installer.py",
+      "url": "https://raw.githubusercontent.com/python-poetry/install.python-poetry.org/2f790add2550cadc4574715a92950bb63491aa64/install-poetry.py",
+      "sha256": "75745ca71373a7b22fa150953543f03d826a52f8e4bc4350328a33bddd668026",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "license": "Not established for complete installer"
+    },
+    {
+      "catalog": "pdm",
+      "excluded_source_path": "resources/installer.py",
+      "url": "https://raw.githubusercontent.com/pdm-project/pdm/112d7b8a1605fb409449a3ec5be370a177be0639/install-pdm.py",
+      "sha256": "8c947c5c9ea7a1b84685d5aff9122d974ffa57d1a499f7873d24c61a0781d3a6",
+      "origin": "upstream",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "misc-pdm"
+      ],
+      "license": "MIT"
+    },
+    {
+      "catalog": "actionlint",
+      "path": "assets/catalog/actionlint/recipe.json",
+      "url": "https://raw.githubusercontent.com/rhysd/actionlint/011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7/scripts/download-actionlint.bash",
+      "sha256": "a96d60132afb74536ff2b55cc784d5c55b0b57980d3d49f962f0b3871447d53a",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "actionlint"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "011a6d15e749bb3f2d771eed9c7aa0e7e3e10ee7"
+    },
+    {
+      "catalog": "actionlint",
+      "path": "assets/catalog/actionlint/sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "air",
+      "path": "assets/catalog/air/recipe.json",
+      "url": "https://raw.githubusercontent.com/air-verse/air/71ea1dee05248122ed22b5870c7fb20a90d80ddd/install.sh",
+      "sha256": "e342e2be291835f0ab47b932d45925203ab50df3f45cbe47b42afe4b53b29d13",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "air",
+        "godownloader",
+        "shlib"
+      ],
+      "copyright_and_attribution": [
+        "Public domain - http://unlicense.org"
+      ],
+      "commit": "71ea1dee05248122ed22b5870c7fb20a90d80ddd"
+    },
+    {
+      "catalog": "air",
+      "path": "assets/catalog/air/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "arkade",
+      "path": "assets/catalog/arkade/recipe.json",
+      "url": "https://raw.githubusercontent.com/alexellis/arkade/a5f88e9316f954916ea8bf6fed53254417c2d9d6/get.sh",
+      "sha256": "1b28d3ba65212a213b0574aa71845a6c9b0a643bf7bfd6fdeb1020b5145ad30e",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "arkade"
+      ],
+      "copyright_and_attribution": [
+        "# Copyright OpenFaaS Author(s) 2022"
+      ],
+      "commit": "a5f88e9316f954916ea8bf6fed53254417c2d9d6"
+    },
+    {
+      "catalog": "arkade",
+      "path": "assets/catalog/arkade/sources/wrapper.sh",
+      "sha256": "feb582c03ca82293c2a558efbb9b16a3e6148886ce237c770660d2363cfae7dd",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "flux",
+      "path": "assets/catalog/flux/recipe.json",
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/22c6ee1a6099ce252b729199c105a38319b587d4/install/flux.sh",
+      "sha256": "60b78fb0ff7ff63f43e5d97a7bf020380e97c9da73d11aa5f44246ea0e5c9053",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "flux"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "22c6ee1a6099ce252b729199c105a38319b587d4"
+    },
+    {
+      "catalog": "flux",
+      "path": "assets/catalog/flux/sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "flyctl",
+      "path": "assets/catalog/flyctl/recipe.json",
+      "url": "https://fly.io/install.sh",
+      "sha256": "8f98224a0b8f00cf290a009ca521881ed0e86cd98067ee0c13c83ab526777b82",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "deno-install"
+      ],
+      "copyright_and_attribution": [
+        "# Based on Deno installer: Copyright 2019 the Deno authors. All rights reserved. MIT license."
+      ],
+      "version_binding": "Official hosted entrypoint pinned by SHA-256; no Git commit claim. Changed bytes must fail the build pending reanalysis."
+    },
+    {
+      "catalog": "garden",
+      "path": "assets/catalog/garden/recipe.json",
+      "url": "https://raw.githubusercontent.com/garden-io/garden/4e7128de8dfb5f38f76a5d005a65a78110be7553/support/install.sh",
+      "sha256": "8e086a69bf4d40bb71b59321d9e84256cd831d2a0e130a3f7a763ef3e046c34a",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "garden"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "4e7128de8dfb5f38f76a5d005a65a78110be7553"
+    },
+    {
+      "catalog": "golangci-lint",
+      "path": "assets/catalog/golangci-lint/recipe.json",
+      "url": "https://raw.githubusercontent.com/golangci/golangci-lint/b6379d175cf23337327359361a1876c44ae1e6ac/install.sh",
+      "sha256": "1022ddb4d87ed252350ed03fc9677e250a4ae95cc6bcd4658c2a20a8a23d390f",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "golangci-lint",
+        "shlib"
+      ],
+      "copyright_and_attribution": [
+        "Public domain - http://unlicense.org"
+      ],
+      "commit": "b6379d175cf23337327359361a1876c44ae1e6ac"
+    },
+    {
+      "catalog": "golangci-lint",
+      "path": "assets/catalog/golangci-lint/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "goose",
+      "path": "assets/catalog/goose/recipe.json",
+      "url": "https://raw.githubusercontent.com/pressly/goose/2d285d2249855c959765409c68b17a6634f0acb4/install.sh",
+      "sha256": "c23ea72ff36577fab5274ececc2e9f21f0b3e46c53b202c0ad6d7bfc31bcfd6f",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "goose",
+        "deno-install"
+      ],
+      "copyright_and_attribution": [
+        "# Adapted from the Deno installer: Copyright 2019 the Deno authors. All rights reserved. MIT license."
+      ],
+      "commit": "2d285d2249855c959765409c68b17a6634f0acb4"
+    },
+    {
+      "catalog": "goreleaser",
+      "path": "assets/catalog/goreleaser/recipe.json",
+      "url": "https://raw.githubusercontent.com/goreleaser/goreleaser/2c336825258ec3d4a690d5a0ed55b536b8e88785/www/static/run",
+      "sha256": "85e64ae3bab7052ef7917f23084fb8b22526328801864686e86fa1b6a2a7852d",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "goreleaser"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "2c336825258ec3d4a690d5a0ed55b536b8e88785"
+    },
+    {
+      "catalog": "grype",
+      "path": "assets/catalog/grype/recipe.json",
+      "url": "https://raw.githubusercontent.com/anchore/grype/82d7a0ea911946b99343c672056867d372f9b319/install.sh",
+      "sha256": "4bc8e844d1ca0b74082cb51e1587d58c35150756954660db3d3078e57c81cbfd",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "grype",
+        "shlib"
+      ],
+      "copyright_and_attribution": [
+        "# Public domain - http://unlicense.org"
+      ],
+      "commit": "82d7a0ea911946b99343c672056867d372f9b319"
+    },
+    {
+      "catalog": "grype",
+      "path": "assets/catalog/grype/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "infracost",
+      "path": "assets/catalog/infracost/recipe.json",
+      "url": "https://raw.githubusercontent.com/infracost/infracost/93b9a2d921f19966b09a3d84d2e63bd86f8587d0/scripts/install.sh",
+      "sha256": "783f42e471a58d62463b3dcd0baf877bbc19aad0c7edf25c1332b332ebb33fd5",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "infracost"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "93b9a2d921f19966b09a3d84d2e63bd86f8587d0"
+    },
+    {
+      "catalog": "infracost",
+      "path": "assets/catalog/infracost/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "istioctl",
+      "path": "assets/catalog/istioctl/recipe.json",
+      "url": "https://raw.githubusercontent.com/istio/istio/a0956cb8565439ffc90c01562391a9dab3442d8a/release/downloadIstioCtl.sh",
+      "sha256": "2cfcf1b6690ca43a5f5191241d58dbe43df4081c8baba4c856d8d5c0c1c5c880",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "istioctl"
+      ],
+      "copyright_and_attribution": [
+        "# Copyright Istio Authors"
+      ],
+      "commit": "a0956cb8565439ffc90c01562391a9dab3442d8a"
+    },
+    {
+      "catalog": "jfrog-cli",
+      "path": "assets/catalog/jfrog-cli/recipe.json",
+      "url": "https://raw.githubusercontent.com/jfrog/jfrog-cli/7f74a0887f859e0856e88dcfd26ba3e6f18ed421/build/installcli/jf.sh",
+      "sha256": "7a6ca4b2bc5dbaaf20c38cb72538de2660674d2dfd3cac96f567899d0362c715",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "jfrog-cli"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "7f74a0887f859e0856e88dcfd26ba3e6f18ed421"
+    },
+    {
+      "catalog": "jfrog-cli",
+      "path": "assets/catalog/jfrog-cli/sources/wrapper.sh",
+      "sha256": "fa94a67217e2f98305c416955140be0b9087a25aa2b256d47a537d5e834899e7",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "k0s",
+      "path": "assets/catalog/k0s/recipe.json",
+      "url": "https://raw.githubusercontent.com/k0sproject/get/f640708ce3ec6f34b9e61f5b14d6b92ead57fa58/index.html",
+      "sha256": "e7491fa3afd1e0e3b22d86b5d58b1824d3532204387e5689db28d5213c9657a1",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "copyright_and_attribution": [],
+      "commit": "f640708ce3ec6f34b9e61f5b14d6b92ead57fa58"
+    },
+    {
+      "catalog": "k3d",
+      "path": "assets/catalog/k3d/recipe.json",
+      "url": "https://raw.githubusercontent.com/k3d-io/k3d/fb87e3ab09b91db3dd85d46a6a9067e25db107c0/install.sh",
+      "sha256": "f360710b6555d7b95f510b583b7c6050c6453e5b1d91cbb046864897d5915347",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "k3d"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "fb87e3ab09b91db3dd85d46a6a9067e25db107c0"
+    },
+    {
+      "catalog": "k3d",
+      "path": "assets/catalog/k3d/sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "k3sup",
+      "path": "assets/catalog/k3sup/recipe.json",
+      "url": "https://raw.githubusercontent.com/alexellis/k3sup/07ee3911f65dc978899f036586c7a99317a31996/get.sh",
+      "sha256": "2d9ca8e6942161ce0d8fc49d3e6d11ae626d11e42f7c9409aa1ae023837d99f4",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "k3sup"
+      ],
+      "copyright_and_attribution": [
+        "# Copyright OpenFaaS Author(s) 2019"
+      ],
+      "commit": "07ee3911f65dc978899f036586c7a99317a31996"
+    },
+    {
+      "catalog": "k3sup",
+      "path": "assets/catalog/k3sup/sources/wrapper.sh",
+      "sha256": "feb582c03ca82293c2a558efbb9b16a3e6148886ce237c770660d2363cfae7dd",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "kubescape",
+      "path": "assets/catalog/kubescape/recipe.json",
+      "url": "https://raw.githubusercontent.com/kubescape/kubescape/ff2a50fca72911f8f8c8140a9192922a5f683716/install.sh",
+      "sha256": "53df81b4a49ed4810d8eec81523e3e5bb1eb34db48007fbdd381dbcab39abb2c",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "kubescape"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "ff2a50fca72911f8f8c8140a9192922a5f683716"
+    },
+    {
+      "catalog": "kustomize",
+      "path": "assets/catalog/kustomize/recipe.json",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/ace3fedfc2e404f835668905cffebcc62f3b8a39/hack/install_kustomize.sh",
+      "sha256": "0a76e6dd4e73b9bc0cac5ba9f014bf04f07c462de234ebcabc0bddf79c3ccc0d",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "kustomize"
+      ],
+      "copyright_and_attribution": [
+        "# Copyright 2022 The Kubernetes Authors.",
+        "# SPDX-License-Identifier: Apache-2.0"
+      ],
+      "commit": "ace3fedfc2e404f835668905cffebcc62f3b8a39"
+    },
+    {
+      "catalog": "kustomize",
+      "path": "assets/catalog/kustomize/sources/wrapper.sh",
+      "sha256": "b20705600571e975e11443bda849c245b9bd8b8ce4df4a4b22ba9348e86e930f",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "linkerd",
+      "path": "assets/catalog/linkerd/recipe.json",
+      "url": "https://raw.githubusercontent.com/linkerd/website/a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d/run.linkerd.io/public/install",
+      "sha256": "199a78f845b65d4a219510da9f2c94f8ec27f0edd61d673f509785482192c046",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "linkerd"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d"
+    },
+    {
+      "catalog": "opentofu",
+      "path": "assets/catalog/opentofu/recipe.json",
+      "url": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/static/install-opentofu.sh",
+      "sha256": "e4e899ae7bd86241fd17ad99e9d32f5b2d20a11b1a40d088acabb6e06dba49c5",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "opentofu"
+      ],
+      "copyright_and_attribution": [
+        "# Copyright (c) The OpenTofu Authors",
+        "# SPDX-License-Identifier: Apache-2.0"
+      ],
+      "commit": "3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e"
+    },
+    {
+      "catalog": "opentofu",
+      "path": "assets/catalog/opentofu/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "porter",
+      "path": "assets/catalog/porter/recipe.json",
+      "url": "https://raw.githubusercontent.com/getporter/porter/f81c35438483d00038a040d1acde75f72542f1d7/scripts/install/install-linux.sh",
+      "sha256": "fabc694529cb8e6b4aa964f3468038e0d356ec2193794cce13edee040a95dd16",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "porter"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "f81c35438483d00038a040d1acde75f72542f1d7"
+    },
+    {
+      "catalog": "porter",
+      "path": "assets/catalog/porter/sources/wrapper.sh",
+      "sha256": "969a7f87a2eacf43e48ade70c7ac203957c7f6bae11db13c6119e8d369b846a8",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "railway",
+      "path": "assets/catalog/railway/recipe.json",
+      "url": "https://raw.githubusercontent.com/railwayapp/cli/5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb/install.sh",
+      "sha256": "3675a6fc3ad9536c0434366d993af38488e8a038cea1e58c4330b36371ec717d",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "railway",
+        "starship"
+      ],
+      "copyright_and_attribution": [
+        "# Adapted from https://github.com/starship/starship/blob/master/install/install.sh"
+      ],
+      "commit": "5a07ac2ae44ec2fcf892ba96e18f638402c7f8fb"
+    },
+    {
+      "catalog": "railway",
+      "path": "assets/catalog/railway/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "syft",
+      "path": "assets/catalog/syft/recipe.json",
+      "url": "https://raw.githubusercontent.com/anchore/syft/30f4bce762f31136e055f2965185f12eb95fbe47/install.sh",
+      "sha256": "2ed88b163a4576521598f9e573bd3d64f39c7b5912a21fb9571a9d604ca64b3b",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "syft",
+        "shlib"
+      ],
+      "copyright_and_attribution": [
+        "# Public domain - http://unlicense.org"
+      ],
+      "commit": "30f4bce762f31136e055f2965185f12eb95fbe47"
+    },
+    {
+      "catalog": "syft",
+      "path": "assets/catalog/syft/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "tilt",
+      "path": "assets/catalog/tilt/recipe.json",
+      "url": "https://raw.githubusercontent.com/tilt-dev/tilt/1d760f65afdce2efe4d74494043daa40d60422fd/scripts/install.sh",
+      "sha256": "af57c5be9a7df24d8133f2977befe871933215bdadc5e653226b8085d6a9617f",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "tilt"
+      ],
+      "copyright_and_attribution": [],
+      "commit": "1d760f65afdce2efe4d74494043daa40d60422fd"
+    },
+    {
+      "catalog": "tilt",
+      "path": "assets/catalog/tilt/sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "trivy",
+      "path": "assets/catalog/trivy/recipe.json",
+      "url": "https://raw.githubusercontent.com/aquasecurity/trivy/10ab0f82f059f0913491ba91dea6ba25f850ea5a/contrib/install.sh",
+      "sha256": "e00df553be558995b994758bc8995956554a16937f456dc6615b0cc411bfec7a",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "trivy",
+        "godownloader",
+        "shlib"
+      ],
+      "copyright_and_attribution": [
+        "Public domain - http://unlicense.org"
+      ],
+      "commit": "10ab0f82f059f0913491ba91dea6ba25f850ea5a"
+    },
+    {
+      "catalog": "trivy",
+      "path": "assets/catalog/trivy/sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license": "MIT",
+      "license_components": []
+    },
+    {
+      "catalog": "code-server",
+      "path": "assets/catalog/code-server/sources/install.sh",
+      "url": "https://raw.githubusercontent.com/coder/code-server/302bc77436721f5a474e06d1fe34cf8f86195d5e/install.sh",
+      "sha256": "3a71d87a26d39d03332a8eda6b0692e4cb0b5d7b760a598ea0d0fcb723ed7ddc",
+      "origin": "upstream",
+      "distribution": "vendored-source",
+      "license_components": [
+        "code-server"
+      ]
+    },
+    {
+      "catalog": "code-server",
+      "path": "assets/catalog/code-server/sources/smoke.sh",
+      "sha256": "a369031db8862b2a43f11527b2d4c5d4faa6002fadcb46c400b1e5c8fd28c65d",
+      "origin": "Shellferry authored functional test",
+      "distribution": "authored-source",
+      "license": "MIT (Shellferry original work)"
+    },
+    {
+      "catalog": "dotnet",
+      "path": "assets/catalog/dotnet/recipe.json",
+      "url": "https://raw.githubusercontent.com/dotnet/install-scripts/ee83f9c42135205be4e0503bd472b6f99c9b7d51/src/dotnet-install.sh",
+      "sha256": "082f7685e156738a1b2e2ed8381a621870d4ce8e8c59278034556f05c186eb2e",
+      "origin": "official upstream installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [
+        "dotnet-install-scripts"
+      ]
+    },
+    {
+      "catalog": "sdkman",
+      "path": "assets/catalog/sdkman/sources/sdkman-install.sh",
+      "url": "https://get.sdkman.io",
+      "sha256": "d2ad12c3702fa42967e48114f01ebd266f0c901a53fa8fd739c9b6a007cc91d0",
+      "origin": "upstream generated SDKMAN script snapshot",
+      "distribution": "vendored-source",
+      "license_components": [
+        "sdkman-hooks"
+      ],
+      "license": "Apache-2.0",
+      "notes": "Original bytes are preserved. Reviewed endpoint SHA-256 and upstream template commit are separately recorded in assets/catalog/sdkman/PROVENANCE.json; the generated endpoint response is not represented as a verbatim raw Git file."
+    },
+    {
+      "catalog": "sdkman",
+      "path": "assets/catalog/sdkman/sources/java-post.sh",
+      "url": "https://api.sdkman.io/2/hooks/post/java/21.0.13.0+9-tem/linuxx64",
+      "sha256": "06e3984401eb3b9a30bf5d7f98fc0527cb11ec6d136cc7b50680025ff576dea1",
+      "origin": "upstream generated SDKMAN script snapshot",
+      "distribution": "vendored-source",
+      "license_components": [
+        "sdkman-hooks"
+      ],
+      "license": "Apache-2.0",
+      "notes": "Original bytes are preserved. Reviewed endpoint SHA-256 and upstream template commit are separately recorded in assets/catalog/sdkman/PROVENANCE.json; the generated endpoint response is not represented as a verbatim raw Git file."
+    },
+    {
+      "catalog": "sdkman",
+      "path": "assets/catalog/sdkman/sources/offline-transport.sh",
+      "url": null,
+      "sha256": "ece00c4966068eded20678a11ed5c212c4ab9ea4bbbe0e325461de6cf912d862",
+      "origin": "Shellferry authored wrapper and local selection/transport",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)",
+      "notes": "Only minimum constructed selection values java and valid are supplied for the one bundled Java release; no complete mutable API response is vendored or claimed as authored."
+    },
+    {
+      "catalog": "sdkman",
+      "path": "assets/catalog/sdkman/sources/offline-wrapper.sh",
+      "url": null,
+      "sha256": "4f97c8867dced9270757fdac8a45c281210736b52495580fcfccb734ff1411f5",
+      "origin": "Shellferry authored wrapper and local selection/transport",
+      "distribution": "vendored-source",
+      "license_components": [],
+      "license": "MIT (Shellferry original work)",
+      "notes": "Only minimum constructed selection values java and valid are supplied for the one bundled Java release; no complete mutable API response is vendored or claimed as authored."
+    },
+    {
+      "catalog": "pulumi",
+      "path": "assets/catalog/pulumi/recipe.json",
+      "url": "https://get.pulumi.com",
+      "sha256": "319ffe2866c9976a72d924b14771e25c47ab474f9d612182df932369f5fe4f5b",
+      "origin": "official hosted installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "license": "Not established for complete hosted installer",
+      "version_binding": "Hosted endpoint with pinned SHA-256; drift fails the build and requires reanalysis. No Git commit claim."
+    },
+    {
+      "catalog": "pulumi",
+      "path": "assets/catalog/pulumi/sources/wrapper.sh",
+      "sha256": "ce0c3998d5b759dc04b85374ca9f0b30496cb726a26477970132991edcee8dd8",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license_components": [],
+      "license": "MIT"
+    },
+    {
+      "catalog": "google-cloud-cli",
+      "path": "assets/catalog/google-cloud-cli/recipe.json",
+      "url": "https://sdk.cloud.google.com",
+      "sha256": "7a518bd002e7f7f36605fdfd244e3d5c78638e40bfb17102ab8139ef687ea6c6",
+      "origin": "official hosted installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "license": "Not established for complete hosted installer",
+      "version_binding": "Hosted endpoint with pinned SHA-256; drift fails the build and requires reanalysis. No Git commit claim."
+    },
+    {
+      "catalog": "google-cloud-cli",
+      "path": "assets/catalog/google-cloud-cli/recipe.json",
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash",
+      "sha256": "6d550e06d1c425e4723c6cce26ce208f2598cbf0adb6de595eea25b9b621b6c1",
+      "origin": "official hosted installer",
+      "distribution": "runtime-fetch-only",
+      "license_components": [],
+      "license": "Not established for complete hosted installer",
+      "version_binding": "Hosted endpoint with pinned SHA-256; drift fails the build and requires reanalysis. No Git commit claim."
+    },
+    {
+      "catalog": "google-cloud-cli",
+      "path": "assets/catalog/google-cloud-cli/sources/gcloud-install.sh",
+      "sha256": "db69ff9ac4c55c8b18c1041b717ba1370e4d921ace4d67c05088d4411d75282a",
+      "origin": "official archive installer source",
+      "distribution": "vendored-source",
+      "license_components": [
+        "google-cloud-cli-archive"
+      ],
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-592.0.0-linux-x86_64.tar.gz",
+      "archive_member": "google-cloud-sdk/install.sh",
+      "archive_sha256": "2d841a23a681ab94486af6841e5f1cd123cd300fb8c4be6ba5b51350fca3d50b",
+      "copyright_and_attribution": [
+        "Copyright 2013 Google Inc. All Rights Reserved."
+      ]
+    },
+    {
+      "catalog": "google-cloud-cli",
+      "path": "assets/catalog/google-cloud-cli/sources/wrapper.sh",
+      "sha256": "a29452f917f0eb725cb3a47748289064d6ca33b80a420114ebcdad74d608217a",
+      "origin": "Shellferry authored wrapper",
+      "distribution": "authored-source",
+      "license_components": [],
+      "license": "MIT"
+    }
+  ],
+  "schema": 1,
+  "license_provenance_note": "License files are verbatim upstream originals at the recorded commits. Installer source snapshots are identified separately by SHA256; a license reference commit is not a claim that an installer was fetched from the same tag or commit.",
+  "project_license_scope": "MIT applies to original Shellferry code and documentation. Vendored upstream installer source and copied or adapted recipe snippets retain the licenses listed here. fnm source and derived recipe fragments are GPL version 3, excluded from the project MIT grant.",
+  "binary_distribution_scope": "The source repository and installed skill do not distribute downloaded software binaries or generated offline bundles. These notices are not a license inventory for future generated bundles.",
+  "catalog_recipe_fragments": [
+    {
+      "path": "assets/catalog/atuin/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "atuin",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "path": "assets/catalog/bun/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "bun"
+      ]
+    },
+    {
+      "path": "assets/catalog/bun-ubuntu22/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "bun"
+      ]
+    },
+    {
+      "path": "assets/catalog/chezmoi/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "chezmoi",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/deno/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "deno-install"
+      ]
+    },
+    {
+      "path": "assets/catalog/direnv/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "direnv"
+      ]
+    },
+    {
+      "path": "assets/catalog/fnm/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "fnm"
+      ]
+    },
+    {
+      "path": "assets/catalog/helm/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "helm",
+        "glide"
+      ]
+    },
+    {
+      "path": "assets/catalog/just/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "just"
+      ]
+    },
+    {
+      "path": "assets/catalog/mise/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "mise"
+      ]
+    },
+    {
+      "path": "assets/catalog/nvm/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "nvm"
+      ]
+    },
+    {
+      "path": "assets/catalog/oh-my-posh/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "oh-my-posh"
+      ]
+    },
+    {
+      "path": "assets/catalog/pixi/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "pixi"
+      ]
+    },
+    {
+      "path": "assets/catalog/rclone/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "rclone"
+      ]
+    },
+    {
+      "path": "assets/catalog/ruff/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "ruff",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "path": "assets/catalog/rustup/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "rustup"
+      ]
+    },
+    {
+      "path": "assets/catalog/starship/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "starship"
+      ]
+    },
+    {
+      "path": "assets/catalog/task/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "task",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/uv/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "uv",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/zoxide/recipe.json",
+      "scope": "Copied upstream old/new patch fragments and adaptations; independent metadata and wrapper code are Shellferry work",
+      "license_components": [
+        "zoxide",
+        "rustup-zoxide-origin"
+      ]
+    },
+    {
+      "path": "assets/catalog/dagger/recipe.json",
+      "scope": "Copied upstream patch anchors and minimal offline adaptations",
+      "license_components": [
+        "dagger",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/tfswitch/recipe.json",
+      "scope": "Copied upstream patch anchors and minimal offline adaptations",
+      "license_components": [
+        "tfswitch",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/fzf/recipe.json",
+      "scope": "Copied upstream patch anchors and minimal offline adaptations",
+      "license_components": [
+        "fzf"
+      ]
+    },
+    {
+      "path": "assets/catalog/rqlite/recipe.json",
+      "scope": "Copied upstream patch anchors and minimal offline adaptations",
+      "license_components": [
+        "rqlite"
+      ]
+    },
+    {
+      "path": "assets/catalog/dolt/recipe.json",
+      "scope": "Copied upstream patch anchors and minimal offline adaptations",
+      "license_components": [
+        "dolt"
+      ]
+    },
+    {
+      "path": "assets/catalog/skim/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "skim",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/minijinja-cli/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "minijinja-cli",
+        "cargo-dist-0.30.3"
+      ]
+    },
+    {
+      "path": "assets/catalog/posit-air/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "posit-air",
+        "cargo-dist-0.34.0"
+      ]
+    },
+    {
+      "path": "assets/catalog/prek/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "prek",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/uutils-findutils/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "uutils-findutils",
+        "cargo-dist-0.33.0"
+      ]
+    },
+    {
+      "path": "assets/catalog/systemfd/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "systemfd",
+        "cargo-dist-0.28.0"
+      ]
+    },
+    {
+      "path": "assets/catalog/worktrunk/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "worktrunk",
+        "cargo-dist-0.30.2"
+      ]
+    },
+    {
+      "path": "assets/catalog/secretspec/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "secretspec",
+        "cargo-dist-0.29.0"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-insta/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "cargo-insta",
+        "cargo-dist-0.30.2"
+      ]
+    },
+    {
+      "path": "assets/catalog/oranda/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "oranda",
+        "cargo-dist-0.16.0-prerelease.6"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-binstall/recipe.json",
+      "scope": "Only a minimal function identifier anchor and original Shellferry replacement; no complete upstream function or installer is vendored.",
+      "license_components": []
+    },
+    {
+      "path": "assets/catalog/dust/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "dust"
+      ]
+    },
+    {
+      "path": "assets/catalog/xh/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "xh"
+      ]
+    },
+    {
+      "path": "assets/catalog/mcfly/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "mcfly",
+        "japaric-trust"
+      ]
+    },
+    {
+      "path": "assets/catalog/sheldon/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "sheldon"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-dist/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "cargo-dist",
+        "cargo-dist-0.34.0-prerelease.1"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-auditable/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "cargo-auditable",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-mommy/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "cargo-mommy",
+        "cargo-dist-0.4.3"
+      ]
+    },
+    {
+      "path": "assets/catalog/near-cli/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "near-cli",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/svix-cli/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "svix-cli",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/chsrc/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "chsrc"
+      ]
+    },
+    {
+      "path": "assets/catalog/git-standup/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "git-standup"
+      ]
+    },
+    {
+      "path": "assets/catalog/cargo-leptos/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "cargo-leptos",
+        "cargo-dist-0.31"
+      ]
+    },
+    {
+      "path": "assets/catalog/sql-studio/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "sql-studio",
+        "cargo-dist-0.32"
+      ]
+    },
+    {
+      "path": "assets/catalog/samply/recipe.json",
+      "scope": "Copied exact upstream patch anchors and adapted fragments retain listed upstream licenses; original Shellferry metadata/replacements retain project license.",
+      "license_components": [
+        "samply",
+        "cargo-dist-0.28.0"
+      ]
+    },
+    {
+      "path": "assets/catalog/volta/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-volta"
+      ],
+      "sha256": "d7c316f6f0fef739b62f4d926e28cf5e14307d811bbf32aba928db4707992962"
+    },
+    {
+      "path": "assets/catalog/dprint/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-dprint",
+        "misc-dprint-inherited"
+      ],
+      "sha256": "ed08d83b5dec409ee1512cbdca1918e480481dddc5bb1422bd61afa36b1f6258"
+    },
+    {
+      "path": "assets/catalog/yarn/recipe.json",
+      "scope": "Minimal upstream identification anchors and independently authored replacements",
+      "license_components": [],
+      "sha256": "c440b461446d66c516bd4b5e26999ec4b878f76ab0b1cad9c163631f06aa3e1d"
+    },
+    {
+      "path": "assets/catalog/poetry/recipe.json",
+      "scope": "Minimal upstream identification anchors and independently authored replacements",
+      "license_components": [],
+      "sha256": "e201162aaba250f1cc6101ceca562aedf8aae3694e52482852c29ba590e9c4e8"
+    },
+    {
+      "path": "assets/catalog/pdm/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-pdm"
+      ],
+      "sha256": "56c88dd111027628ba3f97b82c5247f6f8f3911931f51711773dc34a3597856f"
+    },
+    {
+      "path": "assets/catalog/micromamba/recipe.json",
+      "scope": "Minimal upstream identification anchors and independently authored replacements",
+      "license_components": [],
+      "sha256": "70e26b62d275151727c6ba70e6b237fa97ee3473ae253d152762f6c913da467c"
+    },
+    {
+      "path": "assets/catalog/scala-cli/recipe.json",
+      "scope": "Minimal upstream identification anchors and independently authored replacements",
+      "license_components": [],
+      "sha256": "4c963ca5a7e677dcd907bb86d473741a3ba0b4dbc59f4f2dd474c2795ebec54b"
+    },
+    {
+      "path": "assets/catalog/elan/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-elan"
+      ],
+      "sha256": "9cbec49f1036bc9f8753e91f0869667e7c6a12f29a40d2cd5614ff63f65a4748"
+    },
+    {
+      "path": "assets/catalog/ghcup/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-ghcup"
+      ],
+      "sha256": "569369159f56344dbdf64a44e1df57310a7c6af8d0ee60a95395ca51c1decd75"
+    },
+    {
+      "path": "assets/catalog/stack/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-stack"
+      ],
+      "sha256": "9ffca077c02ec215f19bdb49cf8160d82c5226c9ebb52b64c05e88e1e7bc5ed6"
+    },
+    {
+      "path": "assets/catalog/babashka/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-babashka"
+      ],
+      "sha256": "69266c68b5805cbdcfdaf26d3e53e9e4ee21ec86f1775c7f7e6cc1ad3ce7ba33"
+    },
+    {
+      "path": "assets/catalog/clj-kondo/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-clj-kondo"
+      ],
+      "sha256": "af04fc66c3dd6a6804ea77f62613f5470085489f76e76b7c6faa88cd05d2c5e6"
+    },
+    {
+      "path": "assets/catalog/clojure-lsp/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work; installer header identifies Babashka script ancestry",
+      "license_components": [
+        "misc-clojure-lsp",
+        "misc-babashka"
+      ],
+      "sha256": "82126418f5721d568d51c82b71d888674950c05310054cc321f7e65fa1ac13ce"
+    },
+    {
+      "path": "assets/catalog/jet/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-jet"
+      ],
+      "sha256": "599ea55bdedf2a46f7656235497929880ede0e6edf36acdc1bc04e3c14e5e0d4"
+    },
+    {
+      "path": "assets/catalog/opam/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-opam"
+      ],
+      "sha256": "003fc48e780414c7588a8b263b1ab77ffd10fb6617d7c33e54d6d46a441fcb8f"
+    },
+    {
+      "path": "assets/catalog/bats/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-bats"
+      ],
+      "sha256": "8f5d8fba40bd63e0c1a997eb426dd9aceca97880fcb6eb7f86bf4894d2e6a303"
+    },
+    {
+      "path": "assets/catalog/bash-it/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-bash-it"
+      ],
+      "sha256": "e14538267a8ce5bb24a54a5d39ea1998b469e3d2d5a68b2e3a159ba5021668c5"
+    },
+    {
+      "path": "assets/catalog/basher/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-basher"
+      ],
+      "sha256": "24eed79fdbb839a73618d47fb4d908e10ce5baa3e84062c0299e5178c97e9595"
+    },
+    {
+      "path": "assets/catalog/bpkg/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-bpkg"
+      ],
+      "sha256": "237291c3f6df3c712a232907a35ad57737f97ea10dba92483c18062723299fc5"
+    },
+    {
+      "path": "assets/catalog/oh-my-zsh/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-oh-my-zsh",
+        "misc-oh-my-zsh-inherited"
+      ],
+      "sha256": "03bb163d2d8f6ade4f28d940aaceaae8234d80e6e4e87a4a88528918588fab5a"
+    },
+    {
+      "path": "assets/catalog/zinit/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-zinit"
+      ],
+      "sha256": "cd08779492f601fcd9141ec618423e40c769a8f178452bf6b4622a2ddede8801"
+    },
+    {
+      "path": "assets/catalog/pyenv/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-pyenv"
+      ],
+      "sha256": "df8f5c545583921dc24087749aefcb35b74b65ab7ffd739b09ba822b6b0dd7b9"
+    },
+    {
+      "path": "assets/catalog/rbenv/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-rbenv"
+      ],
+      "sha256": "b7d61dcb8a948d0a92f0beed0c2f1b004f63d03be1c7beda83e32372abd5422b"
+    },
+    {
+      "path": "assets/catalog/perlbrew/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-perlbrew"
+      ],
+      "sha256": "b7203da4a429c48fe76f52a69c63144b03306be638b867acae00ea4668b7ada0"
+    },
+    {
+      "path": "assets/catalog/xmake/recipe.json",
+      "scope": "Copied upstream patch anchors and derived replacements; original metadata is Shellferry work",
+      "license_components": [
+        "misc-xmake"
+      ],
+      "sha256": "ba928a770a4107dcb8c1c04a4cab65f7066f2dd82894c096fb899cdddd85b6b0"
+    },
+    {
+      "path": "assets/catalog/actionlint/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "actionlint"
+      ]
+    },
+    {
+      "path": "assets/catalog/air/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "air",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/arkade/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "arkade"
+      ]
+    },
+    {
+      "path": "assets/catalog/flux/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "flux"
+      ]
+    },
+    {
+      "path": "assets/catalog/flyctl/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "deno-install"
+      ]
+    },
+    {
+      "path": "assets/catalog/garden/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "garden"
+      ]
+    },
+    {
+      "path": "assets/catalog/golangci-lint/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "golangci-lint",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/goose/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "goose",
+        "deno-install"
+      ]
+    },
+    {
+      "path": "assets/catalog/goreleaser/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "goreleaser"
+      ]
+    },
+    {
+      "path": "assets/catalog/grype/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "grype",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/infracost/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "infracost"
+      ]
+    },
+    {
+      "path": "assets/catalog/istioctl/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "istioctl"
+      ]
+    },
+    {
+      "path": "assets/catalog/jfrog-cli/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "jfrog-cli"
+      ]
+    },
+    {
+      "path": "assets/catalog/k0s/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. Only the minimal _fetch \"$k0sDownloadUrl\" call is retained; no upstream function body is copied.",
+      "license_components": []
+    },
+    {
+      "path": "assets/catalog/k3d/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "k3d"
+      ]
+    },
+    {
+      "path": "assets/catalog/k3sup/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "k3sup"
+      ]
+    },
+    {
+      "path": "assets/catalog/kubescape/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "kubescape"
+      ]
+    },
+    {
+      "path": "assets/catalog/kustomize/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "kustomize"
+      ]
+    },
+    {
+      "path": "assets/catalog/linkerd/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "linkerd"
+      ]
+    },
+    {
+      "path": "assets/catalog/opentofu/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "opentofu"
+      ]
+    },
+    {
+      "path": "assets/catalog/porter/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "porter"
+      ]
+    },
+    {
+      "path": "assets/catalog/railway/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "railway",
+        "starship"
+      ]
+    },
+    {
+      "path": "assets/catalog/syft/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "syft",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/tilt/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "tilt"
+      ]
+    },
+    {
+      "path": "assets/catalog/trivy/recipe.json",
+      "scope": "Copied original patch anchors and offline adaptations; authored wrapper and independent metadata remain Shellferry work. ",
+      "license_components": [
+        "trivy",
+        "godownloader",
+        "shlib"
+      ]
+    },
+    {
+      "path": "assets/catalog/code-server/recipe.json",
+      "scope": "Upstream patch anchors and authored offline transformations",
+      "license_components": [
+        "code-server"
+      ]
+    },
+    {
+      "path": "assets/catalog/dotnet/recipe.json",
+      "scope": "Copied upstream patch fragments retain MIT from dotnet/install-scripts; original local transport and SHA-512 validation adapter is Shellferry work.",
+      "license_components": [
+        "dotnet-install-scripts"
+      ]
+    },
+    {
+      "path": "assets/catalog/pulumi/recipe.json",
+      "scope": "Minimal call anchors for hosted installer stages and independently authored offline logic; no copied hosted function bodies. Google archive installer is separately licensed by the versioned archive LICENSE. Original metadata and wrappers remain Shellferry MIT work.",
+      "license_components": [],
+      "recipe_sha256": "87aa016d0dd9eea201efbb68d1c9f78ff66598438ef006dfb7c3e448c3307993"
+    },
+    {
+      "path": "assets/catalog/google-cloud-cli/recipe.json",
+      "scope": "Minimal call anchors for hosted installer stages and independently authored offline logic; no copied hosted function bodies. Google archive installer is separately licensed by the versioned archive LICENSE. Original metadata and wrappers remain Shellferry MIT work.",
+      "license_components": [
+        "google-cloud-cli-archive"
+      ],
+      "recipe_sha256": "68aa6e7962bef83aa1d32c5a3f962beb56b503fe9517204f5fb60411130c1265"
+    }
+  ],
+  "external_sources": [
+    {
+      "component": "pnpm installer",
+      "repository": "pnpm/get.pnpm.io",
+      "commit": "7c26e549143daf5cf072a38c428170ad8eccaf2d",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "review": "No root LICENSE/LICENSE.md or repository-wide grant was found at review. GitHub repository license metadata was null. The pnpm application license does not establish the license of this separate installer repository."
+    },
+    {
+      "component": "cargo-binstall installer",
+      "repository": "cargo-bins/cargo-binstall",
+      "commit": "734bf48fca953a635646ba559fa32ddad1e6b6bd",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "review": "No root license or explicit installer grant found. Per-crate GPL does not establish the separate shell script license. Recipe retains only minimal do_curl() identifier and original replacement, with full source fetched from pinned commit during build. Generated complete bundles require a separate redistribution review."
+    },
+    {
+      "component": "yarn installer",
+      "repository": "yarnpkg/website",
+      "commit": "c6faf3f95dabb4a90789431fb1cf404e46d7ced1",
+      "url": "https://raw.githubusercontent.com/yarnpkg/website/c6faf3f95dabb4a90789431fb1cf404e46d7ced1/install.sh",
+      "sha256": "19f48dbd5049613c1a285ec9d92d716879965456cd7ff60169e14503b588f40e",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "notes": "No license grant found in separate installer repository at review. Complete installer is not vendored. Recipe uses only minimal identification anchors and independently authored replacement code. Application license is not substituted for installer permission; generated bundle redistribution requires review."
+    },
+    {
+      "component": "poetry installer",
+      "repository": "python-poetry/install.python-poetry.org",
+      "commit": "2f790add2550cadc4574715a92950bb63491aa64",
+      "url": "https://raw.githubusercontent.com/python-poetry/install.python-poetry.org/2f790add2550cadc4574715a92950bb63491aa64/install-poetry.py",
+      "sha256": "75745ca71373a7b22fa150953543f03d826a52f8e4bc4350328a33bddd668026",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "notes": "No license grant found in separate installer repository at review. Complete installer is not vendored. Recipe uses only minimal identification anchors and independently authored replacement code. Application license is not substituted for installer permission; generated bundle redistribution requires review."
+    },
+    {
+      "component": "micromamba installer",
+      "repository": "mamba-org/micromamba-releases",
+      "commit": "346bb1cf50c51a92d58dd4c3063e7c70b78a8246",
+      "url": "https://raw.githubusercontent.com/mamba-org/micromamba-releases/346bb1cf50c51a92d58dd4c3063e7c70b78a8246/install.sh",
+      "sha256": "b0c482f627af23613f21b31bbaa70e4829544acc91430cafd3d5b4c37b5651ff",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "notes": "No license grant found in separate installer repository at review. Complete installer is not vendored. Recipe uses only minimal identification anchors and independently authored replacement code. Application license is not substituted for installer permission; generated bundle redistribution requires review."
+    },
+    {
+      "component": "scala-cli installer",
+      "repository": "VirtusLab/scala-cli-packages",
+      "commit": "f4749ccacf7a9275fa667a3f9fd87faf5d916666",
+      "url": "https://raw.githubusercontent.com/VirtusLab/scala-cli-packages/f4749ccacf7a9275fa667a3f9fd87faf5d916666/scala-setup.sh",
+      "sha256": "5efeef106c6e359152328afcf5177fac5343382b9809cb20680890c5c59fdd12",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "notes": "No license grant found in separate installer repository at review. Complete installer is not vendored. Recipe uses only minimal identification anchors and independently authored replacement code. Application license is not substituted for installer permission; generated bundle redistribution requires review."
+    },
+    {
+      "component": "k0s installer",
+      "repository": "k0sproject/get",
+      "commit": "f640708ce3ec6f34b9e61f5b14d6b92ead57fa58",
+      "license": "Not established for complete installer",
+      "distribution": "runtime-fetch-only",
+      "review": "Official source repository k0sproject/get has no root license or explicit shell-script grant. The application repository license is not applied to this separate installer. Recipe retains only a minimal download call anchor; the complete script is fetched from fixed commit and SHA-256 during preparation. No generated bundle is published."
+    },
+    {
+      "component": "sdkman-cli",
+      "url": "https://github.com/sdkman/sdkman-cli/releases/download/5.24.0/sdkman-cli-5.24.0.zip",
+      "sha256": "b765ef213c7b3dd731815e42f398b6e2eef1053b38d32ecc09a9f6d51c8ee948",
+      "distribution": "runtime-fetch-only",
+      "notes": "Pinned release artifact downloaded by the bundle builder; not included in the source repository."
+    },
+    {
+      "component": "sdkman-cli-native",
+      "url": "https://github.com/sdkman/sdkman-cli-native/releases/download/v0.8.0/sdkman-cli-native-0.8.0-x86_64-unknown-linux-gnu.zip",
+      "sha256": "91cc56bce077fb605172d6bb3182ab2a1b1711d64f12a8bbb1910dc11d561397",
+      "distribution": "runtime-fetch-only",
+      "notes": "Pinned release artifact downloaded by the bundle builder; not included in the source repository."
+    },
+    {
+      "component": "sdkman-temurin21",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+      "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+      "distribution": "runtime-fetch-only",
+      "notes": "Pinned release artifact downloaded by the bundle builder; not included in the source repository."
+    },
+    {
+      "component": "pulumi upstream/install.sh",
+      "url": "https://get.pulumi.com",
+      "sha256": "319ffe2866c9976a72d924b14771e25c47ab474f9d612182df932369f5fe4f5b",
+      "license": "Not established for complete hosted installer",
+      "distribution": "runtime-fetch-only",
+      "review": "Complete hosted script is not vendored. Recipe publishes minimal call anchors plus independently authored replacements; application repository license is not used as a substitute. Generated complete bundles require separate redistribution review."
+    },
+    {
+      "component": "google-cloud-cli upstream/bootstrap.sh",
+      "url": "https://sdk.cloud.google.com",
+      "sha256": "7a518bd002e7f7f36605fdfd244e3d5c78638e40bfb17102ab8139ef687ea6c6",
+      "license": "Not established for complete hosted installer",
+      "distribution": "runtime-fetch-only",
+      "review": "Complete hosted script is not vendored. Recipe publishes minimal call anchors plus independently authored replacements; application repository license is not used as a substitute. Generated complete bundles require separate redistribution review."
+    },
+    {
+      "component": "google-cloud-cli upstream/stage2.sh",
+      "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash",
+      "sha256": "6d550e06d1c425e4723c6cce26ce208f2598cbf0adb6de595eea25b9b621b6c1",
+      "license": "Not established for complete hosted installer",
+      "distribution": "runtime-fetch-only",
+      "review": "Complete hosted script is not vendored. Recipe publishes minimal call anchors plus independently authored replacements; application repository license is not used as a substitute. Generated complete bundles require separate redistribution review."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "k3sup",
+  "version": "0.13.14",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/k3sup",
+      "url": "https://github.com/alexellis/k3sup/releases/download/0.13.14/k3sup",
+      "sha256": "8117a7c298209b1a9e6f6f1e936dc7a5342d786bba45d4ca190105c20278e060",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/k3sup.sha256",
+      "url": "https://github.com/alexellis/k3sup/releases/download/0.13.14/k3sup.sha256",
+      "sha256": "b6b82445a01b23efa1c19f5d1930f40dce3714a4d343fce6fdf5420079b2ba8f",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/alexellis/k3sup/07ee3911f65dc978899f036586c7a99317a31996/get.sh",
+      "sha256_original": "2d9ca8e6942161ce0d8fc49d3e6d11ae626d11e42f7c9409aa1ae023837d99f4",
+      "sha256_patched": "5a4075b8cbc12b35689df49d2ae88e95369ed0f1f7d2901a2f7ebeb41d8daa0b",
+      "patch_count": 10
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "feb582c03ca82293c2a558efbb9b16a3e6148886ce237c770660d2363cfae7dd",
+      "sha256_patched": "52ad0ea9885418fa179c5e9230f1b60bfa316fc1778786c58f4eaac9650e34de",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Pins release, enables equivalent official SHA-256 verification using the expected digest rather than upstream build-time bin/ paths, quotes upstream paths with spaces. Completion rendering is local; fetching additional programs or deploying clusters is separate."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "c35d7c997069a0ed867824b1e88c75237551688a23c81cd6335d1167a6bbf429",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

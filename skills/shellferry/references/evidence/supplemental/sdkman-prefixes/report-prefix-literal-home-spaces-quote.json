@@ -1,0 +1,49 @@
+{
+  "name": "sdkman",
+  "version": "5.24.0",
+  "target": "linux-x86_64",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/shellferry-sdkman:ubuntu22",
+  "image_id": "58129ddbcc6fd44a14d838ee5e4c3600077ca300b4fefd08042406fb67879df9",
+  "image_digests": [
+    "localhost/shellferry-sdkman@sha256:493dbde20de34d690d8e3516a738dad09f891a1c5edda23f193a9225d6a0acd4"
+  ],
+  "environment": "PRETTY_NAME=\"Ubuntu 22.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.5 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\nldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35\nCopyright (C) 2022 Free Software Foundation, Inc.\n/usr/bin/sh\n/usr/bin/bash\n/usr/bin/tar\n/usr/bin/gzip\n/usr/bin/unzip\n/usr/bin/xz\n/usr/bin/openssl\n/usr/bin/file\n/usr/bin/git\n/usr/bin/dpkg-deb\n",
+  "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
+  "archive_roundtrip": true,
+  "network": "none",
+  "user": "1000:1000",
+  "manifest_sha256": "d5a3bbfbfe9002c13f2bf77262ebcd9af8c59e1477931c6a33d8aef6ca84fc37",
+  "checksum_list_sha256": "030b364239c4f7fa2b04219ec1f3bb320d652ce4cafc0bc9a72d0f8550089603",
+  "elapsed_seconds": 15.6,
+  "exit_code": 0,
+  "checks": [
+    "checksum verification",
+    "prerequisite preflight",
+    "install from clean home",
+    "smoke command",
+    "repeat installation",
+    "blocked download command detection",
+    "literal shell characters in prefix",
+    "fresh shell restores exact SDKMAN_DIR",
+    "javac compiles and java executes with exact prefix"
+  ],
+  "verified_at": "2026-11-09T13:35:35.934128+00:00",
+  "recipe_sha256": "099d9b7a497285be7f3b88f37a25ac0ead3952d55a82e631b944304fca6dcc68",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  },
+  "verifier": {
+    "verify.py": "5756ee90f699a083d6d98303da8842cb293e1995502aa79a764b6349f2ba1dbc",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  },
+  "scope": "Container userspace on host kernel; download command guards cover curl/wget/fetch/aria2c only. Network=none proves operation without external network, not absence of every attempted network syscall. No claim about untested OS versions, architectures, services, or kernel features.",
+  "custom_prefix": "/tmp/offline-home/literal $HOME  user's sdk",
+  "supplemental_harness": {
+    "path": "work/expansion105/sdkman/verify_special_prefixes.py",
+    "sha256": "935f002bd5f62fa8092fb27102f16450c01a47d67d3bb5c1ea5ee5148a05c69c",
+    "rendered_harness_sha256": "2a477478019c60182d7113c6601bea769e1713fe1fa03c0c8581c74d5d21565c"
+  }
+}

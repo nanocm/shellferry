@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "name": "zoxide",
+  "version": "0.10.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh",
+      "source": "sources/install.sh",
+      "sha256": "0c25aed6cce9d56ee0596c9a5df8cbe99ffd0f7a7054de0262234dd268b61404",
+      "patches": [
+        {
+          "old": "download_zoxide() {\n    local _arch=\"$1\"\n\n    if check_cmd curl; then\n        _dld=curl\n    elif check_cmd wget; then\n        _dld=wget\n    else\n        need_cmd 'curl or wget'\n    fi\n    need_cmd grep\n\n    local _releases_url=\"https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest\"\n    local _releases\n    case \"${_dld}\" in\n    curl) _releases=\"$(curl -sL \"${_releases_url}\")\" ||\n        err \"curl: failed to download ${_releases_url}\" ;;\n    wget) _releases=\"$(wget -qO- \"${_releases_url}\")\" ||\n        err \"wget: failed to download ${_releases_url}\" ;;\n    *) err \"unsupported downloader: ${_dld}\" ;;\n    esac\n    (echo \"${_releases}\" | grep -q 'API rate limit exceeded') &&\n        err \"you have exceeded GitHub's API rate limit. Please try again later, or use a different installation method: https://github.com/ajeetdsouza/zoxide/#installation\"\n\n    local _package_url\n    _package_url=\"$(echo \"${_releases}\" | grep \"browser_download_url\" | cut -d '\"' -f 4 | grep -- \"${_arch}\")\" ||\n        err \"zoxide has not yet been packaged for your architecture (${_arch}), please file an issue: https://github.com/ajeetdsouza/zoxide/issues\"\n\n    local _ext\n    case \"${_package_url}\" in\n    *.tar.gz) _ext=\"tar.gz\" ;;\n    *.zip) _ext=\"zip\" ;;\n    *) err \"unsupported package format: ${_package_url}\" ;;\n    esac\n\n    local _package=\"zoxide.${_ext}\"\n    case \"${_dld}\" in\n    curl) _releases=\"$(curl -sLo \"${_package}\" \"${_package_url}\")\" || err \"curl: failed to download ${_package_url}\" ;;\n    wget) _releases=\"$(wget -qO \"${_package}\" \"${_package_url}\")\" || err \"wget: failed to download ${_package_url}\" ;;\n    *) err \"unsupported downloader: ${_dld}\" ;;\n    esac\n\n    echo \"${_package}\"\n}\n",
+          "new": "download_zoxide() {\n    offline_fetch \"https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz\" \"zoxide.tar.gz\" || exit $?\n    echo zoxide.tar.gz\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "2d93385b99f3e82cf2701609a1bffcad863fbeb75aa3fe7eb6be4d29be68b1ae",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {},
+  "args": [
+    "--arch",
+    "x86_64-unknown-linux-musl",
+    "--bin-dir",
+    "{prefix}/bin",
+    "--man-dir",
+    "{prefix}/share/man"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/zoxide",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p \"$HOME/zoxide-target\"; \"${OFFLINE_PREFIX}/bin/zoxide\" add \"$HOME/zoxide-target\"; \"${OFFLINE_PREFIX}/bin/zoxide\" query zoxide-target | grep -q zoxide-target"
+    ]
+  ],
+  "notes": [
+    "Replaces GitHub latest API lookup and release download with pinned local archive; preserves binary/manpage installation and permission handling."
+  ]
+}

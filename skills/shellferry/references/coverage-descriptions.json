@@ -1,0 +1,426 @@
+{
+  "atuin": {
+    "kind": "shell-installer",
+    "functional_summary": "Complete both installer stages and generate Bash initialization."
+  },
+  "bun": {
+    "kind": "shell-installer",
+    "functional_summary": "Evaluate a local JavaScript expression."
+  },
+  "bun-ubuntu22": {
+    "kind": "shell-installer",
+    "functional_summary": "Run JavaScript, check default-prefix installation and generate completions with bundled unzip."
+  },
+  "chezmoi": {
+    "kind": "shell-installer",
+    "functional_summary": "Render a template reading the target OS."
+  },
+  "deno": {
+    "kind": "shell-installer",
+    "functional_summary": "Run the local JSR second stage and execute JavaScript."
+  },
+  "direnv": {
+    "kind": "shell-installer",
+    "functional_summary": "Authorize .envrc and load a local variable."
+  },
+  "fnm": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate the manager shell environment; managed Node runtimes are outside scope."
+  },
+  "helm": {
+    "kind": "shell-installer",
+    "functional_summary": "Verify the release, inspect the version and Helm environment."
+  },
+  "just": {
+    "kind": "shell-installer",
+    "functional_summary": "Execute a local justfile task and preserve default overwrite protection."
+  },
+  "mise": {
+    "kind": "shell-installer",
+    "functional_summary": "Run a local command through the manager; managed runtimes are outside scope."
+  },
+  "nvm": {
+    "kind": "shell-installer",
+    "functional_summary": "Install Node 26, execute JavaScript and npm with the bundled Ubuntu library."
+  },
+  "oh-my-posh": {
+    "kind": "shell-installer",
+    "functional_summary": "Load a bundled theme and generate shell initialization."
+  },
+  "pixi": {
+    "kind": "shell-installer",
+    "functional_summary": "Initialize a local project; Conda environments are outside scope."
+  },
+  "pnpm": {
+    "kind": "shell-installer",
+    "functional_summary": "Verify upstream signatures and execute local package scripts."
+  },
+  "rclone": {
+    "kind": "shell-installer",
+    "functional_summary": "Copy and compare local files."
+  },
+  "ruff": {
+    "kind": "shell-installer",
+    "functional_summary": "Lint a local Python file."
+  },
+  "rustup": {
+    "kind": "shell-installer",
+    "functional_summary": "Install the Rust 1.90 toolchain and compile metadata."
+  },
+  "starship": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash initialization and validate its syntax."
+  },
+  "task": {
+    "kind": "shell-installer",
+    "functional_summary": "Run a local Taskfile."
+  },
+  "uv": {
+    "kind": "shell-installer",
+    "functional_summary": "Create a local project without downloading an interpreter."
+  },
+  "zoxide": {
+    "kind": "shell-installer",
+    "functional_summary": "Add and query a local directory."
+  },
+  "dagger": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completion and validate its syntax; engine execution requires separate images."
+  },
+  "tfswitch": {
+    "kind": "shell-installer",
+    "functional_summary": "Check accepted and rejected Terraform version constraints from a local project."
+  },
+  "fzf": {
+    "kind": "shell-installer",
+    "functional_summary": "Filter local input and validate generated Bash initialization."
+  },
+  "rqlite": {
+    "kind": "shell-installer",
+    "functional_summary": "Start a local node and query SQLite over container loopback."
+  },
+  "dolt": {
+    "kind": "shell-installer",
+    "functional_summary": "Initialize a local repository, create a table, and execute SQL."
+  },
+  "actionlint": {
+    "kind": "shell-installer",
+    "functional_summary": "Lint a local GitHub Actions workflow without external shellcheck or pyflakes"
+  },
+  "air": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate and inspect an Air project configuration"
+  },
+  "arkade": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (no additional application downloads)"
+  },
+  "flux": {
+    "kind": "shell-installer",
+    "functional_summary": "Export a GitRepository manifest locally (no cluster access)"
+  },
+  "flyctl": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (no Fly.io authentication or deployment)"
+  },
+  "garden": {
+    "kind": "shell-installer",
+    "functional_summary": "Create a local Garden project and inspect its configuration"
+  },
+  "golangci-lint": {
+    "kind": "shell-installer",
+    "functional_summary": "Format Go source supplied on standard input"
+  },
+  "goose": {
+    "kind": "shell-installer",
+    "functional_summary": "Apply a SQLite schema migration and inspect its applied status"
+  },
+  "goreleaser": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate and inspect a GoReleaser project configuration"
+  },
+  "grype": {
+    "kind": "shell-installer",
+    "functional_summary": "Render effective configuration (vulnerability database and scanning excluded)"
+  },
+  "infracost": {
+    "kind": "shell-installer",
+    "functional_summary": "Set and read local currency configuration (pricing API excluded)"
+  },
+  "istioctl": {
+    "kind": "shell-installer",
+    "functional_summary": "Render the default Istio manifest locally (no cluster installation)"
+  },
+  "jfrog-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Collect local build environment metadata (no Artifactory server)"
+  },
+  "k0s": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate a local cluster configuration (no cluster startup)"
+  },
+  "k3d": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate and inspect a local k3d cluster configuration (no Docker cluster)"
+  },
+  "k3sup": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (no remote Kubernetes deployment)"
+  },
+  "kubescape": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (cluster scans and control downloads excluded)"
+  },
+  "kustomize": {
+    "kind": "shell-installer",
+    "functional_summary": "Build a local ConfigMap manifest with a name prefix"
+  },
+  "linkerd": {
+    "kind": "shell-installer",
+    "functional_summary": "Add Linkerd injection annotations to a local manifest without cluster access"
+  },
+  "opentofu": {
+    "kind": "shell-installer",
+    "functional_summary": "Format and validate local HCL without external providers; retain GPG verification"
+  },
+  "porter": {
+    "kind": "shell-installer",
+    "functional_summary": "Install the exec mixin from a temporary loopback mirror and create a local project"
+  },
+  "railway": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (cloud deployment excluded)"
+  },
+  "syft": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate an SBOM from pinned local Python requirements and assert package/version"
+  },
+  "tilt": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completions (Docker and Kubernetes runtime excluded)"
+  },
+  "trivy": {
+    "kind": "shell-installer",
+    "functional_summary": "Scan a local directory for secrets with database updates disabled"
+  },
+  "babashka": {
+    "kind": "shell-installer",
+    "functional_summary": "Evaluates a Clojure reduction and asserts the result is 10."
+  },
+  "bash-it": {
+    "kind": "source-installer",
+    "functional_summary": "Loads Bash-it, enables general aliases and lists enabled configuration."
+  },
+  "basher": {
+    "kind": "shell-installer",
+    "functional_summary": "Links and executes a local package without fetching dependencies."
+  },
+  "bats": {
+    "kind": "source-installer",
+    "functional_summary": "Executes a local Bats test and asserts a passing test result."
+  },
+  "bpkg": {
+    "kind": "shell-installer",
+    "functional_summary": "Parses a local JSON object with its installed JSON command."
+  },
+  "clj-kondo": {
+    "kind": "shell-installer",
+    "functional_summary": "Lints a local Clojure namespace and asserts zero errors."
+  },
+  "clojure-lsp": {
+    "kind": "shell-installer",
+    "functional_summary": "Formats a local Clojure source file with external classpath discovery disabled."
+  },
+  "dprint": {
+    "kind": "shell-installer",
+    "functional_summary": "Formats JSON using a bundled pinned WebAssembly plugin."
+  },
+  "elan": {
+    "kind": "shell-installer",
+    "functional_summary": "Generates Bash completions; Lean toolchains excluded."
+  },
+  "ghcup": {
+    "kind": "shell-installer",
+    "functional_summary": "Lists GHC releases from pinned local metadata; Haskell toolchains excluded."
+  },
+  "jet": {
+    "kind": "shell-installer",
+    "functional_summary": "Converts local JSON to keywordized EDN and checks the value."
+  },
+  "micromamba": {
+    "kind": "shell-installer",
+    "functional_summary": "Creates an empty offline environment and runs a local command within it."
+  },
+  "oh-my-zsh": {
+    "kind": "shell-installer",
+    "functional_summary": "Loads the Git plugin and checks the gst alias."
+  },
+  "opam": {
+    "kind": "shell-installer",
+    "functional_summary": "Lints a complete local .opam package definition without a repository or compiler."
+  },
+  "pdm": {
+    "kind": "python-installer",
+    "functional_summary": "Sets and reads local manager configuration and generates completions; offline CPython 3.10 wheelhouse."
+  },
+  "perlbrew": {
+    "kind": "shell-installer",
+    "functional_summary": "Initializes shell integration, prints environment and runs bundled patchperl."
+  },
+  "poetry": {
+    "kind": "python-installer",
+    "functional_summary": "Creates a local project and validates its pyproject.toml; offline CPython 3.10 wheelhouse."
+  },
+  "pyenv": {
+    "kind": "shell-installer",
+    "functional_summary": "Sets and reads a local system-Python selection, then regenerates shims."
+  },
+  "rbenv": {
+    "kind": "shell-installer",
+    "functional_summary": "Generates shell initialization and rebuilds the shim directory; Ruby excluded."
+  },
+  "scala-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Discovers local cache and configuration directories; JDK and Scala compiler excluded."
+  },
+  "stack": {
+    "kind": "shell-installer",
+    "functional_summary": "Generates Bash command completion; GHC and project dependencies excluded."
+  },
+  "volta": {
+    "kind": "shell-installer",
+    "functional_summary": "Generates Bash command completions; manager only, Node runtimes excluded."
+  },
+  "xmake": {
+    "kind": "shell-installer",
+    "functional_summary": "Builds and executes a local C application; no external package dependencies."
+  },
+  "yarn": {
+    "kind": "shell-installer",
+    "functional_summary": "Runs a local package script with bundled Node.js and verifies its numeric output."
+  },
+  "zinit": {
+    "kind": "shell-installer",
+    "functional_summary": "Loads a local plugin and invokes the function it defines."
+  },
+  "skim": {
+    "kind": "shell-installer",
+    "functional_summary": "Filter piped candidates and assert exact match"
+  },
+  "minijinja-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Render a template with local JSON data"
+  },
+  "posit-air": {
+    "kind": "shell-installer",
+    "functional_summary": "Format a local R source file"
+  },
+  "prek": {
+    "kind": "shell-installer",
+    "functional_summary": "Validate a local pre-commit configuration"
+  },
+  "uutils-findutils": {
+    "kind": "shell-installer",
+    "functional_summary": "Find a local file by name and type"
+  },
+  "systemfd": {
+    "kind": "shell-installer",
+    "functional_summary": "Pass a Unix listening socket to a child process"
+  },
+  "worktrunk": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash integration and validate syntax; Git >=2.43 needed for worktree operations"
+  },
+  "secretspec": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate and validate the project configuration JSON schema"
+  },
+  "cargo-insta": {
+    "kind": "shell-installer",
+    "functional_summary": "Render a local snapshot using Cargo metadata"
+  },
+  "oranda": {
+    "kind": "shell-installer",
+    "functional_summary": "Serve and retrieve a local HTML page over loopback"
+  },
+  "cargo-binstall": {
+    "kind": "shell-installer",
+    "functional_summary": "Self-install a copied executable and compare bytes"
+  },
+  "dust": {
+    "kind": "shell-installer",
+    "functional_summary": "Measure a local directory and report its file"
+  },
+  "xh": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate an offline JSON POST request"
+  },
+  "mcfly": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash initialization and validate syntax"
+  },
+  "sheldon": {
+    "kind": "shell-installer",
+    "functional_summary": "Lock an empty local plugin configuration and generate shell source"
+  },
+  "cargo-dist": {
+    "kind": "shell-installer",
+    "functional_summary": "Initialize a local Cargo project and generate a release plan"
+  },
+  "cargo-auditable": {
+    "kind": "shell-installer",
+    "functional_summary": "Compile and run a local Rust program; assert .dep-v0 metadata"
+  },
+  "cargo-mommy": {
+    "kind": "shell-installer",
+    "functional_summary": "Build and run a local Rust program through the Cargo wrapper"
+  },
+  "near-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Create and read local connection configuration in offline mode"
+  },
+  "svix-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completion and validate syntax"
+  },
+  "chsrc": {
+    "kind": "shell-installer",
+    "functional_summary": "List built-in package-source targets without modifying sources"
+  },
+  "git-standup": {
+    "kind": "source-installer",
+    "functional_summary": "Report a commit from a local Git repository"
+  },
+  "cargo-leptos": {
+    "kind": "shell-installer",
+    "functional_summary": "Generate Bash completion and validate syntax"
+  },
+  "sql-studio": {
+    "kind": "shell-installer",
+    "functional_summary": "Open a local SQLite database and retrieve its web UI over loopback"
+  },
+  "samply": {
+    "kind": "shell-installer",
+    "functional_summary": "Load a synthetic profile and retrieve its JSON over loopback"
+  },
+  "code-server": {
+    "kind": "shell-installer",
+    "functional_summary": "Start the editor on loopback and verify its HTTP health endpoint and workbench using bundled Node."
+  },
+  "dotnet": {
+    "kind": "shell-installer",
+    "functional_summary": "Create, restore without NuGet feeds, compile and run a C# console app; assert LINQ, JSON and ICU culture data"
+  },
+  "sdkman": {
+    "kind": "shell-installer",
+    "functional_summary": "Initializes SDKMAN script/native CLI, installs the full Temurin JDK through the original Java hook, exercises native current/default and sdk use, then compiles and executes a Java program from a fresh shell without bundle environment variables."
+  },
+  "google-cloud-cli": {
+    "kind": "shell-installer",
+    "functional_summary": "Run the official archive installer with bundled Python; verify profile/completion, local configuration and component listing"
+  },
+  "pulumi": {
+    "kind": "shell-installer",
+    "functional_summary": "Install the random provider and run a local YAML resource lifecycle with a file backend; verify completion"
+  }
+}

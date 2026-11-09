@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "purpose": "Supplemental actual Podman archive tests for SDKMAN shell initialization with literal prefix characters.",
+  "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
+  "files": [
+    {
+      "path": "test-literal-home-spaces-quote.sh",
+      "sha256": "2a477478019c60182d7113c6601bea769e1713fe1fa03c0c8581c74d5d21565c",
+      "size": 1081
+    },
+    {
+      "path": "report-prefix-literal-home-spaces-quote.json",
+      "sha256": "56364a75e44998232e9e72d084672cc7a87292d92488046a1b2d19242e411910",
+      "size": 2958
+    },
+    {
+      "path": "report-prefix-literal-home-spaces-quote.log",
+      "sha256": "c2b5ac4074b3735e4ed1c247727e7a276ac18d3c2a8ca2daeb34f28ab88422a8",
+      "size": 11441
+    },
+    {
+      "path": "test-shell-metacharacters.sh",
+      "sha256": "e96f88171075b8cd911edcbb5d5287d03de62c9470ae8757043bbce088b1b689",
+      "size": 1128
+    },
+    {
+      "path": "report-prefix-shell-metacharacters.json",
+      "sha256": "3b6b49150f54ddb445be345e7cfa5355cd752e96c3c9f0ea5e1741520d9b350c",
+      "size": 3013
+    },
+    {
+      "path": "report-prefix-shell-metacharacters.log",
+      "sha256": "878cc0555e25bc5c00ca9300bb73cb4431ccc430f1f95389f418cfc85a7689c9",
+      "size": 11862
+    },
+    {
+      "path": "prefix-results.json",
+      "sha256": "20eef0a2e96f9733d0068061155d793c3a833cb2812c2e9ca5338eb2e0a85014",
+      "size": 678
+    },
+    {
+      "path": "verify_special_prefixes.py",
+      "sha256": "935f002bd5f62fa8092fb27102f16450c01a47d67d3bb5c1ea5ee5148a05c69c",
+      "size": 2157
+    }
+  ],
+  "reproduction": "After building/extracting the matching archive and preparing localhost/shellferry-sdkman:ubuntu22, mount its bundle directory as /bundle:ro and one test-*.sh as /verify.sh:ro in an ordinary-user Podman container with --network=none. The shell harnesses are self-contained and preserve the exact tested prefix. verify_special_prefixes.py records the original task-local orchestration only."
+}

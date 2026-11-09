@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "sheldon",
+  "version": "0.8.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/rossmacarthur/sheldon/releases/download/0.8.5/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "80aa0be617072c278d67fd6c5fbce4903d3801d78b6abf8f058f0648d2242c78",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/crate.sh",
+      "sha256_original": "9ff2b3ee918dd345807aece8abf2231fab4f1d827867c4e933d1da1a4924cc9d",
+      "sha256_patched": "27b8b73ecf836123b423431e88e116d1a1ade567f1a553f0a7fa6d34d004d9ce",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cut",
+    "head",
+    "install",
+    "basename"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Pins the release asset list for the requested version/target instead of hashing mutable GitHub API metadata. Original archive scoring, extraction, overwrite protection and installation remain active; first-use builds require only immutable source/archive URLs."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "4b6c076bba5839b9dc4dea6f7a0ff038a386ff27512380d1fb6abf7efc32c0e7",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

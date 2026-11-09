@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "name": "xmake",
+  "version": "3.1.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/xmake-io/xmake/8dd9de1ff4e5070931d190c3a109d39825fd62ab/scripts/get.sh",
+      "sha256": "5b83584bf2d57aa96a1579398a8bbc2bab74d62680623ce1dd3fd73732c8b115",
+      "patches": [
+        {
+          "old": "version=$(git ls-remote --tags \"$gitrepo\" | tail -c7)",
+          "new": "version=v3.1.2",
+          "count": 1
+        },
+        {
+          "old": "runfile_url=\"https://fastly.jsdelivr.net/gh/xmake-mirror/xmake-releases@$version/xmake-$version.$pack.run\"",
+          "new": "runfile_url=\"https://github.com/xmake-io/xmake/releases/download/$version/xmake-$version.$pack.run\"",
+          "count": 1
+        },
+        {
+          "old": "remote_get_content() {",
+          "new": "remote_get_content() { offline_fetch \"$1\"; return;\n",
+          "count": 1
+        },
+        {
+          "old": "install PREFIX=\"$prefix\"",
+          "new": "install PREFIX=\"\\\"$prefix\\\"\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/xmake-io/xmake/releases/download/v3.1.2/xmake-v3.1.2.gz.run",
+      "path": "resources/xmake.run",
+      "sha256": "c8466416f6479d4e959f9e41dd60bdc0ee121461216c28705c8264550ab17125",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "__run__"
+  ],
+  "env": {
+    "prefix": "{prefix}",
+    "XMAKE_STATS": "false"
+  },
+  "requires": [
+    "bash",
+    "git",
+    "make",
+    "gcc",
+    "g++",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/xmake",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$OFFLINE_PREFIX/bin:$PATH\"; d=$(mktemp -d); cd \"$d\"; printf 'target(\"hello\")\\n  set_kind(\"binary\")\\n  add_files(\"main.c\")\\n' > xmake.lua; printf '#include <stdio.h>\\nint main(void){puts(\"xmake-offline-ok\");return 0;}\\n' > main.c; xmake -y; xmake run hello | grep -qx xmake-offline-ok"
+    ]
+  ],
+  "notes": [
+    "Official get.sh conversion: fixed runfile release replaces git latest lookup and download helper; upstream configure, make and install are retained. Prepared image supplies C/C++ build toolchain and libreadline development files. Functional test compiles and executes a local C application without package dependencies.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Fixes reproduced upstream Makefile installation quoting: the PREFIX make variable is passed as a shell-quoted path, preserving install targets while supporting spaces. Upstream does not intentionally forbid spaces.",
+    "Disables optional build statistics with the supported XMAKE_STATS=false setting. The first disconnected build exposed downloader probes by the statistics subsystem; the final report requires no guarded downloader calls."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

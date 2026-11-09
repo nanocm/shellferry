@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "pnpm",
+  "version": "12.18.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-platform.json",
+      "url": "https://registry.npmjs.org/@pnpm/exe.linux-x64/12.18.0",
+      "sha256": "805b57ee52db1d7695d9d6826f86618d397c210728c47178ebe1e0b3432d90e9",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-platform.tgz",
+      "url": "https://registry.npmjs.org/@pnpm/exe.linux-x64/-/exe.linux-x64-12.18.0.tgz",
+      "sha256": "679df2eedf158f639db6d1f00e713d766d0d7afc6a931bc51497a625d1e1bdf7",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-package.json",
+      "url": "https://registry.npmjs.org/pnpm/12.18.0",
+      "sha256": "d8eb7984286b90c6c5a344654841c988a93a0aa9981bf22d8b6410a2e3a0c694",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-package.tgz",
+      "url": "https://registry.npmjs.org/pnpm/-/pnpm-12.18.0.tgz",
+      "sha256": "29d1d7d99bf6ec6d0a3dbb0ec5656f0d16e997e8be676ca45c581d11cb71f753",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://get.pnpm.io/install.sh",
+      "sha256_original": "53d3ad6ef67d49d6951f3326bd3180e5c504c8f695bcdf73bb61ec7a4d4c9407",
+      "sha256_patched": "9e299d343485cc9ea67512b34206f697c9574c6a1446c6b241f7b5674e2d43c9",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "gzip",
+    "openssl",
+    "base64",
+    "od",
+    "sha512sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Retains npm registry signature verification and SHA-512 integrity verification. Packages include the platform executable and pnpm dist tree.",
+    "Pinned full version bypasses live latest lookup. PNPM_NO_MODIFY_PATH uses upstream supported option."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "357c9adb85e4b4f2823cb7a5c9688b9691c2bb05a7a8f4afacdafe525d530882"
+}

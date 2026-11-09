@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "scala-cli",
+  "version": "1.18.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/scala-cli-x86_64-pc-linux.gz",
+      "url": "https://github.com/VirtusLab/scala-cli/releases/download/v1.18.0/scala-cli-x86_64-pc-linux.gz",
+      "sha256": "eb41442f870bcae75aa5d6622ac96a173dae14fed59f71c97125eb21536bb060",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/VirtusLab/scala-cli-packages/f4749ccacf7a9275fa667a3f9fd87faf5d916666/scala-setup.sh",
+      "sha256_original": "5efeef106c6e359152328afcf5177fac5343382b9809cb20680890c5c59fdd12",
+      "sha256_patched": "257523932f81f7642f8501f3ebbb2387e24505baca768c11db46014f5daeb5e0",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "bash",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Native Scala CLI executable only. JDK, Scala compiler artifacts, Bloop and Maven dependencies are not included. Preserves official install-home operation with explicit bin-dir options; local functional scope is directory/configuration discovery.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "9d8ca8735cf3086fec53d82b032ec4935a5e5dac55087c1edb57be62d59a49b2",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

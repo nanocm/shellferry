@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "name": "oranda",
+  "version": "0.6.5",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-installer.sh",
+      "sha256": "4a03a317b3e1b70efe79eaf85e078cdff99b523f320620f5a7d79f763d877a28",
+      "patches": [
+        {
+          "old": "downloader() {\n    if check_cmd curl\n    then _dld=curl\n    elif check_cmd wget\n    then _dld=wget\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]\n    then curl -sSfL \"$1\" -o \"$2\"\n    elif [ \"$_dld\" = wget ]\n    then wget \"$1\" -O \"$2\"\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/oranda-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "2db065e8b06253526a81595b9312b8c4468ff42f3f9fbe50a6ff21a42d3516d1",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "url": "https://github.com/axodotdev/oranda/releases/download/v0.6.5/oranda-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/oranda-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "05171447b827f681ec19142d0bb983a8691f65c54820d821e66ee7a419fbd88b",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {
+    "CARGO_DIST_FORCE_INSTALL_DIR": "{prefix}",
+    "INSTALLER_NO_MODIFY_PATH": "1",
+    "INSTALLER_DOWNLOAD_URL": "https://github.com/axodotdev/oranda/releases/download/v0.6.5"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "python3"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/oranda",
+      "--version"
+    ],
+    [
+      "python3",
+      "-c",
+      "import os, pathlib, subprocess, time, urllib.request\nsite=pathlib.Path('/tmp/oranda-site'); (site/'public').mkdir(parents=True,exist_ok=True); (site/'public/index.html').write_text('<h1>shellferry</h1>')\nserver=subprocess.Popen([os.environ['OFFLINE_PREFIX']+'/bin/oranda','serve','--port','18181'],cwd=site,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)\ntry:\n opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))\n for i in range(60):\n  try:\n   body=opener.open('http://127.0.0.1:18181/',timeout=1).read(); assert b'shellferry' in body; break\n  except (OSError,AssertionError):\n   if server.poll() is not None: raise RuntimeError(server.stdout.read().decode())\n   time.sleep(.1)\n else: raise AssertionError('local site was not served')\nfinally:\n server.terminate();server.wait(timeout=5)\n"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The official install-directory override selects the ordinary-user prefix and INSTALLER_NO_MODIFY_PATH disables profile editing. Other upstream installation metadata is preserved.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Selects the official GitHub release through the upstream INSTALLER_DOWNLOAD_URL override; pins the same release archives instead of the default axo artifact host.",
+    "Functional check serves a local HTML site on loopback with external networking disabled. Python 3 is a verification prerequisite for the loopback HTTP assertion; not required to install or run oranda itself."
+  ]
+}

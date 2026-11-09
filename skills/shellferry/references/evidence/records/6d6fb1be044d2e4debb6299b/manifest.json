@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "just",
+  "version": "1.59.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/just-1.59.0-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/casey/just/releases/download/1.59.0/just-1.59.0-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "409044617b6f06517c1035e55ca38c8c856ff8b650e41bc2aa1ef82d5903a23e",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from the HTTPS official release asset; not an independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://just.systems/install.sh",
+      "sha256_original": "64738ce6bec65ba39848dad0da0b35a467ef32003603bd8e4a419167fa58b1d0",
+      "sha256_patched": "28c8e440bf0e62c5a041cf4e7f86e13a362bdf8a8352e6fe81b13a76eca5b3b0",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "bash"
+  ],
+  "runtime": {},
+  "notes": [
+    "Pins default tag to avoid GitHub latest API dependency; preserves stream-to-tar download semantics and native overwrite guard."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "9aef2b2743eb4b54d830fd165d0522e671c1876367dbe4b7964e0086534e4130"
+}

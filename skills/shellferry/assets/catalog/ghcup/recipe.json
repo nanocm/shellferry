@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "name": "ghcup",
+  "version": "0.2.6.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/haskell/ghcup-hs/e24077bc3640f55171735b11dffc0223dacfc7fe/scripts/bootstrap/bootstrap-haskell",
+      "sha256": "c85add4cdca779ea34bcbeeb3a311bbfed23fc96583311df41fe4e73554eba6d",
+      "patches": [
+        {
+          "old": "edo curl -Lf ${GHCUP_CURL_OPTS} \"${_url}\"",
+          "new": "edo offline_fetch \"${_url}\"",
+          "count": 2
+        },
+        {
+          "old": "edo wget -O /dev/stdout ${GHCUP_WGET_OPTS} \"${_url}\"",
+          "new": "edo offline_fetch \"${_url}\"",
+          "count": 2
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/haskell/ghcup-hs/releases/download/v0.2.6.2/x86_64-linux-ghcup-0.2.6.2",
+      "path": "resources/x86_64-linux-ghcup-0.2.6.2",
+      "sha256": "9ed5da5449b48043a0d17e767c05d2ef585e25a639bb934329496c6d2fad9cf8",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum",
+      "aliases": [
+        "https://downloads.haskell.org/~ghcup/0.2.6.2/x86_64-linux-ghcup-0.2.6.2"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/haskell/ghcup-metadata/48e81288f9d16dbea628719b6dffcacd4acd76c2/ghcup-0.0.9.yaml",
+      "path": "resources/ghcup.yaml",
+      "sha256": "570f1b50f1ed487d03c125919143481fa736e703baf8bbf463223c45585a3dd3",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "GHCUP_INSTALL_BASE_PREFIX": "{prefix}",
+    "BOOTSTRAP_HASKELL_NONINTERACTIVE": "1",
+    "BOOTSTRAP_HASKELL_MINIMAL": "1",
+    "BOOTSTRAP_HASKELL_NO_UPGRADE": "1",
+    "BOOTSTRAP_HASKELL_INSTALL_NO_STACK": "1",
+    "BOOTSTRAP_HASKELL_INSTALL_NO_STACK_HOOK": "1",
+    "BOOTSTRAP_HASKELL_YAML": "file://{bundle}/resources/ghcup.yaml",
+    "GHCUP_SKIP_UPDATE_CHECK": "yes",
+    "SHELL": "/bin/bash"
+  },
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "file",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/.ghcup/bin/ghcup",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/.ghcup/bin/ghcup\" --offline -s \"file://$OFFLINE_ROOT/resources/ghcup.yaml\" list -t ghc > \"$HOME/ghcup-list\"; grep -q 9. \"$HOME/ghcup-list\""
+    ]
+  ],
+  "notes": [
+    "GHCup manager only using upstream BOOTSTRAP_HASKELL_MINIMAL. Includes pinned official metadata so tool-requirements and local list work offline; GHC, Cabal, Stack and HLS not included. Runtime needs libgmp and libtinfo.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

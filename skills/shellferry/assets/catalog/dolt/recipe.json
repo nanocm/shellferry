@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "name": "dolt",
+  "version": "2.7.2",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/dolthub/dolt/releases/download/v2.7.2/install.sh",
+      "source": "sources/install.sh",
+      "sha256": "315e44d567f8a1de04cf4f9a472fe8ccd6c763e389979871b377023df6a5c61a",
+      "patches": [
+        {
+          "old": "type -p curl > /dev/null",
+          "new": "type -p cp > /dev/null",
+          "count": 1
+        },
+        {
+          "old": "curl -A \"$CURL_USER_AGENT\" -fsL \"$URL\" > \"$FILE\"",
+          "new": "offline_fetch \"$URL\" \"$FILE\"",
+          "count": 1
+        },
+        {
+          "old": "assert_dependencies\nassert_uid_zero\ncreate_workdir",
+          "new": "assert_dependencies\ncreate_workdir",
+          "count": 1
+        },
+        {
+          "old": "  echo 'Installing dolt into /usr/local/bin.'\n  [ ! -d /usr/local/bin ] && install -o 0 -g 0 -d /usr/local/bin\n  install -o 0 -g 0 \"dolt-$PLATFORM_TUPLE/bin/dolt\" /usr/local/bin\n  install -o 0 -g 0 -d /usr/local/share/doc/dolt/\n  install -o 0 -g 0 -m 644 \"dolt-$PLATFORM_TUPLE/LICENSES\" /usr/local/share/doc/dolt/",
+          "new": "  install -d \"$OFFLINE_PREFIX/bin\" \"$OFFLINE_PREFIX/share/doc/dolt\"\n  install \"dolt-$PLATFORM_TUPLE/bin/dolt\" \"$OFFLINE_PREFIX/bin/dolt\"\n  install -m 644 \"dolt-$PLATFORM_TUPLE/LICENSES\" \"$OFFLINE_PREFIX/share/doc/dolt/\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/dolthub/dolt/releases/download/v2.7.2/dolt-linux-amd64.tar.gz",
+      "path": "resources/dolt-linux-amd64.tar.gz",
+      "sha256": "72825a65d96bf0a0967ec408ad43bc21afc9b1c899b84cb84344a35f567fb11f",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {
+    "DOLT_DISABLE_EVENT_FLUSH": "1"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/dolt",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p \"$HOME/dolt-test\"; cd \"$HOME/dolt-test\"; \"$OFFLINE_PREFIX/bin/dolt\" config --global --add user.name Shellferry; \"$OFFLINE_PREFIX/bin/dolt\" config --global --add user.email test@example.invalid; if [ ! -d .dolt ]; then \"$OFFLINE_PREFIX/bin/dolt\" init; fi; \"$OFFLINE_PREFIX/bin/dolt\" sql -q \"CREATE TABLE IF NOT EXISTS sample (id INT PRIMARY KEY); REPLACE INTO sample VALUES (42); SELECT id FROM sample;\" | grep -q 42"
+    ]
+  ],
+  "notes": [
+    "Official release installer converted to ordinary-user prefix: removes root-only ownership settings and writes binary/license under the selected prefix. Original platform/dependency checks remain. Smoke initializes a local repository and executes SQL."
+  ],
+  "kind": "script-conversion"
+}

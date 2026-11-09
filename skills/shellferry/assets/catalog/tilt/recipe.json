@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "name": "tilt",
+  "version": "0.37.8",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/tilt-dev/tilt/1d760f65afdce2efe4d74494043daa40d60422fd/scripts/install.sh",
+      "sha256": "af57c5be9a7df24d8133f2977befe871933215bdadc5e653226b8085d6a9617f",
+      "patches": [
+        {
+          "old": "curl -fsSL \"$url\" | tar -xzv -C \"$temp_dir\" tilt",
+          "new": "offline_fetch \"$url\" | tar -xzv -C \"$temp_dir\" tilt",
+          "count": 1
+        },
+        {
+          "old": "function copy_binary() {\n  local binary_path=\"${1:-tilt}\"\n  if [[ \":$PATH:\" == *\":$HOME/.local/bin:\"* ]]; then\n      if [ ! -d \"$HOME/.local/bin\" ]; then\n        mkdir -p \"$HOME/.local/bin\"\n      fi\n      mv \"$binary_path\" \"$HOME/.local/bin/tilt\"\n  else\n      echo \"Installing Tilt to /usr/local/bin which is write protected\"\n      echo \"If you'd prefer to install Tilt without sudo permissions, add \\$HOME/.local/bin to your \\$PATH and rerun the installer\"\n      sudo mv \"$binary_path\" /usr/local/bin/tilt\n  fi\n}",
+          "new": "copy_binary() {\n mkdir -p \"$OFFLINE_PREFIX/bin\"\n mv \"${1:-tilt}\" \"$OFFLINE_PREFIX/bin/tilt\"\n}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/tilt-dev/tilt/releases/download/v0.37.8/tilt.0.37.8.linux.x86_64.tar.gz",
+      "path": "resources/tilt.0.37.8.linux.x86_64.tar.gz",
+      "sha256": "e39513f958705d30524d55f68b1d46fbef2b46a0da568efd00e6383dee6be44f",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "TILT_DISABLE_ANALYTICS": "1"
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/tilt",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/tilt\" docker --help > /tmp/tilt-docker-help; \"$OFFLINE_PREFIX/bin/tilt\" completion bash > /tmp/tilt.bash; test -s /tmp/tilt.bash; grep -q tilt /tmp/tilt.bash"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Adapts copy destination to explicit user prefix. CLI local command/completion generation tested; Docker/Kubernetes runtime is not included."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

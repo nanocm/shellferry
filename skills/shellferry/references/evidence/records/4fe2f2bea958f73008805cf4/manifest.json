@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "dolt",
+  "version": "2.7.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/dolt-linux-amd64.tar.gz",
+      "url": "https://github.com/dolthub/dolt/releases/download/v2.7.2/dolt-linux-amd64.tar.gz",
+      "sha256": "72825a65d96bf0a0967ec408ad43bc21afc9b1c899b84cb84344a35f567fb11f",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/dolthub/dolt/releases/download/v2.7.2/install.sh",
+      "sha256_original": "315e44d567f8a1de04cf4f9a472fe8ccd6c763e389979871b377023df6a5c61a",
+      "sha256_patched": "2d2e78db773a2fd4a94b26ce26343b959a15e93ee3ad06c42bb4e2420e38f3cc",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official release installer converted to ordinary-user prefix: removes root-only ownership settings and writes binary/license under the selected prefix. Original platform/dependency checks remain. Smoke initializes a local repository and executes SQL."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "ebd4355991d4cfadcd0238f3f852a23fdfa515f5d83fd57141b24c69768891da",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

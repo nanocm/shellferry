@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "uv",
+  "version": "0.13.7",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/uv-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://releases.astral.sh/github/uv/releases/download/0.13.7/uv-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in the pinned original official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://astral.sh/uv/install.sh",
+      "sha256_original": "d263ee68314cf5bea36b08e6bd9e2c4563240d7adb73756cf33af5c199b92db4",
+      "sha256_patched": "9ff4660a7a84c1a2bcec6e9bba84c511fe289a7bc10b21513e3ad5f52101a18b",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves cargo-dist upstream checksum verification. Unmanaged installation suppresses PATH editing and installer receipt metadata.",
+    "uv init without explicit Python metadata attempted a Python download in an empty container. Functional validation now uses a declared Python requirement with --no-pin-python; managed Python/runtime/package installation remains separate offline scope."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "858693283c6a6458d3f2dccb77cd369fc6c6c0e41b4a9b1283dc2856fb0cc8be",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

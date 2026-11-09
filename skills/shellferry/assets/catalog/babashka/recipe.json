@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "name": "babashka",
+  "version": "1.13.229",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/babashka/babashka/5099cbfbf8d6fd4cd82fd5033370c5c467601acb/install",
+      "sha256": "85b4e836f50d64b0b1d28ae626865aef42ab9c7e488e177aa96ed5841bb52bc9",
+      "patches": [
+        {
+          "old": "while [[ $# -gt 0 ]]",
+          "new": "fetch() { offline_fetch \"$1\" \"${2:--}\"; }\n\nwhile [[ $# -gt 0 ]]",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/babashka/babashka/releases/download/v1.13.229/babashka-1.13.229-linux-amd64-static.tar.gz",
+      "path": "resources/babashka-1.13.229-linux-amd64-static.tar.gz",
+      "sha256": "64fb984991c6e68f44e8a9391176a9bb411f9b9ae9959a6bca5307c75a7414da",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "--dir",
+    "{prefix}/bin",
+    "--version",
+    "1.13.229",
+    "--static"
+  ],
+  "env": {},
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/bb",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "test \"$(\"$OFFLINE_PREFIX/bin/bb\" -e '(reduce + [1 2 3 4])')\" = 10"
+    ]
+  ],
+  "notes": [
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

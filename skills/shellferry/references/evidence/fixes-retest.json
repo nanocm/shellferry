@@ -1,0 +1,6 @@
+{
+  "stdlib_inspect_shadow_fixed": true,
+  "swallowed_unknown_url_rejected": true,
+  "special_path_preserved_literally": true,
+  "shell_code_path_interpolation_rejected": true
+}

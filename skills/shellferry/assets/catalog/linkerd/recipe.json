@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "name": "linkerd",
+  "version": "edge-26.11.1",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/linkerd/website/a2770e552f9e2fbd2008c9e4e8940b0f1d5f421d/run.linkerd.io/public/install",
+      "sha256": "199a78f845b65d4a219510da9f2c94f8ec27f0edd61d673f509785482192c046",
+      "patches": [
+        {
+          "old": "curl --proto '=https' --tlsv1.2 -fLO \"${url}\"",
+          "new": "offline_fetch \"${url}\" \"${srcfile}\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/linkerd/linkerd2/releases/download/edge-26.11.1/linkerd2-cli-edge-26.11.1-linux-amd64",
+      "path": "resources/linkerd2-cli-edge-26.11.1-linux-amd64",
+      "sha256": "f69701bec37964905d1cb06097e201ddf71e136824c3817f9a94a405fcbb6a07",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "LINKERD2_VERSION": "edge-26.11.1",
+    "INSTALLROOT": "{prefix}"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/linkerd",
+      "version",
+      "--client"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/linkerd\" inject --ignore-cluster - <<'YAML' > /tmp/linkerd-injected.yaml\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: offline\nspec:\n  selector:\n    matchLabels: {app: offline}\n  template:\n    metadata:\n      labels: {app: offline}\n    spec:\n      containers:\n      - name: app\n        image: example.invalid/app:1\nYAML\ngrep -q linkerd.io/inject /tmp/linkerd-injected.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Pins the upstream edge release. Validates local manifest processing; no cluster install or Kubernetes API access is included."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

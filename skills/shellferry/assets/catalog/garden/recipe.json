@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "name": "garden",
+  "version": "0.14.20",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/garden-io/garden/4e7128de8dfb5f38f76a5d005a65a78110be7553/support/install.sh",
+      "sha256": "8e086a69bf4d40bb71b59321d9e84256cd831d2a0e130a3f7a763ef3e046c34a",
+      "patches": [
+        {
+          "old": "curl -sLO \"${url}\"",
+          "new": "offline_fetch \"${url}\" \"${filename}\"",
+          "count": 1
+        },
+        {
+          "old": "SHA=$(curl -sL \"${url}.sha256\")",
+          "new": "SHA=$(offline_fetch \"${url}.sha256\")",
+          "count": 1
+        },
+        {
+          "old": "GARDEN_DIR=${HOME}/.garden",
+          "new": "GARDEN_DIR=${OFFLINE_PREFIX}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/garden-io/garden/releases/download/0.14.20/garden-0.14.20-linux-amd64.tar.gz",
+      "path": "resources/garden-0.14.20-linux-amd64.tar.gz",
+      "sha256": "83e148491e00cb5ca831caeb401a3d1bc5cb8d66b972150af96a129ab7aac505",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://download.garden.io/core/0.14.20/garden-0.14.20-linux-amd64.tar.gz"
+      ]
+    },
+    {
+      "url": "https://github.com/garden-io/garden/releases/download/0.14.20/garden-0.14.20-linux-amd64.tar.gz.sha256",
+      "path": "resources/garden-0.14.20-linux-amd64.tar.gz.sha256",
+      "sha256": "24b55faae2a028991e7dd9df05e53719d6db1168a18bfe18099f85a62e1c4165",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://download.garden.io/core/0.14.20/garden-0.14.20-linux-amd64.tar.gz.sha256"
+      ]
+    }
+  ],
+  "env": {
+    "GARDEN_DISABLE_ANALYTICS": "true",
+    "GARDEN_DISABLE_VERSION_CHECK": "true"
+  },
+  "args": [
+    "0.14.20"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "openssl"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/garden",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); \"$OFFLINE_PREFIX/bin/garden\" create project --name offline --dir \"$d\" --interactive=false; test -s \"$d/project.garden.yml\"; grep -q offline \"$d/project.garden.yml\""
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

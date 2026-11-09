@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "mise",
+  "version": "2026.11.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/mise-v2026.11.5-linux-x64.tar.gz",
+      "url": "https://github.com/jdx/mise/releases/download/v2026.11.5/mise-v2026.11.5-linux-x64.tar.gz",
+      "sha256": "d7dee029352bf4b8986e7c4696b8ce54746c3eb648ffca3cc69bdeecc0ff06e9",
+      "expected_checksum_matched": true,
+      "checksum_source": "upstream-embedded:get_checksum/checksum_linux_x86_64 in sources/install.sh (official https://mise.run snapshot)"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://mise.run",
+      "sha256_original": "ac90f00da1192e8a4b961f0a64399775979d2c75a380a38b7dcc0e41a52bb658",
+      "sha256_patched": "d440aa32a437965b51a6abe2ff312fb637f9f5606adf75e505fb7137276acd3d",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Pinned installer version uses upstream embedded SHA-256 verification unchanged.",
+    "Uses gzip archive to avoid requiring zstd. mise-managed runtimes need separate offline packages."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "465f782015d52fc12054ae518f73a00cde8f14c5f16e57e28e0bade7ca3dd68c"
+}

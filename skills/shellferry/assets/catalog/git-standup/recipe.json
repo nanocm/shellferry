@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "name": "git-standup",
+  "version": "2.3.2",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/nilbuild/git-standup/a8031b89636791936fa00c3e64799748572a9e11/installer.sh",
+      "sha256": "30aebf5d9ddb571244a8fbd34ee934c9382b6527ffe21569c2d950cbf0292a29",
+      "patches": [
+        {
+          "old": "git clone https://github.com/kamranahmedse/git-standup.git --depth=1",
+          "new": "mkdir -p git-standup\noffline_fetch \"https://github.com/nilbuild/git-standup/archive/a8031b89636791936fa00c3e64799748572a9e11.tar.gz\" git-standup-source.tar.gz || exit $?\ntar -xzf git-standup-source.tar.gz --strip-components=1 -C git-standup",
+          "count": 1
+        },
+        {
+          "old": "make install || {",
+          "new": "make install BINDIR=\"\\\"$OFFLINE_PREFIX/bin\\\"\" || {",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/nilbuild/git-standup/archive/a8031b89636791936fa00c3e64799748572a9e11.tar.gz",
+      "path": "resources/git-standup-source.tar.gz",
+      "sha256": "90b8bc653db4344a3a94bd2d8a92c6100c49300e4f08518e249958c7154e2b96",
+      "checksum_source": "locally-pinned official GitHub commit source archive"
+    }
+  ],
+  "env": {},
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "sha256sum",
+    "git",
+    "make",
+    "install",
+    "date",
+    "cut",
+    "sort",
+    "uniq"
+  ],
+  "smoke": [
+    [
+      "bash",
+      "-n",
+      "{prefix}/bin/git-standup"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p /tmp/standup-project; cd /tmp/standup-project; git init -q; git config user.name Offline; git config user.email offline@example.invalid; printf demo > demo; git add demo; git commit --allow-empty -qm offline-commit; \"$OFFLINE_PREFIX/bin/git-standup\" -a Offline -d 1 > /tmp/standup-result; grep -q offline-commit /tmp/standup-result"
+    ]
+  ],
+  "notes": [
+    "Converts the official git clone + make install shell installer. Bundles the exact Git commit archive, preserving make install, and quotes BINDIR in the upstream Makefile invocation to support spaces.",
+    "Git and make are explicit prerequisites. Functional check creates a local Git commit and asserts the standup report includes it."
+  ]
+}

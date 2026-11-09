@@ -1,0 +1,58 @@
+[
+  {
+    "test": "reject-args-str",
+    "passed": true,
+    "detail": "args \u5fc5\u987b\u662f\u5b57\u7b26\u4e32\u6570\u7ec4\u3002"
+  },
+  {
+    "test": "reject-repeat_args-str",
+    "passed": true,
+    "detail": "repeat_args \u5fc5\u987b\u662f\u5b57\u7b26\u4e32\u6570\u7ec4\u3002"
+  },
+  {
+    "test": "reject-args-list",
+    "passed": true,
+    "detail": "args \u5fc5\u987b\u662f\u5b57\u7b26\u4e32\u6570\u7ec4\u3002"
+  },
+  {
+    "test": "reject-shell-path-interpolation",
+    "command": [
+      "sh",
+      "-c",
+      "\"{prefix}/bin/tool\" --version"
+    ],
+    "passed": true,
+    "detail": "shell -c \u4ee3\u7801\u4e0d\u80fd\u63d2\u5165\u8def\u5f84\u5360\u4f4d\u7b26\uff0c\u8bf7\u5728\u4ee3\u7801\u4e2d\u5f15\u7528 \"$OFFLINE_PREFIX\"\u3001\"$OFFLINE_ROOT\"\u3001\"$HOME\"\u3002"
+  },
+  {
+    "test": "reject-shell-path-interpolation",
+    "command": [
+      "bash",
+      "-euc",
+      "cd \"{bundle}\""
+    ],
+    "passed": true,
+    "detail": "shell -c \u4ee3\u7801\u4e0d\u80fd\u63d2\u5165\u8def\u5f84\u5360\u4f4d\u7b26\uff0c\u8bf7\u5728\u4ee3\u7801\u4e2d\u5f15\u7528 \"$OFFLINE_PREFIX\"\u3001\"$OFFLINE_ROOT\"\u3001\"$HOME\"\u3002"
+  },
+  {
+    "test": "reject-shell-path-interpolation",
+    "command": [
+      "sh",
+      "-ec",
+      "cd \"{home}\""
+    ],
+    "passed": true,
+    "detail": "shell -c \u4ee3\u7801\u4e0d\u80fd\u63d2\u5165\u8def\u5f84\u5360\u4f4d\u7b26\uff0c\u8bf7\u5728\u4ee3\u7801\u4e2d\u5f15\u7528 \"$OFFLINE_PREFIX\"\u3001\"$OFFLINE_ROOT\"\u3001\"$HOME\"\u3002"
+  },
+  {
+    "test": "accept-quoted-runtime-environment-in-shell-code",
+    "passed": true
+  },
+  {
+    "test": "unknown-url-swallowed-by-upstream-still-fails-wrapper",
+    "passed": true,
+    "exit": 1,
+    "stdout": "install.sh: OK\nINSTALL.txt: OK\nmanifest.json: OK\noffline-lib.sh: OK\nprovenance/upstream/install.sh: OK\nprovenance/upstream/install.sh.diff: OK\nrecipe.json: OK\nrepeat.sh: OK\nsmoke.sh: OK\nupstream/install.sh: OK\nupstream exit success\n",
+    "stderr": "Uncollected URL: https://example.invalid/uncollected\nUncollected URL: https://example.invalid/uncollected\nError: Offline resource lookup failed, even if the upstream script ignored the error\n"
+  }
+]

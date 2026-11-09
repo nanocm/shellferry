@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "zinit",
+  "version": "3.17.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/zinit-source.tar.gz",
+      "url": "https://codeload.github.com/zdharma-continuum/zinit/tar.gz/cb4968123979cf073384e93aa8066d8fd450580f",
+      "sha256": "f652f7e2bab50390cba6b8ae27cc9707887a4d47f7b5b46e778a85a95df074bd",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/zdharma-continuum/zinit/cb4968123979cf073384e93aa8066d8fd450580f/scripts/install.sh",
+      "sha256_original": "f08d2bf2b41106924db1c0b4ef561becf5b1228598b777b3ad9d5029fae94757",
+      "sha256_patched": "01da44af407af67c03ccf28548ea9df652dd70475554a71dcf637d7728be0cc6",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "zsh",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Uses the official installer with fixed source archive for install/update transport. Git progress helper is not needed for local extraction. Supported NO_EDIT/NO_ANNEXES options avoid shell config edits and unrelated plugin downloads. Tests loading and invoking a local plugin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "cd08779492f601fcd9141ec618423e40c769a8f178452bf6b4622a2ddede8801",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "rqlite",
+  "version": "10.6.6",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/rqlite-v10.6.6-linux-amd64.tar.gz",
+      "url": "https://github.com/rqlite/rqlite/releases/download/v10.6.6/rqlite-v10.6.6-linux-amd64.tar.gz",
+      "sha256": "b0fdc2d526b03c0d933e27bf84f53d447791d1a6e331e74fa2013750bf621aba",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rqlite/rqlite.io/24e1b8a69d8a01e0c265bc7a001b89dca4d9532b/static/install.sh",
+      "sha256_original": "ba6ff2fdc7a6c0d778b92bb2895ff037f29ec6f45c5f67a713a25388e621effd",
+      "sha256_patched": "da8cc781e4959307fbf6184bcfbefe1c4ce31f063ec7449a5b9f35ddc06f12d5",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official website installer with pinned release and local resource reads. Smoke test starts a single-node server on container loopback and queries SQLite; clustering and external connectivity are outside this test."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "e68eca5cd1471c3ac41b9181386f80eb5b951c1b3a6a0e84a7472fca1a788841",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

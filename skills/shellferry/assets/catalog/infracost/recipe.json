@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "name": "infracost",
+  "version": "0.10.47",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/infracost/infracost/93b9a2d921f19966b09a3d84d2e63bd86f8587d0/scripts/install.sh",
+      "sha256": "783f42e471a58d62463b3dcd0baf877bbc19aad0c7edf25c1332b332ebb33fd5",
+      "patches": [
+        {
+          "old": "curl -sL \"$url/$tar\" -o \"/tmp/$tar\"",
+          "new": "offline_fetch \"$url/$tar\" \"/tmp/$tar\"",
+          "count": 1
+        },
+        {
+          "old": "code=$(curl -s -L -o /dev/null -w \"%{http_code}\" \"$url/$tar.sha256\")",
+          "new": "offline_fetch \"$url/$tar.sha256\" \"/tmp/$tar.sha256\"\ncode=200",
+          "count": 1
+        },
+        {
+          "old": "curl -sL \"$url/$tar.sha256\" -o \"/tmp/$tar.sha256\"",
+          "new": "offline_fetch \"$url/$tar.sha256\" \"/tmp/$tar.sha256\"",
+          "count": 1
+        },
+        {
+          "old": "shasum -sc \"$1\"",
+          "new": "sha256sum -c \"$1\"",
+          "count": 1
+        },
+        {
+          "old": "command -v shasum",
+          "new": "command -v sha256sum",
+          "count": 1
+        },
+        {
+          "old": "if [ -x \"$(command -v sudo)\" ]; then\n  sudo mv \"/tmp/infracost-$os-$arch\" \"/usr/local/bin/infracost\"\nelse\n  mv \"/tmp/infracost-$os-$arch\" \"/usr/local/bin/infracost\"\nfi",
+          "new": "mv \"/tmp/infracost-$os-$arch\" \"$OFFLINE_PREFIX/bin/infracost\"",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/infracost/infracost/releases/download/v0.10.47/infracost-linux-amd64.tar.gz",
+      "path": "resources/infracost-linux-amd64.tar.gz",
+      "sha256": "df098d5565b78cc23de57e1dac9f2a02491691322cbd690dca9b197e3e02fe93",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://infracost.io/downloads/v0.10.47/infracost-linux-amd64.tar.gz"
+      ]
+    },
+    {
+      "url": "https://github.com/infracost/infracost/releases/download/v0.10.47/infracost-linux-amd64.tar.gz.sha256",
+      "path": "resources/infracost-linux-amd64.tar.gz.sha256",
+      "sha256": "738cb81bf8c21662fa35abbc746a39d709c2a4c117f0816a03e982c87625eae2",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://infracost.io/downloads/v0.10.47/infracost-linux-amd64.tar.gz.sha256"
+      ]
+    }
+  ],
+  "env": {
+    "INFRACOST_VERSION": "v0.10.47",
+    "INFRACOST_SKIP_UPDATE_CHECK": "true"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/infracost",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/infracost\" configure set currency EUR; test \"$(\"$OFFLINE_PREFIX/bin/infracost\" configure get currency)\" = EUR"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Uses the official legacy <1.0 installer and pins v0.10.47. Replaces shasum checksum validation with equivalent sha256sum validation. Tests local configuration, not cloud pricing or API estimates."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

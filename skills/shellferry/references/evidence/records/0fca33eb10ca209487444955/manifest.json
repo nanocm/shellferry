@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "cargo-mommy",
+  "version": "0.3.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/cargo-mommy-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "25daf0138c5670800e474fa7751a48da2b106196119f64aba9743179ec0a652a",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/cargo-mommy-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "0e7964f9772f4d5b5902a34bf3c40a3a8365cdc8546df0533aacf7d05517275d",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/Gankra/cargo-mommy/releases/download/v0.3.1/cargo-mommy-installer.sh",
+      "sha256_original": "9bd7086ab196a830f269f5afc5c82222c2e5150f6e31ea25bd51dbf807e3b1a6",
+      "sha256_patched": "1953f88fafe68c949657a4cd3a71c442b3a7190e4c604c5330505028fd058c45",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cargo",
+    "rustc",
+    "cc",
+    "git",
+    "readelf"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The official install-directory override selects the ordinary-user prefix and INSTALLER_NO_MODIFY_PATH disables profile editing. Other upstream installation metadata is preserved.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Cargo, Rust, C linker and Git are existing development prerequisites, tested from Ubuntu 22.04 distribution packages; no Rust toolchain or project dependencies are downloaded by this installation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "35c2f3e74196fc876cbebc0fcc7a56571f70ab8a8a3aabaaee2ccb0a03cb3cf2",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

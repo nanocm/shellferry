@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "deno",
+  "version": "2.9.8",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/deno.zip",
+      "url": "https://dl.deno.land/release/v2.9.8/deno-x86_64-unknown-linux-gnu.zip",
+      "sha256": "a39762429792913fe762ef0b59c9cba41dbd38195984da99221a193b13d97b40",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/deno-shell-setup.esm.js",
+      "url": "https://jsr.io/@deno/installer-shell-setup/0.3.4/bundled.esm.js",
+      "sha256": "3bf232de451d984bb700230b661c21c7cee5304f9f4ad4d6af5e7f2cc3603899",
+      "expected_checksum_matched": true,
+      "checksum_source": "https://jsr.io/@deno/installer-shell-setup/0.3.4_meta.json#/manifest/~1bundled.esm.js/checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://deno.land/install.sh",
+      "sha256_original": "83f19ea13f6d7884f4dc0e2f92e7e08e7589204138d9b6edfcd53c3f07b3273b",
+      "sha256_patched": "13c15cc7bc78d26b53585b9e633d440c6039ae82d3f5e3e5069cee5763437f7e",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "unzip"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves upstream installer and runs bundled second-stage shell setup from pinned JSR file; --cached-only disallows remote module fetching.",
+    "Runs --yes --no-modify-path in validation. Deno binary runtime/project dependencies are outside this installer conversion.",
+    "Quotes upstream executable invocation to support prefix paths containing spaces."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "b65205d3c9aeeab95e93297c2d169c3d73b457a41cd91a95b542ab3e1b4756b9"
+}

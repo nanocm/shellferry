@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "name": "flux",
+  "version": "2.10.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/22c6ee1a6099ce252b729199c105a38319b587d4/install/flux.sh",
+      "sha256": "60b78fb0ff7ff63f43e5d97a7bf020380e97c9da73d11aa5f44246ea0e5c9053",
+      "patches": [
+        {
+          "old": "download() {\n    [[ $# -eq 2 ]] || fatal 'download needs exactly 2 arguments'\n\n    case $DOWNLOADER in\n        curl)\n            curl -u user:$GITHUB_TOKEN -o \"$1\" -sfL \"$2\"\n            ;;\n        wget)\n            wget --auth-no-challenge --user=user --password=$GITHUB_TOKEN -qO \"$1\" \"$2\"\n            ;;\n        *)\n            fatal \"Incorrect executable '${DOWNLOADER}'\"\n            ;;\n    esac\n\n    # Abort if download command failed\n    [[ $? -eq 0 ]] || fatal 'Download failed'\n}",
+          "new": "download() {\n offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "get_release_version() {\n    if [[ -n \"${FLUX_VERSION}\" ]]; then\n      SUFFIX_URL=\"tags/v${FLUX_VERSION}\"\n    else\n      SUFFIX_URL=\"latest\"\n    fi\n\n    METADATA_URL=\"https://api.github.com/repos/${GITHUB_REPO}/releases/${SUFFIX_URL}\"\n\n    info \"Downloading metadata ${METADATA_URL}\"\n    download \"${TMP_METADATA}\" \"${METADATA_URL}\"\n\n    VERSION_FLUX=$(grep '\"tag_name\":' \"${TMP_METADATA}\" | sed -E 's/.*\"([^\"]+)\".*/\\1/' | cut -c 2-)\n    if [[ -n \"${VERSION_FLUX}\" ]]; then\n        info \"Using ${VERSION_FLUX} as release\"\n    else\n        fatal \"Unable to determine release version\"\n    fi\n}",
+          "new": "get_release_version() {\n VERSION_FLUX='2.10.0'\n}",
+          "count": 1
+        },
+        {
+          "old": "verify_downloader curl || verify_downloader wget || fatal 'Can not find curl or wget for downloading files'",
+          "new": ": # offline_fetch does not require a network downloader",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/fluxcd/flux2/releases/download/v2.10.0/flux_2.10.0_linux_amd64.tar.gz",
+      "path": "resources/flux_2.10.0_linux_amd64.tar.gz",
+      "sha256": "208dd7012c04fedeed5b2d0b6e63df3b15b1c34a381527811685c098bc9f8659",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/fluxcd/flux2/releases/download/v2.10.0/flux_2.10.0_checksums.txt",
+      "path": "resources/flux_2.10.0_checksums.txt",
+      "sha256": "4267dbab83ad0dab0570cf87f5af8392b862e9a6d23d57cb856601444f031788",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {},
+  "args": [
+    "{prefix}/bin"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/flux",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/flux\" create source git offline --url=https://example.com/repo --branch=main --export > /tmp/flux-source.yaml; grep -q \"kind: GitRepository\" /tmp/flux-source.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

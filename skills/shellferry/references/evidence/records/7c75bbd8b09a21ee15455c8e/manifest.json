@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "kustomize",
+  "version": "5.8.3",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/kustomize_v5.8.3_linux_amd64.tar.gz",
+      "url": "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.8.3/kustomize_v5.8.3_linux_amd64.tar.gz",
+      "sha256": "cb9e31198d3f63b44848bd0afc4c8efc56e6cfef9c93a4a39a211940e6decd61",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/ace3fedfc2e404f835668905cffebcc62f3b8a39/hack/install_kustomize.sh",
+      "sha256_original": "0a76e6dd4e73b9bc0cac5ba9f014bf04f07c462de234ebcabc0bddf79c3ccc0d",
+      "sha256_patched": "c7686a930e71fcd0ac03c7691080101f8c9a5058c25a73f3a0f5c874a295a7a5",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "b20705600571e975e11443bda849c245b9bd8b8ce4df4a4b22ba9348e86e930f",
+      "sha256_patched": "40b044ca2edb38515b7d63e867c7fe3a49003defbea421201f94fcdb4812ad3c",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "An existing binary is accepted only after its exact pinned version is checked; original overwrite rejection is otherwise retained."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "b98b04f8cab4868f9e09812d81e5a5192beccd80faa91544c7eabd361da8fb34",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

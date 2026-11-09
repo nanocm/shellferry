@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "pnpm",
+  "version": "12.18.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-platform.json",
+      "url": "https://registry.npmjs.org/@pnpm/exe.linux-x64/12.18.0",
+      "sha256": "805b57ee52db1d7695d9d6826f86618d397c210728c47178ebe1e0b3432d90e9",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-platform.tgz",
+      "url": "https://registry.npmjs.org/@pnpm/exe.linux-x64/-/exe.linux-x64-12.18.0.tgz",
+      "sha256": "679df2eedf158f639db6d1f00e713d766d0d7afc6a931bc51497a625d1e1bdf7",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-package.json",
+      "url": "https://registry.npmjs.org/pnpm/12.18.0",
+      "sha256": "d8eb7984286b90c6c5a344654841c988a93a0aa9981bf22d8b6410a2e3a0c694",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pnpm-package.tgz",
+      "url": "https://registry.npmjs.org/pnpm/-/pnpm-12.18.0.tgz",
+      "sha256": "29d1d7d99bf6ec6d0a3dbb0ec5656f0d16e997e8be676ca45c581d11cb71f753",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/pnpm/get.pnpm.io/7c26e549143daf5cf072a38c428170ad8eccaf2d/install.sh",
+      "sha256_original": "53d3ad6ef67d49d6951f3326bd3180e5c504c8f695bcdf73bb61ec7a4d4c9407",
+      "sha256_patched": "4f0c34b0f3b579894343a466c86bbad0625f41c82f09df8923f6d9c22602fd8b",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "gzip",
+    "openssl",
+    "base64",
+    "od",
+    "sha512sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Retains npm registry signature verification and SHA-512 integrity verification. Packages include the platform executable and pnpm dist tree.",
+    "Pinned full version bypasses live latest lookup. PNPM_NO_MODIFY_PATH uses upstream supported option.",
+    "The upstream get.pnpm.io installer has no confirmed distribution license. This repository does not vendor its source; it is fetched at build time from a fixed commit and verified by SHA-256. Obtain upstream permission before publicly redistributing generated bundles containing that script."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "cea1386e2679d8c216f012d8e4d8bec4bced9f1bdeaac91a28fb61d862fbe79f",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "name": "sheldon",
+  "version": "0.8.5",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/rossmacarthur/install/d8c82abdf1cdd67e3a0f494f497e0876f97506f7/crate.sh",
+      "sha256": "9ff2b3ee918dd345807aece8abf2231fab4f1d827867c4e933d1da1a4924cc9d",
+      "patches": [
+        {
+          "old": "download() {\n    local _url=$1; shift\n    local _curl_arg\n    local _dld\n\n    if [ \"${1-}\" = \"--progress\" ]; then\n        shift\n        _curl_arg=\"--progress-bar\"\n    else\n        _curl_arg=\"--silent\"\n    fi\n\n    if check_cmd curl; then\n        _dld=curl\n    elif check_cmd wget; then\n        _dld=wget\n    else\n        _dld='curl or wget'  # to be used in error message of need_cmd\n    fi\n\n    if [ \"$_url\" = --check ]; then\n        need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        curl $_curl_arg --proto '=https' --show-error --fail --location \"$@\" \"$_url\"\n    elif [ \"$_dld\" = wget ]; then\n        wget --no-verbose --https-only \"$@\" \"$_url\"\n    else\n        err \"unknown downloader\"  # should not reach here\n    fi\n}\n",
+          "new": "download() {\n    if [ \"$1\" = \"--check\" ]; then command -v cp >/dev/null; return; fi\n    offline_fetch \"$1\"\n}\n",
+          "count": 1
+        },
+        {
+          "old": "get_release_assets() {\n    local _repo=$1\n    local _tag=$2\n    local _targets\n\n    need_cmd grep\n    need_cmd cut\n\n    get_release_info \"$_repo\" \"$_tag\"\n    _targets=$(echo \"$RETVAL\" | grep 'name' | grep -E '(\\.tgz|\\.tar\\.gz|\\tar\\.xz)\"' | cut -f 4 -d '\"')\n\n    RETVAL=\"$_targets\"\n}\n",
+          "new": "get_release_assets() {\n    RETVAL=\"sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/rossmacarthur/sheldon/releases/download/0.8.5/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/sheldon-0.8.5-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "80aa0be617072c278d67fd6c5fbce4903d3801d78b6abf8f058f0648d2242c78",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {},
+  "args": [
+    "--repo",
+    "rossmacarthur/sheldon",
+    "--tag",
+    "0.8.5",
+    "--target",
+    "x86_64-unknown-linux-musl",
+    "--to",
+    "{prefix}/bin"
+  ],
+  "repeat_args": [
+    "--force"
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cut",
+    "head",
+    "install",
+    "basename"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/sheldon",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p \"$HOME/.config/sheldon\"; printf 'shell = \"bash\"\n[plugins]\n' > \"$HOME/.config/sheldon/plugins.toml\"; \"$OFFLINE_PREFIX/bin/sheldon\" lock; \"$OFFLINE_PREFIX/bin/sheldon\" source > /tmp/sheldon-source.sh; bash -n /tmp/sheldon-source.sh; test -f \"$HOME/.local/share/sheldon/plugins.lock\""
+    ]
+  ],
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Pins the release asset list for the requested version/target instead of hashing mutable GitHub API metadata. Original archive scoring, extraction, overwrite protection and installation remain active; first-use builds require only immutable source/archive URLs."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "fnm",
+  "version": "1.39.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/fnm-linux.zip",
+      "url": "https://github.com/Schniz/fnm/releases/download/v1.39.0/fnm-linux.zip",
+      "sha256": "7807664f39d39fc518da1c35ba0181e4b3267603c4b1dedeb4b5fc6ae440a224",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://fnm.vercel.app/install",
+      "sha256_original": "8431644b1c205ad25d4b09cfe10e0688944d1d2cd542f38d7b3b10e954db8ad9",
+      "sha256_patched": "8f4e2ef30733d7d608767bdf49fcd6d9ed83c4ab7808898534b214ad930ff3a5",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "bash",
+    "unzip"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves native unzip/move installation and version argument handling. Shell config edits disabled using upstream --skip-shell.",
+    "fnm itself is offline-installable; Node.js versions managed by fnm need separate offline preparation."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "4b4a8b199ad3666be0e7992f49c102c2ef535094da7db32cd253ba08a45c6b99"
+}

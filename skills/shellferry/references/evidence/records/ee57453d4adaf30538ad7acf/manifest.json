@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "chezmoi",
+  "version": "2.74.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/run.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/chezmoi_2.74.0_linux-glibc_amd64.tar.gz",
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_linux-glibc_amd64.tar.gz",
+      "sha256": "1b98a567f726f41540414aea4caf912699d53e248b29ccf8369cf553657b2374",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/chezmoi_2.74.0_linux-musl_amd64.tar.gz",
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_linux-musl_amd64.tar.gz",
+      "sha256": "0fd6400784ad310ef0904d74d99d5d95e7c1d01cfd249b3510c606ca45d6a1d5",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/chezmoi_2.74.0_checksums.txt",
+      "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi_2.74.0_checksums.txt",
+      "sha256": "da9b687dc3f4cf1e2afbfa42a68e6932b9da637927bfe80307b87975341c6596",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://get.chezmoi.io",
+      "sha256_original": "d92ac6044ecfcd716c0c1d0512693e7d91c3002591cd6c871bb94ef227919982",
+      "sha256_patched": "5dcec2ec60b36c3fa291b4f33ae8cb7d6b80d13d447adeac677a48afd135701f",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/run.sh",
+      "url": null,
+      "sha256_original": "5ca8990a3e2cd47c3f8686705f467b85c9f498d5c296367518f64a1e2eec100f",
+      "sha256_patched": "ff14763921d2382436e0252f8da56f8f903838f58039c5f9be113fef6738f342",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "install",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves official libc selection, extraction, install and checksum verification. Includes glibc and musl x86_64 resources selected by original installer. Dotfile repositories are outside the software installation scope."
+  ],
+  "validation_status": "not-run",
+  "recipe_sha256": "a4c1e9028f15a201fe8b9059dc5d864d6e37c6df3c32ea669b44132de36b8ec1"
+}

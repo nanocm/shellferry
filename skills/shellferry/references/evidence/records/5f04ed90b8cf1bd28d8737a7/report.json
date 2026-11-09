@@ -1,0 +1,31 @@
+{
+  "name": "direnv",
+  "version": "2.38.2",
+  "target": "linux-x86_64",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/offline-install-test:ubuntu",
+  "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
+  "image_digests": [
+    "localhost/offline-install-test@sha256:51e93e336475dfe2197b785b10e78a30a0a922d584a206ba0b645f341eb81f28"
+  ],
+  "environment": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\nldd (Ubuntu GLIBC 2.43-2ubuntu2.4) 2.43\nCopyright (C) 2024 Free Software Foundation, Inc.\n/usr/bin/sh\n/usr/bin/bash\n/usr/bin/tar\n/usr/bin/gzip\n/usr/bin/unzip\n/usr/bin/xz\n/usr/bin/openssl\n/usr/bin/file\n/usr/bin/git\n/usr/bin/dpkg-deb\n",
+  "archive_sha256": "5bb7dca033fc6c23b915731c5628024d418f4ed9b0ae1ecfc826185f2a743555",
+  "archive_roundtrip": true,
+  "network": "none",
+  "user": "1000:1000",
+  "manifest_sha256": "b6211f9eb5d46f2e6b5c4e21fea3e9f3cd6547fefc67a8ecd5e497be1ef543c8",
+  "checksum_list_sha256": "38d82c0135a8d059e1278baa42b00206f3cbc90a6f3301d9bdb825c68f9f62a8",
+  "elapsed_seconds": 1.28,
+  "exit_code": 0,
+  "checks": [
+    "checksum verification",
+    "prerequisite preflight",
+    "path with spaces",
+    "install from clean home",
+    "smoke command",
+    "repeat installation",
+    "blocked download command detection"
+  ],
+  "scope": "Container userspace on host kernel; download command guards cover curl/wget/fetch/aria2c only. Network=none proves operation without external network, not absence of every attempted network syscall. No claim about untested OS versions, architectures, services, or kernel features."
+}

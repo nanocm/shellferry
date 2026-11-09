@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "minijinja-cli",
+  "version": "3.1.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/mitsuhiko/minijinja/releases/download/3.1.0/minijinja-cli-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "a888c04a302c90ab63e0c1fd676a7e198771c15930a9e27730276589a8e4a141",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/minijinja-cli-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/mitsuhiko/minijinja/releases/download/3.1.0/minijinja-cli-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "94b815a17dc3b7a4e11e348c62a916c85fc1728bc7a9b731edd905af2a818324",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/mitsuhiko/minijinja/releases/download/3.1.0/minijinja-cli-installer.sh",
+      "sha256_original": "bbc8fb0f0d35c446e10186538c8ca3883c2adf6e3105de423061352e844f6afc",
+      "sha256_patched": "9361a5b9a7af7c3629b514336ff4d71f109b78147f38c592bad479df1cdc1d13",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "2913749c9d156646c23baa9b6765f9b84c9e570f2e8e3150726bf50f8d18c4ae",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

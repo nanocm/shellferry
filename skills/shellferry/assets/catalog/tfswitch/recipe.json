@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "name": "tfswitch",
+  "version": "1.20.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/warrensbox/terraform-switcher/7f8cf2c8c1e995d3793eab4da120264981695192/install.sh",
+      "source": "sources/install.sh",
+      "sha256": "4e007eed8c12d154fdc3acbaf46cb4b1f64fb07445a9af51d209a1be300eeeb5",
+      "patches": [
+        {
+          "old": "http_download() {\n  log_debug \"http_download $2\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_crit \"http_download unable to find wget or curl\"\n  return 1\n}",
+          "new": "http_download() {\n  offline_fetch \"$2\" \"$1\"\n}",
+          "count": 1
+        },
+        {
+          "old": "github_release() {\n  owner_repo=$1\n  version=$2\n  test -z \"$version\" && version=\"latest\"\n  if [ \"$version\" = \"latest\" ]; then\n    giturl=\"https://github.com/${owner_repo}/releases/${version##v}\"\n    json=$(http_copy \"$giturl\" \"Accept:application/json\")\n  else\n    giturl_v=\"https://github.com/${owner_repo}/releases/v${version##v}\"\n    giturl_no_v=\"https://github.com/${owner_repo}/releases/${version##v}\"\n    json=$(http_copy \"$giturl_v\" \"Accept:application/json\" || http_copy \"$giturl_no_v\" \"Accept:application/json\")\n  fi\n  test -z \"$json\" && return 1\n  version=$(echo \"$json\" | tr -s '\\n' ' ' | sed 's/.*\"tag_name\":\"//' | sed 's/\".*//')\n  test -z \"$version\" && return 1\n  echo \"$version\"\n}",
+          "new": "github_release() {\n  printf \"%s\\n\" \"v1.20.0\"\n}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/warrensbox/terraform-switcher/releases/download/v1.20.0/terraform-switcher_v1.20.0_linux_amd64.tar.gz",
+      "path": "resources/terraform-switcher_v1.20.0_linux_amd64.tar.gz",
+      "sha256": "a15b3d5201dfb0f1e17f3346297c0f594ba66240d245367520d1ca70164dda12",
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "url": "https://github.com/warrensbox/terraform-switcher/releases/download/v1.20.0/terraform-switcher_v1.20.0_checksums.txt",
+      "path": "resources/terraform-switcher_v1.20.0_checksums.txt",
+      "sha256": "12a257bb111f90eef93abe4becde9ab2bc219cc625350a0d7658373f95de239b",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {},
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v1.20.0"
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/tfswitch",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "mkdir -p \"$HOME/tfproject\"; cd \"$HOME/tfproject\"; printf 'terraform { required_version = \">= 1.5.0, < 2.0.0\" }\\n' > versions.tf; \"$OFFLINE_PREFIX/bin/tfswitch\" --match-version-requirement 1.6.0; if \"$OFFLINE_PREFIX/bin/tfswitch\" --match-version-requirement 2.1.0; then exit 1; else test \"$?\" -eq 2; fi"
+    ]
+  ],
+  "notes": [
+    "Official installer retains archive checksum validation. Functional scope is local Terraform constraint matching; Terraform/OpenTofu binaries and providers are not bundled."
+  ],
+  "kind": "script-conversion"
+}

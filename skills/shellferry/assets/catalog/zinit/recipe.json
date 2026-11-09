@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "name": "zinit",
+  "version": "3.17.1",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/zdharma-continuum/zinit/cb4968123979cf073384e93aa8066d8fd450580f/scripts/install.sh",
+      "sha256": "f08d2bf2b41106924db1c0b4ef561becf5b1228598b777b3ad9d5029fae94757",
+      "patches": [
+        {
+          "old": "download_git_output_processor\n",
+          "new": "\n",
+          "count": 1
+        },
+        {
+          "old": "  zinit_git_exec fetch origin \"$ZINIT_BRANCH\"",
+          "new": "  : # Pinned local tree has no remote fetch",
+          "count": 1
+        },
+        {
+          "old": "  if zinit_git_exec pull origin \"$ZINIT_BRANCH\"; then",
+          "new": "  if true; then",
+          "count": 1
+        },
+        {
+          "old": "show_environment\ncheck_dependencies",
+          "new": "offline_zinit_tree() {\n  mkdir -p \"$ZINIT_INSTALL_DIR\"\n  tar -xzf \"$OFFLINE_ROOT/resources/zinit-source.tar.gz\" --strip-components=1 -C \"$ZINIT_INSTALL_DIR\"\n}\nzinit_install() { offline_zinit_tree; }\nzinit_update() { offline_zinit_tree; }\nshow_environment\ncheck_dependencies",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://codeload.github.com/zdharma-continuum/zinit/tar.gz/cb4968123979cf073384e93aa8066d8fd450580f",
+      "path": "resources/zinit-source.tar.gz",
+      "sha256": "f652f7e2bab50390cba6b8ae27cc9707887a4d47f7b5b46e778a85a95df074bd",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "ZINIT_HOME": "{prefix}",
+    "NO_EDIT": "1",
+    "NO_INPUT": "1",
+    "NO_ANNEXES": "1",
+    "NO_TUTORIAL": "1",
+    "NO_COLOR": "1",
+    "NO_EMOJI": "1"
+  },
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "zsh",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "zsh",
+      "-fc",
+      "source \"$OFFLINE_PREFIX/zinit.git/zinit.zsh\"; mkdir -p \"$HOME/local-zplugin\"; print 'function offline_plugin_function() { print offline-plugin-ok; }' > \"$HOME/local-zplugin/local-zplugin.plugin.zsh\"; zinit light \"$HOME/local-zplugin\"; [[ \"$(offline_plugin_function)\" = offline-plugin-ok ]]"
+    ]
+  ],
+  "notes": [
+    "Uses the official installer with fixed source archive for install/update transport. Git progress helper is not needed for local extraction. Supported NO_EDIT/NO_ANNEXES options avoid shell config edits and unrelated plugin downloads. Tests loading and invoking a local plugin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

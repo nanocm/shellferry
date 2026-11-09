@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "name": "istioctl",
+  "version": "1.31.4",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/istio/istio/a0956cb8565439ffc90c01562391a9dab3442d8a/release/downloadIstioCtl.sh",
+      "sha256": "2cfcf1b6690ca43a5f5191241d58dbe43df4081c8baba4c856d8d5c0c1c5c880",
+      "patches": [
+        {
+          "old": "curl -o /dev/null -sIf \"$ARCH_URL\"",
+          "new": "offline_fetch \"$ARCH_URL\" >/dev/null",
+          "count": 1
+        },
+        {
+          "old": "curl -fsL -o \"${tmp}/${filename}\" \"$ARCH_URL\"",
+          "new": "offline_fetch \"$ARCH_URL\" \"${tmp}/${filename}\"",
+          "count": 1
+        },
+        {
+          "old": "$HOME/.istioctl/bin",
+          "new": "$OFFLINE_PREFIX/bin",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/istio/istio/releases/download/1.31.4/istioctl-1.31.4-linux-amd64.tar.gz",
+      "path": "resources/istioctl-1.31.4-linux-amd64.tar.gz",
+      "sha256": "7c00227d87f280c2450483e3518e3a73af62c057363b779ea80931c409e8852e",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "ISTIO_VERSION": "1.31.4"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/istioctl",
+      "version",
+      "--remote=false"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/istioctl\" manifest generate --set profile=default > /tmp/istio-manifest.yaml; test -s /tmp/istio-manifest.yaml; grep -q \"kind:\" /tmp/istio-manifest.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Converts the official release/downloadIstioCtl.sh CLI-only installer. Tests local manifest generation; cluster installation and container images are outside this scope."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

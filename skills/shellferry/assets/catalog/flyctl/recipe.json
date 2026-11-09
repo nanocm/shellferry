@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "name": "flyctl",
+  "version": "0.5.5",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://fly.io/install.sh",
+      "sha256": "8f98224a0b8f00cf290a009ca521881ed0e86cd98067ee0c13c83ab526777b82",
+      "patches": [
+        {
+          "old": "\tflyctl_uri=$(curl -s ${FLY_FORCE_TRACE:+ -H \"Fly-Force-Trace: $FLY_FORCE_TRACE\"} https://api.fly.io/app/flyctl_releases/$os/$arch/$version)",
+          "new": "\tflyctl_uri='https://github.com/superfly/flyctl/releases/download/v0.5.5/flyctl_0.5.5_Linux_x86_64.tar.gz'",
+          "count": 1
+        },
+        {
+          "old": "curl_info=$(curl -q --fail --location --progress-bar \\\n\t\t--retry 5 \\\n\t\t--write-out '%{http_code} %{url_effective}' \\\n\t\t--output \"$tmp_dir/flyctl.tar.gz\" \\\n\t\t\"$flyctl_uri\")",
+          "new": "offline_fetch \"$flyctl_uri\" \"$tmp_dir/flyctl.tar.gz\"",
+          "count": 1
+        },
+        {
+          "old": "ln -sf $exe $simexe",
+          "new": "ln -sf \"$exe\" \"$simexe\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/superfly/flyctl/releases/download/v0.5.5/flyctl_0.5.5_Linux_x86_64.tar.gz",
+      "path": "resources/flyctl_0.5.5_Linux_x86_64.tar.gz",
+      "sha256": "2c64e1c7f320fafed0452fbce9adff57fcaf733619f0faa315ae883ec03d7ef6",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "FLYCTL_INSTALL": "{prefix}",
+    "SHELL": "/bin/bash",
+    "FLY_NO_UPDATE_CHECK": "1"
+  },
+  "args": [
+    "0.5.5",
+    "--non-interactive"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/flyctl",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/flyctl\" completion bash > /tmp/flyctl.bash; test -s /tmp/flyctl.bash; grep -q flyctl /tmp/flyctl.bash"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer fetched from fly.io/install.sh at a pinned SHA-256 rather than vendoring it.",
+    "Official fly.io/install.sh is pinned by SHA-256 rather than Git commit; changed upstream bytes cause the build to fail for reanalysis. Retains its MIT attribution to the Deno authors. Fixes unquoted symlink paths. Cloud authentication/deployment is outside this scope."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

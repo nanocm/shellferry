@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "name": "kubescape",
+  "version": "4.0.20",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/kubescape/kubescape/ff2a50fca72911f8f8c8140a9192922a5f683716/install.sh",
+      "sha256": "53df81b4a49ed4810d8eec81523e3e5bb1eb34db48007fbdd381dbcab39abb2c",
+      "patches": [
+        {
+          "old": "BASE_DIR=\"${HOME}/.kubescape\"",
+          "new": "BASE_DIR=\"${OFFLINE_PREFIX}\"",
+          "count": 1
+        },
+        {
+          "old": "curl --progress-bar -fL \"$DOWNLOAD_URL\" -o \"$OUTPUT\"",
+          "new": "offline_fetch \"$DOWNLOAD_URL\" \"$OUTPUT\"",
+          "count": 1
+        },
+        {
+          "old": "manifest=$(curl -fsSL \"$checksums_url\")",
+          "new": "manifest=$(offline_fetch \"$checksums_url\")",
+          "count": 1
+        },
+        {
+          "old": "install_dir=\"/usr/local/bin\"",
+          "new": "install_dir=\"$BASE_DIR/bin\"",
+          "count": 1
+        },
+        {
+          "old": "remove_old_install \"/usr/local/bin/$KUBESCAPE_EXEC\"",
+          "new": ": # Explicit prefix installation does not remove a different installation",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/kubescape/kubescape/releases/download/v4.0.20/kubescape_4.0.20_linux_amd64",
+      "path": "resources/kubescape_4.0.20_linux_amd64",
+      "sha256": "25649b3e1212a86bbd467d3e73812218459455c335fad7aaed7fe458782355c5",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/kubescape/kubescape/releases/download/v4.0.20/checksums.sha256",
+      "path": "resources/checksums.sha256",
+      "sha256": "4df27bcb41df63ca28b87bc10cddffb5b94af4ce13e668d359daecd90fe2a1be",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "KS_SKIP_UPDATE_CHECK": "true"
+  },
+  "args": [
+    "-v",
+    "v4.0.20"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/kubescape",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/kubescape\" completion bash > /tmp/kubescape.bash; test -s /tmp/kubescape.bash; grep -q kubescape /tmp/kubescape.bash"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Preserves checksum-manifest verification. Explicit prefix replaces both privileged and HOME destinations and confines removal of prior binaries to that prefix. Tests CLI completion generation; Kubernetes cluster scans and separately downloaded control libraries are outside this scope."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

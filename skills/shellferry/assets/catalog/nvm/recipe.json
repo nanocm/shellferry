@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "name": "nvm",
+  "version": "0.40.3-node26.13.0",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/run.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh",
+      "source": "sources/nvm.sh",
+      "patches": [
+        {
+          "old": "nvm_download -s \"$NVM_SOURCE_LOCAL\" -o \"$INSTALL_DIR/nvm.sh\"",
+          "new": "offline_fetch \"$NVM_SOURCE_LOCAL\" \"$INSTALL_DIR/nvm.sh\"",
+          "count": 1
+        },
+        {
+          "old": "nvm_download -s \"$NVM_EXEC_SOURCE\" -o \"$INSTALL_DIR/nvm-exec\"",
+          "new": "offline_fetch \"$NVM_EXEC_SOURCE\" \"$INSTALL_DIR/nvm-exec\"",
+          "count": 1
+        },
+        {
+          "old": "nvm_download -s \"$NVM_BASH_COMPLETION_SOURCE\" -o \"$INSTALL_DIR/bash_completion\"",
+          "new": "offline_fetch \"$NVM_BASH_COMPLETION_SOURCE\" \"$INSTALL_DIR/bash_completion\"",
+          "count": 1
+        },
+        {
+          "old": "    if ! nvm_has curl && ! nvm_has wget; then\n      nvm_echo >&2 \"You need curl or wget to install nvm\"\n      exit 1\n    fi",
+          "new": "    : # offline_fetch needs neither curl nor wget",
+          "count": 1
+        }
+      ],
+      "sha256": "2d8359a64a3cb07c02389ad88ceecd43f2fa469c06104f92f98df5b6f315275f"
+    },
+    {
+      "path": "upstream/run.sh",
+      "source": "sources/nvm-wrapper.sh",
+      "patches": [],
+      "sha256": "564873783e322eb936df8d4c762817656eb90c93378d286eb9dbb4c1ef398574"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/nvm.sh",
+      "path": "resources/nvm-nvm.sh",
+      "sha256": "390260ab9eb1da20e8bc0ebea2ee90f528d53e5e9f6e13b16717db4af454df9d",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/nvm-exec",
+      "path": "resources/nvm-nvm-exec",
+      "sha256": "e6b7a2bafac6994e1ba14282cff82c75476fba0788f68a9ecf558dfdf3331621",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/bash_completion",
+      "path": "resources/nvm-bash_completion",
+      "sha256": "b7eb3bf03d59b61e451957b020640aa55fe8bf47fb39d85d244e259f445d2fbe",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://nodejs.org/dist/v26.13.0/node-v26.13.0-linux-x64.tar.gz",
+      "path": "resources/node-v26.13.0-linux-x64.tar.gz",
+      "sha256": "5848553868b402d3fabb5b09270649977780a390f832155721025a08b5104455",
+      "checksum_source": "official-release-checksums"
+    },
+    {
+      "url": "https://nodejs.org/dist/v26.13.0/SHASUMS256.txt",
+      "path": "resources/node-v26.13.0-SHASUMS256.txt",
+      "sha256": "9b0d4aa4d20a4f1afaf2cdcf99175ad90d1856d24c7d31dc46f72369b73e2d35",
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-16/libatomic1_16-20260322-1ubuntu1_amd64.deb",
+      "path": "resources/libatomic1_16-20260322-1ubuntu1_amd64.deb",
+      "sha256": "82fa61135e7154d7958feaa91ec1808a688eb1e0e06822ab35e99e2480feb148",
+      "checksum_source": "Ubuntu apt package index SHA256 (libatomic1 16-20260322-1ubuntu1 amd64)"
+    }
+  ],
+  "env": {
+    "NVM_DIR": "{prefix}/nvm",
+    "NVM_INSTALL_VERSION": "v0.40.3",
+    "METHOD": "script",
+    "PROFILE": "/dev/null",
+    "OFFLINE_PREFIX": "{prefix}",
+    "NODE_VERSION": ""
+  },
+  "args": [],
+  "requires": [
+    "bash",
+    "tar",
+    "dpkg-deb"
+  ],
+  "smoke": [
+    [
+      "bash",
+      "-ec",
+      ". \"${OFFLINE_PREFIX}/nvm/nvm.sh\"; test \"$(nvm --version)\" = 0.40.3; nvm use default; node -e 'if(2+2!==4)process.exit(1);console.log(process.version)'; npm --version"
+    ]
+  ],
+  "notes": [
+    "Preserves official nvm installer with METHOD=script, downloading nvm.sh/nvm-exec/bash_completion locally. Installs pinned official Node.js tarball into nvm's version layout and sets default with nvm itself. Avoids calling online nvm install/version discovery. nvm future versions and npm package installation require separate resources.",
+    "Clean Ubuntu test exposed Node 26 libatomic.so.1 dependency. Bundle includes Ubuntu libatomic1 deb with archive SHA-256, extracts its library into the private Node prefix and uses a Node launcher with process-local LD_LIBRARY_PATH. Requires dpkg-deb; tested on Ubuntu 26.04, not arbitrary distributions. Original Node binary is preserved as node.real."
+  ],
+  "runtime": {
+    "libc": "glibc",
+    "os_id": "ubuntu",
+    "os_version": "26.04"
+  }
+}

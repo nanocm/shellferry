@@ -1,0 +1,24 @@
+install.sh: OK
+INSTALL.txt: OK
+manifest.json: OK
+offline-lib.sh: OK
+provenance/upstream/wrapper.sh: OK
+provenance/upstream/wrapper.sh.diff: OK
+recipe.json: OK
+repeat.sh: OK
+resources/miniforge.sh: OK
+smoke.sh: OK
+upstream/wrapper.sh: OK
+Verification passed; nothing installed.
+install.sh: OK
+INSTALL.txt: OK
+manifest.json: OK
+offline-lib.sh: OK
+provenance/upstream/wrapper.sh: OK
+provenance/upstream/wrapper.sh.diff: OK
+recipe.json: OK
+repeat.sh: OK
+resources/miniforge.sh: OK
+smoke.sh: OK
+upstream/wrapper.sh: OK
+ERROR: Cannot install into directories with spaces

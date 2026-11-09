@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "name": "syft",
+  "version": "1.57.0",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/anchore/syft/30f4bce762f31136e055f2965185f12eb95fbe47/install.sh",
+      "sha256": "2ed88b163a4576521598f9e573bd3d64f39c7b5912a21fb9571a9d604ca64b3b",
+      "patches": [
+        {
+          "old": "http_download() (\n  log_debug \"http_download(url=$2)\"\n  if is_command curl; then\n    http_download_curl \"$@\"\n    return\n  elif is_command wget; then\n    http_download_wget \"$@\"\n    return\n  fi\n  log_err \"http_download unable to find wget or curl\"\n  return 1\n)",
+          "new": "http_download() (\n offline_fetch \"$2\" \"$1\"\n)",
+          "count": 1
+        },
+        {
+          "old": "get_release_tag() (\n  owner=\"$1\"\n  repo=\"$2\"\n  tag=\"$3\"\n\n  log_trace \"get_release_tag(owner=${owner}, repo=${repo}, tag=${tag})\"\n\n  json=$(github_release_json \"${owner}\" \"${repo}\" \"${tag}\")\n  real_tag=$(github_release_tag \"${json}\")\n  if test -z \"${real_tag}\"; then\n    return 1\n  fi\n\n  log_trace \"get_release_tag() returned '${real_tag}'\"\n\n  echo \"${real_tag}\"\n)",
+          "new": "get_release_tag() (\n printf \"%s\\n\" 'v1.57.0'\n)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/anchore/syft/releases/download/v1.57.0/syft_1.57.0_linux_amd64.tar.gz",
+      "path": "resources/syft_1.57.0_linux_amd64.tar.gz",
+      "sha256": "9c077a7d43029b3b13e98a8db720661e700c4d58db6352153a06395ae4a2a704",
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "url": "https://github.com/anchore/syft/releases/download/v1.57.0/syft_1.57.0_checksums.txt",
+      "path": "resources/syft_1.57.0_checksums.txt",
+      "sha256": "bec8ee399df0b23cb7b6fe7b72f290418bdbf91cab2e01bfa0a44f2a2e96d006",
+      "checksum_source": "GitHub release asset digest"
+    }
+  ],
+  "env": {
+    "DOWNLOAD_TAG_INSTALL_SCRIPT": "false",
+    "SYFT_CHECK_FOR_APP_UPDATE": "false"
+  },
+  "args": [
+    "-b",
+    "{prefix}/bin",
+    "v1.57.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/syft",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "d=$(mktemp -d); printf 'requests==2.32.3\n' > \"$d/requirements.txt\"; \"$OFFLINE_PREFIX/bin/syft\" scan \"dir:$d\" -o json > /tmp/syft.json; grep -q '\"name\":\"requests\"' /tmp/syft.json; grep -q 2.32.3 /tmp/syft.json"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "The included official installer is fetched at the release tag commit, so the redundant release-script refetch is disabled. Upstream SHA-256 verification is preserved; optional cosign verification was not enabled in the original default."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

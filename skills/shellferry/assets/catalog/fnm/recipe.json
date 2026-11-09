@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "name": "fnm",
+  "version": "1.39.0",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://fnm.vercel.app/install",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "RELEASE=\"latest\"",
+          "new": "RELEASE=\"v1.39.0\"",
+          "count": 1
+        },
+        {
+          "old": "curl --progress-bar --fail -L \"$URL\" -o \"$DOWNLOAD_DIR/$FILENAME.zip\"",
+          "new": "offline_fetch \"$URL\" \"$DOWNLOAD_DIR/$FILENAME.zip\"",
+          "count": 1
+        },
+        {
+          "old": "echo -n \"Checking availability of curl... \"\n  if hash curl 2>/dev/null; then",
+          "new": "echo -n \"Checking availability of local copy... \"\n  if hash cp 2>/dev/null; then",
+          "count": 1
+        }
+      ],
+      "sha256": "8431644b1c205ad25d4b09cfe10e0688944d1d2cd542f38d7b3b10e954db8ad9",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/Schniz/fnm/releases/download/v1.39.0/fnm-linux.zip",
+      "path": "resources/fnm-linux.zip",
+      "sha256": "7807664f39d39fc518da1c35ba0181e4b3267603c4b1dedeb4b5fc6ae440a224",
+      "checksum_source": "locally-pinned"
+    }
+  ],
+  "env": {
+    "SHELL": "/bin/bash"
+  },
+  "args": [
+    "--install-dir",
+    "{prefix}/bin",
+    "--skip-shell",
+    "--release",
+    "v1.39.0"
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "bash",
+    "unzip"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/fnm",
+      "--version"
+    ],
+    [
+      "{prefix}/bin/fnm",
+      "env",
+      "--shell",
+      "bash"
+    ]
+  ],
+  "notes": [
+    "Preserves native unzip/move installation and version argument handling. Shell config edits disabled using upstream --skip-shell.",
+    "fnm itself is offline-installable; Node.js versions managed by fnm need separate offline preparation."
+  ],
+  "repeat_args": [],
+  "validation_scope": {
+    "target": "linux-x86_64",
+    "userspace": "Ubuntu 26.04.1 prepared image; unzip and OpenSSL available",
+    "network": "none",
+    "runtime_scope": "fnm manager and shell environment generation; Node.js runtimes not included"
+  }
+}

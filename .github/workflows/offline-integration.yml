@@ -1,0 +1,35 @@
+name: Offline installation
+on:
+  workflow_dispatch:
+    inputs:
+      recipe:
+        type: choice
+        description: Recipe to build from a fresh download cache
+        options: [zoxide, bun-ubuntu22]
+        default: zoxide
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build fixed recipe
+        env:
+          RECIPE: ${{ inputs.recipe }}
+        run: |
+          python skills/shellferry/scripts/catalog.py build "$RECIPE" --output work/bundle --cache-dir work/cache
+          python skills/shellferry/scripts/convert.py archive work/bundle --output dist/bundle.tar.gz
+      - name: Prepare official test image
+        run: docker pull docker.io/library/ubuntu:22.04
+      - name: Test archive with networking disabled
+        run: python skills/shellferry/scripts/verify.py dist/bundle.tar.gz --engine docker --image docker.io/library/ubuntu:22.04 --output dist/validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-${{ inputs.recipe }}
+          path: dist/*

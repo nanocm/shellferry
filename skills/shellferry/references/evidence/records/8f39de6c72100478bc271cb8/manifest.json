@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "git-standup",
+  "version": "2.3.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/git-standup-source.tar.gz",
+      "url": "https://github.com/nilbuild/git-standup/archive/a8031b89636791936fa00c3e64799748572a9e11.tar.gz",
+      "sha256": "90b8bc653db4344a3a94bd2d8a92c6100c49300e4f08518e249958c7154e2b96",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned official GitHub commit source archive"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/nilbuild/git-standup/a8031b89636791936fa00c3e64799748572a9e11/installer.sh",
+      "sha256_original": "30aebf5d9ddb571244a8fbd34ee934c9382b6527ffe21569c2d950cbf0292a29",
+      "sha256_patched": "7b3d3c53573e727ff01288e602660d1ee19b43860090300e34b6ae7223471503",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "sha256sum",
+    "git",
+    "make",
+    "install",
+    "date",
+    "cut",
+    "sort",
+    "uniq"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official git clone + make install shell installer. Bundles the exact Git commit archive, preserving make install, and quotes BINDIR in the upstream Makefile invocation to support spaces.",
+    "Git and make are explicit prerequisites. Functional check creates a local Git commit and asserts the standup report includes it."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "e30623d361a85f25fa6179c96614d7d10ff9e382fc405c3c894ad60d461b1fc7",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

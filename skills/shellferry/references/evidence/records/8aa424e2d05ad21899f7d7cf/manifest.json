@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "volta",
+  "version": "2.0.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/volta-2.0.2-linux.tar.gz",
+      "url": "https://github.com/volta-cli/volta/releases/download/v2.0.2/volta-2.0.2-linux.tar.gz",
+      "sha256": "6cec054c911fb925b629a09455775af6e95dc0f5694a4c28b63979ab9ef18037",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/volta-cli/volta/5eedd5fb2f682baceb47a242289111fcd79435a5/dev/unix/volta-install.sh",
+      "sha256_original": "fbdc4b8cb33fb6d19e5f07b22423265943d34e7e5c3d5a1efcecc9621854f9cb",
+      "sha256_patched": "7abd52549ccf5d2376fffe2a4b246fc2ea945ed31498e8ff5155d7b954be1a9e",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager only: Volta binary and shims. Managed Node.js runtimes and project packages are not included. Uses upstream --skip-setup; functional test generates Bash completions. Fixes upstream executable path quoting for repeat installs with spaces.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "d7c316f6f0fef739b62f4d926e28cf5e14307d811bbf32aba928db4707992962",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

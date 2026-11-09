@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "name": "pulumi",
+  "version": "3.274.1",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "default_prefix": "{home}/.pulumi",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "sha256": "319ffe2866c9976a72d924b14771e25c47ab474f9d612182df932369f5fe4f5b",
+      "patches": [
+        {
+          "old": "if download_tarball; then",
+          "new": "download_tarball() {\n  offline_fetch \"${TARBALL_URL}${TARBALL_PATH}\" \"${TARBALL_DEST}\"\n}\nif download_tarball; then",
+          "count": 1
+        },
+        {
+          "old": "$(${PULUMI_CLI} version)",
+          "new": "$(\"${PULUMI_CLI}\" version)",
+          "count": 1
+        }
+      ],
+      "url": "https://get.pulumi.com"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/wrapper.sh",
+      "sha256": "ce0c3998d5b759dc04b85374ca9f0b30496cb726a26477970132991edcee8dd8",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/pulumi/pulumi/releases/download/v3.274.1/pulumi-v3.274.1-linux-x64.tar.gz",
+      "sha256": "32ae6d09d0df51637db7a0affb3ceb7d0511093b22d477aff5f20214d0b7e471",
+      "checksum_source": "GitHub release asset digest",
+      "path": "resources/pulumi-v3.274.1-linux-x64.tar.gz"
+    },
+    {
+      "url": "https://github.com/pulumi/pulumi-random/releases/download/v4.21.6/pulumi-resource-random-v4.21.6-linux-amd64.tar.gz",
+      "sha256": "d23098a615cd8590e026ec3d36c95f00617d93b0af14164162b81cf1af808174",
+      "checksum_source": "GitHub release asset digest",
+      "path": "resources/pulumi-resource-random-v4.21.6-linux-amd64.tar.gz"
+    }
+  ],
+  "env": {
+    "PULUMI_HOME": "{prefix}",
+    "PULUMI_SKIP_UPDATE_CHECK": "true",
+    "PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION": "true"
+  },
+  "args": [
+    "--version",
+    "3.274.1",
+    "--install-root",
+    "{prefix}",
+    "--no-edit-path"
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/pulumi",
+      "version"
+    ],
+    [
+      "bash",
+      "-e",
+      "-c",
+      "\nunset PULUMI_SKIP_UPDATE_CHECK PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION\n. \"$OFFLINE_PREFIX/env.sh\"\ntest \"$PULUMI_SKIP_UPDATE_CHECK\" = true\ntest \"$PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION\" = true\ntest \"$(command -v pulumi)\" = \"$OFFLINE_PREFIX/bin/pulumi\"\ncomplete -p pulumi > /tmp/pulumi-completion.txt\npulumi plugin ls > /tmp/pulumi-plugins.txt\ngrep -q random /tmp/pulumi-plugins.txt\ngrep -q 4.21.6 /tmp/pulumi-plugins.txt\nd=$(mktemp -d)\nmkdir -p \"$d/state\" \"$d/project\"\nexport PULUMI_BACKEND_URL=\"file://$d/state\"\nexport PULUMI_CONFIG_PASSPHRASE=shellferry-public-test-only\ncd \"$d/project\"\ncat > Pulumi.yaml <<'YAML'\nname: shellferry-offline\nruntime: yaml\nresources:\n  answer:\n    type: random:index/randomInteger:RandomInteger\n    properties:\n      min: 42\n      max: 42\n    options:\n      version: 4.21.6\noutputs:\n  result: ${answer.result}\nYAML\npulumi login \"$PULUMI_BACKEND_URL\" --non-interactive\npulumi stack init offline --secrets-provider passphrase --non-interactive\npulumi up --yes --skip-preview --non-interactive\ntest \"$(pulumi stack output result --non-interactive)\" = 42\npulumi destroy --yes --skip-preview --non-interactive\npulumi stack rm offline --yes --non-interactive\n"
+    ]
+  ],
+  "notes": [
+    "Converts the actual get.pulumi.com shell installer with a minimal independently authored download_tarball override and one argument-quoting fix. The hosted entrypoint is pinned by SHA-256; a public Git commit or complete installer license has not been established. Changed source bytes fail the build for reanalysis.",
+    "Keeps upstream extraction, existing-install upgrade behavior and CLI layout. Uses the official --no-edit-path option; the authored wrapper writes prefix/env.sh and Bash completion so users can explicitly source that file. The environment file persists update-check suppression and disabled automatic plugin acquisition.",
+    "Before creating installation directories, the wrapper rejects forwarded --version or --install-root values that differ from the fixed recipe version and outer --prefix. It permits --silent and --no-edit-path, validates arguments, and invokes the installed CLI by absolute path.",
+    "Installs official random provider v4.21.6 through pulumi plugin install --file with its SHA-256 and --reinstall. The YAML language runtime is included in the official CLI archive. Other providers and language package dependencies are not included.",
+    "Tests a file backend and a deterministic local RandomInteger resource, including up, output, destroy and stack removal. This needs no cloud account; cloud deployment is outside scope. Native Pulumi engine/provider communication uses loopback RPC while the container has no external network.",
+    "Ubuntu 22.04 x86_64 glibc test baseline. The bundled CLI and random provider are binary resources; source-license notices for this catalog do not establish redistribution rights for every bundled binary dependency."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "Official CLI, YAML language runtime and random provider local resource lifecycle; no cloud infrastructure"
+  }
+}

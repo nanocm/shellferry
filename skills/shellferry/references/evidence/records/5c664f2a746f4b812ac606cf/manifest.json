@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "direnv",
+  "version": "2.38.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/run.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/direnv.linux-amd64",
+      "url": "https://github.com/direnv/direnv/releases/download/v2.38.2/direnv.linux-amd64",
+      "sha256": "148820a187930d36ca6a204504e5cdb30d8396cd1a97e64c3b3f10d793c11247",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not an independently verified upstream checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://direnv.net/install.sh",
+      "sha256_original": "b1f9f698e959ed29e6f7b88bc8576c0ab2eb3d8444d30fcd84fbfc393d57034d",
+      "sha256_patched": "b19644638575b02fbd6c3db53c85a4276217fb3159a2f10b1736efb791f2ed06",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/run.sh",
+      "url": null,
+      "sha256_original": "dd0b3633b1ec4fa3e57da42d2b10a4549dda6437a837987ab15fd9342704e088",
+      "sha256_patched": "97aca50b6b914724e06daa0a6153e917547bd09c3487bda58f7d4b4a508ce3d4",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash"
+  ],
+  "runtime": {},
+  "notes": [
+    "Pins release and replaces API discovery and binary download. Shell hook remains the user's explicit setup step.",
+    "Functional test exposed Text file busy during overwrite after direnv exec. Download now stages a sibling file and atomically renames it, supporting reinstall while old processes exit."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "15348a0918b919408516389ce66ae4e4a97671863e20739a1befc771c0d640d4",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

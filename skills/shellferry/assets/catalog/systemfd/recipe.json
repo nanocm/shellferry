@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "name": "systemfd",
+  "version": "0.4.6",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/mitsuhiko/systemfd/releases/download/0.4.6/systemfd-installer.sh",
+      "sha256": "06fa4d6d63d0e30bb38825563fe51ff5dcb2579eb4d788281fc157155d5c454a",
+      "patches": [
+        {
+          "old": "downloader() {\n    if check_cmd curl\n    then _dld=curl\n    elif check_cmd wget\n    then _dld=wget\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]\n    then curl -sSfL \"$1\" -o \"$2\"\n    elif [ \"$_dld\" = wget ]\n    then wget \"$1\" -O \"$2\"\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/mitsuhiko/systemfd/releases/download/0.4.6/systemfd-x86_64-unknown-linux-gnu.tar.xz",
+      "path": "resources/systemfd-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "4bf7763505d755db4055b8e97d405205dc7b1cf3c7e4635952d9a08515c7c9d1",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "url": "https://github.com/mitsuhiko/systemfd/releases/download/0.4.6/systemfd-x86_64-unknown-linux-musl.tar.xz",
+      "path": "resources/systemfd-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "32a4c1a48580c93affaef23c31ed6ea6afe2afdd2d996af2ef042f1df6ee1953",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "SYSTEMFD_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/systemfd",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "rm -f /tmp/shellferry.sock; \"$OFFLINE_PREFIX/bin/systemfd\" --no-pid -s unix::/tmp/shellferry.sock -- sh -ec 'test \"$LISTEN_FDS\" = 1; test -S /tmp/shellferry.sock'; rm -f /tmp/shellferry.sock"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ]
+}

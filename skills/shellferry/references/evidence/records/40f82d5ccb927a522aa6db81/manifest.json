@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "cargo-insta",
+  "version": "1.49.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/cargo-insta-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/mitsuhiko/insta/releases/download/1.49.0/cargo-insta-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "18879f4e7280c2eb87bb1037ddb9d48af697511fb0d8113edfc39ab8bade4d4e",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/cargo-insta-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/mitsuhiko/insta/releases/download/1.49.0/cargo-insta-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "cc64ead688107cdf2577101e26b6323795c9850456b9c62846bab30ff6db23d8",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/mitsuhiko/insta/releases/download/1.49.0/cargo-insta-installer.sh",
+      "sha256_original": "bfddba1cf9a56aabba3a78e210a68805a92be6e2883d63793072d7e22eee8802",
+      "sha256_patched": "8b1ddf73f0c0fc837a5a7fea5a0e1f90f50d746898a88a5157ca7ad40ada27a1",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cargo",
+    "rustc"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Local snapshot rendering invokes cargo metadata. Cargo/Rust are explicit existing development prerequisites (tested Ubuntu 22.04 cargo/rustc 1.75); the installer does not fetch a Rust toolchain."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "3ba3478bd9d068237d5ec1300fad90e4c8b446296b62386be5c13c6431a482d1",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

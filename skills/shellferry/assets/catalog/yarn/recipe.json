@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "name": "yarn",
+  "version": "1.22.22",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/wrapper.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/yarnpkg/website/c6faf3f95dabb4a90789431fb1cf404e46d7ced1/install.sh",
+      "sha256": "19f48dbd5049613c1a285ec9d92d716879965456cd7ff60169e14503b588f40e",
+      "patches": [
+        {
+          "old": "curl --fail -L",
+          "new": "offline_yarn_tarballs",
+          "count": 1
+        },
+        {
+          "old": "|| (curl -sS ",
+          "new": "|| (offline_fetch ",
+          "count": 1
+        },
+        {
+          "old": "$HOME/.yarn",
+          "new": "${OFFLINE_PREFIX}/yarn",
+          "count": 6
+        },
+        {
+          "old": "mkdir .yarn",
+          "new": "mkdir -p \"$OFFLINE_PREFIX/yarn\"",
+          "count": 1
+        },
+        {
+          "old": "mv \"$temp\"/*/* .yarn",
+          "new": "mv \"$temp\"/*/* \"$OFFLINE_PREFIX/yarn\"",
+          "count": 1
+        },
+        {
+          "old": "version=`${OFFLINE_PREFIX}/yarn/bin/yarn --version`",
+          "new": "version=`\"${OFFLINE_PREFIX}/yarn/bin/yarn\" --version`",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    },
+    {
+      "path": "upstream/wrapper.sh",
+      "source": "sources/offline-wrapper.sh",
+      "sha256": "87ad97b5dc67fde5a340ee6051ce0376f4800e7bc8da77ff60293315fc9f6d39",
+      "patches": []
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-v1.22.22.tar.gz",
+      "path": "resources/yarn-v1.22.22.tar.gz",
+      "sha256": "88268464199d1611fcf73ce9c0a6c4d44c7d5363682720d8506f6508addf36a0",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum",
+      "aliases": [
+        "https://yarnpkg.com/downloads/1.22.22/yarn-v1.22.22.tar.gz"
+      ]
+    },
+    {
+      "url": "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-v1.22.22.tar.gz.asc",
+      "path": "resources/yarn-v1.22.22.tar.gz.asc",
+      "sha256": "ce5a2cc19283cee2a4f931cc50769dcf695afb0dd40657d374f50f573bcb6cac",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum",
+      "aliases": [
+        "https://yarnpkg.com/downloads/1.22.22/yarn-v1.22.22.tar.gz.asc"
+      ]
+    },
+    {
+      "url": "https://dl.yarnpkg.com/debian/pubkey.gpg",
+      "path": "resources/yarn-pubkey.gpg",
+      "sha256": "f8f78154312934e7894e29da119c9fb06b489d36e0b36ec1538a5b8486a2f59e",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "url": "https://nodejs.org/dist/v22.15.0/node-v22.15.0-linux-x64.tar.xz",
+      "path": "resources/node-v22.15.0-linux-x64.tar.xz",
+      "sha256": "dafe2e8f82cb97de1bd10db9e2ec4c07bbf53389b0799b1e095a918951e78fd4",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "SHELL": "/bin/bash"
+  },
+  "requires": [
+    "bash",
+    "gpg",
+    "tar",
+    "gzip",
+    "xz",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$OFFLINE_PREFIX/runtime/bin:$OFFLINE_PREFIX/yarn/bin:$PATH\"; yarn --version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "export PATH=\"$OFFLINE_PREFIX/runtime/bin:$OFFLINE_PREFIX/yarn/bin:$PATH\"; d=$(mktemp -d); cd \"$d\"; printf '{\"name\":\"offline-demo\",\"scripts\":{\"smoke\":\"node -e \\\"console.log(6*7)\\\"\"}}\\n' > package.json; yarn --offline --silent run smoke | grep -qx 42"
+    ]
+  ],
+  "notes": [
+    "Yarn Classic official installer with release tarball, detached GPG signature and official public key; native GPG verification retained. Includes Node.js 22.15.0 so local package scripts execute offline. Adjusts hardcoded ~/.yarn to requested prefix and quotes binary paths. Yarn packages beyond the bundled manager/runtime require a separate offline cache.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Installer repository has no established license grant. Full script remains runtime-fetch-only; recipe retains only minimal identification anchors and independently authored replacements. Generated bundles require their own redistribution review."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

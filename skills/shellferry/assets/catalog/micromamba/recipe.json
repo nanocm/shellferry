@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "name": "micromamba",
+  "version": "2.10.0",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/mamba-org/micromamba-releases/346bb1cf50c51a92d58dd4c3063e7c70b78a8246/install.sh",
+      "sha256": "b0c482f627af23613f21b31bbaa70e4829544acc91430cafd3d5b4c37b5651ff",
+      "patches": [
+        {
+          "old": "# Downloading artifact",
+          "new": "offline_micromamba_copy() { offline_fetch \"$1\" \"$2\"; }\noffline_micromamba_wget() { offline_fetch \"$2\" \"$1\"; }\n# Downloading artifact",
+          "count": 1
+        },
+        {
+          "old": "curl \"${RELEASE_URL}\" -o",
+          "new": "offline_micromamba_copy \"${RELEASE_URL}\"",
+          "count": 1
+        },
+        {
+          "old": "wget ${WGET_OPTS:-} -qO",
+          "new": "offline_micromamba_wget",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/mamba-org/micromamba-releases/releases/download/2.10.0-0/micromamba-linux-64",
+      "path": "resources/micromamba-linux-64",
+      "sha256": "701f39c06f8e6a670a0e186c8479b9e5c0502a2f0cda6cef65d83bdd2875e8bd",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [],
+  "env": {
+    "VERSION": "2.10.0-0",
+    "BIN_FOLDER": "{prefix}/bin",
+    "INIT_YES": "no",
+    "CONDA_FORGE_YES": "no",
+    "SHELL": "/bin/bash",
+    "MAMBA_ROOT_PREFIX": "{prefix}/mamba"
+  },
+  "requires": [
+    "bash",
+    "ps",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/micromamba",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/micromamba\" --no-rc create -y --offline -p \"$HOME/empty-env\"; test -d \"$HOME/empty-env/conda-meta\"; \"$OFFLINE_PREFIX/bin/micromamba\" --no-rc run -p \"$HOME/empty-env\" sh -c 'printf micromamba-offline-ok' | grep -qx micromamba-offline-ok"
+    ]
+  ],
+  "notes": [
+    "Manager binary only; package environments need separately collected packages. Uses supported no-shell-init/no-channel-configuration options. Tests creation of an empty offline environment and command execution in it.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Installer repository has no established license grant; full script is runtime-fetch-only and patch anchors are kept minimal. Generated bundles require separate redistribution review."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

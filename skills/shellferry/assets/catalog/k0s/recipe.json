@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "name": "k0s",
+  "version": "1.37.2+k0s.1",
+  "kind": "converted-script",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/k0sproject/get/f640708ce3ec6f34b9e61f5b14d6b92ead57fa58/index.html",
+      "sha256": "e7491fa3afd1e0e3b22d86b5d58b1824d3532204387e5689db28d5213c9657a1",
+      "patches": [
+        {
+          "old": "_fetch \"$k0sDownloadUrl\"",
+          "new": "offline_fetch \"$k0sDownloadUrl\"",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/k0sproject/k0s/releases/download/v1.37.2%2Bk0s.1/k0s-v1.37.2%2Bk0s.1-amd64",
+      "path": "resources/k0s-v1.37.2+k0s.1-amd64",
+      "sha256": "4770cf89ff45e43292819f6e3a02a25a453bc750c777f6f7ad2de335f3f41df5",
+      "checksum_source": "GitHub release asset digest",
+      "aliases": [
+        "https://github.com/k0sproject/k0s/releases/download/v1.37.2+k0s.1/k0s-v1.37.2+k0s.1-amd64"
+      ]
+    }
+  ],
+  "env": {
+    "K0S_VERSION": "v1.37.2+k0s.1",
+    "K0S_INSTALL_PATH": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/k0s",
+      "version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/k0s\" config create > /tmp/k0s.yaml; grep -q \"kind: ClusterConfig\" /tmp/k0s.yaml"
+    ]
+  ],
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Installs the k0s CLI and validates local cluster configuration generation. Cluster services and the separate airgap container image bundle are outside this tested scope.",
+    "The official k0sproject/get source repository has no explicit license. The catalog retains only the minimal download-call anchor; it fetches the complete original by fixed commit and SHA-256 during a user-requested build."
+  ],
+  "validation_scope": {
+    "userspace": "Ubuntu 22.04 prepared image",
+    "network": "none",
+    "runtime_scope": "CLI installation and local operation; no remote service, cluster or deployment is claimed."
+  }
+}

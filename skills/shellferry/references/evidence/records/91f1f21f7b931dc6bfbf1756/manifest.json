@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "goreleaser",
+  "version": "2.20.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/goreleaser_Linux_x86_64.tar.gz",
+      "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.20.0/goreleaser_Linux_x86_64.tar.gz",
+      "sha256": "d2483159e6007f814132cb56635ad30a70013dbeb813d6033a7e01adf6ae108c",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/checksums.txt",
+      "url": "https://github.com/goreleaser/goreleaser/releases/download/v2.20.0/checksums.txt",
+      "sha256": "1788ef531cb7bdb46756637812a03cd9db1d5bf7ea855d2e478170504c1606ec",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/goreleaser/goreleaser/2c336825258ec3d4a690d5a0ed55b536b8e88785/www/static/run",
+      "sha256_original": "85e64ae3bab7052ef7917f23084fb8b22526328801864686e86fa1b6a2a7852d",
+      "sha256_patched": "9c28d4343887d9718ccf0d2cd569940aacba8453cf66744079027e0520ff83a3",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "The official www/static/run is a download-verify-run launcher. This adaptation additionally retains the verified binary in prefix/bin before executing the requested --version command. Official optional cosign verification remains conditional on cosign availability; the test image does not include cosign."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "45c61cffd8e4ccea3db8ebd2f69bf6684ac4880f0492afcfd902b802cacf1c5a",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

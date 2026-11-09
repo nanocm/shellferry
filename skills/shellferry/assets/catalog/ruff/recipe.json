@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "name": "ruff",
+  "version": "0.17.4",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://astral.sh/ruff/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "downloader() {\n    # Check if we have a broken snap curl\n    # https://github.com/boukendesho/curl-snap/issues/1\n    _snap_curl=0\n    if command -v curl > /dev/null 2>&1; then\n      _curl_path=$(command -v curl)\n      if echo \"$_curl_path\" | grep \"/snap/\" > /dev/null 2>&1; then\n        _snap_curl=1\n      fi\n    fi\n\n    # Check if we have a working (non-snap) curl\n    if check_cmd curl && [ \"$_snap_curl\" = \"0\" ]\n    then _dld=curl\n    # Try wget for both no curl and the broken snap curl\n    elif check_cmd wget\n    then _dld=wget\n    # If we can't fall back from broken snap curl to wget, report the broken snap curl\n    elif [ \"$_snap_curl\" = \"1\" ]\n    then\n      say \"curl installed with snap cannot be used to install $APP_NAME\"\n      say \"due to missing permissions. Please uninstall it and\"\n      say \"reinstall curl with a different package manager (e.g., apt).\"\n      say \"See https://github.com/boukendesho/curl-snap/issues/1\"\n      exit 1\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            curl -sSfL --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -o \"$2\"\n        else\n            curl -sSfL \"$1\" -o \"$2\"\n        fi\n    elif [ \"$_dld\" = wget ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            wget --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -O \"$2\"\n        else\n            wget \"$1\" -O \"$2\"\n        fi\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ],
+      "sha256": "da6db9e18033d80a34c45ae79d1394b3ef5957341a0cab404ae2ed29492b0b80"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://releases.astral.sh/github/ruff/releases/download/0.17.4/ruff-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/ruff-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "3ab2b34aeacdbc1ea5c529cdbda3e05792633d587228123fd09f3b5a0facb27a",
+      "aliases": [
+        "https://github.com/astral-sh/ruff/releases/download/0.17.4/ruff-x86_64-unknown-linux-gnu.tar.gz"
+      ],
+      "checksum_source": "SHA-256 embedded in the pinned original official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "RUFF_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/ruff",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf \"x = 1\\n\" > /tmp/ruff-check.py; \"${OFFLINE_PREFIX}/bin/ruff\" check --isolated --no-cache /tmp/ruff-check.py"
+    ]
+  ],
+  "notes": [
+    "Preserves cargo-dist upstream checksum verification. Unmanaged installation suppresses PATH editing and installer receipt metadata."
+  ]
+}

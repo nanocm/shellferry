@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "name": "posit-air",
+  "version": "0.13.0",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/posit-dev/air/releases/download/0.13.0/air-installer.sh",
+      "sha256": "703fc72c0e680e355a8dde85ae74694f3b8b3b155cb55f0b4acd5dc9da278e5e",
+      "patches": [
+        {
+          "old": "downloader() {\n    # Check if we have a broken snap curl\n    # https://github.com/boukendesho/curl-snap/issues/1\n    _snap_curl=0\n    if command -v curl > /dev/null 2>&1; then\n      _curl_path=$(command -v curl)\n      if echo \"$_curl_path\" | grep \"/snap/\" > /dev/null 2>&1; then\n        _snap_curl=1\n      fi\n    fi\n\n    # Check if we have a working (non-snap) curl\n    if check_cmd curl && [ \"$_snap_curl\" = \"0\" ]\n    then _dld=curl\n    # Try wget for both no curl and the broken snap curl\n    elif check_cmd wget\n    then _dld=wget\n    # If we can't fall back from broken snap curl to wget, report the broken snap curl\n    elif [ \"$_snap_curl\" = \"1\" ]\n    then\n      say \"curl installed with snap cannot be used to install $APP_NAME\"\n      say \"due to missing permissions. Please uninstall it and\"\n      say \"reinstall curl with a different package manager (e.g., apt).\"\n      say \"See https://github.com/boukendesho/curl-snap/issues/1\"\n      exit 1\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            curl -sSfL --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -o \"$2\"\n        else\n            curl -sSfL \"$1\" -o \"$2\"\n        fi\n    elif [ \"$_dld\" = wget ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            wget --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -O \"$2\"\n        else\n            wget \"$1\" -O \"$2\"\n        fi\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/posit-dev/air/releases/download/0.13.0/air-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/air-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "3909b12870df0b6a44e3f40376cd59aca373791c0abedd02dcbda7b136e4573c",
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    }
+  ],
+  "env": {
+    "AIR_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/air",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf \"x<-c(1,2,3)\\n\" > /tmp/air-test.R; \"$OFFLINE_PREFIX/bin/air\" format /tmp/air-test.R; grep -q \"x <- c(1, 2, 3)\" /tmp/air-test.R"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ]
+}

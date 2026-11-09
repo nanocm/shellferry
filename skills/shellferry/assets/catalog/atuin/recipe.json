@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "name": "atuin",
+  "version": "18.24.5",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "if ! command -v curl > /dev/null; then\n  echo \"Atuin needs curl to install. Please install it, then try again.\"\n  exit 1\nfi\n",
+          "new": "",
+          "count": 1
+        },
+        {
+          "old": "  install_script=$(curl --proto '=https' --tlsv1.2 -LsSf https://github.com/atuinsh/atuin/releases/latest/download/atuin-installer.sh) || return\n  echo \"$install_script\" | sh",
+          "new": "  sh \"${OFFLINE_ROOT:?}/upstream/atuin-installer.sh\"",
+          "count": 1
+        },
+        {
+          "old": "ATUIN_BIN=\"$HOME/.atuin/bin/atuin\"",
+          "new": "ATUIN_BIN=\"${ATUIN_INSTALL_DIR:?}/atuin\"",
+          "count": 1
+        }
+      ],
+      "sha256": "6c4aba2c831734a8a3c9a924c1199cae05520bf0b359d5e996666a9e9f0e44bf"
+    },
+    {
+      "path": "upstream/atuin-installer.sh",
+      "url": "https://github.com/atuinsh/atuin/releases/download/v18.24.5/atuin-installer.sh",
+      "source": "sources/atuin-installer.sh",
+      "patches": [
+        {
+          "old": "downloader() {\n    # Check if we have a broken snap curl\n    # https://github.com/boukendesho/curl-snap/issues/1\n    _snap_curl=0\n    if command -v curl > /dev/null 2>&1; then\n      _curl_path=$(command -v curl)\n      if echo \"$_curl_path\" | grep \"/snap/\" > /dev/null 2>&1; then\n        _snap_curl=1\n      fi\n    fi\n\n    # Check if we have a working (non-snap) curl\n    if check_cmd curl && [ \"$_snap_curl\" = \"0\" ]\n    then _dld=curl\n    # Try wget for both no curl and the broken snap curl\n    elif check_cmd wget\n    then _dld=wget\n    # If we can't fall back from broken snap curl to wget, report the broken snap curl\n    elif [ \"$_snap_curl\" = \"1\" ]\n    then\n      say \"curl installed with snap cannot be used to install $APP_NAME\"\n      say \"due to missing permissions. Please uninstall it and\"\n      say \"reinstall curl with a different package manager (e.g., apt).\"\n      say \"See https://github.com/boukendesho/curl-snap/issues/1\"\n      exit 1\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            curl -sSfL --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -o \"$2\"\n        else\n            curl -sSfL \"$1\" -o \"$2\"\n        fi\n    elif [ \"$_dld\" = wget ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            wget --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -O \"$2\"\n        else\n            wget \"$1\" -O \"$2\"\n        fi\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ],
+      "sha256": "85742e9f87ab0d8d9c0ea53482c6e178d52599ef2b0fba4f4a336bf168934bce"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/atuinsh/atuin/releases/download/v18.24.5/atuin-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/atuin-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "e16a95f10e9592543d2d578e44c2f1dccf89b57915c2e2c6935b435b3f43cee4",
+      "checksum_source": "SHA-256 embedded in the pinned original official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "ATUIN_NO_MODIFY_PATH": "1",
+    "ATUIN_INSTALL_DIR": "{prefix}/bin"
+  },
+  "args": [
+    "--non-interactive",
+    "--sync",
+    "off"
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/atuin",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"${OFFLINE_PREFIX}/bin/atuin\" init bash > /tmp/atuin-init.sh; test -s /tmp/atuin-init.sh; bash -n /tmp/atuin-init.sh"
+    ]
+  ],
+  "notes": [
+    "Official setup.atuin.sh returned 502/403 while preparing; fetched the official repository install.sh instead.",
+    "Preserves entry script plus pinned second-stage installer. Non-interactive setup disables sync; shell hooks are still installed as upstream setup normally does."
+  ]
+}

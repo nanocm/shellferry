@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "name": "starship",
+  "version": "1.27.0",
+  "target": "linux-x86_64",
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://starship.rs/install.sh",
+      "source": "sources/install.sh",
+      "patches": [
+        {
+          "old": "download() {\n\tfile=\"$1\"\n\turl=\"$2\"\n\n\tif has curl && curl_is_snap; then\n\t\twarn \"curl installed through snap cannot download starship.\"\n\t\twarn \"See https://github.com/starship/starship/issues/5403 for details.\"\n\t\twarn \"Searching for other HTTP download programs...\"\n\tfi\n\n\tif has curl && ! curl_is_snap; then\n\t\tcmd=\"curl --fail --silent --location --output $file $url\"\n\telif has wget; then\n\t\tcmd=\"wget --quiet --output-document=$file $url\"\n\telif has fetch; then\n\t\tcmd=\"fetch --quiet --output=$file $url\"\n\telse\n\t\terror \"No HTTP download program (curl, wget, fetch) found, exiting…\"\n\t\treturn 1\n\tfi\n\n\t$cmd && return 0 || rc=$?\n\n\terror \"Command failed (exit code $rc): ${BLUE}${cmd}${NO_COLOR}\"\n\tprintf \"\\n\" >&2\n\tcase \"${VERSION}\" in\n\tlatest) ;;\n\tv*) ;;\n\t*)\n\t\tinfo \"Note: Release tags include the 'v' prefix (e.g., 'v1.2.3').\"\n\t\tinfo \"You specified '${VERSION}'. Did you mean 'v${VERSION}'?\"\n\t\tprintf \"\\n\" >&2\n\t\t;;\n\tesac\n\tinfo \"This is likely due to Starship not yet supporting your configuration.\"\n\tinfo \"If you would like to see a build for your configuration,\"\n\tinfo \"please create an issue requesting a build for ${MAGENTA}${TARGET}${NO_COLOR}:\"\n\tinfo \"${BOLD}${UNDERLINE}https://github.com/starship/starship/issues/new/${NO_COLOR}\"\n\treturn $rc\n}\n",
+          "new": "download() {\n    offline_fetch \"$2\" \"$1\"\n}\n",
+          "count": 1
+        },
+        {
+          "old": "VERSION=\"latest\"",
+          "new": "VERSION=\"v1.27.0\"",
+          "count": 1
+        },
+        {
+          "old": "check_bin_dir \"${BIN_DIR}\"",
+          "new": "mkdir -p \"${BIN_DIR}\"\ncheck_bin_dir \"${BIN_DIR}\"",
+          "count": 1
+        }
+      ],
+      "sha256": "52c64f14a558034ebeb1907ea9364e802b32474576fd3e68265f73bc33cc8fbb"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/starship/starship/releases/download/v1.27.0/starship-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/starship-x86_64-unknown-linux-musl.tar.gz",
+      "checksum_source": "locally-computed-pin from the HTTPS official release asset; not an independently authenticated publisher checksum",
+      "sha256": "10c8eb4cb3b761d9bf59ea828444c2dab36c900b7d69a69e08814b286969df89"
+    }
+  ],
+  "env": {},
+  "args": [
+    "--yes",
+    "--bin-dir",
+    "{prefix}/bin"
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/starship",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"${OFFLINE_PREFIX}/bin/starship\" init bash > /tmp/starship-init.sh; test -s /tmp/starship-init.sh; bash -n /tmp/starship-init.sh"
+    ]
+  ],
+  "notes": [
+    "Pins default version and creates selected bin directory before upstream validation. --yes skips confirmation."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "name": "jet",
+  "version": "0.7.27",
+  "target": "linux-x86_64",
+  "shell": "bash",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/borkdude/jet/3d990da120b82c0375599577b897b63b5fe67942/install",
+      "sha256": "7ace41d8f212718f69f5274d1c0ff4da23f1b9ccd214aabea411dd62a757c6f7",
+      "patches": [
+        {
+          "old": "latest_release=\"$(curl -sL https://raw.githubusercontent.com/borkdude/jet/master/resources/JET_RELEASED_VERSION)\"",
+          "new": "latest_release=\"0.7.27\"",
+          "count": 1
+        },
+        {
+          "old": "curl -o \"$download_file\" -sL \"$download_url\"",
+          "new": "offline_fetch \"$download_url\" \"$download_file\"",
+          "count": 1
+        },
+        {
+          "old": "cd \"$install_dir\"",
+          "new": "mkdir -p \"$install_dir\"\ncd \"$install_dir\"",
+          "count": 1
+        }
+      ],
+      "checksum_source": "locally-pinned upstream script at fixed commit"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/borkdude/jet/releases/download/v0.7.27/jet-0.7.27-linux-amd64.tar.gz",
+      "path": "resources/jet-0.7.27-linux-amd64.tar.gz",
+      "sha256": "411e65cbe6ea94ea6994e22723cbc73843c715e29828cb3fb8ca6c5af639a68d",
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    }
+  ],
+  "args": [
+    "{prefix}/bin"
+  ],
+  "env": {},
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/jet",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "printf '{\"answer\":42}\\n' | \"$OFFLINE_PREFIX/bin/jet\" --from json --to edn --keywordize | grep -q '{:answer 42}'"
+    ]
+  ],
+  "notes": [
+    "Creates the requested install directory before upstream cd; all extraction and install logic retained.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "validation_scope": {
+    "target": "Ubuntu 22.04 x86_64 glibc ordinary user",
+    "network": "none"
+  }
+}

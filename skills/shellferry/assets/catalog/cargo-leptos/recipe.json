@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "name": "cargo-leptos",
+  "version": "0.3.11",
+  "kind": "upstream-shell-installer",
+  "target": "linux-x86_64",
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "shell": "sh",
+  "entrypoint": "upstream/install.sh",
+  "scripts": [
+    {
+      "path": "upstream/install.sh",
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-installer.sh",
+      "sha256": "3104fd1818f6e4ae67974734f2cfa7e61ded88df11c184c6d4a94ac2bb9de8e9",
+      "patches": [
+        {
+          "old": "downloader() {\n    # Check if we have a broken snap curl\n    # https://github.com/boukendesho/curl-snap/issues/1\n    _snap_curl=0\n    if command -v curl > /dev/null 2>&1; then\n      _curl_path=$(command -v curl)\n      if echo \"$_curl_path\" | grep \"/snap/\" > /dev/null 2>&1; then\n        _snap_curl=1\n      fi\n    fi\n\n    # Check if we have a working (non-snap) curl\n    if check_cmd curl && [ \"$_snap_curl\" = \"0\" ]\n    then _dld=curl\n    # Try wget for both no curl and the broken snap curl\n    elif check_cmd wget\n    then _dld=wget\n    # If we can't fall back from broken snap curl to wget, report the broken snap curl\n    elif [ \"$_snap_curl\" = \"1\" ]\n    then\n      say \"curl installed with snap cannot be used to install $APP_NAME\"\n      say \"due to missing permissions. Please uninstall it and\"\n      say \"reinstall curl with a different package manager (e.g., apt).\"\n      say \"See https://github.com/boukendesho/curl-snap/issues/1\"\n      exit 1\n    else _dld='curl or wget' # to be used in error message of need_cmd\n    fi\n\n    if [ \"$1\" = --check ]\n    then need_cmd \"$_dld\"\n    elif [ \"$_dld\" = curl ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            curl -sSfL --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -o \"$2\"\n        else\n            curl -sSfL \"$1\" -o \"$2\"\n        fi\n    elif [ \"$_dld\" = wget ]; then\n        if [ -n \"${AUTH_TOKEN:-}\" ]; then\n            wget --header \"Authorization: Bearer ${AUTH_TOKEN}\" \"$1\" -O \"$2\"\n        else\n            wget \"$1\" -O \"$2\"\n        fi\n    else err \"Unknown downloader\"   # should not reach here\n    fi\n}\n",
+          "new": "downloader() {\n    if [ \"$1\" = \"--check\" ]; then\n        command -v cp >/dev/null 2>&1\n        return $?\n    fi\n    offline_fetch \"$1\" \"$2\"\n}\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-x86_64-unknown-linux-gnu.tar.gz",
+      "path": "resources/cargo-leptos-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "1c9cf0e1e3ffae6c8b58d29281d949dab560cea613b80d361f323f93071df7c8",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-x86_64-unknown-linux-musl.tar.gz",
+      "path": "resources/cargo-leptos-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "149b88535fd8f44321da0d667fecc445c15af35f62931b2091687445297cc9e0",
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    }
+  ],
+  "env": {
+    "CARGO_LEPTOS_UNMANAGED_INSTALL": "{prefix}/bin"
+  },
+  "args": [],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "smoke": [
+    [
+      "{prefix}/bin/cargo-leptos",
+      "--version"
+    ],
+    [
+      "sh",
+      "-ec",
+      "\"$OFFLINE_PREFIX/bin/cargo-leptos\" completions bash > /tmp/leptos-completion; test -s /tmp/leptos-completion; bash -n /tmp/leptos-completion"
+    ]
+  ],
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ]
+}

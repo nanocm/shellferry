@@ -1,0 +1,18 @@
+[
+  {
+    "case": "literal-home-spaces-quote",
+    "prefix": "/tmp/offline-home/literal $HOME  user's sdk",
+    "status": "passed",
+    "report": "report-prefix-literal-home-spaces-quote.json",
+    "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
+    "elapsed_seconds": 15.6
+  },
+  {
+    "case": "shell-metacharacters",
+    "prefix": "/tmp/offline-home/literal $(printf SUBSTITUTION_RAN) `printf BACKTICK_RAN` \"quoted\" back\\slash",
+    "status": "passed",
+    "report": "report-prefix-shell-metacharacters.json",
+    "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
+    "elapsed_seconds": 15.78
+  }
+]

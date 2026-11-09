@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "tilt",
+  "version": "0.37.8",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/tilt.0.37.8.linux.x86_64.tar.gz",
+      "url": "https://github.com/tilt-dev/tilt/releases/download/v0.37.8/tilt.0.37.8.linux.x86_64.tar.gz",
+      "sha256": "e39513f958705d30524d55f68b1d46fbef2b46a0da568efd00e6383dee6be44f",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/tilt-dev/tilt/1d760f65afdce2efe4d74494043daa40d60422fd/scripts/install.sh",
+      "sha256_original": "af57c5be9a7df24d8133f2977befe871933215bdadc5e653226b8085d6a9617f",
+      "sha256_patched": "1cdeab7b322689551b75c940ca21ba973335d1396dba9c9ef4863598373bcbe8",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "sha256_patched": "014046015fe195bd31b421869867ff93888bce9fad735e662a1d72c1fd26e637",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Adapts copy destination to explicit user prefix. CLI local command/completion generation tested; Docker/Kubernetes runtime is not included."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "61c552d1ba077338c3649b7acfe0720b0b1b8347ad572495314d9d31d76382d7",
+  "builder": {
+    "convert.py": "27d6aa89e59e2bcc2e079eec569ab3852e48b2f27b7409996404db4a2cc7b567",
+    "offpack.py": "4fe04c6c1c7fa777830580e839e8692d2a70ad78421fbb684eb0ca956a1754d4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "shellferry",
+  "description": "Install Shellferry to prepare and verify offline software installation bundles.",
+  "owner": {
+    "name": "nanocm"
+  },
+  "plugins": [
+    {
+      "name": "shellferry",
+      "source": "./",
+      "description": "Turn online shell installers into verified offline bundles."
+    }
+  ]
+}
