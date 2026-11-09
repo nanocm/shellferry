@@ -55,9 +55,15 @@ npx skills update shellferry --global
 npx skills remove shellferry --agent codex claude-code --global
 ```
 
-For a local source, install again from its updated directory.
-`nanocm/shellferry@v0.1.0` pins that release instead of following the default
-branch.
+For a local source, install again from its updated directory. Use a GitHub URL
+with the release tag to pin a release instead of following the default branch:
+
+```sh
+npx skills add https://github.com/nanocm/shellferry/tree/v0.1.0/skills/shellferry --agent codex claude-code --global
+```
+
+The `owner/repository@name` shorthand selects a skill name in Skills CLI; it does
+not select a Git tag.
 
 ## Claude Code plugin
 
