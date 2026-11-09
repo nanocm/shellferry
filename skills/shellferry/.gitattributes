@@ -4,6 +4,10 @@
 *.md text eol=lf
 *.json text eol=lf
 *.yaml text eol=lf
+*.yml text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+LICENSE text eol=lf
 Containerfile* text eol=lf
 assets/catalog/**/sources/* -text
 assets/catalog/**/recipe.json -text

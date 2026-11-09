@@ -17,7 +17,7 @@ class InstallTests(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory(prefix="shellferry-install-test-")
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        self.root = Path(temporary.name).resolve()
         self.checkout = self.root / "checkout"
         source = self.checkout / "skills/shellferry"
         source.mkdir(parents=True)
