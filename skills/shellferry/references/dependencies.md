@@ -1,10 +1,10 @@
 # Collect offline dependencies
 
-Distinguish the application, managed runtimes, installer prerequisites, shared libraries, and project dependencies. Set the scope from the user's goal and explain how to supply any missing components.
+Collect the application, managed runtimes, installer prerequisites, shared libraries, and project dependencies required by the user's goal. State which components the bundle supplies and which the destination must already provide. Dependency analysis applies to every build; execute the installation and functional tests below only when verification is requested or the adaptation is being added to the verified catalog.
 
 ## Prebuilt binaries and runtime libraries
 
-Choose the release for the target OS/CPU/libc, inspect ELF/Mach-O metadata and minimum library versions, and run it in a clean container. For missing libraries such as `libatomic.so.1`, collect dependencies from the matching distribution's official packages. Use offline system packages or a private library directory; avoid setting `LD_LIBRARY_PATH` globally.
+Choose the release for the target OS/CPU/libc and inspect ELF/Mach-O metadata and minimum library versions. For missing libraries such as `libatomic.so.1`, collect dependencies from the matching distribution's official packages. Use offline system packages or a private library directory; avoid setting `LD_LIBRARY_PATH` globally. When testing, run the binary in a clean matching environment.
 
 The tested nvm + Node 26 adaptation carries Ubuntu 26.04's libatomic1 deb, extracts it with `dpkg-deb`, and sets the library path only in its Node launcher. Its compatibility is specific to that target. Compiling Rust metadata exercises the compiler frontend; building executables additionally requires a matching linker and system headers, followed by execution of the result.
 
@@ -14,7 +14,7 @@ The tested nvm + Node 26 adaptation carries Ubuntu 26.04's libatomic1 deb, extra
 - RHEL/Fedora: collect RPM dependencies for the target releasever/architecture, including module streams. Explicitly disable remote repositories during offline installation.
 - Alpine: match the release and architecture, collect APK dependencies and signatures, and install from a local repository/cache.
 
-Package installation and service startup may need root. Test inside containers or authorized targets; do not change the preparation host's system merely to build a bundle. Use a matching VM or machine for systemd/kernel behavior that containers cannot establish.
+Package installation and service startup may need root. Prepare resources without installing them on the preparation host. When verification is in scope, use containers or authorized targets; use a matching VM or machine for systemd/kernel behavior.
 
 ## Python, Node, and Rust project dependencies
 
@@ -24,7 +24,7 @@ Package installation and service startup may need root. Test inside containers o
 
 ## Git and source builds
 
-Pin the commit and collect recursive submodules and LFS objects. Use a git bundle or complete source archive, checking whether build or runtime behavior needs `.git` metadata. Prepare matching toolchains and system dependencies, then build and run in the disconnected environment.
+Pin the commit and collect recursive submodules and LFS objects. Use a git bundle or complete source archive, checking whether build or runtime behavior needs `.git` metadata. Collect matching toolchains and system dependencies. For verification, build and run in the disconnected environment.
 
 ## Missing prerequisite commands
 

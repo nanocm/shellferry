@@ -1,34 +1,27 @@
 # Verified scope and known limitations
 
-The [validation matrix](validation-matrix.md) counts distinct software names with
-matching evidence for the current recipe and builder/verifier code. Bun has two
-environment recipes and counts as one software package. The 106 recipes cover
-105 software packages: 101 shell-installer recipes, three source-tree installer
-recipes, and two Python-installer recipes. No direct binary-archive adaptation
-was added to reach this count.
+The [validation matrix](validation-matrix.md) covers 105 software packages in
+106 recipes: 101 shell installers, three source-tree installers, and two Python
+installers. Bun has two environment recipes and counts once. Every current
+recipe has matching evidence for its inputs and builder/verifier code.
 
-## Failed candidate excluded from the count
+These records describe Linux x86_64 tests on Ubuntu 22.04 or 26.04, with each
+recipe's declared prerequisites. Use the notes below to select the scope needed
+on the destination. Building a new bundle is independent of running a new test;
+the [verification guide](verification.md) defines both delivery modes.
 
-Miniforge 26.9.4-2's self-contained installer explicitly rejects installation
-prefixes containing spaces. It failed this campaign's required path test before
-installation and is excluded from the catalog and passed count. Its failure is
-retained in [the report](evidence/failures/miniforge-26.9.4-2/report.json) and
-[log](evidence/failures/miniforge-26.9.4-2/validation.log). This result does not say
-that Miniforge cannot install offline at a supported path; that separate scope
-has not been verified here.
-
-## Functional boundaries
+## Functional scope and prerequisites
 
 - Runtime managers such as fnm, mise, pyenv, rbenv, GHCup, opam, Perlbrew, Elan,
   and Scala CLI have explicitly stated local manager checks. Their future
   interpreter/compiler downloads are separate dependencies. The nvm recipe
   includes Node; rustup includes its pinned Rust toolchain; Yarn includes Node.
 - Cloud and cluster clients exercise local configuration, manifest generation,
-  completion, or another stated operation. A successful client installation does
-  not establish an offline Kubernetes cluster or authenticated cloud deployment.
-- Grype's test covers local configuration; no vulnerability database is included.
-  Trivy's checked scanner operation is the offline secret scan described in its
-  recipe. Database-backed vulnerability analysis needs its own collected data.
+  completion, or another stated operation. Offline clusters and authenticated
+  cloud deployments require their own resources and tests.
+- Grype's test covers local configuration. Trivy runs the offline secret scan
+  described in its recipe. Vulnerability analysis requires a separately collected
+  database.
 - Poetry and PDM include pinned Python 3.10 Linux wheels and run their official
   Python installers through an authored shell entrypoint. The recipes require
   Python 3.10 with venv/ensurepip. Project dependencies remain a separate scope.
@@ -58,7 +51,7 @@ has not been verified here.
   outside this recipe. The fixed component snapshot supports installation;
   ordinary installed CLI commands do not require the bundle directory.
 
-## Reproduced problems fixed during expansion
+## Installer adaptations
 
 | Installer | Observed problem | Adaptation |
 | --- | --- | --- |
@@ -74,9 +67,9 @@ has not been verified here.
 | Google Cloud CLI | Copying a converted initializer into the installed tree left a dependency on the bundle | Verify and preserve the original archive initializer in place |
 | Pulumi | Native destination/version overrides could diverge from the wrapper's fixed install plan | Reject inconsistent overrides before writes and invoke the installed CLI by absolute path |
 
-These changes are recorded as exact recipe patches or small authored wrappers.
-Their final archives were rebuilt and tested after the fixes. Upstream checksums
-and signatures are retained where applicable, including OpenTofu and Yarn.
+Each fix is recorded as an exact recipe patch or small authored wrapper and
+tested in the final archive. Upstream checksums and signatures are retained
+where applicable, including OpenTofu and Yarn.
 
 Additional code-server tests verify that `--dry-run` creates neither an install
 prefix nor a cache, and that incorrect preexisting cache bytes are replaced.
@@ -95,6 +88,15 @@ their content hashes, without a stable source-commit URL or established license
 for distributing their complete source. They are fetched during a build; if
 those endpoints change, the build stops for review. The binary releases and
 Google component snapshot use fixed versions.
+
+## Failed candidate
+
+Miniforge 26.9.4-2 rejects installation prefixes containing spaces. It failed
+the required path test before installation and is excluded from the verified
+catalog. The [report](evidence/failures/miniforge-26.9.4-2/report.json) and
+[log](evidence/failures/miniforge-26.9.4-2/validation.log) retain that result.
+Installation at a path accepted by the upstream installer has not been tested
+here.
 
 ## Recreate test images
 
@@ -119,8 +121,7 @@ podman build -t localhost/shellferry-sdkman:ubuntu22 \
   -f skills/shellferry/references/evidence/Containerfile.sdkman-ubuntu22 .
 ```
 
-These Containerfiles describe preparation, not immutable image identities.
-Package repositories can change; record the rebuilt image's digest and actual
-package versions in a fresh report. Published reports retain the image identity
-used for their original execution. The original Ubuntu 26 baseline is described
-by [Containerfile.ubuntu26](evidence/Containerfile.ubuntu26).
+The Containerfiles describe how to prepare each baseline. Package repositories
+can change, so record the rebuilt image's identity and actual package versions
+in its report. Published reports retain their original image identity. The
+Ubuntu 26 baseline is described by [Containerfile.ubuntu26](evidence/Containerfile.ubuntu26).

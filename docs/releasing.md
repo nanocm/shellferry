@@ -1,8 +1,8 @@
 # Preparing a release
 
-The project is **Shellferry**, repository
-[nanocm/shellferry](https://github.com/nanocm/shellferry), skill name `shellferry`,
-and invocation `$shellferry`.
+Publish Shellferry from [nanocm/shellferry](https://github.com/nanocm/shellferry).
+Keep `VERSION`, `plugin.json`, and `.claude-plugin/plugin.json` at the same
+version. The commands below use `0.1.0`; substitute the version being prepared.
 
 ## Local release preparation
 
@@ -21,33 +21,32 @@ external SHA-256 file.
 
 Before publishing:
 
-- Review the project name and license choice.
-- Check third-party notices and any explicitly documented unresolved provenance.
+- Review third-party notices, source provenance, and redistribution terms.
 - Test installation from the archive into an empty skills directory.
-- Verify a known recipe from an empty download cache; run its final archive in a
-  network-disabled container and attach the report.
+- Build a known recipe from an empty download cache, run its final archive in a
+  network-disabled container, and retain the report. This release check exercises
+  the complete workflow; end users may choose build-only operation.
 - Review the documentation's scope and evidence claims against actual records.
 - Ensure the checkout contains only this project's files.
 
 ## GitHub
 
-Push reviewed source to the existing public repository when publication is
-requested. Wait for the applicable GitHub checks on the release commit; only
-successful hosted runs establish hosted CI results.
+When publication is authorized, push the reviewed source and wait for the
+applicable GitHub checks on the release commit to pass.
 
 Test the README's remote Skills CLI, Claude marketplace, and Codex installer
 commands against the repository or release tag in isolated directories. Compare
-the complete installed payload and query relocated evidence. Local-path checks
-do not test GitHub fetching.
+the complete installed payload and query relocated evidence. Record the source
+revision and actual remote-fetch results separately from local archive checks.
 
-Set `VERSION`, `plugin.json`, and `.claude-plugin/plugin.json` to the same release version. Create a tag only
-after required checks pass, and attach the source/skill archive with its checksum.
-Do not describe the package as listed in an official plugin directory merely
-because it has a plugin manifest.
+After required checks pass, tag the tested commit and attach the source/skill
+archive, checksum, and reports. Preserve published tags and assets; later changes
+belong in a new release. Describe marketplace availability according to where
+the package has actually been published.
 
 ## Migration from the prototype
 
-`offline-install` was the local prototype name. Shellferry keeps the validated
-conversion helpers and portable recipes, but adds repository-level installation,
-documentation, packaging, and checks. Existing prototype installations are left
-alone. Users should choose one active skill name to avoid duplicate discovery.
+`offline-install` was the local prototype name. Shellferry carries forward its
+conversion helpers and recipes, with repository installation, documentation,
+packaging, and checks. The installer leaves existing prototype directories in
+place. Keep one active skill name per agent to avoid duplicate discovery.

@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "shellferry",
   "version": "0.1.0",
-  "description": "Convert online shell installers into portable offline bundles with pinned resources and networkless verification.",
+  "description": "Convert online shell installers into portable offline bundles, with optional offline installation tests.",
   "author": {
     "name": "nanocm"
   },

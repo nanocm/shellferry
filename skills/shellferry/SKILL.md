@@ -1,65 +1,74 @@
 ---
 name: shellferry
-description: Convert curl/wget installation commands and sh/bash installers, including later download stages, into portable offline installation bundles. Use for air-gapped deployment, remote machines with unreliable internet, and installer dependency collection. Inspect upstream scripts, pin resources, preserve installation behavior, and verify the bundle in a network-disabled container.
+description: Convert curl/wget commands and sh/bash installers into portable offline installation bundles, including later download stages. Use for air-gapped deployment, remote machines with unreliable internet, and installer dependency collection. Pin resources, preserve upstream installation behavior, and optionally test the final archive in a network-disabled container.
 ---
 
 # Shellferry
 
-Deliver a bundle that installs offline on the requested target, installation commands, and verifiable test results. Convert the actual upstream installer, preserving its original source, exact patches, and dependency provenance. Direct installation from release archives is also available; identify that choice when using it.
+Produce an offline installation archive for the requested target, its SHA-256, and installation instructions. Preserve the upstream installer, exact patches, and resource provenance. Use the user's language for explanations; retain commands, paths, identifiers, and upstream output as written.
 
-Use the user's language for explanations and generated installation guidance unless they request otherwise. Keep commands, paths, identifiers, and recorded upstream output unchanged.
+## Choose the target and recipe
 
-## Identify the target and choose a path
+1. Treat the supplied command as text. Download or read its scripts for inspection; do not execute an unfamiliar installer, `curl | sh`, `eval`, or command substitution on the preparation host.
+2. Establish the target OS, CPU, distribution/version, libc, permissions, install directory, software version, and original arguments. Use conversation context or an authorized target machine. Ask for missing details that affect resource selection while continuing independent analysis. The preparation host does not define the target.
+3. Run `scripts/catalog.py list` and inspect a matching recipe. The catalog covers 105 software packages, including variants such as `bun-ubuntu22` with bundled extraction tools. Query `catalog.py evidence <recipe> --os-id <id> --os-version <version>` and read the matching prerequisites. Reuse applicable decisions; the author's cache is never required.
+4. For a known recipe, read that recipe and its evidence. If the user requests latest, check the release and entrypoint digest once; review changes before updating pins. For a new installer, read [conversion.md](references/conversion.md), then [recipe-schema.md](references/recipe-schema.md) when writing the recipe. Use [dependencies.md](references/dependencies.md) for system packages, runtimes, and project dependencies. Consult the [matrix](references/validation-matrix.md) and [scope notes](references/known-limitations.md) for tested behavior.
 
-- Start with the user's command, script, URL, or software name. Treat commands as text to inspect: download or read the script first. Do not execute `curl | sh`, `eval`, command substitutions, or unfamiliar installers on the preparation host.
-- Identify the target OS, CPU, distribution/version, libc, permissions, installation directory, software version, and original arguments. Use existing conversation context or an authorized target machine when available. The preparation machine's Windows/WSL environment does not describe a remote target. Ask for missing information that affects binary selection while continuing entrypoint analysis.
-- Run `scripts/catalog.py list` to find an existing adaptation. The catalog includes pinned recipes for 105 software packages and environment variants such as `bun-ubuntu22`, which bundles extraction tools. Check `catalog.py evidence <recipe> --os-id ubuntu --os-version 22.04` and read the matching record's prerequisites. Reuse reviewed conversion decisions when software, version, and environment match. Local caches are optional; a new user must be able to build without the author's cache. See [validation-matrix.md](references/validation-matrix.md) and [known-limitations.md](references/known-limitations.md).
-- For an existing adaptation, read only that recipe and applicable evidence. If the user requests the latest release, check the version and entrypoint digest once, in parallel where independent; analyze changes before reusing the adaptation. Avoid rereading every reference or rediscovering pinned dependencies. For new adaptations, read [conversion.md](references/conversion.md); for recipe fields, [recipe-schema.md](references/recipe-schema.md); for package managers and dependencies, [dependencies.md](references/dependencies.md). Evidence rules are in [shared-evidence.md](references/shared-evidence.md).
+## Decide whether to run installation tests
 
-## Conversion requirements
+- Default to building and packaging. A request to convert an installer does not require Docker or Podman.
+- Run a fresh offline installation test when the user requests verification or it is part of the agreed task. Honor an explicit build-only or skip-verification request.
+- If a requested test cannot run, deliver any completed bundle and state what prevented testing. Keep the result `not-run`; the requested verification remains incomplete. Do not substitute host installation or historical evidence for that test.
+- Hash checks, source pins, exact patch counts, and declared prerequisites apply to every build. Optional verification refers to executing the installation and functional tests.
+- Adding an entry to the published verified catalog requires a successful test and matching evidence. See [shared-evidence.md](references/shared-evidence.md).
 
-1. Pin the original scripts, software version, target architecture, metadata, and SHA-256 of every resource. Record checksum provenance. Distinguish locally computed pins from verified upstream checksums or signatures. Preserve upstream verification or explicitly implement an equivalent check.
-2. Follow nested scripts, native bootstrappers, version APIs, configuration templates, themes, post-install initialization, and optional telemetry. Counts of `curl`/`wget` calls and URL regexes are clues, not complete dependency analysis. Track manager binaries, managed runtimes, Rust toolchains, and project caches separately. When the user needs a working runtime, collect and execute that runtime.
-3. Replace network steps with exact patches and expected match counts. `convert.py` supplies `offline_fetch URL [DEST]`, which maps only known URLs to bundled files and fails on unknown URLs. If upstream text or patch anchors change, review the difference before updating the adaptation.
-4. Preserve arguments, install locations, overwrite protection, verification, permissions, and shell initialization semantics. Record necessary behavior changes. Retain initialization, dependencies, and features the user needs. Optional network behavior may be disabled with an explanation; demonstrated defects such as incorrect path quoting may receive minimal fixes.
-5. Use relative resource paths and `{bundle}`, `{prefix}`, `{home}` placeholders. Do not reference the preparation host's cache, temporary directories, or workspace. List extra commands, libraries, and permission requirements. A dependency present in a test image may still be missing on the destination.
+## Convert the installer
 
-## Build and verify
+- Pin source scripts, versions, metadata, target architecture, and every resource's SHA-256. Identify locally computed pins separately from publisher checksums or signatures. Preserve upstream verification or implement an explicit equivalent.
+- Trace nested scripts, native bootstrappers, version APIs, templates, shell initialization, and optional telemetry. URL searches and downloader counts are inspection aids. Collect managed runtimes and project dependencies when requested; include a functional test for the required runtime.
+- Replace network operations with exact patches and expected match counts. `offline_fetch URL [DEST]` accepts only mapped resources and rejects unknown URLs. A changed source hash or patch anchor requires review.
+- Preserve arguments, install locations, overwrite protection, permissions, and initialization. Record necessary behavior changes. Disable optional network behavior through upstream options where possible; fix demonstrated defects with scoped patches.
+- Use relative bundle paths and `{bundle}`, `{prefix}`, `{home}` placeholders. List required commands, libraries, and permissions. Dependencies in a prepared test image remain prerequisites unless the bundle supplies them.
 
-Write task outputs to the workspace. Keep code, small examples, and reference material in the skill; put download caches, container images, and large installation bundles elsewhere.
+## Build
+
+Keep outputs in the task workspace and downloads outside the skill. Reuse an existing download cache when available; use `--cache-dir` for a task-local cache. The skill contains code, small source snapshots, recipes, and evidence.
+
+For a catalog recipe:
 
 ```sh
-# Snapshot the entrypoint and collect analysis clues without executing it.
+python <skill>/scripts/catalog.py show zoxide
+python <skill>/scripts/catalog.py build zoxide --output ./zoxide
+python <skill>/scripts/convert.py archive ./zoxide --output ./zoxide.tar.gz
+```
+
+For a new adaptation:
+
+```sh
 python <skill>/scripts/inspect_installer.py --source https://example.com/install.sh --output ./analysis
-
-# Inspect an existing adaptation's version, platform, prerequisites, and scope.
-python <skill>/scripts/catalog.py show bun
-python <skill>/scripts/catalog.py build bun --output ./bun-offline
-
-# Build a reviewed recipe for a new installer or version.
+# Analyze the snapshot and write recipe.json before building.
 python <skill>/scripts/convert.py build ./recipe.json --output ./software-offline
-
-# Export the final archive first, then test that artifact once.
 python <skill>/scripts/convert.py archive ./software-offline --output ./software-offline.tar.gz
+```
+
+Python 3.10+ can download, patch, and package on the preparation host, including native Windows. Parallelize independent downloads; keep build and archive steps sequential. Missing resources, hash mismatches, and failed patches prevent a complete build.
+
+## Verify when requested
+
+Read [verification.md](references/verification.md). Pass the final archive to the verifier:
+
+```sh
 python <skill>/scripts/verify.py ./software-offline.tar.gz --engine podman --image <prepared-image> --output ./validation.json
 ```
 
-Native Windows Python can download and package resources. Run Linux container verification through WSL with Podman/Docker, translating paths to their actual Linux locations. Running `verify.py` in Linux is the most direct route.
+The automated verifier supports Podman and Docker on Linux. Windows can use WSL with translated paths. Use a matching image, ordinary user, clean HOME, read-only bundle mount, and disabled external networking. Do not mount host credentials or a container socket. Test integrity and prerequisites, installation, a real local function, a path containing spaces, and repeat installation with upstream overwrite behavior preserved.
 
-Parallelize independent downloads and environment checks; keep build, archive, and verification in dependency order. Include functional, completion, and default-directory requirements in the first adaptation and test. Repeat checks when failures, changed artifacts, or new conditions justify them. If the user explicitly requests a fresh Podman test, run it; historical evidence does not count as a new execution.
+Retest after changes to the tested inputs or a relevant failure. Record the actual environment and scope. Container success establishes the tested operation without external connectivity; other architectures, systemd, kernel features, and absence of all attempted network calls need separate evidence.
 
-## Completion criteria
+## Deliver and retain evidence
 
-Follow [verification.md](references/verification.md). Prefer an ordinary user, clean HOME, read-only bundle mount, and `--network none`. Do not mount the host HOME, credentials, or container socket. Environment preparation may use the network; installation and functional tests must run disconnected.
+Always deliver the archive, checksum, target, prerequisites, installation commands, and behavior changes. For build-only work, state **built; installation not tested** and retain `validation_status: not-run` in the manifest. Do not invent a successful report.
 
-- Pass integrity, platform, and prerequisite checks. Integrity failures must exit before installation writes.
-- Install from a clean environment, check the version, and exercise at least one real local function. Repeat installation successfully or use the upstream installer's explicit update option while preserving default overwrite protection.
-- Test a path containing spaces. Every installation stage must read resources from the bundle. Detect common download-command attempts even when the upstream script ignores their failures.
-- Native binaries may still attempt network calls. A disconnected test proves the tested operation completes without external connectivity; it does not establish zero network syscalls.
-- State the actual tested environment. Container results do not establish compatibility with other CPUs, older glibc, macOS, full systemd services, or kernel modules. Continue useful builds and checks when the available environment covers only part of the target.
+When tests run, include the actual report and logs. The external report binds the archive, manifest, checksum list, recipe, builder, and verifier; leave the tested bundle and its `not-run` manifest unchanged. Preserve failures as failures. Matching historical evidence supports reuse of conversion decisions and remains separate from the new artifact's test status.
 
-Deliver the archive, SHA-256, report, target and prerequisites, installation commands, and necessary behavior changes. Reports must bind the artifact's manifest and checksum-list digests so old results cannot be assigned to changed bundles. Retain failed results and concrete missing prerequisites; do not list them as passed.
-
-## Maintain adaptations
-
-After an adaptation passes, add its small recipe, permitted upstream snapshots, and findings to the catalog, retaining the pinned version and tested scope. Remove machine-specific `source` paths and pin resource URLs and SHA-256 values. Store authored wrappers under the recipe's `sources/` directory. Revalidate version upgrades. Add rules in response to reproduced problems and keep software-specific constraints scoped to that software.
+After a successful test, a maintained adaptation may enter the catalog with its small recipe, permitted sources, findings, and evidence. Keep resource URLs portable, preserve licensing notices, and require new evidence for changed versions or targets.

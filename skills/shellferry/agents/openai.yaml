@@ -1,4 +1,4 @@
 interface:
   display_name: "Shellferry"
-  short_description: "Convert online installers into verified offline bundles"
-  default_prompt: "Use $shellferry to convert this installer into an offline bundle for my target machine and verify it without network access."
+  short_description: "Turn online installers into portable offline bundles"
+  default_prompt: "Use $shellferry to convert this installer into an offline bundle for my target machine."

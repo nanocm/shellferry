@@ -61,12 +61,15 @@ def render(data):
              "Tests run through Podman in WSL2 with `--network none`, user `1000:1000`, a clean HOME, "
              "a prefix containing spaces, read-only bundle mounts, and dropped capabilities. "
              "The verifier extracts each final archive into a fresh directory, checks integrity, installs, "
-             "runs functional assertions, and repeats installation. Native processes may attempt network "
-             "calls; passing establishes completion without external connectivity.", "",
+             "runs functional assertions, and repeats installation. Passing establishes completion without "
+             "external connectivity. Detecting all attempted native network calls requires separate tracing.", "",
              "Most new cases use Ubuntu 22.04. Some baseline cases use Ubuntu 26.04. "
              "Prepared images include the tools listed in their Containerfiles; target machines must meet "
              "each recipe's prerequisites. Python, Rust, or C build tools are present only where declared. "
              "Managers, cloud clients, and cluster tools are tested within the local scope stated below.", "",
+             "Installation testing is optional when building a user bundle. These published catalog entries "
+             "require passing evidence; a new build retains its own status. See "
+             "[verification modes](verification.md) and [evidence reuse](shared-evidence.md).", "",
              "| Recipe | Version | Path | Environment | Functional check | Evidence |",
              "| --- | --- | --- | --- | --- | --- |"]
     for record in data["records"]:
@@ -79,9 +82,10 @@ def render(data):
                      f"{record['version']} | {record['kind']} | {environments} | {description} | {evidence} |")
     lines += ["", "## Evidence and reproduction", "",
               "[coverage.json](coverage.json) records every matching report, image identity, prerequisite, "
-              "and scope note. [Known limitations](known-limitations.md) records failed candidates and "
-              "conditions that prevented a pass. Original historical records remain unchanged in the index; "
-              "they do not count as current matches when code or recipe hashes differ.", "",
+              "and scope note. [Scope and prerequisites](known-limitations.md) describes functional coverage, "
+              "installer adaptations, and failed candidates. The index retains historical records; "
+              "current matches require the recorded code and recipe hashes.", "",
+              "Check the catalog, or reproduce a recorded installation test with a prepared matching image:", "",
               "```sh", "python3 tools/coverage.py --check --minimum 105", "",
               "python3 skills/shellferry/scripts/catalog.py build zoxide --output work/zoxide",
               "python3 skills/shellferry/scripts/convert.py archive work/zoxide --output dist/zoxide.tar.gz",
@@ -89,7 +93,7 @@ def render(data):
               "  --engine podman --image docker.io/library/ubuntu:22.04 --output dist/zoxide.validation.json", "```", "",
               "The catalog includes converted online shell installers, source installers with their companion "
               "trees, and Python installer adaptations. These paths are labeled separately. Version and "
-              "environment changes require new verification. Unprepared project dependencies, remote services, "
+              "environment changes require new evidence before entering the verified catalog. Unprepared project dependencies, remote services, "
               "other CPU architectures, macOS, Alpine, full systemd behavior, and kernel features are outside "
               "the recorded scope unless a row explicitly includes them.", ""]
     return "\n".join(lines)

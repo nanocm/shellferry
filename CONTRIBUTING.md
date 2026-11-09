@@ -1,17 +1,17 @@
 # Contributing
 
-Useful contributions include new installer adaptations, fixes demonstrated by an
-offline test, clearer installation instructions, and portable verification
-evidence. Keep changes scoped to the actual software/environment being supported.
+Contribute an installer adaptation, a fix for a reproduced failure, clearer
+instructions, or portable test evidence. Describe the software and environment
+your change supports.
 
 ## Documentation language
 
-Write the canonical `SKILL.md`, agent-facing references, and contributor guides
-in English. Maintain `README.md` in English and `README.zh-CN.md` in Simplified
-Chinese, keeping installation commands and feature claims consistent. The skill
-responds in the user's language; English instructions do not require English
-responses. Preserve upstream source, license text, and recorded evidence in their
-original form.
+Write `SKILL.md`, agent references, and contributor guides in English. Keep
+`README.md` and `README.zh-CN.md` consistent in commands and feature claims.
+Write the READMEs for people choosing and using the skill; write `SKILL.md` as
+execution instructions, with explicit branches, inputs, and completion criteria.
+The skill responds in the user's language. Preserve upstream sources, license
+text, and recorded evidence in their original form.
 
 ## Development checks
 
@@ -23,11 +23,16 @@ python3 tools/run_tests.py
 python3 tools/coverage.py --check --minimum 105
 ```
 
-The repository checker validates recipes, source pins, evidence file bindings,
+The repository checker validates recipes, source pins, evidence bindings,
 plugin metadata, relative Markdown links, and accidental local-machine paths.
-It does not replace a functional installation test.
+Run checks relevant to the change. Documentation edits need these consistency
+checks; changed installation behavior also needs a functional test.
 
 ## Add or update a recipe
+
+Users can build bundles without running installation tests. An entry in the
+published **verified catalog** requires a successful offline test and evidence
+matching its current recipe, resources, builder, and verifier.
 
 1. Inspect the official entry script without executing it on the host. Record the
    version, script digest, target OS/CPU/libc, parameters, and installation scope.
@@ -39,9 +44,9 @@ It does not replace a functional installation test.
 4. Define at least one real local functional check in addition to `--version`.
    Preserve upstream overwrite protection and require explicit update options
    where appropriate.
-5. Build the final archive and test it without network access on the target
-   environment. Record missing prerequisites honestly. Do not silently install
-   extra dependencies into a test image to hide a packaging gap.
+5. Build the final archive and test it without network access in a matching
+   environment. Declare any dependencies supplied by the test image as target
+   prerequisites, or include them in the bundle.
 6. Record evidence and review it for personal paths, credentials, and private URLs:
 
 ```sh
@@ -52,23 +57,23 @@ python3 skills/shellferry/scripts/evidence.py record \
 Add a concise functional summary and adaptation type to
 `skills/shellferry/references/coverage-descriptions.json`, then run
 `python3 tools/coverage.py` to regenerate the matrix and coverage inventory.
-The check requires matching evidence for every catalog recipe and counts software
-names rather than environment variants. Keep unsuccessful candidates outside the
-passed catalog and document reproducible limitations separately.
+The check requires matching evidence for every catalog recipe and counts distinct
+software names. Keep failed candidates outside the verified catalog and retain
+their reproducible reports separately.
 
 See the [recipe schema](skills/shellferry/references/recipe-schema.md) and
 [conversion guidance](skills/shellferry/references/conversion.md).
 
 ## Evidence rules
 
-Keep reports tied to the exact archive, manifest, checksum list, recipe, builder,
-and verifier. Preserve historical evidence as historical. Do not invent missing
-timestamps or tool hashes. Evidence is a publisher's reproducible claim, not a
-signature or proof about every platform.
+Bind reports to the exact archive, manifest, checksum list, recipe, builder,
+and verifier. A report records the publisher's run for that artifact and
+environment. Historical evidence can guide a new build; only a fresh test can
+establish the new archive's installation result. Keep build-only results at
+`not-run` and leave missing historical timestamps or tool hashes unset.
 
-If tooling changes invalidate strict evidence matching, refresh the affected
-record with a new actual run. Unrelated historical results need not be rerun
-merely to retain their historical documentation.
+If tooling changes invalidate evidence matching, run the affected test and
+record new evidence. Preserve the original reports as historical records.
 
 ## What to include in a pull request
 

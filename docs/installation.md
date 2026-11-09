@@ -1,14 +1,13 @@
 # Installing Shellferry
 
-Choose one method per host. Every method installs the complete
+Choose one method per agent. Every method installs the complete
 `skills/shellferry/` directory, including scripts, recipes, evidence, and licenses.
-Downloading only `SKILL.md` leaves out files needed to build bundles.
+Keep that directory intact; the workflow uses more than `SKILL.md`.
 
-The public repository is [nanocm/shellferry](https://github.com/nanocm/shellferry).
-Remote GitHub installation through Skills CLI, Claude's plugin marketplace, and
-Codex's built-in installer was verified on 2026-11-09 in isolated directories.
-Each installed skill payload was checked against the published source, including
-recipes, licenses, and relocated evidence.
+Bundle preparation needs Python 3.10+ and access to the selected downloads or a
+populated cache. **Docker and Podman are optional:** they are used only for
+installation tests. The destination runs the bundle's shell installer with the
+prerequisites declared by its recipe.
 
 | Method | Where to run it | Invocation |
 | --- | --- | --- |
@@ -19,10 +18,9 @@ recipes, licenses, and relocated evidence.
 
 ## Skills CLI (`npx`)
 
-Requires Node.js 22.20+ and access to npm; Git repository sources also require
-Git. The [Skills CLI](https://github.com/vercel-labs/skills) discovers the standard
-`skills/shellferry/` layout. A separate Shellferry npm package is unnecessary:
-npm supplies the installer, and the repository supplies the skill.
+Requires Node.js 22.20+, access to npm, and Git for repository sources. The
+[Skills CLI](https://github.com/vercel-labs/skills) installs Shellferry from this
+repository's `skills/shellferry/` directory.
 
 Choose your host:
 
@@ -67,8 +65,6 @@ not select a Git tag.
 
 ## Claude Code plugin
 
-The package includes `.claude-plugin/marketplace.json` and
-`.claude-plugin/plugin.json`. The plugin points to the shared `skills/` directory.
 Run inside Claude Code:
 
 ```text
@@ -134,10 +130,9 @@ Select that layout explicitly:
 python3 install.py --host codex-legacy
 ```
 
-Do not install the same skill to multiple discovery locations. If you previously
-used the prototype named `offline-install`, finish active work with it before
-disabling or moving that old skill. The installer does not delete an unrelated
-`offline-install` directory.
+Keep one active installation per agent. If you used the prototype named
+`offline-install`, finish its active tasks before disabling it. This installer
+leaves the prototype directory in place.
 
 ## Project scope
 
@@ -167,14 +162,13 @@ For example, in PowerShell:
 python install.py --dest "$env:USERPROFILE\.codex\skills"
 ```
 
-Manual installation also works: copy `skills/shellferry` into the desired skills
-directory. A manual installation is not managed by `install.py`; the installer
-refuses to overwrite unmanaged directories.
+For manual installation, copy the complete `skills/shellferry` directory into
+the chosen skills directory. Update that copy manually; `install.py` manages only
+copies carrying its own receipt.
 
 Use the original manager to update or remove installations made by `npx`,
-Claude plugins, or Codex's installer. The Python installer manages only copies
-carrying its own receipt. To switch methods, preserve local edits and uninstall
-the old copy first.
+Claude plugins, or Codex's installer. To switch methods, preserve local edits
+and uninstall the old copy first.
 
 ## Update
 
@@ -185,9 +179,9 @@ archive. From the new version:
 python3 install.py update
 ```
 
-Updates verify copied file hashes and move the old managed directory to
-`.shellferry-backups` next to the skills directory's parent. The backup path is
-printed. Backups stay outside skill discovery directories.
+Updates check copied file hashes and move the previous managed installation to
+`.shellferry-backups`, outside skill discovery directories. The command prints
+the backup path.
 
 If you edited installed files, the update stops. To preserve those edits in a
 backup and install the new version:
@@ -196,9 +190,8 @@ backup and install the new version:
 python3 install.py update --force
 ```
 
-`--force` only applies to an installation with a valid Shellferry receipt. It does
-not permit overwriting arbitrary directories. For long-term changes, edit the
-source checkout and contribute the changes rather than editing an installed copy.
+`--force` requires a valid Shellferry receipt. Keep ongoing customizations in a
+source checkout so they can be reviewed and carried into later versions.
 
 ## Uninstall
 
@@ -206,14 +199,14 @@ source checkout and contribute the changes rather than editing an installed copy
 python3 install.py uninstall
 ```
 
-The managed installation is moved to a backup, not permanently deleted. Locally
-modified installations require `--force`. Download caches and generated bundles
-are not removed.
+The command moves the managed installation to a backup. Locally modified
+installations require `--force`; download caches and generated bundles stay in
+place.
 
 ## Installation verification
 
-Run the real installation commands against an extracted release with temporary
-home and project directories:
+Maintainers can test the skill's installation channels against an extracted
+release, using temporary home and project directories:
 
 ```sh
 python3 tools/package.py
@@ -228,24 +221,36 @@ Add `--require-claude` to require that check. The output
 Checks cover project and user scope, copy and link installation, both host
 destinations, the full skill payload, and evidence matching after relocation.
 Claude checks validate both manifests, add the local marketplace, install the
-plugin, and inspect its payload. These installation checks do not run an
-authenticated agent conversation. The release's separate remote-installation
-report covers actual GitHub fetching; local archive checks do not establish it.
+plugin, and inspect its payload. This suite covers installation and file
+discovery; authenticated agent conversations need a separate test.
+
+Remote GitHub installation through Skills CLI, Claude's marketplace, and Codex's
+built-in installer was tested on 2026-11-09 in isolated directories. The complete
+installed payloads were compared with the published source, and evidence was
+queried after relocation. The [v0.1.0 release](https://github.com/nanocm/shellferry/releases/tag/v0.1.0)
+includes the remote-installation report.
 
 ## Verification prerequisites
 
-Python 3.10+ is required on the preparation machine. No third-party Python package
-is required. For Linux bundle verification, use a working Docker/Podman engine.
-The generated installer normally needs no Python on the destination machine.
+Offline installation testing is optional. Shellferry builds and packages by
+default. To request a test, add “verify the final archive with Podman and
+networking disabled” to your prompt, or run `verify.py` as shown in the
+[README](../README.md#build-and-optionally-verify).
+
+The automated Linux verifier requires a working Docker or Podman engine and a
+prepared matching image. Without a test, the bundle is delivered as **built,
+installation not tested** (`not-run`). Source hashes, resource hashes, and exact
+patch matches are checked during every build. If a requested test cannot start,
+the agent reports the cause and the remaining verification work.
 
 The simple zoxide example can use the official Ubuntu base image. Other recipes
-declare additional prerequisites. Historical validation used extra tools listed
-in the [matrix](../skills/shellferry/references/validation-matrix.md); never infer
-that the destination has those tools merely because a test image contains them.
+declare additional prerequisites. Prepared images include the tools listed in
+the [matrix](../skills/shellferry/references/validation-matrix.md); the destination
+must provide those tools unless the bundle includes them.
 
-For Windows, run preparation in PowerShell and verification inside WSL2. A
-Windows path must be translated to the matching `/mnt/...` path before passing it
-to a Linux container. `verify.py` is not a native Windows container launcher.
+On Windows, native Python can prepare bundles. Run optional Linux verification
+inside WSL2 and translate paths to their actual `/mnt/...` locations before
+passing them to the container.
 
 ## Troubleshooting
 
@@ -257,9 +262,6 @@ to a Linux container. `verify.py` is not a native Windows container launcher.
 | `npx` cannot create links | Add `--copy` |
 | Existing directory refused | Use `update` for a managed install; preserve/move a manual installation yourself |
 | Python not found | Install Python 3.10+ on the preparation machine; Windows may use `py -3` |
-| Container image missing | Pull or build the correct image before testing; test runs use `--pull=never` |
-| No matching evidence | Read the mismatch reasons; build and verify the requested version/environment |
+| Container image missing | For a requested test, pull or build the matching image first; tests use `--pull=never`. Build-only work needs no image |
+| No matching evidence | Review the mismatched inputs before building; run a fresh test if requested or needed for catalog publication |
 | Upstream checksum or patch mismatch | Stop and review the upstream change; do not bypass the check |
-
-The checked-in `plugin.json` follows the portable Agent Plugins layout. It can be
-used for plugin packaging; publishing to a plugin directory is a separate step.

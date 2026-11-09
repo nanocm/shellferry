@@ -60,4 +60,6 @@ Field conventions:
 - `repeat_args`: passed only during repeat-installation tests, preserving normal first-install behavior and default overwrite protection in tools such as Just.
 - `smoke`: at least one executable command. Published adaptations also need a local functional assertion. `|| true` does not establish functional success.
 
-The bundle includes `install.sh`, `repeat.sh`, `smoke.sh`, `offline-lib.sh`, `resources/`, `upstream/`, original sources and diffs under `provenance/`, a manifest, a portable recipe, and SHA256SUMS. Keep verification reports outside the bundle so they do not change the tested inventory. The manifest starts with `not-run`; the external report records the actual verification result.
+The bundle includes `install.sh`, `repeat.sh`, `smoke.sh`, `offline-lib.sh`, `resources/`, `upstream/`, original sources and diffs under `provenance/`, a manifest, a portable recipe, and SHA256SUMS. Building generates the test scripts without running them. Installation verification is optional for user bundles and required for entries in the verified catalog.
+
+The manifest starts with `validation_status: not-run` and remains unchanged after testing. Keep the actual result in an external report so the tested inventory stays intact. A build-only delivery has no fresh verification report; see [verification.md](verification.md) for status and completion rules.

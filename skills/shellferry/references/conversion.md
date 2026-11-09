@@ -24,11 +24,14 @@ Inspect the actual execution path to resolve these questions:
 
 1. Use upstream offline options, mirror/cache variables, and local-resource arguments when available. Still preserve the source script and pin versions.
 2. Replace download functions or statements with exact `offline_fetch` patches while retaining control flow. Require the expected match count. If text occurs twice, inspect both contexts and choose a unique anchor rather than simply increasing `count`.
-3. Include every script stage in `scripts`. Replace outer-stage script downloads with local copies or calls to the converted script. Do not execute an unconverted child script as an ordinary resource.
+3. Inspect and pin every script stage. List stages needing transport patches in `scripts`, and replace outer-stage downloads with calls to their converted copies. An audited child installer may remain unchanged inside a pinned resource when upstream offline options cover its operations; record that decision. Avoid adding the bundle's prelude to an initializer that must remain usable after the bundle is removed.
 4. Add a small local wrapper when the original installer needs one, retaining upstream logic and a reviewable difference. For example, nvm uses its official script branch, then places a pinned Node release in the nvm version directory and calls nvm's alias/use functions.
 5. If installing directly from a release archive, identify it as a release-archive adaptation. `offpack.py` provides this optional path; `convert.py` handles conversion of upstream scripts.
 
 ## Findings from tested installers
+
+Reuse these conversion decisions where applicable. Run the described runtime
+checks when installation verification is in scope.
 
 - Atuin's entrypoint downloads a cargo-dist installer. Deno's post-install stage runs a remote JSR module. Collect and convert both stages.
 - Pixi's native `__install-ping` makes network requests; intercepting curl alone misses it. Disable and document that optional telemetry block.

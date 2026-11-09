@@ -1,6 +1,10 @@
 # Shared evidence and reuse
 
-The repository can carry small upstream snapshots, recipes, patches, resource URLs/digests, prerequisite descriptions, reports, documented fixes, and Containerfiles. These reduce repeated analysis. A first-time user must be able to build from official sources without the author's cache or large local bundles. If prebuilt bundles are published later, attach them to releases with their SHA-256, recipe, builder, and verification report. Local files are not public assets until published.
+The repository distributes recipes, permitted source snapshots, exact patches,
+resource URLs and hashes, prerequisites, test reports, and Containerfiles. These
+let another user reuse the conversion analysis and reproduce its test. Downloads
+come from the pinned sources or the user's own optional cache; the author's
+local cache is never required.
 
 ## Match evidence
 
@@ -8,11 +12,26 @@ The repository can carry small upstream snapshots, recipes, patches, resource UR
 python scripts/catalog.py evidence bun-ubuntu22 --os-id ubuntu --os-version 22.04
 ```
 
-Matching checks the software/version/target, distribution, recipe's exact byte digest, original scripts, all resource pins, and builder/verifier code digests. Results list prerequisites, image digests, and scope. Check that the destination meets those prerequisites. Any mismatch makes the record historical reference rather than matching evidence.
+Matching checks the software, version, target, distribution, recipe bytes,
+original scripts, resource pins, and builder/verifier code hashes. Read the
+returned prerequisites, image identity, and scope before reusing the decisions.
+A record with mismatched inputs remains historical reference.
 
-Records state that a publisher tested a particular artifact; they are not cryptographic signatures. Obtain them from a trusted repository revision. `status: prior-evidence-only` always describes a previous test, not execution of a newly downloaded file or newly built bundle.
+Obtain records from a trusted repository revision. They record a publisher's test
+of a particular artifact and are not cryptographic signatures. The query status
+`prior-evidence-only` refers to that earlier test.
 
-Run a fresh disconnected test when the user requests one. When reproducing a fixed adaptation with accepted historical evidence, reuse prior analysis while still checking downloaded hashes and current patch matches. A changed builder or environment cannot inherit an old successful report.
+## Apply evidence to a new build
+
+- Reuse applicable analysis while checking downloaded hashes and patch matches
+  during the new build.
+- Deliver build-only work as `not-run`. Matching evidence can accompany that
+  status without becoming a fresh verification result.
+- Run the final archive in a disconnected environment when the user requests
+  verification. Changed inputs or a different environment require a fresh test
+  before claiming that combination is verified.
+- Require current matching evidence for every recipe in the published verified
+  catalog. Optional user testing does not change that publication rule.
 
 ## Add or update records
 
@@ -20,8 +39,21 @@ Run a fresh disconnected test when the user requests one. When reproducing a fix
 python scripts/evidence.py record --bundle ./bundle --report ./validation.json
 ```
 
-The command checks every bundled file against the report's bindings and accepts only successful disconnected archive tests. It writes `references/evidence/records/` and `index.json` without installation binaries. New reports record the verification time and recipe/builder/verifier digests. The original 28 reports lack complete code identities and remain `historical-unbound-code`; do not invent missing hashes or timestamps.
+The command checks bundled files against the report's bindings and accepts only
+successful disconnected archive tests. It writes `references/evidence/records/`
+and `index.json` without installation binaries. New reports include the test time
+and recipe/builder/verifier hashes. The original 28 reports lack complete code
+identities and retain `historical-unbound-code`; leave missing hashes and
+timestamps unset.
 
-An `image: localhost/...` value is the test host's local tag, not a public image others can pull. Rebuild from the included Containerfile and record the new image digest and actual package versions. Use the official unmodified distribution image when sufficient, avoiding repeated package-manager queries.
+An `image: localhost/...` value names an image on the original test host. Rebuild
+it from the included Containerfile and record the new image identity and actual
+package versions. Use an official distribution image directly when it supplies
+the required baseline.
 
-Before publication, check for tokens, personal paths, and private service addresses while preserving necessary environment details, third-party provenance, and licensing notes. First-use tests should use an independent directory and empty download cache, with no hidden dependency on the original task's outputs.
+Before publication, remove credentials, personal paths, and private service
+addresses while preserving environment details, provenance, and licensing notes.
+Test first use from an independent directory and empty download cache. If
+prebuilt bundles are published, attach the archive, SHA-256, recipe, builder
+identity, and verification report to a release after checking redistribution
+terms.
