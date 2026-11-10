@@ -2,7 +2,11 @@
 
 Publish Shellferry from [nanocm/shellferry](https://github.com/nanocm/shellferry).
 Keep `VERSION`, `plugin.json`, and `.claude-plugin/plugin.json` at the same
-version. The commands below use `0.1.0`; substitute the version being prepared.
+version. The commands below use `0.1.1`; substitute the version being prepared.
+
+Ship changes to the skill's workflow, default behavior, or agent metadata in a
+new release, even when they are implemented entirely in Markdown or prompts.
+Users installing a release archive need the updated instructions too.
 
 ## Local release preparation
 
@@ -11,7 +15,7 @@ python3 tools/check_repo.py
 python3 tools/run_tests.py
 python3 tools/coverage.py --check --minimum 105
 python3 tools/package.py
-python3 tools/check_installation.py --archive dist/shellferry-0.1.0.zip --require-claude
+python3 tools/check_installation.py --archive dist/shellferry-0.1.1.zip --require-claude
 ```
 
 The release archive contains the installer, installable skill, README files,
