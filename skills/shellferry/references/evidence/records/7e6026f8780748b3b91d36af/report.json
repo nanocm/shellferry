@@ -1,0 +1,41 @@
+{
+  "name": "dotnet",
+  "version": "10.0.403",
+  "target": "linux-x86_64",
+  "status": "passed",
+  "engine": "podman",
+  "image": "localhost/shellferry-dotnet-test:ubuntu22",
+  "image_id": "b1f078f4dba623e2e4f6adc5e6103625ca3f088af4695a4dc1fa226c3f427a91",
+  "image_digests": [
+    "localhost/shellferry-dotnet-test@sha256:eb3575fe3d49476b2db6f4e6cea8bb8dc5d83f8d8b376a7d83e3cc11430b16b7"
+  ],
+  "environment": "PRETTY_NAME=\"Ubuntu 22.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.5 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\nldd (Ubuntu GLIBC 2.35-0ubuntu3.15) 2.35\nCopyright (C) 2022 Free Software Foundation, Inc.\n/usr/bin/sh\n/usr/bin/bash\n/usr/bin/tar\n/usr/bin/gzip\n/usr/bin/openssl\n/usr/bin/dpkg-deb\n",
+  "archive_sha256": "c4efe9c043bdd8c1ad5a6974ef1812d4cdeac8b3455ca654224a5d06ee3990b9",
+  "archive_roundtrip": true,
+  "network": "none",
+  "user": "1000:1000",
+  "manifest_sha256": "0497fb6589f84542decabe4b25689f6337f008bdcb09c587816b9590a8227d92",
+  "checksum_list_sha256": "fbc601948175ee6667406fe635b738eb28dcaddb5f9fd9064938fcac2dbaafa0",
+  "elapsed_seconds": 12.52,
+  "exit_code": 0,
+  "checks": [
+    "checksum verification",
+    "prerequisite preflight",
+    "path with spaces",
+    "install from clean home",
+    "smoke command",
+    "repeat installation",
+    "blocked download command detection"
+  ],
+  "verified_at": "2026-11-10T08:23:11.890088+00:00",
+  "recipe_sha256": "acac56c686dd5f46d5f1d1b4a65fa0ee26c922f98c547199657a13c6a6995ebc",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  },
+  "verifier": {
+    "verify.py": "5756ee90f699a083d6d98303da8842cb293e1995502aa79a764b6349f2ba1dbc",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  },
+  "scope": "Container userspace on host kernel; download command guards cover curl/wget/fetch/aria2c only. Network=none proves operation without external network, not absence of every attempted network syscall. No claim about untested OS versions, architectures, services, or kernel features."
+}

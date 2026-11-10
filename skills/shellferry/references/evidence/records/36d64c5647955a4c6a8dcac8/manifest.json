@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "tfswitch",
+  "version": "1.20.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/terraform-switcher_v1.20.0_linux_amd64.tar.gz",
+      "url": "https://github.com/warrensbox/terraform-switcher/releases/download/v1.20.0/terraform-switcher_v1.20.0_linux_amd64.tar.gz",
+      "sha256": "a15b3d5201dfb0f1e17f3346297c0f594ba66240d245367520d1ca70164dda12",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/terraform-switcher_v1.20.0_checksums.txt",
+      "url": "https://github.com/warrensbox/terraform-switcher/releases/download/v1.20.0/terraform-switcher_v1.20.0_checksums.txt",
+      "sha256": "12a257bb111f90eef93abe4becde9ab2bc219cc625350a0d7658373f95de239b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/warrensbox/terraform-switcher/7f8cf2c8c1e995d3793eab4da120264981695192/install.sh",
+      "sha256_original": "4e007eed8c12d154fdc3acbaf46cb4b1f64fb07445a9af51d209a1be300eeeb5",
+      "sha256_patched": "a34073b4c48a70db120ab2ab764928d7134268677544560e1bf3a3277c2d189a",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official installer retains archive checksum validation. Functional scope is local Terraform constraint matching; Terraform/OpenTofu binaries and providers are not bundled."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "d3464530ad817622dee6a27c0d428fe9d583e5ad4f89facd93ee1b3bd52adb96",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

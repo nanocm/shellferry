@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "k3d",
+  "version": "5.9.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/k3d-linux-amd64",
+      "url": "https://github.com/k3d-io/k3d/releases/download/v5.9.0/k3d-linux-amd64",
+      "sha256": "06d8f25bc3a971c4eb29e0ff08429b180402db0f4dec838c9eac427e296800a0",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/checksums.txt",
+      "url": "https://github.com/k3d-io/k3d/releases/download/v5.9.0/checksums.txt",
+      "sha256": "ed820bf83134bb0e5f0980f44c16e643ae956c1aeeb3f17ca120c9cd0a41262b",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/k3d-io/k3d/fb87e3ab09b91db3dd85d46a6a9067e25db107c0/install.sh",
+      "sha256_original": "f360710b6555d7b95f510b583b7c6050c6453e5b1d91cbb046864897d5915347",
+      "sha256_patched": "0c263d801e9e719fed1dbc00f866e1d53ef1e9a6698cd2a42bf293caa0ffaf35",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "sha256_patched": "014046015fe195bd31b421869867ff93888bce9fad735e662a1d72c1fd26e637",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Fixes upstream runAsRoot argument reconstruction to preserve spaces. Tests configuration generation, not containerized cluster creation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "3119cbb45088cd429f820d58aad9ddd2f5f070fe1dd8a1ca215db573355dccd2",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

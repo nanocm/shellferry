@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "svix-cli",
+  "version": "2.9.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/svix-cli-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/svix/svix-webhooks/releases/download/v2.9.1/svix-cli-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "fa9fb7876240abc8d8cf9455d93bab0b68298074170634b472566d4c76cf568f",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/svix/svix-webhooks/releases/download/v2.9.1/svix-cli-installer.sh",
+      "sha256_original": "117f886f6022a12f8f4e3c5c4c225c959ba87d34482a3a66ad1cbe67eefc1db6",
+      "sha256_patched": "e35ecf45ac2bba41b80b77d703c1790b9e62305b13f4b090bd409f09db55c282",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "d5e3718be9ef7e651f804a97a63b66eca36a1d371334226f5dd45527fc32bfd5",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

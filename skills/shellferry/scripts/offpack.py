@@ -50,39 +50,39 @@ def sha256(path):
 def validate_url(url):
     parsed = urlparse(url)
     if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
-        raise PackError("下载地址必须是无内嵌账号密码的 HTTPS URL。")
+        raise PackError("Download URLs must use HTTPS without embedded credentials.")
     if any(char in url for char in "\r\n\x00"):
-        raise PackError("下载地址包含非法字符。")
+        raise PackError("Download URL contains invalid characters.")
     return url
 
 
 def safe_version(value):
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._+\-]{0,95}", value):
-        raise PackError(f"不支持的版本号：{value!r}")
+        raise PackError(f"Unsupported version: {value!r}")
     if value in {".", ".."}:
-        raise PackError("版本号不能是相对路径。")
+        raise PackError("Version must not be a relative path.")
     return value
 
 
 def safe_name(value):
     if not re.fullmatch(r"[a-z0-9][a-z0-9._\-]{0,63}", value):
-        raise PackError("软件名称只能包含小写字母、数字、点、下划线和连字符。")
+        raise PackError("Software names may contain only lowercase letters, digits, dots, underscores, and hyphens.")
     return value
 
 
 def safe_path(value):
     if not isinstance(value, str) or not re.fullmatch(r"[A-Za-z0-9_./@+\-]+", value):
-        raise PackError(f"文件路径含不支持的字符：{value!r}")
+        raise PackError(f"File path contains unsupported characters: {value!r}")
     path = PurePosixPath(value)
     if path.is_absolute() or ".." in path.parts or value != str(path) or value == ".":
-        raise PackError(f"文件路径必须是规范的相对路径：{value!r}")
+        raise PackError(f"File path must be a normalized relative path: {value!r}")
     return value
 
 
 def install_path(value):
     safe_path(value)
     if not value.startswith(("bin/", "share/")):
-        raise PackError("安装文件必须位于 bin/ 或 share/ 下。")
+        raise PackError("Installed files must be under bin/ or share/.")
     return value
 
 
@@ -102,13 +102,13 @@ def read_url(url, limit=2 * 1024 * 1024):
             with request_url(url) as response:
                 body = response.read(limit + 1)
                 if len(body) > limit:
-                    raise PackError("入口脚本超过大小限制。")
+                    raise PackError("Entry script exceeds the size limit.")
                 return body
         except (OSError, URLError, HTTPException) as exc:
             last_error = exc
             if attempt < 2:
                 time.sleep(attempt + 1)
-    raise PackError(f"无法下载 {url}：{last_error}")
+    raise PackError(f"Could not download {url}: {last_error}")
 
 
 def latest_tag(repository):
@@ -119,7 +119,7 @@ def latest_tag(repository):
                 final_path = unquote(urlparse(response.geturl()).path)
             expected_prefix = f"/{repository}/releases/tag/"
             if not final_path.startswith(expected_prefix):
-                raise PackError("GitHub 没有返回确定的发布版本，请用 --version 指定版本。")
+                raise PackError("GitHub did not return a specific release; select one with --version.")
             return safe_version(final_path[len(expected_prefix):])
         except HTTPError as exc:
             # A few proxies block HEAD but allow a regular request.
@@ -129,20 +129,20 @@ def latest_tag(repository):
                 prefix = f"/{repository}/releases/tag/"
                 if final_path.startswith(prefix):
                     return safe_version(final_path[len(prefix):])
-                raise PackError("无法解析最新版本，请用 --version 指定版本。") from exc
+                raise PackError("Could not resolve the latest release; select one with --version.") from exc
             if attempt == 2:
                 raise
         except (OSError, URLError, HTTPException):
             if attempt == 2:
                 raise
         time.sleep(attempt + 1)
-    raise PackError("无法解析最新版本。")
+    raise PackError("Could not resolve the latest release.")
 
 
 def download(url, cache, expected_sha=None, retries=4):
     validate_url(url)
     if expected_sha is not None and not re.fullmatch(r"[0-9a-fA-F]{64}", expected_sha):
-        raise PackError("SHA-256 必须是 64 位十六进制字符串。")
+        raise PackError("SHA-256 must be a 64-character hexadecimal string.")
     cache.mkdir(parents=True, exist_ok=True)
     key = hashlib.sha256(url.encode("utf-8")).hexdigest()
     completed = cache / key
@@ -155,14 +155,14 @@ def download(url, cache, expected_sha=None, retries=4):
             if previous["sha256"] == actual_sha and (
                 expected_sha is None or actual_sha.lower() == expected_sha.lower()
             ):
-                log(f"使用缓存：{Path(urlparse(url).path).name}")
+                log(f"Using cached file: {Path(urlparse(url).path).name}")
                 return completed, actual_sha
         except (ValueError, KeyError, OSError):
             pass
         completed.unlink(missing_ok=True)
         receipt.unlink(missing_ok=True)
 
-    log(f"下载：{url}")
+    log(f"Downloading: {url}")
     last_error = None
     for attempt in range(retries):
         position = partial.stat().st_size if partial.is_file() else 0
@@ -174,7 +174,7 @@ def download(url, cache, expected_sha=None, retries=4):
                     match = re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)", response.headers.get("Content-Range", ""))
                     if not match or int(match[1]) != position:
                         partial.unlink(missing_ok=True)
-                        raise OSError("下载服务器返回了不匹配的断点范围")
+                        raise OSError("Download server returned a mismatched resume range")
                     total = int(match[3])
                     mode = "ab"
                 elif status == 200:
@@ -182,18 +182,18 @@ def download(url, cache, expected_sha=None, retries=4):
                     total = int(response.headers["Content-Length"]) if response.headers.get("Content-Length") else None
                     mode = "wb"
                 else:
-                    raise OSError(f"下载服务器返回 HTTP {status}")
+                    raise OSError(f"Download server returned HTTP {status}")
                 with partial.open(mode) as output:
                     for chunk in iter(lambda: response.read(1024 * 1024), b""):
                         output.write(chunk)
                 if total is not None and partial.stat().st_size != total:
-                    raise OSError("连接中断，文件下载不完整")
+                    raise OSError("Connection interrupted; download is incomplete")
             if not partial.stat().st_size:
-                raise OSError("下载内容为空")
+                raise OSError("Downloaded file is empty")
             actual_sha = sha256(partial)
             if expected_sha and actual_sha.lower() != expected_sha.lower():
                 partial.unlink(missing_ok=True)
-                raise PackError(f"上游文件 SHA-256 不匹配：{url}")
+                raise PackError(f"Upstream file SHA-256 mismatch: {url}")
             os.replace(partial, completed)
             receipt.write_text(json.dumps({"url": url, "sha256": actual_sha}, indent=2), encoding="utf-8")
             return completed, actual_sha
@@ -202,13 +202,13 @@ def download(url, cache, expected_sha=None, retries=4):
             if exc.code == 416:
                 partial.unlink(missing_ok=True)
             elif exc.code in {400, 401, 403, 404}:
-                raise PackError(f"下载失败（HTTP {exc.code}）：{url}") from exc
+                raise PackError(f"Download failed (HTTP {exc.code}): {url}") from exc
         except (OSError, URLError, HTTPException) as exc:
             last_error = exc
         if attempt + 1 < retries:
-            log(f"下载中断，正在重试（{attempt + 2}/{retries}）……")
+            log(f"Download interrupted; retrying ({attempt + 2}/{retries})...")
             time.sleep(min(attempt + 1, 3))
-    raise PackError(f"下载失败，断点已保留，可重新运行：{last_error}")
+    raise PackError(f"Download failed; partial data was kept for the next attempt: {last_error}")
 
 
 def parse_source(source):
@@ -219,36 +219,36 @@ def parse_source(source):
         script_args = []
     else:
         if any(char in source for char in "\r\n`$"):
-            raise PackError("请传入一条不含变量展开或命令替换的 curl/wget 管道命令。")
+            raise PackError("Provide one curl/wget pipeline without variable expansion or command substitution.")
         lexer = shlex.shlex(source, posix=True, punctuation_chars="|;&<>()")
         lexer.whitespace_split = True
         lexer.commenters = ""
         tokens = list(lexer)
         if tokens.count("|") != 1 or any(token in {";", "&&", "||", "&", "(", ")", "<", ">", ">>"} for token in tokens):
-            raise PackError("仅支持单条 curl/wget URL | bash/sh 命令；多条命令请分别打包。")
+            raise PackError("Only one curl/wget URL | bash/sh command is supported; package multiple commands separately.")
         divider = tokens.index("|")
         fetch, shell = tokens[:divider], tokens[divider + 1:]
         if not fetch or fetch[0] not in {"curl", "wget"} or not shell or shell[0] not in {"sh", "bash"}:
-            raise PackError("命令格式应为 curl/wget URL | bash/sh。")
+            raise PackError("Expected command format: curl/wget URL | bash/sh.")
         urls = [token for token in fetch[1:] if token.startswith("https://")]
         if len(urls) != 1:
-            raise PackError("下载命令必须包含且仅包含一个 HTTPS URL。")
+            raise PackError("The download command must contain exactly one HTTPS URL.")
         url = urls[0]
         flags = [token for token in fetch[1:] if token != url]
         allowed_curl = {"--fail", "--silent", "--show-error", "--location", "--progress-bar"}
         if fetch[0] == "curl":
             if any(flag not in allowed_curl and not re.fullmatch(r"-[fsSL]+", flag) for flag in flags):
-                raise PackError("此版本支持 curl 的 -f/-s/-S/-L 下载参数；其他参数请改用脚本 URL。")
+                raise PackError("Supported curl options are -f, -s, -S, -L, their long forms, and --progress-bar; for other options, provide the script URL directly.")
         else:
             if flags not in (["-qO-"], ["-O-"], ["-q", "-O-"], ["-qO", "-"], ["-q", "-O", "-"], ["-O", "-"]):
-                raise PackError("wget 请使用 -qO- URL 或 -q -O - URL。")
+                raise PackError("For wget, use -qO- URL or -q -O - URL.")
         script_args = shell[1:]
         if script_args and script_args[0] == "-s":
             script_args = script_args[1:]
         if script_args and script_args[0] == "--":
             script_args = script_args[1:]
         elif script_args:
-            raise PackError("脚本参数请写在 bash/sh -s -- 之后。")
+            raise PackError("Place script arguments after bash/sh -s --.")
     validate_url(url)
     parsed = urlparse(url)
     if parsed.netloc == "bun.sh" and parsed.path.rstrip("/") == "/install" and not parsed.query:
@@ -260,10 +260,10 @@ def parse_source(source):
     version = None
     if name == "bun" and script_args:
         if len(script_args) != 1 or script_args[0].startswith("-"):
-            raise PackError("Bun 支持传入一个版本参数；其他选项请在离线安装时设置。")
+            raise PackError("Bun accepts one version argument here; set other options during offline installation.")
         version = safe_version(script_args[0])
     elif name == "zoxide" and script_args:
-        raise PackError("zoxide 安装参数请在离线端设置；平台使用 --target，目录使用 install.sh --prefix。")
+        raise PackError("Set zoxide installation options on the destination; use --target for the platform and install.sh --prefix for the directory.")
     return {"name": name, "url": url, "version": version, "original": source}
 
 
@@ -275,7 +275,7 @@ def builtin_recipe(source, target, requested_version, variant):
         left = requested_version.removeprefix("bun-").removeprefix("v")
         right = source["version"].removeprefix("bun-").removeprefix("v")
         if left != right:
-            raise PackError("--version 与原命令中的版本不同，请只保留一个版本。")
+            raise PackError("--version conflicts with the original command; specify a single version.")
     tag = latest_tag(repository) if requested == "latest" else safe_version(requested)
     system, arch = target.split("-")[:2]
     if name == "bun":
@@ -315,26 +315,26 @@ def load_recipe(path, target, version):
     try:
         recipe = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
-        raise PackError(f"无法读取配置文件：{exc}") from exc
+        raise PackError(f"Could not read recipe file: {exc}") from exc
     if not isinstance(recipe, dict):
-        raise PackError("配置文件的顶层必须是对象。")
+        raise PackError("The recipe must be a JSON object.")
     recipe["name"] = safe_name(recipe.get("name", ""))
     recipe["version"] = safe_version(version or recipe.get("version", ""))
     declared_target = recipe.get("target")
     if target and declared_target and target != declared_target:
-        raise PackError("--target 与配置文件的平台不同。请先调整配置文件中的下载资源，避免打包错误架构的程序。")
+        raise PackError("--target differs from the recipe platform. Update the recipe's resources before packaging for another architecture.")
     recipe["target"] = target or declared_target
     if recipe["target"] not in TARGETS:
-        raise PackError("配置文件需包含有效 target，或使用 --target 指定目标平台。")
+        raise PackError("Provide a valid target in the recipe or select one with --target.")
     if not isinstance(recipe.get("assets"), list) or not recipe["assets"]:
-        raise PackError("配置文件必须包含非空 assets 列表。")
+        raise PackError("The recipe must contain a nonempty assets list.")
     variables = {"name": recipe["name"], "version": recipe["version"], "target": recipe["target"]}
     try:
         for asset in recipe["assets"]:
             asset["url"] = validate_url(asset["url"].format_map(variables))
             asset["files"] = {key.format_map(variables): value.format_map(variables) for key, value in asset["files"].items()}
     except (KeyError, ValueError, TypeError, AttributeError) as exc:
-        raise PackError(f"配置文件字段不正确：{exc}") from exc
+        raise PackError(f"Invalid recipe field: {exc}") from exc
     recipe.setdefault("links", {})
     return recipe
 
@@ -353,7 +353,7 @@ def archive_members(path, archive_format):
                 continue
             if name in members:
                 archive.close()
-                raise PackError(f"压缩包包含重复文件：{name}")
+                raise PackError(f"Archive contains a duplicate file: {name}")
             members[name] = (info.file_size, lambda entry=info: archive.open(entry))
         return archive, members
     if archive_format in {"tar.gz", "tar.xz", "tar.bz2", "tar"}:
@@ -365,10 +365,10 @@ def archive_members(path, archive_format):
             name = info.name.removeprefix("./")
             if name in members:
                 archive.close()
-                raise PackError(f"压缩包包含重复文件：{name}")
+                raise PackError(f"Archive contains a duplicate file: {name}")
             members[name] = (info.size, lambda entry=info: archive.extractfile(entry))
         return archive, members
-    raise PackError(f"不支持的压缩格式：{archive_format}")
+    raise PackError(f"Unsupported archive format: {archive_format}")
 
 
 def collect_files(asset_path, asset, payload, occupied, total):
@@ -376,27 +376,27 @@ def collect_files(asset_path, asset, payload, occupied, total):
     try:
         files = asset.get("files")
         if not isinstance(files, dict) or not files:
-            raise PackError("每个下载资源必须包含非空 files 映射。")
+            raise PackError("Each download resource must contain a nonempty files mapping.")
         for source, destination in files.items():
             if source.endswith("/*.1"):
                 prefix = source[:-3]
                 matches = [name for name in members if name.startswith(prefix) and name.endswith(".1") and "/" not in name[len(prefix):]]
                 if not destination.endswith("/"):
-                    raise PackError("通配符文件的安装目录必须以 / 结尾。")
+                    raise PackError("The installation directory for wildcard files must end with /.")
                 destinations = {name: destination + PurePosixPath(name).name for name in matches}
             else:
                 destinations = {source: destination} if source in members else {}
             if not destinations:
-                raise PackError(f"压缩包中找不到文件：{source}")
+                raise PackError(f"File not found in archive: {source}")
             for member, relative in destinations.items():
                 if member != "@file":
                     safe_path(member)
                 install_path(relative)
                 if relative in occupied:
-                    raise PackError(f"多个资源试图安装同一个文件：{relative}")
+                    raise PackError(f"Multiple resources would install the same file: {relative}")
                 size, opener = members[member]
                 if size > MAX_MEMBER or total + size > MAX_PAYLOAD:
-                    raise PackError("解压文件超过大小限制。")
+                    raise PackError("Extracted files exceed the size limit.")
                 destination_path = payload / relative
                 destination_path.parent.mkdir(parents=True, exist_ok=True)
                 with opener() as input_stream, destination_path.open("wb") as output_stream:
@@ -404,7 +404,7 @@ def collect_files(asset_path, asset, payload, occupied, total):
                     while remaining:
                         chunk = input_stream.read(min(1024 * 1024, remaining))
                         if not chunk:
-                            raise PackError(f"压缩包文件不完整：{member}")
+                            raise PackError(f"Archive member is incomplete: {member}")
                         output_stream.write(chunk)
                         remaining -= len(chunk)
                 total += size
@@ -439,21 +439,21 @@ def check_binary_platform(path, target):
     system, arch = target.split("-")[:2]
     if header.startswith(b"\x7fELF") and len(header) >= 20:
         if system != "linux":
-            raise PackError(f"目标是 {system}，但 {path.name} 是 Linux ELF 程序。")
+            raise PackError(f"Target is {system}, but {path.name} is a Linux ELF binary.")
         byte_order = {1: "little", 2: "big"}.get(header[5])
         if byte_order is None:
-            raise PackError(f"ELF 字节序无效：{path.name}")
+            raise PackError(f"Invalid ELF byte order: {path.name}")
         machine = int.from_bytes(header[18:20], byte_order)
         expected = {"x86_64": 62, "aarch64": 183}[arch]
         if machine != expected:
-            raise PackError(f"{path.name} 的 ELF 架构与 {target} 不匹配。")
+            raise PackError(f"ELF architecture of {path.name} does not match {target}.")
     elif header[:4] in {b"\xcf\xfa\xed\xfe", b"\xfe\xed\xfa\xcf"} and len(header) >= 8:
         byte_order = "little" if header[0] == 0xcf else "big"
         machine = int.from_bytes(header[4:8], byte_order)
         if system != "darwin" or machine != {"x86_64": 0x1000007, "aarch64": 0x100000c}[arch]:
-            raise PackError(f"{path.name} 的 macOS 程序架构与 {target} 不匹配。")
+            raise PackError(f"macOS binary architecture of {path.name} does not match {target}.")
     elif header.startswith(b"MZ"):
-        raise PackError(f"{path.name} 是 Windows 程序，不能装入 Unix 安装包。")
+        raise PackError(f"{path.name} is a Windows binary and cannot be included in a Unix bundle.")
 
 
 def build_bundle(recipe, output, cache, expected_sha=None):
@@ -467,7 +467,7 @@ def build_bundle(recipe, output, cache, expected_sha=None):
         output = Path("dist") / (bundle_name + ".tar.gz")
     output = output.expanduser().resolve()
     if output.exists():
-        raise PackError(f"输出文件已存在，请选择其他 --output 路径：{output}")
+        raise PackError(f"Output file already exists; choose another --output path: {output}")
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="offpack-") as temporary:
         bundle = Path(temporary) / bundle_name
@@ -482,12 +482,12 @@ def build_bundle(recipe, output, cache, expected_sha=None):
         for link, target in recipe["links"].items():
             install_path(link)
             if link in files or "/" in target or not re.fullmatch(r"[A-Za-z0-9_.+\-]+", target) or target in {".", ".."}:
-                raise PackError(f"无效的快捷链接：{link}")
+                raise PackError(f"Invalid symbolic link: {link}")
             resolved = str(PurePosixPath(link).parent / target)
             if resolved not in files:
-                raise PackError(f"快捷链接没有对应文件：{link} -> {target}")
+                raise PackError(f"Symbolic link has no matching file: {link} -> {target}")
         if not any(path.startswith("bin/") for path in files):
-            raise PackError("安装包至少需要包含一个 bin/ 下的可执行文件。")
+            raise PackError("The bundle must contain at least one executable under bin/.")
         for path in files:
             if path.startswith("bin/"):
                 check_binary_platform(payload / path, recipe["target"])
@@ -541,10 +541,10 @@ def build_bundle(recipe, output, cache, expected_sha=None):
             os.replace(temporary_output, output)
         finally:
             temporary_output.unlink(missing_ok=True)
-    print(f"已生成：{output}")
-    print(f"版本：{recipe['name']} {recipe['version']}；平台：{recipe['target']}")
-    print(f"文件：{output.stat().st_size / 1024 / 1024:.2f} MiB；SHA-256：{sha256(output)}")
-    print("将压缩包传到目标机器，然后运行：")
+    print(f"Created: {output}")
+    print(f"Version: {recipe['name']} {recipe['version']}; target: {recipe['target']}")
+    print(f"Size: {output.stat().st_size / 1024 / 1024:.2f} MiB; SHA-256: {sha256(output)}")
+    print("Transfer the archive to the destination, then run:")
     print(f"  tar -xzf {shlex.quote(output.name)}")
     print(f"  sh {shlex.quote(bundle_name + '/install.sh')} --check")
     print(f"  sh {shlex.quote(bundle_name + '/install.sh')}")
@@ -555,62 +555,62 @@ def inspect_source(source):
     info = parse_source(source)
     if info["url"] is None:
         info["url"] = "https://bun.sh/install" if info["name"] == "bun" else "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
-    print(f"脚本：{info['url']}")
-    print(f"内置离线适配：{info['name'] or '无；需要配置文件或专门适配'}")
+    print(f"Script: {info['url']}")
+    print(f"Built-in offline adaptation: {info['name'] or 'none; provide a recipe or create an adaptation'}")
     body = read_url(info["url"]).decode("utf-8", errors="replace")
     pattern = re.compile(r"curl|wget|https?://|\b(?:apt(?:-get)?|dnf|yum|pip3?|npm|cargo|git clone)\b")
-    print("下载与依赖相关行（静态查看，不执行脚本）：")
+    print("Download and dependency references (static inspection; the script is not executed):")
     for number, line in enumerate(body.splitlines(), 1):
         if pattern.search(line):
             print(f"  {number}: {line[:500]}")
-    print("这些行仅供分析，不能证明已经收集了所有运行时依赖。")
+    print("Review these references and trace later stages to identify the complete runtime dependencies.")
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="把在线安装命令打包为无需联网的 Linux/macOS 安装包。")
+    parser = argparse.ArgumentParser(description="Package online installation commands into offline Linux/macOS bundles.")
     parser.add_argument("--version", action="version", version="offpack 0.1.0")
     subparsers = parser.add_subparsers(dest="action", required=True)
-    pack = subparsers.add_parser("pack", help="构建离线安装包")
-    pack.add_argument("source", nargs="?", help="curl/wget 命令、入口脚本 URL、bun 或 zoxide")
-    pack.add_argument("--recipe", type=Path, help="其他软件的 JSON 打包配置")
-    pack.add_argument("--target", choices=TARGETS, help="远程目标平台；不根据打包机推断")
-    pack.add_argument("--version", dest="package_version", help="固定软件版本；默认为打包时的最新发布版本")
-    pack.add_argument("--variant", choices=("baseline", "standard"), default="baseline", help="Bun x86_64 构建，默认兼容较旧 CPU 的 baseline")
-    pack.add_argument("--sha256", help="可选的上游资源 SHA-256；只用于单个下载资源")
-    pack.add_argument("--output", "-o", type=Path, help="输出 .tar.gz 路径；默认 dist/软件-版本-平台.tar.gz")
-    pack.add_argument("--cache-dir", type=Path, default=Path(__file__).parent / ".cache", help="下载缓存与断点目录")
-    inspect = subparsers.add_parser("inspect", help="查看任意入口脚本中的下载与依赖，不执行脚本")
+    pack = subparsers.add_parser("pack", help="Build an offline installation bundle")
+    pack.add_argument("source", nargs="?", help="curl/wget command, entry script URL, bun, or zoxide")
+    pack.add_argument("--recipe", type=Path, help="JSON packaging recipe for other software")
+    pack.add_argument("--target", choices=TARGETS, help="Destination platform; never inferred from the preparation host")
+    pack.add_argument("--version", dest="package_version", help="Pin the software version; defaults to the latest release at build time")
+    pack.add_argument("--variant", choices=("baseline", "standard"), default="baseline", help="Bun x86_64 build; defaults to baseline for older CPUs")
+    pack.add_argument("--sha256", help="Optional expected SHA-256 for a single download resource")
+    pack.add_argument("--output", "-o", type=Path, help="Output .tar.gz path; defaults to dist/name-version-target.tar.gz")
+    pack.add_argument("--cache-dir", type=Path, default=Path(__file__).parent / ".cache", help="Directory for cached and partial downloads")
+    inspect = subparsers.add_parser("inspect", help="Inspect download and dependency references without executing the script")
     inspect.add_argument("source")
-    subparsers.add_parser("probe", help="显示用于查询目标机器平台的离线命令")
+    subparsers.add_parser("probe", help="Show offline commands for identifying the destination platform")
     args = parser.parse_args(argv)
     try:
         if args.action == "inspect":
             inspect_source(args.source)
         elif args.action == "probe":
-            print("在目标 Linux/macOS 机器执行以下命令，然后选择对应 --target：")
+            print("Run these commands on the destination Linux/macOS machine, then select the matching --target:")
             print("uname -s; uname -m; (ldd --version 2>&1 || true) | head -n 2")
-            print("Linux + x86_64 -> linux-x86_64；Linux + aarch64 -> linux-aarch64")
-            print("Alpine/musl 系统追加 -musl；Darwin 对应 darwin-x86_64 / darwin-aarch64。")
+            print("Linux + x86_64 -> linux-x86_64; Linux + aarch64 -> linux-aarch64")
+            print("Append -musl for Alpine/musl; use darwin-x86_64 or darwin-aarch64 for Darwin.")
         else:
             if args.recipe:
                 if args.source:
-                    raise PackError("source 和 --recipe 请只使用一个。")
+                    raise PackError("Use either source or --recipe, not both.")
                 recipe = load_recipe(args.recipe, args.target, args.package_version)
             else:
                 if not args.source or not args.target:
-                    raise PackError("请提供安装命令和 --target，例如：pack bun --target linux-x86_64")
+                    raise PackError("Provide an installation command and --target, for example: pack bun --target linux-x86_64")
                 source = parse_source(args.source)
                 if not source["name"]:
-                    raise PackError("此入口尚无内置适配。请先用 inspect 查看脚本，再用 --recipe 配置下载资源与文件映射。")
+                    raise PackError("No built-in adaptation exists for this entrypoint. Use inspect to review the script, then --recipe to specify resources and file mappings.")
                 recipe = builtin_recipe(source, args.target, args.package_version, args.variant)
             if args.sha256 and len(recipe["assets"]) != 1:
-                raise PackError("多个下载资源请分别在配置文件中填写 sha256。")
+                raise PackError("For multiple resources, set sha256 separately for each one in the recipe.")
             build_bundle(recipe, args.output, args.cache_dir.expanduser().resolve(), args.sha256)
     except (PackError, OSError, URLError, HTTPException, ValueError, KeyError, TypeError, tarfile.TarError, zipfile.BadZipFile) as exc:
-        log(f"错误：{exc}")
+        log(f"Error: {exc}")
         return 1
     except KeyboardInterrupt:
-        log("已取消；下载断点保留在缓存目录。")
+        log("Cancelled; partial downloads remain in the cache directory.")
         return 130
     return 0
 

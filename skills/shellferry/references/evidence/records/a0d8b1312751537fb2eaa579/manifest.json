@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "dagger",
+  "version": "0.21.11",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/dagger_v0.21.11_linux_amd64.tar.gz",
+      "url": "https://github.com/dagger/dagger/releases/download/v0.21.11/dagger_v0.21.11_linux_amd64.tar.gz",
+      "sha256": "a2d3ef96e7305abc18663a3606d9c1c592278ba3c8f48e01d6be14eef72276ef",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/checksums.txt",
+      "url": "https://github.com/dagger/dagger/releases/download/v0.21.11/checksums.txt",
+      "sha256": "8ab240f031ef042f7f6218a3835ba4cf8e262d0a4a156291ef0b7db8eda2098b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/dagger/dagger/631cdb609aaddc0037c2ba713e7642cadf645ff4/install.sh",
+      "sha256_original": "0e02969050598a7749167ff1ba1f8bdb1d823e3bdab1dc6b1e609e502450230c",
+      "sha256_patched": "5150e29f9a2ecf3162b77cc8a6f3b3863ab6ba9f676434487119b0de738bfb88",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "bash",
+    "tar",
+    "gzip",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "install"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official installer with local downloads and fixed version resolution; preserves upstream release checksum verification. Scope is the CLI and local completion generation; Dagger engine/container execution requires separately prepared engine images."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "28def50164cca8e2c6f741152441591a859be0f6e4afcd2ce12c9c8add53c580",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

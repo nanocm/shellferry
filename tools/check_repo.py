@@ -16,8 +16,24 @@ from convert import validate_recipe
 from offpack import sha256
 
 
-def check():
+def check_code_language():
+    """Keep maintained code and CLI text in English; preserve upstream material."""
+    paths = [ROOT / "install.py"]
+    for directory in (ROOT / "tools", ROOT / "tests", SKILL / "scripts"):
+        paths.extend(path for path in directory.rglob("*")
+                     if path.is_file() and "__pycache__" not in path.parts
+                     and path.suffix in {".py", ".sh", ".in"})
     errors = []
+    pattern = re.compile(r"[\u3000-\u303f\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef\U00020000-\U000323af]")
+    for path in paths:
+        for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if pattern.search(line):
+                errors.append(f"Use English in maintained code: {path.relative_to(ROOT)}:{number}")
+    return errors
+
+
+def check():
+    errors = check_code_language()
     manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
     if manifest.get("name") != "shellferry" or manifest.get("version") != (ROOT / "VERSION").read_text().strip():
         errors.append("Plugin identity/version mismatch")

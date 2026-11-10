@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "sdkman",
+  "version": "5.24.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/sdkman-cli.zip",
+      "url": "https://github.com/sdkman/sdkman-cli/releases/download/5.24.0/sdkman-cli-5.24.0.zip",
+      "sha256": "b765ef213c7b3dd731815e42f398b6e2eef1053b38d32ecc09a9f6d51c8ee948",
+      "expected_checksum_matched": true,
+      "checksum_source": "verified against official release checksums_sha256.txt"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/sdkman-native.zip",
+      "url": "https://github.com/sdkman/sdkman-cli-native/releases/download/v0.8.0/sdkman-cli-native-0.8.0-x86_64-unknown-linux-gnu.zip",
+      "sha256": "91cc56bce077fb605172d6bb3182ab2a1b1711d64f12a8bbb1910dc11d561397",
+      "expected_checksum_matched": true,
+      "checksum_source": "verified against official release checksums_sha256.txt"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/temurin-jdk.tar.gz",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+      "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+      "expected_checksum_matched": true,
+      "checksum_source": "verified against Temurin official release .sha256.txt"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/temurin-jdk.sha256.txt",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz.sha256.txt",
+      "sha256": "6df53c53ee4e8378dc1ce3ee772496e7c73d732d3c64dc9599ed89b0ba314338",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed pin from official HTTPS endpoint"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/sdkman-cli-checksums.txt",
+      "url": "https://github.com/sdkman/sdkman-cli/releases/download/5.24.0/checksums_sha256.txt",
+      "sha256": "7fb3158e075c43025e7458790aa166cd68bbce2d465a03e78aad7f8e55da5844",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed pin from official HTTPS endpoint"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/sdkman-native-checksums.txt",
+      "url": "https://github.com/sdkman/sdkman-cli-native/releases/download/v0.8.0/checksums_sha256.txt",
+      "sha256": "ac128a894b05bf1bbbd7867bf40f75ac36cf232d366117f65bf2559f4599f2ba",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed pin from official HTTPS endpoint"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://get.sdkman.io",
+      "sha256_original": "d2ad12c3702fa42967e48114f01ebd266f0c901a53fa8fd739c9b6a007cc91d0",
+      "sha256_patched": "4e222846f247d717c5386c4f0e172bb9e95cfdf847acf1883cade64423a6f490",
+      "patch_count": 6
+    },
+    {
+      "kind": "script",
+      "path": "upstream/java-post.sh",
+      "url": "https://api.sdkman.io/2/hooks/post/java/21.0.13.0+9-tem/linuxx64",
+      "sha256_original": "06e3984401eb3b9a30bf5d7f98fc0527cb11ec6d136cc7b50680025ff576dea1",
+      "sha256_patched": "083be50976e350a0ad24bd96aff752c7cbec790a275c7fb286e7a028cce992bf",
+      "patch_count": 0
+    },
+    {
+      "kind": "script",
+      "path": "upstream/offline-transport.sh",
+      "url": null,
+      "sha256_original": "ece00c4966068eded20678a11ed5c212c4ab9ea4bbbe0e325461de6cf912d862",
+      "sha256_patched": "7d6b3d66815c651f09f9a9ad80d1d9e665bbeec8c9a99c55bb79741e7d011ecd",
+      "patch_count": 0
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "4f97c8867dced9270757fdac8a45c281210736b52495580fcfccb734ff1411f5",
+      "sha256_patched": "a068cf611c0298f20185770853f93e9ebdece7aeb44f02dfa79529482d106249",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "unzip",
+    "zip",
+    "tar",
+    "find",
+    "sed",
+    "sha256sum",
+    "cp",
+    "grep",
+    "readlink"
+  ],
+  "runtime": {},
+  "notes": [
+    "Includes SDKMAN script CLI 5.24.0, native CLI 0.8.0 and Eclipse Temurin JDK 21.0.13+9 (SDKMAN identifier 21.0.13.0+9-tem).",
+    "Preserves official bootstrap extraction, native binaries, Bash/Zsh initialization and original sdk install/default/use behavior. Java post-install hook still repackages the official tarball to zip.",
+    "Original official generated bootstrap and Java hook are Apache-2.0 source snapshots with endpoint SHA-256 and sdkman-hooks template commit provenance. Neither script is synthesized from a different installer.",
+    "Local transport overrides apply only in the wrapper process during SDKMAN installation, and serve only the explicitly allowed Java identifier and map its pinned download and hook resources. Installed SDKMAN remains usable without the bundle. Other SDK versions, Maven/Gradle caches and arbitrary project dependencies are not included.",
+    "Sets supported auto_answer=true, healthcheck_enable=false and selfupdate_feature=false for the disconnected target. Bash completions remain enabled. Version-completion requests for remote candidates are outside the tested local compiler workflow.",
+    "Publisher SHA-256 lists verify CLI/native release archives; the original JDK tarball is verified against Temurin release SHA-256 before the original repackaging hook. SDKMAN broker supplies only archive-type metadata for this JDK, not a checksum for the locally regenerated zip.",
+    "Needs zip/unzip/tar, Bash 4+, and Ubuntu22-compatible glibc/runtime libraries. Prepared image adds zip; no software is fetched during installation or smoke tests.",
+    "The candidate list is explicitly restricted to java, and the installer-only transport accepts only Java 21.0.13.0+9-tem on linuxx64. These are authored offline allowlist values, not claims of a live API response. Mutable candidates/all and validate APIs are not fetched during builds; reviewed response hashes are retained in PROVENANCE.json. All downloaded resources use fixed release URLs.",
+    "Repairs upstream shell-initialization path quoting: Bash printf %q serializes the exact chosen prefix, initialization references the literal SDKMAN_DIR variable, and printf writes the generated snippet without interpreting backslash escapes. Original profile selection and append conditions are preserved; fresh-shell smoke verifies the restored prefix byte for byte."
+  ],
+  "default_prefix": "{home}/.sdkman",
+  "default_prefix_env": "SDKMAN_DIR",
+  "validation_status": "not-run",
+  "recipe_sha256": "099d9b7a497285be7f3b88f37a25ac0ead3952d55a82e631b944304fca6dcc68",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

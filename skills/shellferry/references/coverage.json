@@ -8,7 +8,7 @@
     "shell-installer": 101,
     "source-installer": 3
   },
-  "evidence_record_count": 148,
+  "evidence_record_count": 254,
   "missing_evidence": [],
   "meaning": "Each listed match binds the current recipe, inputs, builder and verifier to a previous passed archive test. It does not execute newly built bundles.",
   "records": [
@@ -34,12 +34,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "3ec33ff12096bcf0aebecd8b",
-          "report": "records/3ec33ff12096bcf0aebecd8b/report.json",
+          "id": "8fbc126a48d1a77a6b5bc007",
+          "report": "records/8fbc126a48d1a77a6b5bc007/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "b5ddc7fd6966466e787ea63faae2a5432b2a83f0a9e63480f957e6a1e941ac43",
-          "verified_at": "2026-11-09T11:40:05.646861+00:00"
+          "archive_sha256": "b072110bbeb0557422a8c8e5842f3ac8b5ab68fca6b9ad3efa29a959de416c51",
+          "verified_at": "2026-11-10T08:22:34.477929+00:00"
         }
       ]
     },
@@ -66,12 +66,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "f3d07521b5561a50a749fc7a",
-          "report": "records/f3d07521b5561a50a749fc7a/report.json",
+          "id": "c05c79b7f6d0e6e5ac721340",
+          "report": "records/c05c79b7f6d0e6e5ac721340/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "b064eadd87168f0d0bd74e2f5cc9566f5f76f4a26a0cf1f335c79dd6f2fa034d",
-          "verified_at": "2026-11-09T11:39:58.746751+00:00"
+          "archive_sha256": "8be9661949a827ebee267c74de98a3117c5e93f81d104786d7f43eb579acc713",
+          "verified_at": "2026-11-10T08:22:34.622723+00:00"
         }
       ]
     },
@@ -98,12 +98,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "945d61c598ac1983262fa60b",
-          "report": "records/945d61c598ac1983262fa60b/report.json",
+          "id": "c04312cbc22fe9adbccaa602",
+          "report": "records/c04312cbc22fe9adbccaa602/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "8d99ae41eab3ece2d9e79b5a2aefd03e94066c90cab8c37b99974e50cfea7dc0",
-          "verified_at": "2026-11-09T11:45:58.258776+00:00"
+          "archive_sha256": "a115f2234b287faf8d9327419b84f5dc0690df4a0c7878cc32bb2a286ba706e4",
+          "verified_at": "2026-11-10T08:22:36.027171+00:00"
         }
       ]
     },
@@ -134,12 +134,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "207cdff2bd14303fa3f492b3",
-          "report": "records/207cdff2bd14303fa3f492b3/report.json",
+          "id": "c5b51e02469ed0b4cbfd4e4f",
+          "report": "records/c5b51e02469ed0b4cbfd4e4f/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "2e7a08c86d99635be75da39a82166a2014767a955a64b81aa1197f9ee075e0fe",
-          "verified_at": "2026-11-09T11:51:02.502095+00:00"
+          "archive_sha256": "935ca173ea52bbcfb2aff893e7e75077b1203849b5c459a63f4157203179028f",
+          "verified_at": "2026-11-10T08:22:35.441893+00:00"
         }
       ]
     },
@@ -165,12 +165,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "74692413103a50c821a397c8",
-          "report": "records/74692413103a50c821a397c8/report.json",
+          "id": "0efbee8cb6fb62e6bbf9fbfa",
+          "report": "records/0efbee8cb6fb62e6bbf9fbfa/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "d32db6dace0b600ba724bad0ad8779105ea34c203f802556da342463a4cf52a3",
-          "verified_at": "2026-11-09T11:34:12.835488+00:00"
+          "archive_sha256": "52fa580f156636a8a777628fdb428c0f5defaf30ab4dff8cf37a1cbd87a38289",
+          "verified_at": "2026-11-10T08:22:36.060394+00:00"
         }
       ]
     },
@@ -197,12 +197,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "5180ef0a81b82deaa8e89d1e",
-          "report": "records/5180ef0a81b82deaa8e89d1e/report.json",
+          "id": "6a85f03977a46f3621eadf76",
+          "report": "records/6a85f03977a46f3621eadf76/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "4083d5cc4528cc59bcfd17ceb9c6651c63d1382b296d9c3b2176da998633ef9b",
-          "verified_at": "2026-11-09T11:47:02.506684+00:00"
+          "archive_sha256": "b8285c1236704e685e78b42bf5c531a4ab62f8275ba7dbaab95ef876975cb296",
+          "verified_at": "2026-11-10T08:22:34.865752+00:00"
         }
       ]
     },
@@ -230,12 +230,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "4afd372d927ae9c4a73f4a3d",
-          "report": "records/4afd372d927ae9c4a73f4a3d/report.json",
+          "id": "71331eb9cf7cb8997cf4c22d",
+          "report": "records/71331eb9cf7cb8997cf4c22d/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "13b51dc78bcf933c6f3ed316e9af867a8403dffcfe808ffc71ab494eddd31c15",
-          "verified_at": "2026-11-09T12:05:38.162271+00:00"
+          "archive_sha256": "e6e314a5f2edd70bd660072a008d82103cd2b947e6208aeb011d467bce811994",
+          "verified_at": "2026-11-10T08:22:38.037925+00:00"
         }
       ]
     },
@@ -262,12 +262,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "1213a1045cc503631599d062",
-          "report": "records/1213a1045cc503631599d062/report.json",
+          "id": "e2421149d4f79c9deea2c6de",
+          "report": "records/e2421149d4f79c9deea2c6de/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "f449043fb508e94bb33ba757717178e58dd42f218a4e9487324f31e2eed3a4fe",
-          "verified_at": "2026-11-09T11:45:39.616317+00:00"
+          "archive_sha256": "062034fe7f3464a08e556e856cf53ddfa5f9bb502c422d3ef571b2685ad057a4",
+          "verified_at": "2026-11-10T08:22:38.355657+00:00"
         }
       ]
     },
@@ -295,12 +295,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "c66762588ecd9ddebe358f03",
-          "report": "records/c66762588ecd9ddebe358f03/report.json",
+          "id": "28ff142a81c291d603f36032",
+          "report": "records/28ff142a81c291d603f36032/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "5d2dde2ace4204b7ca6421e956b55819be178a79dbc2f874c55cff1320fc08da",
-          "verified_at": "2026-11-09T11:50:00.032016+00:00"
+          "archive_sha256": "c42fee8f57180f2cc44b82749df207d51d97112d3ad265415a902326321f7e7e",
+          "verified_at": "2026-11-10T08:22:38.314319+00:00"
         }
       ]
     },
@@ -331,12 +331,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "16550574ff23fa9427a0d991",
-          "report": "records/16550574ff23fa9427a0d991/report.json",
+          "id": "f88ca59b91b5ec7c08ccdeee",
+          "report": "records/f88ca59b91b5ec7c08ccdeee/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "a7c3154d0c0502d3c796f2e4ad5366d2defb3cc708970d85586b76fac741892a",
-          "verified_at": "2026-11-09T12:19:31.554475+00:00"
+          "archive_sha256": "68f3f5f3616f989e6f5b276e21ce4163ab1507fbff0e0db715486f1aa9c47b7b",
+          "verified_at": "2026-11-10T08:22:41.006577+00:00"
         }
       ]
     },
@@ -386,12 +386,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "309de85cf1b8688e4dff94ee",
-          "report": "records/309de85cf1b8688e4dff94ee/report.json",
+          "id": "23c0c71d3a58ce76acbf5356",
+          "report": "records/23c0c71d3a58ce76acbf5356/report.json",
           "image": "docker.io/library/ubuntu:22.04",
           "image_id": "a7b0f6af325461862a99c677cf3229ca5241d9f4f4289bd00cc2cce91a3aff23",
-          "archive_sha256": "605593a3723709677f725820dadf0e62e2c9bdebffb2a59a60699694aa177a3c",
-          "verified_at": "2026-11-09T10:07:22.218429+00:00"
+          "archive_sha256": "1bc27fe910d0cc15974cf16d0622b8534d03325e72ff0a71f3187b02efdee0f4",
+          "verified_at": "2026-11-10T08:22:45.341328+00:00"
         }
       ]
     },
@@ -434,12 +434,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "f83897a7e0fc8d8614b03df6",
-          "report": "records/f83897a7e0fc8d8614b03df6/report.json",
+          "id": "f8b75fa5901375a9e2efd87e",
+          "report": "records/f8b75fa5901375a9e2efd87e/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "e01c899103201239df6fd036d4da7dcf80dbba2c69f6006073186f3f547d8469",
-          "verified_at": "2026-11-09T11:59:19.278593+00:00"
+          "archive_sha256": "75a4aed0a85678a35ff62785c005112f19e493acefac1631cb524547ef554d9e",
+          "verified_at": "2026-11-10T08:22:41.184123+00:00"
         }
       ]
     },
@@ -476,12 +476,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "44e7811397990c237689ffd9",
-          "report": "records/44e7811397990c237689ffd9/report.json",
+          "id": "127eecc180adc68d8afb4725",
+          "report": "records/127eecc180adc68d8afb4725/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "1d9d5044f5a8913a95218a587ee62eff5688d598da40cce4a76c45a93663b492",
-          "verified_at": "2026-11-09T12:08:46.566033+00:00"
+          "archive_sha256": "d662cd991ddb77125dadae1ea785166ebfd4e2d4d2c7a15f8190179dcf6417fa",
+          "verified_at": "2026-11-10T08:22:42.147766+00:00"
         }
       ]
     },
@@ -524,12 +524,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "b0fe131f79063dfd242b38c6",
-          "report": "records/b0fe131f79063dfd242b38c6/report.json",
+          "id": "da78bef7b5486c2d47140585",
+          "report": "records/da78bef7b5486c2d47140585/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "b1241a19f7f260513ac8b6e0cdd6e56b98005442c6bc51d53dd5790bb406a744",
-          "verified_at": "2026-11-09T11:59:16.002496+00:00"
+          "archive_sha256": "c8720b12965b74a009639c3bd5ef38df2b43aeac19269e5cb184f5ca0fa830ef",
+          "verified_at": "2026-11-10T08:22:43.990542+00:00"
         }
       ]
     },
@@ -569,12 +569,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "40f82d5ccb927a522aa6db81",
-          "report": "records/40f82d5ccb927a522aa6db81/report.json",
+          "id": "758bcf45ebf6102ea792968a",
+          "report": "records/758bcf45ebf6102ea792968a/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "0043dcec9ba5e4cd0f76f143d06ddbc3af793d8efd07483e39fd677c8a9399d2",
-          "verified_at": "2026-11-09T11:56:34.190570+00:00"
+          "archive_sha256": "1f64f72b183bb5d87a26227cc3c1f1a46bfb85ca8ffb3e5dc2c437f1257c51c1",
+          "verified_at": "2026-11-10T08:22:42.555131+00:00"
         }
       ]
     },
@@ -611,12 +611,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "db8bc56704adb3fafd688cb4",
-          "report": "records/db8bc56704adb3fafd688cb4/report.json",
+          "id": "7edb5964bff27ef6e1c38349",
+          "report": "records/7edb5964bff27ef6e1c38349/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "643198b965023335a9aabe55061cd0825f0fecd299c06a74c3200bcdf0de666f",
-          "verified_at": "2026-11-09T12:06:03.090078+00:00"
+          "archive_sha256": "9f8178ef36eeb099be5f38833f1d701f9dc9ad8374ebfb2c3d5748115fa06bff",
+          "verified_at": "2026-11-10T08:22:46.994350+00:00"
         }
       ]
     },
@@ -659,12 +659,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "0fca33eb10ca209487444955",
-          "report": "records/0fca33eb10ca209487444955/report.json",
+          "id": "95a8079f1900d797f98655c5",
+          "report": "records/95a8079f1900d797f98655c5/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "89b16a867c9b4f7797342171d8ef2afd5ed95139eab013cf2f8fd9ff3d4105dd",
-          "verified_at": "2026-11-09T12:15:02.306483+00:00"
+          "archive_sha256": "f072ff5e0eb57a8311c2cc61d38b1583b6ed45aa956ff27c3432f1e7edf787d5",
+          "verified_at": "2026-11-10T08:22:45.859000+00:00"
         }
       ]
     },
@@ -691,12 +691,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "105007f6c94693372d57aa96",
-          "report": "records/105007f6c94693372d57aa96/report.json",
+          "id": "be7f941103258e127a761b3d",
+          "report": "records/be7f941103258e127a761b3d/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "e98e411ed180eb6874a3e0917497982c7631dd39fe1686b4c28344022a67deff",
-          "verified_at": "2026-11-09T11:51:02.654530+00:00"
+          "archive_sha256": "507d2d7be3aeeaabcc9056a776415940195dc1fb4219339b1d1dcd21d1957876",
+          "verified_at": "2026-11-10T08:22:46.486315+00:00"
         }
       ]
     },
@@ -731,12 +731,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "4b32c2e6814c18e0eab5b524",
-          "report": "records/4b32c2e6814c18e0eab5b524/report.json",
+          "id": "5487cd4133b7877a422abc09",
+          "report": "records/5487cd4133b7877a422abc09/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "f655d94a845099ed9eba0d224fc3a672426096428103d3df35aa6fd5c4df4300",
-          "verified_at": "2026-11-09T12:04:47.454351+00:00"
+          "archive_sha256": "777599a880beaef0a6779ae14c607b71ab28619c14f98d3d5e38a581df9a726e",
+          "verified_at": "2026-11-10T08:22:46.018103+00:00"
         }
       ]
     },
@@ -761,12 +761,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "f8b55859c231c3b5f8ef5ed0",
-          "report": "records/f8b55859c231c3b5f8ef5ed0/report.json",
+          "id": "c4ba38dc86cc1867e2ef00ae",
+          "report": "records/c4ba38dc86cc1867e2ef00ae/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "4f69f57656c49a573df78abc95081c0bc59e5b1bae3a4062754b4168717bd435",
-          "verified_at": "2026-11-09T11:38:48.406365+00:00"
+          "archive_sha256": "c1f0183ab50e71a1500a0c32c00a7d6141b45f3d8c745f8119a00428655aae6a",
+          "verified_at": "2026-11-10T08:22:48.540606+00:00"
         }
       ]
     },
@@ -792,12 +792,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "bdf456c49189a156d1ebbb27",
-          "report": "records/bdf456c49189a156d1ebbb27/report.json",
+          "id": "fae4e77e192eed57c401aa43",
+          "report": "records/fae4e77e192eed57c401aa43/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "71c598a93ff03eeec42ab48055e27b6acad19e37be3b256b5dfea0fc205b47ea",
-          "verified_at": "2026-11-09T11:38:49.418128+00:00"
+          "archive_sha256": "371963aab73ad2b0f4c517c303292344a360731dc722d1c2e0c64aafe955bb61",
+          "verified_at": "2026-11-10T08:22:51.201920+00:00"
         }
       ]
     },
@@ -839,12 +839,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "bf9b8b370e7bc07f9d0db9e7",
-          "report": "records/bf9b8b370e7bc07f9d0db9e7/report.json",
+          "id": "b3cd25995088796a1dcc878f",
+          "report": "records/b3cd25995088796a1dcc878f/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "0fa8bb133f9dcc66647fe2443c25946ef8818997043db05bc3eb5a43691c43d7",
-          "verified_at": "2026-11-09T13:18:41.650718+00:00"
+          "archive_sha256": "14f45d72912462accc67c8042777ce9b3ff74b83cee40e0abe24508d8c92fea6",
+          "verified_at": "2026-11-10T08:23:00.793870+00:00"
         }
       ]
     },
@@ -878,12 +878,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "43514990ef2c31aa4d183079",
-          "report": "records/43514990ef2c31aa4d183079/report.json",
+          "id": "a0d8b1312751537fb2eaa579",
+          "report": "records/a0d8b1312751537fb2eaa579/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "97bbd6ab9450f426feaa83402975fab5711c64f1ba54bd67bd2e8524b8ce181b",
-          "verified_at": "2026-11-09T11:45:46.551085+00:00"
+          "archive_sha256": "b78469443d5478a7709229428a09c12ccf3192518eae2faf2b899320e64740a7",
+          "verified_at": "2026-11-10T08:22:50.349803+00:00"
         }
       ]
     },
@@ -911,12 +911,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "57baf4989916038629f16f1a",
-          "report": "records/57baf4989916038629f16f1a/report.json",
+          "id": "039146831a98c11266ac53a0",
+          "report": "records/039146831a98c11266ac53a0/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "053881100a779b0dccde4b7967aa796a52e4dd481c8176cdc793816c1c6f6287",
-          "verified_at": "2026-11-09T11:51:09.091068+00:00"
+          "archive_sha256": "881187ea61242f50989728549dee932948d870730e42d1aac25ea13098198d5a",
+          "verified_at": "2026-11-10T08:22:51.360701+00:00"
         }
       ]
     },
@@ -940,12 +940,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "5c664f2a746f4b812ac606cf",
-          "report": "records/5c664f2a746f4b812ac606cf/report.json",
+          "id": "7a169941fc3ac8d3aa43c003",
+          "report": "records/7a169941fc3ac8d3aa43c003/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "cc2c5ea8eb76252f67ced1ae7556b8ca36b02931cb2377d57ec3dcd43438044b",
-          "verified_at": "2026-11-09T11:51:06.638730+00:00"
+          "archive_sha256": "9774801614bf65fac32e2c732bc76a2b1e14d1850551a9bde3daad3ea1c8dab3",
+          "verified_at": "2026-11-10T08:22:50.351222+00:00"
         }
       ]
     },
@@ -979,12 +979,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "4fe2f2bea958f73008805cf4",
-          "report": "records/4fe2f2bea958f73008805cf4/report.json",
+          "id": "97c91b6be534a7e02fdd88f1",
+          "report": "records/97c91b6be534a7e02fdd88f1/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "b9c17b51bdff959ab4533747c46d1fb901233d4928ef1b834c3f1d0be3a8ae8a",
-          "verified_at": "2026-11-09T11:45:51.635217+00:00"
+          "archive_sha256": "7afd9e69270295f5a407207f2618852bbc8359766de9b561a936956b28f0fd5b",
+          "verified_at": "2026-11-10T08:22:54.786459+00:00"
         }
       ]
     },
@@ -1035,12 +1035,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "fcc9a067527e1918deff13c9",
-          "report": "records/fcc9a067527e1918deff13c9/report.json",
+          "id": "7e6026f8780748b3b91d36af",
+          "report": "records/7e6026f8780748b3b91d36af/report.json",
           "image": "localhost/shellferry-dotnet-test:ubuntu22",
           "image_id": "b1f078f4dba623e2e4f6adc5e6103625ca3f088af4695a4dc1fa226c3f427a91",
-          "archive_sha256": "eb1a902f23b3912c44a00d205c9f39cb7b76b32a69ce377081cfd527c244450a",
-          "verified_at": "2026-11-09T13:10:39.722743+00:00"
+          "archive_sha256": "c4efe9c043bdd8c1ad5a6974ef1812d4cdeac8b3455ca654224a5d06ee3990b9",
+          "verified_at": "2026-11-10T08:23:11.890088+00:00"
         }
       ]
     },
@@ -1067,12 +1067,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "2b2f0dcd75f61b04bba0fd4c",
-          "report": "records/2b2f0dcd75f61b04bba0fd4c/report.json",
+          "id": "62434f262dfa33b38f1ce172",
+          "report": "records/62434f262dfa33b38f1ce172/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "3d7989418bdbfac2003fbe500437808c76d05b7c804cc39aba788001012874b0",
-          "verified_at": "2026-11-09T11:34:21.018891+00:00"
+          "archive_sha256": "4f1e8428b9e19abd1cafd813025a23b9d5e69f1bdde7e26a553da82b58ca5cad",
+          "verified_at": "2026-11-10T08:22:54.840646+00:00"
         }
       ]
     },
@@ -1112,12 +1112,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "d4b2a4d7724a79a9f5475593",
-          "report": "records/d4b2a4d7724a79a9f5475593/report.json",
+          "id": "cac7a594330a0923d2bb0808",
+          "report": "records/cac7a594330a0923d2bb0808/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "c034011fc84002159faccfacc693548ef97fda3d257b52fd0c1fb491ae2a1491",
-          "verified_at": "2026-11-09T11:49:35.842742+00:00"
+          "archive_sha256": "25ef5eddf84b9aceb1c5a98e9cf0c635ff231d4ec769da23339f6453b89e4708",
+          "verified_at": "2026-11-10T08:22:55.441709+00:00"
         }
       ]
     },
@@ -1144,12 +1144,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "e352c981090d0efc3ec378aa",
-          "report": "records/e352c981090d0efc3ec378aa/report.json",
+          "id": "31ae4aacdcbf470864ce4a82",
+          "report": "records/31ae4aacdcbf470864ce4a82/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "b850dd70ae91b92b4549fa26e6b79aff6cff195243b05bbd1728b938f8834eab",
-          "verified_at": "2026-11-09T11:34:20.085561+00:00"
+          "archive_sha256": "67c031c676aea647f7c5c814ee14fb934f4a7da274e855e91839e471b21fafa0",
+          "verified_at": "2026-11-10T08:22:55.202519+00:00"
         }
       ]
     },
@@ -1175,12 +1175,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "9df49a7af50c6b4936ee3212",
-          "report": "records/9df49a7af50c6b4936ee3212/report.json",
+          "id": "5fe77467bca4b40b7154fc17",
+          "report": "records/5fe77467bca4b40b7154fc17/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "ec8ab7bb1606a9719403fd76320bf16712c4387c51a485474b2bdd8e36fbd26a",
-          "verified_at": "2026-11-09T11:40:14.879512+00:00"
+          "archive_sha256": "a3c4413f4948c9556e71f7e2f0bdc21b6ce109c51fb93f04503a16c1065c9e68",
+          "verified_at": "2026-11-10T08:22:59.639671+00:00"
         }
       ]
     },
@@ -1207,12 +1207,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "496fd3dbf5f46232393d41c7",
-          "report": "records/496fd3dbf5f46232393d41c7/report.json",
+          "id": "392992bfeb5f5c94c81fd316",
+          "report": "records/392992bfeb5f5c94c81fd316/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "9337edf5a6717bbc7fddbc4f15fde53a2026417ef1586811ce9f1488dfbafa67",
-          "verified_at": "2026-11-09T12:15:26.942291+00:00"
+          "archive_sha256": "4823978c9b8043d87d3ec8f1be7cbafe54c4bef6536214b04af09ed1bb658b48",
+          "verified_at": "2026-11-10T08:23:01.265969+00:00"
         }
       ]
     },
@@ -1240,12 +1240,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "386fb34733774cd33dc657e7",
-          "report": "records/386fb34733774cd33dc657e7/report.json",
+          "id": "37d083cea9dc0badb1838b80",
+          "report": "records/37d083cea9dc0badb1838b80/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "ee8d7a6c13954335da4b1cc90a70fb825d83edd2260b3805b281b0e34c0a57db",
-          "verified_at": "2026-11-09T11:51:09.750501+00:00"
+          "archive_sha256": "5c322fcd2ea579f43554e7a82b161693983ce57dc38f796f38695c8b28366ad8",
+          "verified_at": "2026-11-10T08:22:58.177744+00:00"
         }
       ]
     },
@@ -1279,12 +1279,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "8680a1c3024ade0859d69631",
-          "report": "records/8680a1c3024ade0859d69631/report.json",
+          "id": "8d4bb81bc750868c11a69dae",
+          "report": "records/8d4bb81bc750868c11a69dae/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "eaf2827cb2912b03f949ad76eb274b9a3df0d1a54e254847573c025dfa300852",
-          "verified_at": "2026-11-09T11:45:44.599709+00:00"
+          "archive_sha256": "31d76e10ec06e2c9b12aa1cf8c4ef1cd941038910d1fbe86bf22dc5750170d27",
+          "verified_at": "2026-11-10T08:22:58.096680+00:00"
         }
       ]
     },
@@ -1311,12 +1311,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "633ad8ce4b029cba4149111e",
-          "report": "records/633ad8ce4b029cba4149111e/report.json",
+          "id": "ee17f039e6efd8a5164357fb",
+          "report": "records/ee17f039e6efd8a5164357fb/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "bda199feaa33eeeac503451d615d8b644e2886ca6fe8cf03bbca01d9648d7091",
-          "verified_at": "2026-11-09T11:57:33.574385+00:00"
+          "archive_sha256": "c41e9783709e1bd5947cb43f355129e4a5f0a68a3364766b96638855da26ddfd",
+          "verified_at": "2026-11-10T08:23:06.322259+00:00"
         }
       ]
     },
@@ -1344,12 +1344,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "dd80310370a51a2ca18359b3",
-          "report": "records/dd80310370a51a2ca18359b3/report.json",
+          "id": "08d4cd5f13529778ef08184c",
+          "report": "records/08d4cd5f13529778ef08184c/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "0f278793a1e888e37bc7ecc9c9292ac2ebffa4c73f147e9b01a9ff0702789ebe",
-          "verified_at": "2026-11-09T11:54:58.434765+00:00"
+          "archive_sha256": "8be0c58bb9c83c0f772781e6f819714af3c76c179f4c6cc3a6a532093357cea7",
+          "verified_at": "2026-11-10T08:23:04.590013+00:00"
         }
       ]
     },
@@ -1391,12 +1391,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "8f39de6c72100478bc271cb8",
-          "report": "records/8f39de6c72100478bc271cb8/report.json",
+          "id": "daf513fbc2e9b1151514e0b8",
+          "report": "records/daf513fbc2e9b1151514e0b8/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "7dc6e664d57581f24aa0a03d9d13af1d262992579e69e3fbd35570c2a6496d20",
-          "verified_at": "2026-11-09T12:04:50.154103+00:00"
+          "archive_sha256": "9e9179f55f56ce2a5805403e17d453d1dd95649960a9ea33c7d97e406fec692c",
+          "verified_at": "2026-11-10T08:23:03.033717+00:00"
         }
       ]
     },
@@ -1423,12 +1423,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "e0cbaa64b0b6e53713178745",
-          "report": "records/e0cbaa64b0b6e53713178745/report.json",
+          "id": "896bec78cf4e538f171bfced",
+          "report": "records/896bec78cf4e538f171bfced/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "b6eed1c71c61618542a5fd23a9254f8dafa5b823a58561bef65a6b779bc29de0",
-          "verified_at": "2026-11-09T11:39:59.210502+00:00"
+          "archive_sha256": "efd43c112a6bb150630842f4a41cab452a03920744942b16b43092f252c651cb",
+          "verified_at": "2026-11-10T08:23:05.354908+00:00"
         }
       ]
     },
@@ -1461,12 +1461,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "70f710a543e846dfc4daebe7",
-          "report": "records/70f710a543e846dfc4daebe7/report.json",
+          "id": "39bcab30d2fcc7dfa01b038f",
+          "report": "records/39bcab30d2fcc7dfa01b038f/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "eaaed883788d86c4de9a41a4d3d9433b402d04035fa67e533fa4a654cc24449e",
-          "verified_at": "2026-11-09T13:33:18.407622+00:00"
+          "archive_sha256": "58d3c9eb58958be435ed15b9d1d6e00631192f4cf94cff1225ff86310923e70a",
+          "verified_at": "2026-11-10T08:23:18.802024+00:00"
         }
       ]
     },
@@ -1492,12 +1492,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "66f1564175c3d4fa73f9e57c",
-          "report": "records/66f1564175c3d4fa73f9e57c/report.json",
+          "id": "8e93a53b89337fddb9f1500f",
+          "report": "records/8e93a53b89337fddb9f1500f/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "8c7940a0662651b7b7b0eab03a8c428e1b954db1e657b6050321d2069e681d93",
-          "verified_at": "2026-11-09T11:42:53.720535+00:00"
+          "archive_sha256": "221013f81ee54ef31ecfcf1f97876e3b34608ffbe666875530dfc204e763d9f0",
+          "verified_at": "2026-11-10T08:23:10.394316+00:00"
         }
       ]
     },
@@ -1525,12 +1525,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "91f1f21f7b931dc6bfbf1756",
-          "report": "records/91f1f21f7b931dc6bfbf1756/report.json",
+          "id": "5a28b67f3355fb6851b253d7",
+          "report": "records/5a28b67f3355fb6851b253d7/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "2323809c205b888708c3cc495786fd1ed1a40b976a59afb2a5e0ead51f0f3f0d",
-          "verified_at": "2026-11-09T11:43:06.006885+00:00"
+          "archive_sha256": "5fae4c774280db7a1253793eaa5c81389d22f3c945eeb44ead5dfc970e518a8e",
+          "verified_at": "2026-11-10T08:23:10.130342+00:00"
         }
       ]
     },
@@ -1558,12 +1558,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "ff8c0d9cb404583416db0358",
-          "report": "records/ff8c0d9cb404583416db0358/report.json",
+          "id": "65921d2f5b0a5dc19901dd6a",
+          "report": "records/65921d2f5b0a5dc19901dd6a/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "3a216f9aaa6aeac6fd1174ca909d27bf7ba7d6a0fab8dd6575e4a518c3e2406e",
-          "verified_at": "2026-11-09T12:02:54.362313+00:00"
+          "archive_sha256": "7a85f7b91ed41dd52eab53d01853ef6f119d55cdce1941a58c9b32e704efea06",
+          "verified_at": "2026-11-10T08:23:10.914140+00:00"
         }
       ]
     },
@@ -1588,12 +1588,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "8265b0a99b16b76b36be4410",
-          "report": "records/8265b0a99b16b76b36be4410/report.json",
+          "id": "017cb2e1a123d2f44d603dde",
+          "report": "records/017cb2e1a123d2f44d603dde/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "6ca5266449dc1663b6d6df41677d70a4757805f3b5c7715ab5f70720de7050e7",
-          "verified_at": "2026-11-09T11:51:13.218555+00:00"
+          "archive_sha256": "475476d42ece1365a58fa24b281ca62485dc2f96bd9e3a9e1e33322c0e7d7d6e",
+          "verified_at": "2026-11-10T08:23:09.898221+00:00"
         }
       ]
     },
@@ -1620,12 +1620,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "3cb6141ed12964fce49e2cd0",
-          "report": "records/3cb6141ed12964fce49e2cd0/report.json",
+          "id": "65e037655fce7cc7b8799a15",
+          "report": "records/65e037655fce7cc7b8799a15/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "c68998a1c76a24116698aff86cb8269e17e380f73fce275dd30bf2e246d1d605",
-          "verified_at": "2026-11-09T12:04:04.587366+00:00"
+          "archive_sha256": "995201cb10d28cf6e6e4430c10fe556b95f95d883218ae7f7b7311897116b89f",
+          "verified_at": "2026-11-10T08:24:15.918185+00:00"
         }
       ]
     },
@@ -1652,12 +1652,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "76cbd2898f975744acbad487",
-          "report": "records/76cbd2898f975744acbad487/report.json",
+          "id": "5b5e108bbdef53fc4db19846",
+          "report": "records/5b5e108bbdef53fc4db19846/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "d224f6293e4d0bb26c9f02d02b584c2ff0fd65d1bfe079dff0be0b2670eb9c9b",
-          "verified_at": "2026-11-09T12:07:52.454800+00:00"
+          "archive_sha256": "2ee3c2db0b561995d4510c4cb6bcdac82df7143a603a0a052d68d279abbc55cb",
+          "verified_at": "2026-11-10T08:23:16.026483+00:00"
         }
       ]
     },
@@ -1684,12 +1684,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "e29b2f55c53d2bb20c945846",
-          "report": "records/e29b2f55c53d2bb20c945846/report.json",
+          "id": "e0d501e1708606cae2cbe04e",
+          "report": "records/e0d501e1708606cae2cbe04e/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "6dc135633cfafa7906f0673e6fb18bd6f889bcee6946f64f82f68ac7990d3a1d",
-          "verified_at": "2026-11-09T11:34:16.434521+00:00"
+          "archive_sha256": "38ed442296f9564ce2d1e275579ba0126a84ca6d5c67f94b38b098237ac4e6ef",
+          "verified_at": "2026-11-10T08:23:14.906155+00:00"
         }
       ]
     },
@@ -1716,12 +1716,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "25e1b3f66c3e6d8bd9ad1d2e",
-          "report": "records/25e1b3f66c3e6d8bd9ad1d2e/report.json",
+          "id": "3e937a214c23fa79e841f8d5",
+          "report": "records/3e937a214c23fa79e841f8d5/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "6e31dc2aa95ee38b57bde467175d0717ddc97688bd7c9cad05317d4095d290c2",
-          "verified_at": "2026-11-09T11:56:23.630978+00:00"
+          "archive_sha256": "f9d39e71c4344d665fe0c516740e22e4e41ba8d04921593b9edf213334cc2857",
+          "verified_at": "2026-11-10T08:23:21.010837+00:00"
         }
       ]
     },
@@ -1752,12 +1752,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "ea9f1e349ec955d193c67fb7",
-          "report": "records/ea9f1e349ec955d193c67fb7/report.json",
+          "id": "07aa625a4e02ad1ee0f45e4f",
+          "report": "records/07aa625a4e02ad1ee0f45e4f/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "0c2c4456c39590273e32d7209901c5165a0db5291cc6af03263b42d8e5ffbb63",
-          "verified_at": "2026-11-09T11:51:12.586576+00:00"
+          "archive_sha256": "426ad07b6994ef322db2a3f8eb4d49d08546176172be22cc6b5f931cc7623b9b",
+          "verified_at": "2026-11-10T08:23:14.749637+00:00"
         }
       ]
     },
@@ -1785,12 +1785,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "9ae96db7f34daa96b6f68593",
-          "report": "records/9ae96db7f34daa96b6f68593/report.json",
+          "id": "fe0906596266fc216951e8de",
+          "report": "records/fe0906596266fc216951e8de/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "3d744b2ca9f9c50a101fc745c49ebf1e18fe2c68f687439e1ba218b2fcf87682",
-          "verified_at": "2026-11-09T12:15:38.902953+00:00"
+          "archive_sha256": "62a2adba65c54a52dfa13cd123f4fc12c1bc11c211501595061f067f2a97a063",
+          "verified_at": "2026-11-10T08:23:32.677879+00:00"
         }
       ]
     },
@@ -1817,12 +1817,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "b82ec7005060f33465637593",
-          "report": "records/b82ec7005060f33465637593/report.json",
+          "id": "f99156b3a6d75001ba1df6b9",
+          "report": "records/f99156b3a6d75001ba1df6b9/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "1d3e340a4acdfdebf7a35c827818676a3bfb3da7c8cca09e3567d299a95d1bcd",
-          "verified_at": "2026-11-09T11:45:59.523434+00:00"
+          "archive_sha256": "6041a05f7c06fd14f77349bd049ef42842a705269269bdbcf67e028df60436e7",
+          "verified_at": "2026-11-10T08:23:20.490153+00:00"
         }
       ]
     },
@@ -1849,12 +1849,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "cf8a2e6b932ff05e926ae3a2",
-          "report": "records/cf8a2e6b932ff05e926ae3a2/report.json",
+          "id": "8f79c6795ade2cae5418d29c",
+          "report": "records/8f79c6795ade2cae5418d29c/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "8f20fff42156a3d27865d8063055da36b61d271dc0419e926d9b3b10d359d5f5",
-          "verified_at": "2026-11-09T11:45:58.082221+00:00"
+          "archive_sha256": "c8ab971270775f5cd39c181d23111ac0e36ce14f19ead0fd3fa024ef5810a1b1",
+          "verified_at": "2026-11-10T08:23:20.338124+00:00"
         }
       ]
     },
@@ -1881,12 +1881,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "f243769d153066aea991806d",
-          "report": "records/f243769d153066aea991806d/report.json",
+          "id": "fd6a36a0bb131c5ed405d5e9",
+          "report": "records/fd6a36a0bb131c5ed405d5e9/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "ed29c2234415a26060e84275a627a47c63c63ecf6b4f81f21a715834fa1a2acb",
-          "verified_at": "2026-11-09T12:03:31.998121+00:00"
+          "archive_sha256": "d0266bd6d2e5bdb652a60e16e383372a63efb86775d9c1e6cdef867e4a57f9ff",
+          "verified_at": "2026-11-10T08:23:43.390289+00:00"
         }
       ]
     },
@@ -1913,12 +1913,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "7c75bbd8b09a21ee15455c8e",
-          "report": "records/7c75bbd8b09a21ee15455c8e/report.json",
+          "id": "6c0be2276790432363977f86",
+          "report": "records/6c0be2276790432363977f86/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "e9cde4a8f10786b38e12bb9b3e6a8090226f015f0b7683d4606231dafcd22dd9",
-          "verified_at": "2026-11-09T11:43:00.598879+00:00"
+          "archive_sha256": "0fdb9993ed760c3490ec6fc22468e16f5f5828277abd34e7a8359e3d3ce9d545",
+          "verified_at": "2026-11-10T08:23:24.074020+00:00"
         }
       ]
     },
@@ -1945,12 +1945,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "157ce9944cc475474827ed08",
-          "report": "records/157ce9944cc475474827ed08/report.json",
+          "id": "ef27510f1c0270f7700fd0f2",
+          "report": "records/ef27510f1c0270f7700fd0f2/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "dffd2f5afcd4669d214e8e24b2d2ceacd2bba52fa34f911f7d088fe07d61244c",
-          "verified_at": "2026-11-09T11:57:34.295180+00:00"
+          "archive_sha256": "3e72c6d0f75cd4b8adf1992985fb94775e9b341e0eb985e3a089c336d15a3c5b",
+          "verified_at": "2026-11-10T08:23:29.522420+00:00"
         }
       ]
     },
@@ -1988,12 +1988,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "40993c23b449eeb0d4b7e82d",
-          "report": "records/40993c23b449eeb0d4b7e82d/report.json",
+          "id": "e7ab807a634ece938bf3106b",
+          "report": "records/e7ab807a634ece938bf3106b/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "9b1159d84d1aaefcb9ad166d789ee1366ecdf7991e4f4806a2886cf75a13eda5",
-          "verified_at": "2026-11-09T11:47:37.147228+00:00"
+          "archive_sha256": "b0787f30eaaa270c47b5d49ba0d1f1973b6a1da40986ef95f7795d3cc58b0959",
+          "verified_at": "2026-11-10T08:23:24.366810+00:00"
         }
       ]
     },
@@ -2020,12 +2020,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "3f99711b88658e56f6495bfc",
-          "report": "records/3f99711b88658e56f6495bfc/report.json",
+          "id": "ca6aa77d0b443139754c4cde",
+          "report": "records/ca6aa77d0b443139754c4cde/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "d4e22c73f0f9c4755dcbc90ac9fe7a04a970cecd935070476e6c5b9e9b0b47a7",
-          "verified_at": "2026-11-09T12:14:38.890372+00:00"
+          "archive_sha256": "f8a29ed470f05ee735ce0d7f03be19de07608c9f17454435945ace7fbcaace51",
+          "verified_at": "2026-11-10T08:23:28.886363+00:00"
         }
       ]
     },
@@ -2062,12 +2062,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "d34418dd905fabe85189916b",
-          "report": "records/d34418dd905fabe85189916b/report.json",
+          "id": "c9a9a6e421af79c394dd7eae",
+          "report": "records/c9a9a6e421af79c394dd7eae/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "2d3a0a57573c63f4f3c0ed69ec7531982c74df97be79e19f89aa5f1f15e1c6c9",
-          "verified_at": "2026-11-09T11:40:38.923129+00:00"
+          "archive_sha256": "8e2be6f78fc9afc61064645e3e28edafe9d38b18fd872f9d68567793fcc60112",
+          "verified_at": "2026-11-10T08:23:28.649757+00:00"
         }
       ]
     },
@@ -2093,12 +2093,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "b7bf56192251e41d5000bbb9",
-          "report": "records/b7bf56192251e41d5000bbb9/report.json",
+          "id": "43e857fcba8b29a579f508f4",
+          "report": "records/43e857fcba8b29a579f508f4/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "3b8c186b7ce6a110606316b4107c002e39659101fa31954694b5d7611ae077ed",
-          "verified_at": "2026-11-09T11:51:20.258323+00:00"
+          "archive_sha256": "207ee7599bf4c7674eee43bc6f80c4c9c23d75488ca7f117c56c5f40fb4adba4",
+          "verified_at": "2026-11-10T08:23:34.582434+00:00"
         }
       ]
     },
@@ -2135,12 +2135,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "b83de031031891431205d40e",
-          "report": "records/b83de031031891431205d40e/report.json",
+          "id": "0e4bfacf252ea207fe24c7cf",
+          "report": "records/0e4bfacf252ea207fe24c7cf/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "cf2c20098b3d50598e4b4adbec7f7679f394a8728cbc134abb51d8e384ed5a1d",
-          "verified_at": "2026-11-09T11:59:27.526922+00:00"
+          "archive_sha256": "03ebfd4d2c3f976c52c3d20fe5253753e0927da5085a7564361504a1b2581d6d",
+          "verified_at": "2026-11-10T08:23:35.966034+00:00"
         }
       ]
     },
@@ -2170,12 +2170,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "2ba74cea6b6f35bd94c2d6ae",
-          "report": "records/2ba74cea6b6f35bd94c2d6ae/report.json",
+          "id": "0e6c8f86de75da3b5e61a217",
+          "report": "records/0e6c8f86de75da3b5e61a217/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "6b2abd9190db201401cbb33333cfd9b6e247af66a3d8f77cff9e3f4e68400b88",
-          "verified_at": "2026-11-09T11:51:22.566487+00:00"
+          "archive_sha256": "ebec64c433ce8d8f9acc341f53c31e79dc28db09edb0b56d665ab148499b70b3",
+          "verified_at": "2026-11-10T08:23:36.287787+00:00"
         }
       ]
     },
@@ -2205,12 +2205,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "e78c4f00c9af367c07459d78",
-          "report": "records/e78c4f00c9af367c07459d78/report.json",
+          "id": "1abc3625d556b42a23c0b46e",
+          "report": "records/1abc3625d556b42a23c0b46e/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "b80b808be9ca38602ea4420ba8c60d1db0faa7a0a5852672bbf93357a3a48d99",
-          "verified_at": "2026-11-09T11:51:24.838900+00:00"
+          "archive_sha256": "1461bbdd1a138f742f7b1070321967f7cc9cf296137ca62c5f7da50723c72dd6",
+          "verified_at": "2026-11-10T08:23:37.090300+00:00"
         }
       ]
     },
@@ -2239,12 +2239,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "eb1c64eebf99bd728310ec4a",
-          "report": "records/eb1c64eebf99bd728310ec4a/report.json",
+          "id": "afd7a28cab02ae7528c5933c",
+          "report": "records/afd7a28cab02ae7528c5933c/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "5a5082b424e707c00660394afa79199db8c14cd8c042adeda413cd6fc806a356",
-          "verified_at": "2026-11-09T11:45:43.470755+00:00"
+          "archive_sha256": "42c08e431674cea1b60d6f48102cdd0696a9eac057152bb2e8b34d2aa4bb3410",
+          "verified_at": "2026-11-10T08:23:38.486302+00:00"
         }
       ]
     },
@@ -2271,12 +2271,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "ea1d1614efbe17b3ce76c516",
-          "report": "records/ea1d1614efbe17b3ce76c516/report.json",
+          "id": "7b387487dce433c2bddbb1bf",
+          "report": "records/7b387487dce433c2bddbb1bf/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "459cb6864ee6389262e1f68e2fa361a61095fea11ae338e4db99f9ee3467777b",
-          "verified_at": "2026-11-09T11:51:46.962716+00:00"
+          "archive_sha256": "72d0fca08e07d238dca69e3d69077de2cca39bdeb6ea1bfd110d3dd126e8d09e",
+          "verified_at": "2026-11-10T08:23:40.826979+00:00"
         }
       ]
     },
@@ -2305,12 +2305,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "2a53cdabcde72d5f282d6e2b",
-          "report": "records/2a53cdabcde72d5f282d6e2b/report.json",
+          "id": "9c0b70f64efcc84d186e4861",
+          "report": "records/9c0b70f64efcc84d186e4861/report.json",
           "image": "localhost/offline-install-test:ubuntu22-gpg",
           "image_id": "98b83ed5168d408e5fc794ce968d5f2c6e077d9e1d2961b38566546a59935500",
-          "archive_sha256": "d25776f9971fca8515b35f4357c0f4db1416638a92ea6e9eec79c2e418bb294c",
-          "verified_at": "2026-11-09T12:07:58.214713+00:00"
+          "archive_sha256": "526127d5712369953ba34f8e80380059c3e69f06b531d0772845febcf24746cd",
+          "verified_at": "2026-11-10T08:23:42.498162+00:00"
         }
       ]
     },
@@ -2350,12 +2350,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "f3531535280a22736f975371",
-          "report": "records/f3531535280a22736f975371/report.json",
+          "id": "d210e6f38568d64809addb7f",
+          "report": "records/d210e6f38568d64809addb7f/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "e0af903ee0508c437c3445560302b274a6106e213b4354665d6675374a1779df",
-          "verified_at": "2026-11-09T12:14:59.442469+00:00"
+          "archive_sha256": "a7a0f94c4309c962f1bcf27db03623c70966bac5275337ab61df72c6bafcb9db",
+          "verified_at": "2026-11-10T08:23:42.362033+00:00"
         }
       ]
     },
@@ -2386,12 +2386,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "9b03e7f3b892e7f7b6e86ac8",
-          "report": "records/9b03e7f3b892e7f7b6e86ac8/report.json",
+          "id": "a0db76b3a12cd7e35d602a4f",
+          "report": "records/a0db76b3a12cd7e35d602a4f/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "74f51e7657263b3cdf55dddeec5f800fd01b0bd5442118d4877ed2393a15dd4c",
-          "verified_at": "2026-11-09T11:59:07.631299+00:00"
+          "archive_sha256": "211ba74946fd71e2eedd88700be49aeb444e50cbb540cf2ca938b0cfa4a4818c",
+          "verified_at": "2026-11-10T08:23:50.470451+00:00"
         }
       ]
     },
@@ -2418,12 +2418,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "00fb148245ab16000fa6332e",
-          "report": "records/00fb148245ab16000fa6332e/report.json",
+          "id": "48c57d8629d2d34d00c79646",
+          "report": "records/48c57d8629d2d34d00c79646/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "112248131c9816ff065e007ede32286c4d694e7d6baf0ca615d80ca64f50d368",
-          "verified_at": "2026-11-09T11:54:55.806696+00:00"
+          "archive_sha256": "d384be05902521673037cd8427b7c4b91372149d108a2fc11210d14734495334",
+          "verified_at": "2026-11-10T08:23:44.730412+00:00"
         }
       ]
     },
@@ -2454,12 +2454,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "694fb74a85770e888599896c",
-          "report": "records/694fb74a85770e888599896c/report.json",
+          "id": "81facf74d3a9279a4604c7a4",
+          "report": "records/81facf74d3a9279a4604c7a4/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "bfdbf6c218102aa428764b5df4beb3141dc1a2b7d27bf151cabbede1ca53c07d",
-          "verified_at": "2026-11-09T11:51:27.436621+00:00"
+          "archive_sha256": "2ebda7475c6e83d5e691370a951f885bbe405bf59af632a18ca5ad09aa1c234c",
+          "verified_at": "2026-11-10T08:23:46.674269+00:00"
         }
       ]
     },
@@ -2491,12 +2491,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "3d870c35dc1734c01cf358ef",
-          "report": "records/3d870c35dc1734c01cf358ef/report.json",
+          "id": "1e1231c631dfb50451d5d1e1",
+          "report": "records/1e1231c631dfb50451d5d1e1/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "2c4cf935b4db588b5f979ca911e43a2374896e3023121a17f1b94ecf61587b2e",
-          "verified_at": "2026-11-09T10:31:15.479225+00:00"
+          "archive_sha256": "061d73c15154d053a6f685788a29e14132383f1d70e129e486a6db7418149ec2",
+          "verified_at": "2026-11-10T08:23:47.934679+00:00"
         }
       ]
     },
@@ -2527,12 +2527,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "b8890f3ebff7d5ea35df6132",
-          "report": "records/b8890f3ebff7d5ea35df6132/report.json",
+          "id": "faa843d0f0da218b80f5a591",
+          "report": "records/faa843d0f0da218b80f5a591/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "ec0ed1373e871d5a9ad0eb97ca44d490a64464b2f7d9bad89edff562d9527706",
-          "verified_at": "2026-11-09T11:56:33.450299+00:00"
+          "archive_sha256": "eb9147f6454616ddf3ed1da1e0db3653e0aa02db8c8e659a166dde4f5b9e6cf1",
+          "verified_at": "2026-11-10T08:23:53.057981+00:00"
         }
       ]
     },
@@ -2560,12 +2560,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "cb1ba62204e01b3ff56c23ac",
-          "report": "records/cb1ba62204e01b3ff56c23ac/report.json",
+          "id": "2a3946abe017accbe8924279",
+          "report": "records/2a3946abe017accbe8924279/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "f21fdbd74c70fd9e58df93960af4fdef51b726be95fd4ac4f73a21fa9f274a42",
-          "verified_at": "2026-11-09T12:11:31.587778+00:00"
+          "archive_sha256": "f192d7c9073310f0fa957484f32661660e9ced5081982f2bb3d34beffdc7cfba",
+          "verified_at": "2026-11-10T08:23:59.240862+00:00"
         }
       ]
     },
@@ -2602,12 +2602,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "065cee3d59bde258de863f54",
-          "report": "records/065cee3d59bde258de863f54/report.json",
+          "id": "e169504aec87a99080e6b9e8",
+          "report": "records/e169504aec87a99080e6b9e8/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "5814e95859cf66fd544a3814e7ebcab83cde00dfaf2dd366eab2aa840a9209ae",
-          "verified_at": "2026-11-09T11:40:41.779387+00:00"
+          "archive_sha256": "61e1db7982f22ab5eec3b191a1b4ceb7bf216996951ba89999a9ff5799101d77",
+          "verified_at": "2026-11-10T08:23:50.982431+00:00"
         }
       ]
     },
@@ -2644,12 +2644,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "2ec68362ea9bd594ebb9112f",
-          "report": "records/2ec68362ea9bd594ebb9112f/report.json",
+          "id": "2676bbd78defec18bb6014eb",
+          "report": "records/2676bbd78defec18bb6014eb/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "77eb98ec28d0f89fc2d81f65218c311a1550043d0b87d07c4090ae9252cc7d50",
-          "verified_at": "2026-11-09T11:40:44.702884+00:00"
+          "archive_sha256": "59ba02f033cd6e3088310a66d17b9a7e67be2d14f60fc1685370c32422d1c8bd",
+          "verified_at": "2026-11-10T08:23:52.370573+00:00"
         }
       ]
     },
@@ -2680,12 +2680,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "38a142101d38e2ebc9e6f1e4",
-          "report": "records/38a142101d38e2ebc9e6f1e4/report.json",
+          "id": "f210cce8bcda813001260c13",
+          "report": "records/f210cce8bcda813001260c13/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "838c8964eb45a04ce2437604dbcd97a138f0fee2ca6cf187b5e0ae189303221d",
-          "verified_at": "2026-11-09T13:36:02.471108+00:00"
+          "archive_sha256": "13af1694c775acb6c9b2478f8095b67f198552d5d7fb5c83fd095b616d66c511",
+          "verified_at": "2026-11-10T08:24:03.526592+00:00"
         }
       ]
     },
@@ -2713,12 +2713,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "8e45455bea8b07ab1e937109",
-          "report": "records/8e45455bea8b07ab1e937109/report.json",
+          "id": "a22668aa08aebaec8bad2147",
+          "report": "records/a22668aa08aebaec8bad2147/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "1b4a1aaf1312a3f5d66342d4ce10467d0af8835636cde52201a4df0afae2be34",
-          "verified_at": "2026-11-09T11:50:01.022130+00:00"
+          "archive_sha256": "fbba7d466a73fe561696fa9597e0421eb096e683122966e0411678ca520e6361",
+          "verified_at": "2026-11-10T08:23:54.838558+00:00"
         }
       ]
     },
@@ -2745,12 +2745,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "cc76443173e88bb716934bcd",
-          "report": "records/cc76443173e88bb716934bcd/report.json",
+          "id": "b26b22123a553ed659bee64a",
+          "report": "records/b26b22123a553ed659bee64a/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "15a186b81cce5c24e06123be3e47f791c82089a7bef6e98b6f63c2b4f45476d4",
-          "verified_at": "2026-11-09T11:48:19.874966+00:00"
+          "archive_sha256": "e2d3597961d703e5a489b53efc5b87ded2340aa32b2d06d70eaf921800ccd323",
+          "verified_at": "2026-11-10T08:23:56.347573+00:00"
         }
       ]
     },
@@ -2779,12 +2779,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "7d99402b2fd623327e0a3fb0",
-          "report": "records/7d99402b2fd623327e0a3fb0/report.json",
+          "id": "6b209575e043e2fe90fa023d",
+          "report": "records/6b209575e043e2fe90fa023d/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "e08eaa3146ab6dfb9d47de76b90c0815c289a2ceafb2049616cdcebdb3c770c8",
-          "verified_at": "2026-11-09T11:51:45.337886+00:00"
+          "archive_sha256": "749126b81f87d8cd73f329869cb8cc882fc768474198e7356083e13e1cd7cf5e",
+          "verified_at": "2026-11-10T08:23:56.467189+00:00"
         }
       ]
     },
@@ -2809,12 +2809,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "0e5aa1f5acbdb072a788b59f",
-          "report": "records/0e5aa1f5acbdb072a788b59f/report.json",
+          "id": "76ec1b7812865e6fa42e7e7a",
+          "report": "records/76ec1b7812865e6fa42e7e7a/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "b3f5d8b6d6f22149b1699ff3fbe4919576544712ea0e7ab88957fbd00b961929",
-          "verified_at": "2026-11-09T11:51:29.846104+00:00"
+          "archive_sha256": "022f064118c62611140c91c1651486b00a9a4190a72f0e4fbda1582e82c52f4f",
+          "verified_at": "2026-11-10T08:23:59.237825+00:00"
         }
       ]
     },
@@ -2848,12 +2848,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "daad20bc5eafb89058a6db4a",
-          "report": "records/daad20bc5eafb89058a6db4a/report.json",
+          "id": "ab80d1b014eafc6ad111401f",
+          "report": "records/ab80d1b014eafc6ad111401f/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "9c9d71b5927475ccee5bed36e07b9297ec15d7a9ed6b028d1923622a356f8940",
-          "verified_at": "2026-11-09T11:53:29.746315+00:00"
+          "archive_sha256": "0a22b4fe69437b29136f752c3e4bc269ff5302f40c6b38729a0dc71f7a9f6500",
+          "verified_at": "2026-11-10T08:24:03.644966+00:00"
         }
       ]
     },
@@ -2883,12 +2883,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "e2d2555ca173978f3e482047",
-          "report": "records/e2d2555ca173978f3e482047/report.json",
+          "id": "f87c850ce4b874018c79be4f",
+          "report": "records/f87c850ce4b874018c79be4f/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "2e95ce6b3010d34f94f0d87a2237b97a8e93a774b5b5b02a6b8437b112e27e26",
-          "verified_at": "2026-11-09T11:51:30.962645+00:00"
+          "archive_sha256": "57880a52d2e5c94392b5ddf9b3a3bb3d4b0ee07c974b2c2ea8bdaea64e54e21c",
+          "verified_at": "2026-11-10T08:24:00.382006+00:00"
         }
       ]
     },
@@ -2911,12 +2911,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "5af06fd50fbf486ab314683e",
-          "report": "records/5af06fd50fbf486ab314683e/report.json",
+          "id": "ca8bba143d830cb28dabd28a",
+          "report": "records/ca8bba143d830cb28dabd28a/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "e9113ee3fd7579228243df6e3c80cd66cb56707756afdeec1cea3afeef2d0a7f",
-          "verified_at": "2026-11-09T11:51:47.386927+00:00"
+          "archive_sha256": "e21c009f93fbc1259013b494f253a07c0cdecbd771a03d7ee7838d2dc712694a",
+          "verified_at": "2026-11-10T08:24:12.610182+00:00"
         }
       ]
     },
@@ -2955,12 +2955,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "e2cdc9aa5609f5ad6a50373c",
-          "report": "records/e2cdc9aa5609f5ad6a50373c/report.json",
+          "id": "657c13b1521bb1e1b40341d0",
+          "report": "records/657c13b1521bb1e1b40341d0/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "b0c49485c9804ca72c477de8636effaab55a63cef7eeec193f013d7bf571070b",
-          "verified_at": "2026-11-09T12:06:10.686273+00:00"
+          "archive_sha256": "cd7c1ec0d85331ae3d33f8e65dd4a250cc9fed2c97e6803b72b508fbee7bf207",
+          "verified_at": "2026-11-10T08:24:04.582199+00:00"
         }
       ]
     },
@@ -2987,12 +2987,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "97b2bf860b4586af83b8d58f",
-          "report": "records/97b2bf860b4586af83b8d58f/report.json",
+          "id": "25a07084b2e016df74bc017a",
+          "report": "records/25a07084b2e016df74bc017a/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "df342fb064d6fd93a4cd39feb45589d9f25db64cd798b23d3cf719fc77467da9",
-          "verified_at": "2026-11-09T12:14:40.098144+00:00"
+          "archive_sha256": "8466eca5aabdc5eb3e1a91339024a58cd8041fe2e8305ad04ced3a3193e1e0e3",
+          "verified_at": "2026-11-10T08:24:06.452170+00:00"
         }
       ]
     },
@@ -3032,12 +3032,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "94f3b7abaa59cb7be4b787ea",
-          "report": "records/94f3b7abaa59cb7be4b787ea/report.json",
+          "id": "3025d2b886821c4145e6a973",
+          "report": "records/3025d2b886821c4145e6a973/report.json",
           "image": "localhost/shellferry-sdkman:ubuntu22",
           "image_id": "58129ddbcc6fd44a14d838ee5e4c3600077ca300b4fefd08042406fb67879df9",
-          "archive_sha256": "e1d8f016e5fa6b2757839a18eae8fc6987c317208e9a7c38894bca1ff26f468d",
-          "verified_at": "2026-11-09T13:35:17.530164+00:00"
+          "archive_sha256": "dd24cb1c8f925f91f2dcb3479c23509035be756af624ab976d70155030d461ac",
+          "verified_at": "2026-11-10T08:24:27.219147+00:00"
         }
       ]
     },
@@ -3074,12 +3074,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "50d4f65c9b958b7045b6ea46",
-          "report": "records/50d4f65c9b958b7045b6ea46/report.json",
+          "id": "4761964c1f6f7ef1ec3a053a",
+          "report": "records/4761964c1f6f7ef1ec3a053a/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "4e334a12467876e44d1341e802b329b335440bc3bcf2711b90c86877f00a5561",
-          "verified_at": "2026-11-09T11:49:41.146985+00:00"
+          "archive_sha256": "b1f30554aa37a01b754238013d8f9e3ff2d59d49847bb5e949c7b927207a050a",
+          "verified_at": "2026-11-10T08:24:11.030157+00:00"
         }
       ]
     },
@@ -3119,12 +3119,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "ebf67ccd1282d5bf540cf521",
-          "report": "records/ebf67ccd1282d5bf540cf521/report.json",
+          "id": "7a453b986b54e670a7c26102",
+          "report": "records/7a453b986b54e670a7c26102/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "cb23da74ac2e96484a788d98c70736a5d939e6e79fc8bf3433281638f290fc7a",
-          "verified_at": "2026-11-09T12:12:02.087214+00:00"
+          "archive_sha256": "6d6790c226caf7113c052f9a14de4e0828204bea4089a85fdde4856df2142efe",
+          "verified_at": "2026-11-10T08:24:08.390463+00:00"
         }
       ]
     },
@@ -3161,12 +3161,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "865570ffba9bea1578661ee8",
-          "report": "records/865570ffba9bea1578661ee8/report.json",
+          "id": "806756b504f65db6533ecf86",
+          "report": "records/806756b504f65db6533ecf86/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "61b53ea5827b411ce597a97703e92b440d0dd174706a6a758a1bf573a0e51b62",
-          "verified_at": "2026-11-09T11:40:36.234857+00:00"
+          "archive_sha256": "53652f5bcaa16804f91723580e5fd34d1a9ce18a52b97a868c1cb7316cbd5f9c",
+          "verified_at": "2026-11-10T08:24:10.831199+00:00"
         }
       ]
     },
@@ -3205,12 +3205,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "0ce12dd712dd9a197c3e4cd5",
-          "report": "records/0ce12dd712dd9a197c3e4cd5/report.json",
+          "id": "9720a9181e8761a9bd10ecb3",
+          "report": "records/9720a9181e8761a9bd10ecb3/report.json",
           "image": "localhost/shellferry-rust-test:ubuntu22",
           "image_id": "7775b863fe9b08302500dff32aacf4922c88f2f5348e72aa7b01a405ed5d86bc",
-          "archive_sha256": "89b677a68b0ac3978c75d666f5cebbe09310ead1aeb7ac8560b896d3cb360367",
-          "verified_at": "2026-11-09T12:06:07.330586+00:00"
+          "archive_sha256": "f27d41578222e43e1297fef76aac28e78e5566c6b71ff393936524194f76ec0b",
+          "verified_at": "2026-11-10T08:24:14.754006+00:00"
         }
       ]
     },
@@ -3240,12 +3240,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "428aee037b2d6bc67525aa4b",
-          "report": "records/428aee037b2d6bc67525aa4b/report.json",
+          "id": "d7224e953c018a770e2121bc",
+          "report": "records/d7224e953c018a770e2121bc/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "fbac36060ba2e2c40b4e4c200f828452c31d49cf89b2968fcf5664aa18ea1c27",
-          "verified_at": "2026-11-09T11:59:00.954357+00:00"
+          "archive_sha256": "9cb7339fc0fb0204616ac072b9a103ef6eec5413e613ff9303cbb44eecf5a7cc",
+          "verified_at": "2026-11-10T08:24:15.722626+00:00"
         }
       ]
     },
@@ -3275,12 +3275,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "a9e642fa3d47c40f3e69beaa",
-          "report": "records/a9e642fa3d47c40f3e69beaa/report.json",
+          "id": "b266a9199d4b2eb5b3c683d1",
+          "report": "records/b266a9199d4b2eb5b3c683d1/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "94a62bab64776e5b445d243c64b0521096a2ec8e2fa6f4cdc2484d18d0ba8aaa",
-          "verified_at": "2026-11-09T11:51:34.286432+00:00"
+          "archive_sha256": "fe7aedbac8553ca2e0e3d68ba4c3a86ca1e4ba2844dfa6b6be30c1f2a85c4447",
+          "verified_at": "2026-11-10T08:24:13.982092+00:00"
         }
       ]
     },
@@ -3317,12 +3317,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "efb8b141cd6a3ccf11f5e3fe",
-          "report": "records/efb8b141cd6a3ccf11f5e3fe/report.json",
+          "id": "d4d62a9d11eb4bc0d61d511c",
+          "report": "records/d4d62a9d11eb4bc0d61d511c/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "2f5cfbd98b503f86edd1bc9b505705212217fe3a8a3939f2c4723beab6ca04ed",
-          "verified_at": "2026-11-09T11:59:30.739412+00:00"
+          "archive_sha256": "f2524704a9ee9a6cc86a5649e2f2e15e4f4e6901f687376d03d5b9c6a7f7ba28",
+          "verified_at": "2026-11-10T08:24:17.794325+00:00"
         }
       ]
     },
@@ -3349,12 +3349,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "b083357d3d7a661e85c261d1",
-          "report": "records/b083357d3d7a661e85c261d1/report.json",
+          "id": "61245211b8a75bc5117ba707",
+          "report": "records/61245211b8a75bc5117ba707/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "97587b02e8bc660644ed0d00d47c5ebd8abd1204da4fd9e6f75c351c33a89151",
-          "verified_at": "2026-11-09T12:11:15.090456+00:00"
+          "archive_sha256": "31763fb3980d7d0552b051b0b6199c60d3c8d59d8dc6ba216bdb12e80e6bce61",
+          "verified_at": "2026-11-10T08:24:20.562051+00:00"
         }
       ]
     },
@@ -3391,12 +3391,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "49c85f5f41d5fce2827db46d",
-          "report": "records/49c85f5f41d5fce2827db46d/report.json",
+          "id": "90c026639661ef24c5edf7a6",
+          "report": "records/90c026639661ef24c5edf7a6/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "6f8f48ad243f065e4f3676a2a8dc0b69490f500b98239970cd676d4d3cff77e2",
-          "verified_at": "2026-11-09T11:45:27.674934+00:00"
+          "archive_sha256": "6804737a464fd89a79d4732756654186d1f89b5424fda6f09fd5efaacf7603ad",
+          "verified_at": "2026-11-10T08:24:18.934204+00:00"
         }
       ]
     },
@@ -3423,12 +3423,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "612880e7f03216d2374b257d",
-          "report": "records/612880e7f03216d2374b257d/report.json",
+          "id": "6c95e528d4a15e71636b2a2a",
+          "report": "records/6c95e528d4a15e71636b2a2a/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "555777ef94e2faf8c0ba6006fc6a4ba6416e0f3a2281e105623b869b7c81865c",
-          "verified_at": "2026-11-09T11:51:38.678720+00:00"
+          "archive_sha256": "894896282bb5ebc4ccbf058618ab5a98e567985e6b6b2d564811f94563618eb4",
+          "verified_at": "2026-11-10T08:24:19.250126+00:00"
         }
       ]
     },
@@ -3462,12 +3462,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "d4b27fb958821b311cb08f1f",
-          "report": "records/d4b27fb958821b311cb08f1f/report.json",
+          "id": "36d64c5647955a4c6a8dcac8",
+          "report": "records/36d64c5647955a4c6a8dcac8/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "a18412707dbc3148871f7fab0d8e5cfb69a4c5394835a2a5d9f87ca7268933d1",
-          "verified_at": "2026-11-09T11:45:45.066589+00:00"
+          "archive_sha256": "8c5e651a99c32ae903b1c08418bc18c7b0da78d048962a826c12d5eb1e19a12b",
+          "verified_at": "2026-11-10T08:24:19.045933+00:00"
         }
       ]
     },
@@ -3494,12 +3494,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "62c4e59949319d98a4a9042c",
-          "report": "records/62c4e59949319d98a4a9042c/report.json",
+          "id": "3df5eead5c44e8ccfb0f8eca",
+          "report": "records/3df5eead5c44e8ccfb0f8eca/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "484aae95fa10eb3f17fd443ce42190e25e8bd096837a869db0d5ec536b03c47e",
-          "verified_at": "2026-11-09T11:48:25.708310+00:00"
+          "archive_sha256": "de4e8f147f175668350a37b76e22bcee9f213260f3fe1af49cf4faa659d81ae3",
+          "verified_at": "2026-11-10T08:24:24.415143+00:00"
         }
       ]
     },
@@ -3526,12 +3526,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "37be948eba648006359a7613",
-          "report": "records/37be948eba648006359a7613/report.json",
+          "id": "2bfc97108432aa784703afb5",
+          "report": "records/2bfc97108432aa784703afb5/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "82c363a83691ab9714f4c6a360dc8b94bf317da52f35fb40683cfcd5ac248216",
-          "verified_at": "2026-11-09T11:40:03.634879+00:00"
+          "archive_sha256": "691bbda44da625f35b24c4f84394e552fc8c04efabfbce2ead719614f2f0e783",
+          "verified_at": "2026-11-10T08:24:25.803260+00:00"
         }
       ]
     },
@@ -3568,12 +3568,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "4cbe7b7ad74ed6b76c0ed9ca",
-          "report": "records/4cbe7b7ad74ed6b76c0ed9ca/report.json",
+          "id": "803e2f26a8dbb1b19009eeb0",
+          "report": "records/803e2f26a8dbb1b19009eeb0/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "1a709284dc708efa372e3d805b86b3ecacc12e3b1c9c355e9c5ae3ff94d25ae6",
-          "verified_at": "2026-11-09T11:40:47.679086+00:00"
+          "archive_sha256": "4f110ed59b48e9d7900bc4be6b721ae86f2a361c1a15c2b363d26c12b33df9be",
+          "verified_at": "2026-11-10T08:24:23.174794+00:00"
         }
       ]
     },
@@ -3604,12 +3604,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "26.04",
-          "id": "2a14f966bd63206e915fbd1a",
-          "report": "records/2a14f966bd63206e915fbd1a/report.json",
+          "id": "2cd5f9d1cc609500cbf34329",
+          "report": "records/2cd5f9d1cc609500cbf34329/report.json",
           "image": "localhost/offline-install-test:ubuntu",
           "image_id": "e97b82b37abeaa41476a0110849d6be29fb21bb5219757fdb3f46ad53ad661f8",
-          "archive_sha256": "28bda56a98bf56ab6761bfab77a73f579590a4928eabee7d08e1b4a4236c6a35",
-          "verified_at": "2026-11-09T11:51:42.650200+00:00"
+          "archive_sha256": "0c650ad4afd3a5a7055ac652514417eaa5fe947aea54dc40ca04d8047a3cdb52",
+          "verified_at": "2026-11-10T08:24:22.755346+00:00"
         }
       ]
     },
@@ -3636,12 +3636,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "8aa424e2d05ad21899f7d7cf",
-          "report": "records/8aa424e2d05ad21899f7d7cf/report.json",
+          "id": "88d4ce17fa53dc6cba9dae38",
+          "report": "records/88d4ce17fa53dc6cba9dae38/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "4cdc261f7c8b0823c88993372253dffc14d5aaf5d3eb19d6674762c7ad7a280e",
-          "verified_at": "2026-11-09T11:34:11.770843+00:00"
+          "archive_sha256": "4e3442a1b4612651e3cb6b6c0383fa00cdfe32ca207a4b6e60690c5ac7d314f6",
+          "verified_at": "2026-11-10T08:24:24.154513+00:00"
         }
       ]
     },
@@ -3679,12 +3679,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "7560d762497ebb7ac1f7e1fd",
-          "report": "records/7560d762497ebb7ac1f7e1fd/report.json",
+          "id": "641ff1a6914a7f3e9973b71d",
+          "report": "records/641ff1a6914a7f3e9973b71d/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "18c1e3d3f65fc5dc32959cc443aefba370281bf3337249dcb019dd3c9ef7bc21",
-          "verified_at": "2026-11-09T11:49:44.806704+00:00"
+          "archive_sha256": "027f7f1cc137ddb2415c30eba0fe593a3e5e75322d0387aad6857abe06c8ca66",
+          "verified_at": "2026-11-10T08:24:28.158298+00:00"
         }
       ]
     },
@@ -3722,12 +3722,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "c3734d919a7c292e1006b13a",
-          "report": "records/c3734d919a7c292e1006b13a/report.json",
+          "id": "ce6594ade9f7aec76ce4421e",
+          "report": "records/ce6594ade9f7aec76ce4421e/report.json",
           "image": "localhost/offline-install-test:ubuntu22",
           "image_id": "75be3ebefc6370f92db27e93429a7b1d685e57441e954aa6d4c6d15b3490f8c4",
-          "archive_sha256": "c9036a7fecfd7abe20b711a37655c9f078506974a1a7d95718a5eeec9f556a8e",
-          "verified_at": "2026-11-09T11:47:34.442695+00:00"
+          "archive_sha256": "664d914bd39db24b4dc804a891b5ab5b47d8059b7bf385adf16c6915d18bc094",
+          "verified_at": "2026-11-10T08:24:27.198475+00:00"
         }
       ]
     },
@@ -3760,12 +3760,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "5217d75d77e998f584bc4357",
-          "report": "records/5217d75d77e998f584bc4357/report.json",
+          "id": "44620e35d5807e637f0f3820",
+          "report": "records/44620e35d5807e637f0f3820/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "d5108901917ec135b36017bf4596f0dde3f85543a5410966c4a643046d49d78d",
-          "verified_at": "2026-11-09T12:14:01.578730+00:00"
+          "archive_sha256": "1d741e69ce120871e391e3f667ca110fbc0099354780fc374674f67eb384832b",
+          "verified_at": "2026-11-10T08:24:53.695864+00:00"
         }
       ]
     },
@@ -3795,12 +3795,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "7633f42b7020453d3dca47be",
-          "report": "records/7633f42b7020453d3dca47be/report.json",
+          "id": "37730aa13f69c6770d5a7191",
+          "report": "records/37730aa13f69c6770d5a7191/report.json",
           "image": "localhost/shellferry-misc-full:ubuntu22",
           "image_id": "1d98270d14bd10ba7e45d285abb7efc1b46bf4f7055a2a1fc949e4eeb358fa41",
-          "archive_sha256": "7f120ca2d267ac3cdb22158cef694f310f73c29b383ea1549f65222b6b7c3f2a",
-          "verified_at": "2026-11-09T12:14:41.928008+00:00"
+          "archive_sha256": "d7fd061436795373abd96ed6eac09916f17917e88a4dce80fb877b84d8b3948b",
+          "verified_at": "2026-11-10T08:24:32.787591+00:00"
         }
       ]
     },
@@ -3829,12 +3829,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "1bc45da8853bd753f077e9b0",
-          "report": "records/1bc45da8853bd753f077e9b0/report.json",
+          "id": "945404f5289fa16acb6e763d",
+          "report": "records/945404f5289fa16acb6e763d/report.json",
           "image": "localhost/shellferry-misc:ubuntu22",
           "image_id": "c6e781477b2f1424dfbc7b65ae4daab70d1b1749ccc0473adac7bf58d6444c47",
-          "archive_sha256": "0fcf3c74708d9798d21d163a793817ed64b1093afefe0cb1ac21a744781dfe41",
-          "verified_at": "2026-11-09T11:45:43.417254+00:00"
+          "archive_sha256": "d53418543337d373871244c13d8654e32981a539aeef62f19271059c47eec4af",
+          "verified_at": "2026-11-10T08:24:29.435591+00:00"
         }
       ]
     },
@@ -3863,12 +3863,12 @@
         {
           "os_id": "ubuntu",
           "os_version": "22.04",
-          "id": "1f82f07f38f3cb5a8c095fb5",
-          "report": "records/1f82f07f38f3cb5a8c095fb5/report.json",
+          "id": "cdce6bcf23cf34d15bcac80d",
+          "report": "records/cdce6bcf23cf34d15bcac80d/report.json",
           "image": "docker.io/library/ubuntu:22.04",
           "image_id": "a7b0f6af325461862a99c677cf3229ca5241d9f4f4289bd00cc2cce91a3aff23",
-          "archive_sha256": "8d0a97d1d932c3dbe6993f48a80979d0159a5e028e34d5932738505c49b5a927",
-          "verified_at": "2026-11-09T10:11:33.003451+00:00"
+          "archive_sha256": "b3a3f03e724851c314f5ec1f1f34e6fb15bf781760d4e81cc3cf1d1abf451a1f",
+          "verified_at": "2026-11-10T08:24:30.079420+00:00"
         }
       ]
     }

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "clj-kondo",
+  "version": "2026.10.26",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/clj-kondo-2026.10.26-linux-static-amd64.zip",
+      "url": "https://github.com/clj-kondo/clj-kondo/releases/download/v2026.10.26/clj-kondo-2026.10.26-linux-static-amd64.zip",
+      "sha256": "cb56971158407311d469e2a639347efb19b9cc34f07ed9d9b3013fb975cba0a3",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/clj-kondo/clj-kondo/a4edb32ce85c2a7f7d08cdce5baf0fd32c6467ba/script/install-clj-kondo",
+      "sha256_original": "d9cf19708152a1e1ea31774e4aa4b6cbf275fb01c5a5b1e758f92c8553710860",
+      "sha256_patched": "6132ba5c45ad85f1d1392e4ea890a167d12e0c719ee55d282d6a3d86b1dfdfa0",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "bash",
+    "unzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "af04fc66c3dd6a6804ea77f62613f5470085489f76e76b7c6faa88cd05d2c5e6",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

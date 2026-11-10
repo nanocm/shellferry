@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "stack",
+  "version": "3.11.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/stack-3.11.1-linux-x86_64.tar.gz",
+      "url": "https://github.com/commercialhaskell/stack/releases/download/v3.11.1/stack-3.11.1-linux-x86_64.tar.gz",
+      "sha256": "1fda71e657cd8d355625cc66b61b352699279dfee2664c014a392163bd19a952",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/commercialhaskell/stack/3e8fff0c6875ef85cb184eaba658825aa3c1fbed/etc/scripts/get-stack.sh",
+      "sha256_original": "cfc74001e126a0fff5dad961aec5b3bda43f29b1174d3538d1ee56248cdf7e2a",
+      "sha256_patched": "0237e0d590b13daa3c7ba088d5399bd3220a4e42e8f25ae3169b1c1992cf7f24",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "perl",
+    "file",
+    "install",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager/CLI only: no GHC compiler or project dependencies. Distro apt step is replaced by explicit preinstalled runtime prerequisites (glibc/libgmp/libffi/zlib); all upstream binary extraction/install logic retained. Fixes unquoted dirname for spaces. Functional test generates the command-completion script.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "9ffca077c02ec215f19bdb49cf8160d82c5226c9ebb52b64c05e88e1e7bc5ed6",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

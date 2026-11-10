@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "posit-air",
+  "version": "0.13.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/air-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://github.com/posit-dev/air/releases/download/0.13.0/air-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "3909b12870df0b6a44e3f40376cd59aca373791c0abedd02dcbda7b136e4573c",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/posit-dev/air/releases/download/0.13.0/air-installer.sh",
+      "sha256_original": "703fc72c0e680e355a8dde85ae74694f3b8b3b155cb55f0b4acd5dc9da278e5e",
+      "sha256_patched": "958767df143d2cccf10da4861984704e0ac134d6200a0e299de1615664810ac6",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "ac77824bca81d76424309d67a4315b631a69bb9286cb352ed8fb83481c3966b5",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

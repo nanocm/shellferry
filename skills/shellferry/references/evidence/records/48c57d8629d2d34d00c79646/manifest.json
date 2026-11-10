@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "perlbrew",
+  "version": "1.02",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/perlbrew",
+      "url": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew",
+      "sha256": "4582d3a3b6b7867ef34503013d3709797cd910164a42d698adacddfbc7d596f0",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/patchperl",
+      "url": "https://raw.githubusercontent.com/gugod/patchperl-packing/e964d2c16d5ddad90a2a67dcfb3bf674becb54c8/patchperl",
+      "sha256": "893fa85b02b620269851a6ebd96004d644914d827b560c0c656e84af337d926e",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/gugod/App-perlbrew/b5fc972f82f81d59113989afc9472fb3db32b201/perlbrew-install",
+      "sha256_original": "8f254651d2eee188199b3355228eb67166974716081b794ca93b69c8f949c38d",
+      "sha256_patched": "e415db19ee3c5ba7d95e3e7a907a79618f9531179967b5d886c67e88e164f4fd",
+      "patch_count": 2
+    }
+  ],
+  "requires": [
+    "sh",
+    "perl",
+    "install",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Installs manager and official patchperl companion. Managed Perl builds and CPAN modules are not included. Preserves self-install; nested patchperl HTTP fetch is replaced with the equivalent copy+executable permission from its pinned official source.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "b7203da4a429c48fe76f52a69c63144b03306be638b867acae00ea4668b7ada0",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

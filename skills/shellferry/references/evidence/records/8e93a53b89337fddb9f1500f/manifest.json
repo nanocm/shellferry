@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "goose",
+  "version": "3.29.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/goose_linux_x86_64",
+      "url": "https://github.com/pressly/goose/releases/download/v3.29.0/goose_linux_x86_64",
+      "sha256": "cc56e2f75532a4dd52f5ef2d31db0121e91079a9c2617bc0ad4e04e2d41c228b",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/pressly/goose/2d285d2249855c959765409c68b17a6634f0acb4/install.sh",
+      "sha256_original": "c23ea72ff36577fab5274ececc2e9f21f0b3e46c53b202c0ad6d7bfc31bcfd6f",
+      "sha256_patched": "72c059f72af602b01b6b99654f82537bcbfe82f0b3ecea3daa0a724b1fd02abd",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "94ad30d4faddf3c343b9f086d0616b50a91ae25faff32e357742f8266b9cf649",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "ruff",
+  "version": "0.17.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/ruff-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://releases.astral.sh/github/ruff/releases/download/0.17.4/ruff-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "3ab2b34aeacdbc1ea5c529cdbda3e05792633d587228123fd09f3b5a0facb27a",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in the pinned original official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://astral.sh/ruff/install.sh",
+      "sha256_original": "da6db9e18033d80a34c45ae79d1394b3ef5957341a0cab404ae2ed29492b0b80",
+      "sha256_patched": "dc825984c96ff020f8dfa4a5261ed01c45ab1b1a0b77cfbd1fdad8e60cd5d1ab",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Preserves cargo-dist upstream checksum verification. Unmanaged installation suppresses PATH editing and installer receipt metadata."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "571be88aa12823d9ca3c83a02b828938c9f34952b2ce9379c2ec3d7074770755",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "arkade",
+  "version": "0.12.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/arkade",
+      "url": "https://github.com/alexellis/arkade/releases/download/0.12.0/arkade",
+      "sha256": "51d9caf9ebbb5c8560cb4db6fa98d53c3be4eb39a140e9061fb99a760eb7fb5d",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/arkade.sha256",
+      "url": "https://github.com/alexellis/arkade/releases/download/0.12.0/arkade.sha256",
+      "sha256": "f7f20a2894e5c501f4cabcfd211e8a58419e1c32f0684cf161a8053a22a2c254",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/alexellis/arkade/a5f88e9316f954916ea8bf6fed53254417c2d9d6/get.sh",
+      "sha256_original": "1b28d3ba65212a213b0574aa71845a6c9b0a643bf7bfd6fdeb1020b5145ad30e",
+      "sha256_patched": "8d3fd261243f94c8f8264a2e50fe7bd61f3e419b32a93aa3622a6e1c00a27bce",
+      "patch_count": 6
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "feb582c03ca82293c2a558efbb9b16a3e6148886ce237c770660d2363cfae7dd",
+      "sha256_patched": "52ad0ea9885418fa179c5e9230f1b60bfa316fc1778786c58f4eaac9650e34de",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Pins release, enables equivalent official SHA-256 verification using the expected digest rather than upstream build-time bin/ paths, quotes upstream paths with spaces. Completion rendering is local; fetching additional programs or deploying clusters is separate."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "61da7ae031fe9111da1b42115f021c02a6c88bc0ec6263a98857e8a061a7b0ae",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

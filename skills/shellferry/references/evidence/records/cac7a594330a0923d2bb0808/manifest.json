@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "dust",
+  "version": "1.2.7",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/dust-v1.2.7-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/bootandy/dust/releases/download/v1.2.7/dust-v1.2.7-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "2f1a1106f1f14c0b684b2f0a5f4482c6d53e07a871df4afc11e3b91ade300b55",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/bootandy/dust/079c55266917387e416e0f871c97c06da52df12d/install.sh",
+      "sha256_original": "0968c7583d692de91ba1fae251afe8c0c5cefcf975f3ddf5a6538f43315d6f8c",
+      "sha256_patched": "26931520ad998c7f548dea0e1e30997730a48b1b620da2f9026e3130e27dfb09",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "find",
+    "head",
+    "mv"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Creates the explicitly requested install directory before the upstream writability test; otherwise its user-prefix branch incorrectly tries sudo on a new directory.",
+    "Fixes reproduced upstream repeat-install Text file busy error by copying to a same-directory temporary binary and renaming over the old executable."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "1199d8fdc0375dc555e2faa3a936cc1ce133c6344412ec2174aa6cc0c8db5483",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

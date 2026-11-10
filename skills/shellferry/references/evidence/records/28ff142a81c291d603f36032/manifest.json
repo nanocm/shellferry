@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "bpkg",
+  "version": "1.1.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/bpkg-source.tar.gz",
+      "url": "https://codeload.github.com/bpkg/bpkg/tar.gz/c7f5a467ec53e61d2344f5d1ab5766949c3bffdf",
+      "sha256": "3b82d9433200ef024512418dd2697a5ed3c4e7340b4b3e6d151fa25b5cb7f688",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/bpkg/bpkg/c7f5a467ec53e61d2344f5d1ab5766949c3bffdf/setup.sh",
+      "sha256_original": "77da7ff460c721749b8493f60ba6ec4c967f1109a28dc53a2962a6e6f7d6cc15",
+      "sha256_patched": "7437e8cb7801f4cd8edff319102dc63f96c9eb731c6f9f53bb5ffcc26a057c2d",
+      "patch_count": 1
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "3d3b80e252cb7cfeaf7df8f5d13d7b24986baf0a1813910c647b26b1770fd13e",
+      "sha256_patched": "f141909acdd1b97cba189916dcd917edb8835a12774072605c3df5ab2a7541a6",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Replaces only official setup git transport with the commit-pinned source archive. Preserves make_install and overwrite behavior.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "237291c3f6df3c712a232907a35ad57737f97ea10dba92483c18062723299fc5",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

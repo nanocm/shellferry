@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "pyenv",
+  "version": "2.8.14",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/pyenv-source.tar.gz",
+      "url": "https://codeload.github.com/pyenv/pyenv/tar.gz/9e40c078c0f86eae0d96e114269e934681745625",
+      "sha256": "dac34de704af7f3a9bc645b2a1b9a835c603ce10f25daf04e241731cff2c2a9b",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pyenv-doctor-source.tar.gz",
+      "url": "https://codeload.github.com/pyenv/pyenv-doctor/tar.gz/bad83e51e1409665de6cb37537cfc1e02e154bec",
+      "sha256": "c524f2ae7b85b84eebd194c4b1ef4fb4dae5e6e8e1d770cbd4c7d96d10b5a7f4",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pyenv-update-source.tar.gz",
+      "url": "https://codeload.github.com/pyenv/pyenv-update/tar.gz/4c536d76f9fe1a2a7f528b2aa1f609d7e64b2a28",
+      "sha256": "53685f344408739df3d5024eda8a134a6ccb736f3d6ddffcf012f32fa18dc945",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/pyenv-virtualenv-source.tar.gz",
+      "url": "https://codeload.github.com/pyenv/pyenv-virtualenv/tar.gz/7d821a62d6eeae21a451141c41898be1ed4ed147",
+      "sha256": "1bd4171a5e887189fad2c91b05c23f6f57757ea4eba7c905138ac258e3a70855",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/pyenv/pyenv-installer/bdd89156f0e591558ca901c5984387dd993157f9/bin/pyenv-installer",
+      "sha256_original": "2bf587665219d2ed3e262fc2c3d9e6843b48f64435bc489d936f03e68b5f610d",
+      "sha256_patched": "feed6e22d36c8e7bde57fe68b535b436d9f0f534bb53dc549d348b317672f0f0",
+      "patch_count": 1
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "5432de8307c26e246c76279d09122c4ad46d16691ae168c907bafd40750b381d",
+      "sha256_patched": "daa760947fa8bc8cea6394177278a44fe20125932f9e3fac2a3c19f8aa911698",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "git",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager plus official doctor, update and virtualenv plugins. Does not include managed Python interpreters. Git transport replaced by four pinned source trees. Explicit repeat verification preserves upstream default refusal to overwrite.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "df8f5c545583921dc24087749aefcb35b74b65ab7ffd739b09ba822b6b0dd7b9",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

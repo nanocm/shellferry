@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "cargo-binstall",
+  "version": "1.26.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "url": "https://github.com/cargo-bins/cargo-binstall/releases/download/v1.26.2/cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "sha256": "9e0e064f189a9abb9f8df5fb93c3c810ef5cc19e7212d998c7a64c9e4d3527d5",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/734bf48fca953a635646ba559fa32ddad1e6b6bd/install-from-binstall-release.sh",
+      "sha256_original": "d3a93702160e0ec03e2a4e996855db1f01adee801fb84a43add24e0877ef8eae",
+      "sha256_patched": "f1d40eef96715cd5949e65808e3f201f6315fc49ea5b93f799b84f63420cb15f",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "cmp"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Complete installer redistribution license was not established: only a minimal function-name patch anchor and original Shellferry replacement are retained; the fixed-commit original is fetched at build time. Do not publish generated bundles containing the complete script without resolving its license."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "f51d5e9ec9f06fc40a9a4e026f8826c4c1e90c98e7890487511f2c666572fe5d",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

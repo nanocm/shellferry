@@ -17,6 +17,36 @@
       "manifest_sha256": "3a5aa4c65decd307844499ea9d9eaf2b8e476748d13aedebaa5b31738f549f75"
     },
     {
+      "id": "8fbc126a48d1a77a6b5bc007",
+      "name": "actionlint",
+      "version": "1.7.12",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/8fbc126a48d1a77a6b5bc007/report.json",
+      "report_sha256": "8fbc126a48d1a77a6b5bc007fb65eff77071d65d7e178179e14645bb9d0f6e98",
+      "manifest": "records/8fbc126a48d1a77a6b5bc007/manifest.json",
+      "manifest_sha256": "086ced090c3c3436dc2926da4463acd30da42cfb80b91a78fa6a16a8f900bb80"
+    },
+    {
+      "id": "c05c79b7f6d0e6e5ac721340",
+      "name": "air",
+      "version": "1.67.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/c05c79b7f6d0e6e5ac721340/report.json",
+      "report_sha256": "c05c79b7f6d0e6e5ac7213409927b5cae04d36825c700f9002ff56eeb3056fbc",
+      "manifest": "records/c05c79b7f6d0e6e5ac721340/manifest.json",
+      "manifest_sha256": "a81ace843add1777b5d0cc62b0bb2902a4d45dd39119fa83ddfd4b5b7bdb1bca"
+    },
+    {
       "id": "f3d07521b5561a50a749fc7a",
       "name": "air",
       "version": "1.67.4",
@@ -45,6 +75,21 @@
       "report_sha256": "945d61c598ac1983262fa60b1ad7cc56e447d504e6f506f6880eb94b93859e04",
       "manifest": "records/945d61c598ac1983262fa60b/manifest.json",
       "manifest_sha256": "3edb17d1a503f20222be57033cee97c4c59b12f184266fcfd41bef4502764bf6"
+    },
+    {
+      "id": "c04312cbc22fe9adbccaa602",
+      "name": "arkade",
+      "version": "0.12.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/c04312cbc22fe9adbccaa602/report.json",
+      "report_sha256": "c04312cbc22fe9adbccaa6022febc9f0d621ca32f7901b15a127160a5bb5c097",
+      "manifest": "records/c04312cbc22fe9adbccaa602/manifest.json",
+      "manifest_sha256": "4d69f1b173ec1576a6b6a63d1d2112a5d5a49b812f38637facdc8a7ba89319ed"
     },
     {
       "id": "207cdff2bd14303fa3f492b3",
@@ -77,6 +122,36 @@
       "manifest_sha256": "ae0b7d57af3787e20a8c08e0af0906b1a4b9069ee08a91c6c3586141cb86e0e2"
     },
     {
+      "id": "c5b51e02469ed0b4cbfd4e4f",
+      "name": "atuin",
+      "version": "18.24.5",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/c5b51e02469ed0b4cbfd4e4f/report.json",
+      "report_sha256": "c5b51e02469ed0b4cbfd4e4f9971728dbaa5034a1c84624226c1a7679e58cdfb",
+      "manifest": "records/c5b51e02469ed0b4cbfd4e4f/manifest.json",
+      "manifest_sha256": "60157025ebb51149f861e24729773be841829785ea0cf06b8303459e535d978d"
+    },
+    {
+      "id": "0efbee8cb6fb62e6bbf9fbfa",
+      "name": "babashka",
+      "version": "1.13.229",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/0efbee8cb6fb62e6bbf9fbfa/report.json",
+      "report_sha256": "0efbee8cb6fb62e6bbf9fbfafabc165808c456a82100c44c1756dfc59a17ff52",
+      "manifest": "records/0efbee8cb6fb62e6bbf9fbfa/manifest.json",
+      "manifest_sha256": "b7e50b3c57a0a152b023ec72475c008ab274bc555f9814009d63fce212c7fa38"
+    },
+    {
       "id": "74692413103a50c821a397c8",
       "name": "babashka",
       "version": "1.13.229",
@@ -107,6 +182,21 @@
       "manifest_sha256": "53fb7eb75fd2cf520e197fbdf9d680eb66869a97caf95f98f5f05938f8ba4a4d"
     },
     {
+      "id": "6a85f03977a46f3621eadf76",
+      "name": "bash-it",
+      "version": "3.2.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/6a85f03977a46f3621eadf76/report.json",
+      "report_sha256": "6a85f03977a46f3621eadf76437ea9698c34d50ad93570436292d8bfd0286086",
+      "manifest": "records/6a85f03977a46f3621eadf76/manifest.json",
+      "manifest_sha256": "eb76f95e193082de25e8c82995449dd1648ccd086b188d7b7d360ef2347b4017"
+    },
+    {
       "id": "4afd372d927ae9c4a73f4a3d",
       "name": "basher",
       "version": "commit-7c3d238ce263",
@@ -122,6 +212,21 @@
       "manifest_sha256": "98b9953df99d9cf6b3c2c73f472e6913aa368671be7494abd3dfebc2dcb626f0"
     },
     {
+      "id": "71331eb9cf7cb8997cf4c22d",
+      "name": "basher",
+      "version": "commit-7c3d238ce263",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/71331eb9cf7cb8997cf4c22d/report.json",
+      "report_sha256": "71331eb9cf7cb8997cf4c22d85036fbea58a7319ad55b75c8ba1d0ea97a52336",
+      "manifest": "records/71331eb9cf7cb8997cf4c22d/manifest.json",
+      "manifest_sha256": "9639e249743495614aff257123ecad91512098f0917fc8f568949857f29ea8b4"
+    },
+    {
       "id": "1213a1045cc503631599d062",
       "name": "bats",
       "version": "1.14.0",
@@ -135,6 +240,36 @@
       "report_sha256": "1213a1045cc503631599d062e9fd776c17c2a27945abc4b19ea7d2f6d369ca20",
       "manifest": "records/1213a1045cc503631599d062/manifest.json",
       "manifest_sha256": "2d5e1a4e63ea2e6f6e4d7916a5125f3fdc2ad83a446058467d70f2d5c379c4e7"
+    },
+    {
+      "id": "e2421149d4f79c9deea2c6de",
+      "name": "bats",
+      "version": "1.14.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/e2421149d4f79c9deea2c6de/report.json",
+      "report_sha256": "e2421149d4f79c9deea2c6de2715223e9f4e1b4a3fd1389e70cbb0a179a05aed",
+      "manifest": "records/e2421149d4f79c9deea2c6de/manifest.json",
+      "manifest_sha256": "75e3b0558daccbd1b1bcb1833f8878e29bb90c458ff9b99e555a7aa6102cf987"
+    },
+    {
+      "id": "28ff142a81c291d603f36032",
+      "name": "bpkg",
+      "version": "1.1.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/28ff142a81c291d603f36032/report.json",
+      "report_sha256": "28ff142a81c291d603f36032c5f0dbcb4e663fa657285d82bcabcc324bffd792",
+      "manifest": "records/28ff142a81c291d603f36032/manifest.json",
+      "manifest_sha256": "ead5d60d17c95db20938eff156a54213f59ba04ad9359e14e34c688fc87fac51"
     },
     {
       "id": "c66762588ecd9ddebe358f03",
@@ -165,6 +300,21 @@
       "report_sha256": "18a9d13b575d296ffb63979de44f7bbca999c881ea5b65ea5d68f529dc0b339a",
       "manifest": "records/18a9d13b575d296ffb63979d/manifest.json",
       "manifest_sha256": "5bdf201de98e8ec4cfa6cd43e0b09ecb18d90f788caab3befd87705e1b7e9ab0"
+    },
+    {
+      "id": "23c0c71d3a58ce76acbf5356",
+      "name": "bun",
+      "version": "1.4.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/23c0c71d3a58ce76acbf5356/report.json",
+      "report_sha256": "23c0c71d3a58ce76acbf535669b61adaf1580d8bb1ae74dbce762fe6bcb9af1b",
+      "manifest": "records/23c0c71d3a58ce76acbf5356/manifest.json",
+      "manifest_sha256": "1d4d95cd1525d3fa0b27223f215ebe4ccece8e53ae928f8a662e43a037f66905"
     },
     {
       "id": "309de85cf1b8688e4dff94ee",
@@ -212,6 +362,21 @@
       "manifest_sha256": "5bdf201de98e8ec4cfa6cd43e0b09ecb18d90f788caab3befd87705e1b7e9ab0"
     },
     {
+      "id": "f88ca59b91b5ec7c08ccdeee",
+      "name": "bun",
+      "version": "1.4.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/f88ca59b91b5ec7c08ccdeee/report.json",
+      "report_sha256": "f88ca59b91b5ec7c08ccdeeeb0fd08113fe8d186ff11c6ef5b51c4a8e4cc5f01",
+      "manifest": "records/f88ca59b91b5ec7c08ccdeee/manifest.json",
+      "manifest_sha256": "63def83e726f17b5a8220f97648afa265b07240ba7dc2e7dcafd7dd4112460af"
+    },
+    {
       "id": "f83897a7e0fc8d8614b03df6",
       "name": "cargo-auditable",
       "version": "0.7.7",
@@ -225,6 +390,36 @@
       "report_sha256": "f83897a7e0fc8d8614b03df66db9d5a6b6107bddfeae0d8222665713199dfb53",
       "manifest": "records/f83897a7e0fc8d8614b03df6/manifest.json",
       "manifest_sha256": "7e77f56d2203939badacb360c42f100541d6bf39ef5e311b6b89a731398c1fb1"
+    },
+    {
+      "id": "f8b75fa5901375a9e2efd87e",
+      "name": "cargo-auditable",
+      "version": "0.7.7",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/f8b75fa5901375a9e2efd87e/report.json",
+      "report_sha256": "f8b75fa5901375a9e2efd87ed4e0fc0f2fa38da1ea740ff42168ddefc55854d9",
+      "manifest": "records/f8b75fa5901375a9e2efd87e/manifest.json",
+      "manifest_sha256": "ba4ae0e7bc56abb2f858bb49965e3a290be7b611b17bd2e993024741957246d3"
+    },
+    {
+      "id": "127eecc180adc68d8afb4725",
+      "name": "cargo-binstall",
+      "version": "1.26.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/127eecc180adc68d8afb4725/report.json",
+      "report_sha256": "127eecc180adc68d8afb4725d1a57433c167af68e07ce22139558583c7acb3ad",
+      "manifest": "records/127eecc180adc68d8afb4725/manifest.json",
+      "manifest_sha256": "58b42642cb0c976573c56139db0f535a54cac5c382b4b4fc70161c774db217fe"
     },
     {
       "id": "44e7811397990c237689ffd9",
@@ -272,6 +467,21 @@
       "manifest_sha256": "78d5f0fb8d68cf56fd9c19fb6c7addcf8fe192f35b895fd281542966dbe9cea6"
     },
     {
+      "id": "da78bef7b5486c2d47140585",
+      "name": "cargo-dist",
+      "version": "0.34.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/da78bef7b5486c2d47140585/report.json",
+      "report_sha256": "da78bef7b5486c2d47140585e7501ea503421f79b08761132cd67deb19c948ee",
+      "manifest": "records/da78bef7b5486c2d47140585/manifest.json",
+      "manifest_sha256": "ff0254cd46edb052e2903b58b42abb0d5c6cbb2cc8a45b92121c0f2f33e35b84"
+    },
+    {
       "id": "40f82d5ccb927a522aa6db81",
       "name": "cargo-insta",
       "version": "1.49.0",
@@ -285,6 +495,36 @@
       "report_sha256": "40f82d5ccb927a522aa6db81bb588a468c04d2c67b2f6d19cc40e9c0abd595d3",
       "manifest": "records/40f82d5ccb927a522aa6db81/manifest.json",
       "manifest_sha256": "4687f17b2537f91c3c5a50b6287a5374d50c63aa91f4896daf934959e207ac9f"
+    },
+    {
+      "id": "758bcf45ebf6102ea792968a",
+      "name": "cargo-insta",
+      "version": "1.49.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/758bcf45ebf6102ea792968a/report.json",
+      "report_sha256": "758bcf45ebf6102ea792968a367ba13521bf9d2e2ca0d4f299a9362dc2970351",
+      "manifest": "records/758bcf45ebf6102ea792968a/manifest.json",
+      "manifest_sha256": "8b117db604af703ef7ffbfa55f298de4000993eef8917551e5e847d4eb81535f"
+    },
+    {
+      "id": "7edb5964bff27ef6e1c38349",
+      "name": "cargo-leptos",
+      "version": "0.3.11",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/7edb5964bff27ef6e1c38349/report.json",
+      "report_sha256": "7edb5964bff27ef6e1c38349e9cf26fb01eb22a4bc59adbeab46875e8d6f415e",
+      "manifest": "records/7edb5964bff27ef6e1c38349/manifest.json",
+      "manifest_sha256": "3bd08d31dcfd261dee5ba85488a97fd395695b46b634c94c15e69ad9174fec0a"
     },
     {
       "id": "db8bc56704adb3fafd688cb4",
@@ -332,6 +572,21 @@
       "manifest_sha256": "8f9f4468339b51121161ed317c235b72da6cc5e2c273c73bbe5f503b0cd3831f"
     },
     {
+      "id": "95a8079f1900d797f98655c5",
+      "name": "cargo-mommy",
+      "version": "0.3.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/95a8079f1900d797f98655c5/report.json",
+      "report_sha256": "95a8079f1900d797f98655c501d16c44ef9e984fcae151557e004bd8595c79f8",
+      "manifest": "records/95a8079f1900d797f98655c5/manifest.json",
+      "manifest_sha256": "b5f253a523fc9a49e7bdb2f8f04df397826f1fc97ab4fa3ae231e7692606b0f1"
+    },
+    {
       "id": "105007f6c94693372d57aa96",
       "name": "chezmoi",
       "version": "2.74.0",
@@ -345,6 +600,21 @@
       "report_sha256": "105007f6c94693372d57aa965d32f9640d6e7bbfa6adb1c5a5eb86e849cda30b",
       "manifest": "records/105007f6c94693372d57aa96/manifest.json",
       "manifest_sha256": "4df090edbde2177df48f89d567186db6878279b75cf3a1cb4eee70ae089e186f"
+    },
+    {
+      "id": "be7f941103258e127a761b3d",
+      "name": "chezmoi",
+      "version": "2.74.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/be7f941103258e127a761b3d/report.json",
+      "report_sha256": "be7f941103258e127a761b3dd4784a01918808784f1ce015b308ab1ccd430803",
+      "manifest": "records/be7f941103258e127a761b3d/manifest.json",
+      "manifest_sha256": "8f0c14264c37581ae143fd30ae38dab5695d6c1df6a763dd19504ba4c795d81f"
     },
     {
       "id": "ee57453d4adaf30538ad7acf",
@@ -377,6 +647,36 @@
       "manifest_sha256": "69cc6793c39cb943fbf050a4d2d5e47a0f8ff2e41b2d97b27fce2315d4338d26"
     },
     {
+      "id": "5487cd4133b7877a422abc09",
+      "name": "chsrc",
+      "version": "0.2.7",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/5487cd4133b7877a422abc09/report.json",
+      "report_sha256": "5487cd4133b7877a422abc09032c5310faa5855e17fd7fca3a84e5ba71264b8b",
+      "manifest": "records/5487cd4133b7877a422abc09/manifest.json",
+      "manifest_sha256": "a4a2150c0995a85cf34b66f44bbc1580483cca11414be1c7e507d034086368bb"
+    },
+    {
+      "id": "c4ba38dc86cc1867e2ef00ae",
+      "name": "clj-kondo",
+      "version": "2026.10.26",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/c4ba38dc86cc1867e2ef00ae/report.json",
+      "report_sha256": "c4ba38dc86cc1867e2ef00ae226dd683e63a7dcbb806f799a49f9cdc17f3511d",
+      "manifest": "records/c4ba38dc86cc1867e2ef00ae/manifest.json",
+      "manifest_sha256": "a4cbf3d375f4d5c93c18a248f2de362d7068909b8b33e62f9f7e1738514e3943"
+    },
+    {
       "id": "f8b55859c231c3b5f8ef5ed0",
       "name": "clj-kondo",
       "version": "2026.10.26",
@@ -407,6 +707,21 @@
       "manifest_sha256": "dce7eb53eeb96b7df0307966435202ba3be89a51d865a37045b2ee8405752388"
     },
     {
+      "id": "fae4e77e192eed57c401aa43",
+      "name": "clojure-lsp",
+      "version": "2026.10.15-11.42.38",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/fae4e77e192eed57c401aa43/report.json",
+      "report_sha256": "fae4e77e192eed57c401aa43fc5f9f3a3cedeb5caaa2382d97f05f9843ee8cd1",
+      "manifest": "records/fae4e77e192eed57c401aa43/manifest.json",
+      "manifest_sha256": "054aa81139b37a4b21e8ae0fc7d20394f8ce201a8655ce0851653235a5b81b84"
+    },
+    {
       "id": "8ebdcf383743e462e584b74f",
       "name": "code-server",
       "version": "4.145.2",
@@ -420,6 +735,21 @@
       "report_sha256": "8ebdcf383743e462e584b74f487200355c951c32bf88e8ba6a0ce325cb73364e",
       "manifest": "records/8ebdcf383743e462e584b74f/manifest.json",
       "manifest_sha256": "80461b7a091cb8bf3048a0f712b41e67f4987c170489107b87313d9bc9bac2a1"
+    },
+    {
+      "id": "b3cd25995088796a1dcc878f",
+      "name": "code-server",
+      "version": "4.145.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/b3cd25995088796a1dcc878f/report.json",
+      "report_sha256": "b3cd25995088796a1dcc878f88414af8d30dfaf92d336b680d836e468c741ece",
+      "manifest": "records/b3cd25995088796a1dcc878f/manifest.json",
+      "manifest_sha256": "4dd3d6012dd3e7e2d64df4907154dcc0e741a3b8fc43c26878d66e5aebde18d8"
     },
     {
       "id": "bf9b8b370e7bc07f9d0db9e7",
@@ -452,6 +782,21 @@
       "manifest_sha256": "e4402dba01203aee8d5a21d51c8464b202610c68098f078173731dd4ae43b634"
     },
     {
+      "id": "a0d8b1312751537fb2eaa579",
+      "name": "dagger",
+      "version": "0.21.11",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/a0d8b1312751537fb2eaa579/report.json",
+      "report_sha256": "a0d8b1312751537fb2eaa579c0a2bfc90f73c0b43000f81c2ad86de883410b67",
+      "manifest": "records/a0d8b1312751537fb2eaa579/manifest.json",
+      "manifest_sha256": "dbb75ee6ba96114f2386efd53c8a4a3af0b74acc6b5139f55fc202ca7301a002"
+    },
+    {
       "id": "25511b1fa399b295f5ccb4d5",
       "name": "deno",
       "version": "2.9.8",
@@ -465,6 +810,21 @@
       "report_sha256": "25511b1fa399b295f5ccb4d5dc7d8130bafa4167c5626a17f86e31acc3f06b16",
       "manifest": "records/25511b1fa399b295f5ccb4d5/manifest.json",
       "manifest_sha256": "2fba6ff92134e1d4cbe1c6724a87cb0a24332a45b0bd119558e67db555d1ce36"
+    },
+    {
+      "id": "039146831a98c11266ac53a0",
+      "name": "deno",
+      "version": "2.9.8",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/039146831a98c11266ac53a0/report.json",
+      "report_sha256": "039146831a98c11266ac53a0ac4cb37419051ac618025db19615b78fb0ff4835",
+      "manifest": "records/039146831a98c11266ac53a0/manifest.json",
+      "manifest_sha256": "a05438ae8f23eef498bc19d8ca243524118ff4e774ebccab53e7b038e7b65c92"
     },
     {
       "id": "57baf4989916038629f16f1a",
@@ -527,6 +887,21 @@
       "manifest_sha256": "b6211f9eb5d46f2e6b5c4e21fea3e9f3cd6547fefc67a8ecd5e497be1ef543c8"
     },
     {
+      "id": "7a169941fc3ac8d3aa43c003",
+      "name": "direnv",
+      "version": "2.38.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/7a169941fc3ac8d3aa43c003/report.json",
+      "report_sha256": "7a169941fc3ac8d3aa43c003ca1ac57278d2cb23bb3d1c558d7ee45b5492c941",
+      "manifest": "records/7a169941fc3ac8d3aa43c003/manifest.json",
+      "manifest_sha256": "e3367abbb529738f3f72092943c615424e9e9fa7acba3af28e7e3f9668422ade"
+    },
+    {
       "id": "4fe2f2bea958f73008805cf4",
       "name": "dolt",
       "version": "2.7.2",
@@ -540,6 +915,36 @@
       "report_sha256": "4fe2f2bea958f73008805cf403cde81bc17764150f4dec80182156ca75be6ec7",
       "manifest": "records/4fe2f2bea958f73008805cf4/manifest.json",
       "manifest_sha256": "7e593a2ec538a997c2715dc77af69b2285e73c97984331014ab0a96024fd6c2e"
+    },
+    {
+      "id": "97c91b6be534a7e02fdd88f1",
+      "name": "dolt",
+      "version": "2.7.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/97c91b6be534a7e02fdd88f1/report.json",
+      "report_sha256": "97c91b6be534a7e02fdd88f1609de341e7dd94e4061045b86efb9e94640a5957",
+      "manifest": "records/97c91b6be534a7e02fdd88f1/manifest.json",
+      "manifest_sha256": "aaa29a1ae2feba40497853e5a447c730deeb42e03d245670a1341a4f9b6cdeea"
+    },
+    {
+      "id": "7e6026f8780748b3b91d36af",
+      "name": "dotnet",
+      "version": "10.0.403",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/7e6026f8780748b3b91d36af/report.json",
+      "report_sha256": "7e6026f8780748b3b91d36af4f29672f8de5d67838040d5362df18cdde686a61",
+      "manifest": "records/7e6026f8780748b3b91d36af/manifest.json",
+      "manifest_sha256": "0497fb6589f84542decabe4b25689f6337f008bdcb09c587816b9590a8227d92"
     },
     {
       "id": "fcc9a067527e1918deff13c9",
@@ -572,6 +977,36 @@
       "manifest_sha256": "83536df473f692a19031d5ca6399ac0a53c717bc33362ea0c22b51bc05d28c07"
     },
     {
+      "id": "62434f262dfa33b38f1ce172",
+      "name": "dprint",
+      "version": "0.64.3",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/62434f262dfa33b38f1ce172/report.json",
+      "report_sha256": "62434f262dfa33b38f1ce172c427b73b94e6586d3b72b97bc0560f481f41e3a1",
+      "manifest": "records/62434f262dfa33b38f1ce172/manifest.json",
+      "manifest_sha256": "fcfa12701889944f260e443a156cb97aa03cb0c8ac6cf5fe72e4d26149c95257"
+    },
+    {
+      "id": "cac7a594330a0923d2bb0808",
+      "name": "dust",
+      "version": "1.2.7",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/cac7a594330a0923d2bb0808/report.json",
+      "report_sha256": "cac7a594330a0923d2bb0808b89bd47e5846a39130025362eaa15a20c941a138",
+      "manifest": "records/cac7a594330a0923d2bb0808/manifest.json",
+      "manifest_sha256": "91c8c13440dd5a09ae28e17019e245fefd083d0432ac281237a22647455efbb7"
+    },
+    {
       "id": "d4b2a4d7724a79a9f5475593",
       "name": "dust",
       "version": "1.2.7",
@@ -585,6 +1020,21 @@
       "report_sha256": "d4b2a4d7724a79a9f5475593cd546c407be65e5d665acaf37c000aa80df50894",
       "manifest": "records/d4b2a4d7724a79a9f5475593/manifest.json",
       "manifest_sha256": "3fb1f6c6ef2c7f4ee3b0d18dae1489d11771b30d391b999fa9556ccc83616763"
+    },
+    {
+      "id": "31ae4aacdcbf470864ce4a82",
+      "name": "elan",
+      "version": "4.2.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/31ae4aacdcbf470864ce4a82/report.json",
+      "report_sha256": "31ae4aacdcbf470864ce4a82b7f62e93d1a688ab67b28475a8c01aaf3df86a8f",
+      "manifest": "records/31ae4aacdcbf470864ce4a82/manifest.json",
+      "manifest_sha256": "7f0dc82cc5b49209d57906cb78fb5cc651c2a86d04f60de5597bb3f3b6930133"
     },
     {
       "id": "e352c981090d0efc3ec378aa",
@@ -602,6 +1052,21 @@
       "manifest_sha256": "9607180cfe0ecea66fc40b0def6869c143d2e6d73a7684bbdc47970be0a54551"
     },
     {
+      "id": "5fe77467bca4b40b7154fc17",
+      "name": "flux",
+      "version": "2.10.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/5fe77467bca4b40b7154fc17/report.json",
+      "report_sha256": "5fe77467bca4b40b7154fc17dd43cc6abf47a8086c168e787463912bed77e7b4",
+      "manifest": "records/5fe77467bca4b40b7154fc17/manifest.json",
+      "manifest_sha256": "47a54e2b52a4ea0ead092e879c48a30e887db263d3d91349613fc95430f5190b"
+    },
+    {
       "id": "9df49a7af50c6b4936ee3212",
       "name": "flux",
       "version": "2.10.0",
@@ -615,6 +1080,21 @@
       "report_sha256": "9df49a7af50c6b4936ee3212fc16dd7db85d6e2a2e47df2cfea46bc34e2006ad",
       "manifest": "records/9df49a7af50c6b4936ee3212/manifest.json",
       "manifest_sha256": "95a31c889b897c6f554b96481dd9edb7ee09985550b2134fc726da511c3d0f59"
+    },
+    {
+      "id": "392992bfeb5f5c94c81fd316",
+      "name": "flyctl",
+      "version": "0.5.5",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/392992bfeb5f5c94c81fd316/report.json",
+      "report_sha256": "392992bfeb5f5c94c81fd31687c5f8e587518ed09931d59c82f68eb2115531e0",
+      "manifest": "records/392992bfeb5f5c94c81fd316/manifest.json",
+      "manifest_sha256": "4ba8ba586022efcfc1c9269f070adebc22873befda341d0bd33df7b919d10423"
     },
     {
       "id": "496fd3dbf5f46232393d41c7",
@@ -662,6 +1142,21 @@
       "manifest_sha256": "7d89eedc76d5941c0e6bfc36eaf0a4e8cde15def529979b184f8da9223d166f5"
     },
     {
+      "id": "37d083cea9dc0badb1838b80",
+      "name": "fnm",
+      "version": "1.39.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/37d083cea9dc0badb1838b80/report.json",
+      "report_sha256": "37d083cea9dc0badb1838b80abe264cbf1c489517e36505d0ed536abb1004182",
+      "manifest": "records/37d083cea9dc0badb1838b80/manifest.json",
+      "manifest_sha256": "4687720029c4122c25c71e6fbb379dc2871ccccbbbb63584fd990df4cab2a8a6"
+    },
+    {
       "id": "386fb34733774cd33dc657e7",
       "name": "fnm",
       "version": "1.39.0",
@@ -707,6 +1202,21 @@
       "manifest_sha256": "c2c3bc26a5b69d431b0f6d32f8e6ae3c453a17dbc223b0def510a70960ac5e55"
     },
     {
+      "id": "8d4bb81bc750868c11a69dae",
+      "name": "fzf",
+      "version": "0.75.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/8d4bb81bc750868c11a69dae/report.json",
+      "report_sha256": "8d4bb81bc750868c11a69dae9e93f594b0806669df21a1e0b5cbddd56f707478",
+      "manifest": "records/8d4bb81bc750868c11a69dae/manifest.json",
+      "manifest_sha256": "49f6690c6bef17170063b102060e08b1348beba4bf8509785b8bc8cde352a707"
+    },
+    {
       "id": "633ad8ce4b029cba4149111e",
       "name": "garden",
       "version": "0.14.20",
@@ -720,6 +1230,36 @@
       "report_sha256": "633ad8ce4b029cba4149111e8eea708945983ad36c83faa1887fa854bb39c1a4",
       "manifest": "records/633ad8ce4b029cba4149111e/manifest.json",
       "manifest_sha256": "9935e541bd5b9ac1d0f1b8f70a6d329ce653d0c41beca7e40e8313ee018867ec"
+    },
+    {
+      "id": "ee17f039e6efd8a5164357fb",
+      "name": "garden",
+      "version": "0.14.20",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ee17f039e6efd8a5164357fb/report.json",
+      "report_sha256": "ee17f039e6efd8a5164357fb9cc147ca093207ee299cf2ad03686d63af9fb24b",
+      "manifest": "records/ee17f039e6efd8a5164357fb/manifest.json",
+      "manifest_sha256": "6f4a8c2937dc1fcaa8d011d93f248fa9e626c649a4f501938f4bc3fa90a7b930"
+    },
+    {
+      "id": "08d4cd5f13529778ef08184c",
+      "name": "ghcup",
+      "version": "0.2.6.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/08d4cd5f13529778ef08184c/report.json",
+      "report_sha256": "08d4cd5f13529778ef08184c3bb62e1eb84552f26a4d3d5b309ba8e00f9e0e47",
+      "manifest": "records/08d4cd5f13529778ef08184c/manifest.json",
+      "manifest_sha256": "9d5bbc453abe82d10e60f59940c9696e5a0804391f68fadc2f7eb5bb7f4c8b21"
     },
     {
       "id": "dd80310370a51a2ca18359b3",
@@ -752,6 +1292,36 @@
       "manifest_sha256": "92cf4064fdf47d369b5a87933784c6b8b221715418bc0ea39ebb39b88cec49c3"
     },
     {
+      "id": "daf513fbc2e9b1151514e0b8",
+      "name": "git-standup",
+      "version": "2.3.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/daf513fbc2e9b1151514e0b8/report.json",
+      "report_sha256": "daf513fbc2e9b1151514e0b8e9aaa3affa0cc09302d56c0219c94533a4535882",
+      "manifest": "records/daf513fbc2e9b1151514e0b8/manifest.json",
+      "manifest_sha256": "6ef32fb2676140f95a525e03c0213912013d48ac8b4288457f86882a2a657504"
+    },
+    {
+      "id": "896bec78cf4e538f171bfced",
+      "name": "golangci-lint",
+      "version": "2.15.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/896bec78cf4e538f171bfced/report.json",
+      "report_sha256": "896bec78cf4e538f171bfced713b4da555cfd8f58e8e737e415fcb8b0a5b03ad",
+      "manifest": "records/896bec78cf4e538f171bfced/manifest.json",
+      "manifest_sha256": "aa65a8b30016530ac2a97125ca45e8e47f2a127da7836e77878b9574682cc719"
+    },
+    {
       "id": "e0cbaa64b0b6e53713178745",
       "name": "golangci-lint",
       "version": "2.15.0",
@@ -765,6 +1335,21 @@
       "report_sha256": "e0cbaa64b0b6e53713178745aa76d96fbeb9379f25110ba113d7b9e2cebc7a94",
       "manifest": "records/e0cbaa64b0b6e53713178745/manifest.json",
       "manifest_sha256": "23255f563010798e3d2327d95ddf95efc3bccec615dcb4f0a1d5ab6cf3335ee9"
+    },
+    {
+      "id": "39bcab30d2fcc7dfa01b038f",
+      "name": "google-cloud-cli",
+      "version": "592.0.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/39bcab30d2fcc7dfa01b038f/report.json",
+      "report_sha256": "39bcab30d2fcc7dfa01b038fb4aa11e2a0530f9c47d5c9ddb4f5a9f5b7f6fced",
+      "manifest": "records/39bcab30d2fcc7dfa01b038f/manifest.json",
+      "manifest_sha256": "4c929df44d7119d7f67a47c97eab5af16e826c3525f0d6dd6e26223ed31bc0ea"
     },
     {
       "id": "70f710a543e846dfc4daebe7",
@@ -827,6 +1412,36 @@
       "manifest_sha256": "55f7afe77f79b28bebf96951ddeb7a2ef86b039e22839c5526b2f8aa17170dcd"
     },
     {
+      "id": "8e93a53b89337fddb9f1500f",
+      "name": "goose",
+      "version": "3.29.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/8e93a53b89337fddb9f1500f/report.json",
+      "report_sha256": "8e93a53b89337fddb9f1500fdc8ce034b0ed40dda8dba043f5d787621c95134f",
+      "manifest": "records/8e93a53b89337fddb9f1500f/manifest.json",
+      "manifest_sha256": "4ea57d7f2e6a905cc5e6cf465d678b7eb7f5be4e1ae65f9dedec739fedc10354"
+    },
+    {
+      "id": "5a28b67f3355fb6851b253d7",
+      "name": "goreleaser",
+      "version": "2.20.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/5a28b67f3355fb6851b253d7/report.json",
+      "report_sha256": "5a28b67f3355fb6851b253d73494c4ef77845b8ceedf24a7359b0b719171238b",
+      "manifest": "records/5a28b67f3355fb6851b253d7/manifest.json",
+      "manifest_sha256": "174876232ef13395f822439ccc17d2de05be3c44855cf89e02b5ceea3df7aff2"
+    },
+    {
       "id": "91f1f21f7b931dc6bfbf1756",
       "name": "goreleaser",
       "version": "2.20.0",
@@ -842,6 +1457,21 @@
       "manifest_sha256": "75eaf9d47626908af95d33cbb3a6cad3ddf4070504ba3061e373f07e16604baf"
     },
     {
+      "id": "65921d2f5b0a5dc19901dd6a",
+      "name": "grype",
+      "version": "0.121.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/65921d2f5b0a5dc19901dd6a/report.json",
+      "report_sha256": "65921d2f5b0a5dc19901dd6a60cf2bbdce08968c256ff5b236a5a6e68fdef4c2",
+      "manifest": "records/65921d2f5b0a5dc19901dd6a/manifest.json",
+      "manifest_sha256": "d060667a776ec17edfb1e423013d985033378ec2ccf9f1d7ce98ed0bb8ac92ec"
+    },
+    {
       "id": "ff8c0d9cb404583416db0358",
       "name": "grype",
       "version": "0.121.2",
@@ -855,6 +1485,21 @@
       "report_sha256": "ff8c0d9cb404583416db0358d945f031819344f27a4e574060e4c86495282dfd",
       "manifest": "records/ff8c0d9cb404583416db0358/manifest.json",
       "manifest_sha256": "15795f2e2b6c25a8ab09251f5d4c85ea2918fe605783219b687cf720f409c8db"
+    },
+    {
+      "id": "017cb2e1a123d2f44d603dde",
+      "name": "helm",
+      "version": "3.22.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/017cb2e1a123d2f44d603dde/report.json",
+      "report_sha256": "017cb2e1a123d2f44d603ddeba7c05e2fcc0a42776e6f808b8c5185c134da5be",
+      "manifest": "records/017cb2e1a123d2f44d603dde/manifest.json",
+      "manifest_sha256": "685a628ce30f95a76a2f2e6c29193da82647bfa522266198a7766aca5c75be40"
     },
     {
       "id": "130bc5b8d62eebc2f4b08125",
@@ -902,6 +1547,36 @@
       "manifest_sha256": "745f2c846c530ca0b95e0f2026aa98d1a7cefc599744cb08ac72542905cb707a"
     },
     {
+      "id": "65e037655fce7cc7b8799a15",
+      "name": "infracost",
+      "version": "0.10.47",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/65e037655fce7cc7b8799a15/report.json",
+      "report_sha256": "65e037655fce7cc7b8799a15ea2276aaf4de1adb11fc94805237234c77781ba9",
+      "manifest": "records/65e037655fce7cc7b8799a15/manifest.json",
+      "manifest_sha256": "5c8e9c987363b1c1b3d3674c729352cd452cb6bc1eddffe3b75d8f3e035f5c2a"
+    },
+    {
+      "id": "5b5e108bbdef53fc4db19846",
+      "name": "istioctl",
+      "version": "1.31.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/5b5e108bbdef53fc4db19846/report.json",
+      "report_sha256": "5b5e108bbdef53fc4db19846768ae757c37d0207bfb3921799683f7e52390dce",
+      "manifest": "records/5b5e108bbdef53fc4db19846/manifest.json",
+      "manifest_sha256": "54327f6f0933bf63f8ef7248bc78ca11f55a2c608ceacd51c918bd94e9ec9724"
+    },
+    {
       "id": "76cbd2898f975744acbad487",
       "name": "istioctl",
       "version": "1.31.4",
@@ -915,6 +1590,21 @@
       "report_sha256": "76cbd2898f975744acbad487545151f3c4c9d7ece8e22eac3eff0544ebce3335",
       "manifest": "records/76cbd2898f975744acbad487/manifest.json",
       "manifest_sha256": "9da09e88fdcee66bf0758ead937da788a4426dce9e1d513b820a92614c0d7002"
+    },
+    {
+      "id": "e0d501e1708606cae2cbe04e",
+      "name": "jet",
+      "version": "0.7.27",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/e0d501e1708606cae2cbe04e/report.json",
+      "report_sha256": "e0d501e1708606cae2cbe04e5947f51f3fc6798b86e5cac4f48e9e065155be7f",
+      "manifest": "records/e0d501e1708606cae2cbe04e/manifest.json",
+      "manifest_sha256": "35f200efe98cbc8c8dfab8ab938820053b211c63427601f59b08c2e1dc158ca0"
     },
     {
       "id": "e29b2f55c53d2bb20c945846",
@@ -945,6 +1635,36 @@
       "report_sha256": "25e1b3f66c3e6d8bd9ad1d2e95f2b7f336e7847a3f1bb6c7571bedebde6998cf",
       "manifest": "records/25e1b3f66c3e6d8bd9ad1d2e/manifest.json",
       "manifest_sha256": "9f8a855de950a2a3f8f8ff21a323d9632ee7061b811f15be1b1b44db37ba783f"
+    },
+    {
+      "id": "3e937a214c23fa79e841f8d5",
+      "name": "jfrog-cli",
+      "version": "2.131.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/3e937a214c23fa79e841f8d5/report.json",
+      "report_sha256": "3e937a214c23fa79e841f8d57ef2d9a36fb4093f34f1f05886e4a0adc5b6bf31",
+      "manifest": "records/3e937a214c23fa79e841f8d5/manifest.json",
+      "manifest_sha256": "2485429421eab97cb425477f304a6f2d0100078adb74c0f6c0c5fd85b0e49761"
+    },
+    {
+      "id": "07aa625a4e02ad1ee0f45e4f",
+      "name": "just",
+      "version": "1.59.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/07aa625a4e02ad1ee0f45e4f/report.json",
+      "report_sha256": "07aa625a4e02ad1ee0f45e4f37f3dee8b9dcc673f3944022697aabff0c6224a3",
+      "manifest": "records/07aa625a4e02ad1ee0f45e4f/manifest.json",
+      "manifest_sha256": "ec10c4d8e3b80a186afabadf7b107fa3b1e3b467668926c43e8640ef1fd7fb95"
     },
     {
       "id": "6d6fb1be044d2e4debb6299b",
@@ -1007,6 +1727,21 @@
       "manifest_sha256": "75ee4fa27df245f7b8295d4bb24da0775d1592080a42b047849cbb4668a10c74"
     },
     {
+      "id": "fe0906596266fc216951e8de",
+      "name": "k0s",
+      "version": "1.37.2+k0s.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/fe0906596266fc216951e8de/report.json",
+      "report_sha256": "fe0906596266fc216951e8de4ad3e0886ce36cea468a193cda0c5ce61556aa11",
+      "manifest": "records/fe0906596266fc216951e8de/manifest.json",
+      "manifest_sha256": "93a6a5fa6ad8b43427c96469917008e956484b89a38597eaa6e573a7d3aa2174"
+    },
+    {
       "id": "b82ec7005060f33465637593",
       "name": "k3d",
       "version": "5.9.0",
@@ -1020,6 +1755,36 @@
       "report_sha256": "b82ec7005060f33465637593fa9210dac49925a90862ae4c4a56ae9bcdfb4801",
       "manifest": "records/b82ec7005060f33465637593/manifest.json",
       "manifest_sha256": "c4f27f09db87fd87d66f8f07369531d571f29c3f6a4557c8affd178e9699c8fa"
+    },
+    {
+      "id": "f99156b3a6d75001ba1df6b9",
+      "name": "k3d",
+      "version": "5.9.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/f99156b3a6d75001ba1df6b9/report.json",
+      "report_sha256": "f99156b3a6d75001ba1df6b9a8ea26f84f68ba969f57f7d801173c3ef40ec503",
+      "manifest": "records/f99156b3a6d75001ba1df6b9/manifest.json",
+      "manifest_sha256": "294ede94c4888ca6fc36ffa2b4f0b44e3b15ad18674f52476cb46ffecb8f7294"
+    },
+    {
+      "id": "8f79c6795ade2cae5418d29c",
+      "name": "k3sup",
+      "version": "0.13.14",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/8f79c6795ade2cae5418d29c/report.json",
+      "report_sha256": "8f79c6795ade2cae5418d29c03afd052b2d77da98055b77f9205d1dc0a350a02",
+      "manifest": "records/8f79c6795ade2cae5418d29c/manifest.json",
+      "manifest_sha256": "4414e3398c072a6380bab315815cdb33c025f0c78aa56eacf0f0aca7ca71e846"
     },
     {
       "id": "cf8a2e6b932ff05e926ae3a2",
@@ -1052,6 +1817,36 @@
       "manifest_sha256": "20a4bfbe1e1aa7a6a202b1cff751d16be8bf004a8b9fee3817c7dc914f8dea7f"
     },
     {
+      "id": "fd6a36a0bb131c5ed405d5e9",
+      "name": "kubescape",
+      "version": "4.0.20",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/fd6a36a0bb131c5ed405d5e9/report.json",
+      "report_sha256": "fd6a36a0bb131c5ed405d5e981df6454b858505dd0dcf02cf594b556ca21a928",
+      "manifest": "records/fd6a36a0bb131c5ed405d5e9/manifest.json",
+      "manifest_sha256": "0cc3be2b9397e470f646b9992acf57569e1fdce67d7381ae8f46d01070b165cd"
+    },
+    {
+      "id": "6c0be2276790432363977f86",
+      "name": "kustomize",
+      "version": "5.8.3",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/6c0be2276790432363977f86/report.json",
+      "report_sha256": "6c0be2276790432363977f86b98447e7ebf29ba837825aaed221a255fc32ffbf",
+      "manifest": "records/6c0be2276790432363977f86/manifest.json",
+      "manifest_sha256": "6192d0e017ca75f9c8f9d46ee34bea16c1900203371dd1301f8678c43f55a6dd"
+    },
+    {
       "id": "7c75bbd8b09a21ee15455c8e",
       "name": "kustomize",
       "version": "5.8.3",
@@ -1082,6 +1877,21 @@
       "manifest_sha256": "4db4661076425c897aa3554c9b5541143c455c7051ce9b023352996a266fbaac"
     },
     {
+      "id": "ef27510f1c0270f7700fd0f2",
+      "name": "linkerd",
+      "version": "edge-26.11.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ef27510f1c0270f7700fd0f2/report.json",
+      "report_sha256": "ef27510f1c0270f7700fd0f278fc2bfc7b699bf52572985df24026955f49fd61",
+      "manifest": "records/ef27510f1c0270f7700fd0f2/manifest.json",
+      "manifest_sha256": "e29cbe712c2a83f62c7c912a662f00b2e29f3751c964bb41314316eb02633764"
+    },
+    {
       "id": "40993c23b449eeb0d4b7e82d",
       "name": "mcfly",
       "version": "0.9.4",
@@ -1095,6 +1905,21 @@
       "report_sha256": "40993c23b449eeb0d4b7e82d729f1ec4ee2d4c5a64c9e7c8fdc368b96cb4df56",
       "manifest": "records/40993c23b449eeb0d4b7e82d/manifest.json",
       "manifest_sha256": "b61e3f763f0cbf4929bdd0b3fbe68b1b0e2a7a9eee97cb38d444ae99bc45d8dd"
+    },
+    {
+      "id": "e7ab807a634ece938bf3106b",
+      "name": "mcfly",
+      "version": "0.9.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/e7ab807a634ece938bf3106b/report.json",
+      "report_sha256": "e7ab807a634ece938bf3106b1e804cd9bd1d2f3792e5c26fa6e573c9b6abf4d3",
+      "manifest": "records/e7ab807a634ece938bf3106b/manifest.json",
+      "manifest_sha256": "32f00249333827c429cdbe378305fc83a54c67ad2838a429bd8c883b082d271e"
     },
     {
       "id": "3f99711b88658e56f6495bfc",
@@ -1127,6 +1952,36 @@
       "manifest_sha256": "2ad6b3c6c9192adc72f215b9939fa9e0ec2f6a9b9324574b76a063524236a498"
     },
     {
+      "id": "ca6aa77d0b443139754c4cde",
+      "name": "micromamba",
+      "version": "2.10.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ca6aa77d0b443139754c4cde/report.json",
+      "report_sha256": "ca6aa77d0b443139754c4cde74c7a3686e48c95035489469241f5b5b936817e9",
+      "manifest": "records/ca6aa77d0b443139754c4cde/manifest.json",
+      "manifest_sha256": "0c59561498a456f45f498d0035eced2d637bee648247e1563613069f59ae2c47"
+    },
+    {
+      "id": "c9a9a6e421af79c394dd7eae",
+      "name": "minijinja-cli",
+      "version": "3.1.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/c9a9a6e421af79c394dd7eae/report.json",
+      "report_sha256": "c9a9a6e421af79c394dd7eaefa59b0833936529e926021ecd10cf0a6ca89255a",
+      "manifest": "records/c9a9a6e421af79c394dd7eae/manifest.json",
+      "manifest_sha256": "42c22d7aad22b6a33f3c99dd8eaeea7c76ac0698eb27a15fc0f898f47dfb2b04"
+    },
+    {
       "id": "d34418dd905fabe85189916b",
       "name": "minijinja-cli",
       "version": "3.1.0",
@@ -1155,6 +2010,21 @@
       "report_sha256": "5aef6b9de8b6a80ad49ee95061242403c22b46b43b6961f24459ab73b1831cbc",
       "manifest": "records/5aef6b9de8b6a80ad49ee950/manifest.json",
       "manifest_sha256": "ac4e2e751bef553718f6adf8870a361eb9b9a3e822b06c9c5f46158c53c126cd"
+    },
+    {
+      "id": "43e857fcba8b29a579f508f4",
+      "name": "mise",
+      "version": "2026.11.5",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/43e857fcba8b29a579f508f4/report.json",
+      "report_sha256": "43e857fcba8b29a579f508f430d49f14acc098c0dbdfa23f74328d636d50394b",
+      "manifest": "records/43e857fcba8b29a579f508f4/manifest.json",
+      "manifest_sha256": "a27b141d61ae556b09a09afc3f98f8b92d242d33b596cae9275e6eb769c85621"
     },
     {
       "id": "68b0ccd7c04b1d8b8717eacf",
@@ -1187,6 +2057,21 @@
       "manifest_sha256": "d37e1c81a7e62da3804368b9ab22c9ae042ddf38c269f8735ad31b6e8eb67fa6"
     },
     {
+      "id": "0e4bfacf252ea207fe24c7cf",
+      "name": "near-cli",
+      "version": "0.31.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/0e4bfacf252ea207fe24c7cf/report.json",
+      "report_sha256": "0e4bfacf252ea207fe24c7cf2eb99be032b2f4ec9f2f260048630dfa950c25e2",
+      "manifest": "records/0e4bfacf252ea207fe24c7cf/manifest.json",
+      "manifest_sha256": "713a615e8e084ef95d71151bcd8b36de15fa1f275f3955b01985bd719777b7ae"
+    },
+    {
       "id": "b83de031031891431205d40e",
       "name": "near-cli",
       "version": "0.31.1",
@@ -1200,6 +2085,21 @@
       "report_sha256": "b83de031031891431205d40e198ba3bccae78bb1a12252bbeaec8524d21c82c9",
       "manifest": "records/b83de031031891431205d40e/manifest.json",
       "manifest_sha256": "a4d9f5f8875f55e026b2cb15b00b71377f45c3341983eb6adcb6a381deff9527"
+    },
+    {
+      "id": "0e6c8f86de75da3b5e61a217",
+      "name": "nvm",
+      "version": "0.40.3-node26.13.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/0e6c8f86de75da3b5e61a217/report.json",
+      "report_sha256": "0e6c8f86de75da3b5e61a2177aceb1e022ca317db7a8b3689e2ecee3aab23e56",
+      "manifest": "records/0e6c8f86de75da3b5e61a217/manifest.json",
+      "manifest_sha256": "91a21d5290b3f00c3e036f92dbabdf6d7beedba8ea21c5aad7bfdfc135cd25e0"
     },
     {
       "id": "2ba74cea6b6f35bd94c2d6ae",
@@ -1247,6 +2147,21 @@
       "manifest_sha256": "5ccc5559d74f35d990ee7d3a62c82c804ea37da05c854aec8cb45bfdbe370265"
     },
     {
+      "id": "1abc3625d556b42a23c0b46e",
+      "name": "oh-my-posh",
+      "version": "32.0.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/1abc3625d556b42a23c0b46e/report.json",
+      "report_sha256": "1abc3625d556b42a23c0b46e1d2db7c096a9586e473a25ae6552e5033a34f4a2",
+      "manifest": "records/1abc3625d556b42a23c0b46e/manifest.json",
+      "manifest_sha256": "4fc7d2b0bd9821b083c590ba866c1a602f378b342e6b1515fc8b614dfe9f0ae9"
+    },
+    {
       "id": "8ebba0d27aeae243f04d5e3e",
       "name": "oh-my-posh",
       "version": "32.0.0",
@@ -1277,6 +2192,21 @@
       "manifest_sha256": "4f1ab7ef3655eb263612e53064a5790b53f637d6e4417a28405fc30876aa6d2f"
     },
     {
+      "id": "afd7a28cab02ae7528c5933c",
+      "name": "oh-my-zsh",
+      "version": "commit-cca3bdfbef8c",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/afd7a28cab02ae7528c5933c/report.json",
+      "report_sha256": "afd7a28cab02ae7528c5933cbb9771d715c6a5344e554ac22d438a52ac186347",
+      "manifest": "records/afd7a28cab02ae7528c5933c/manifest.json",
+      "manifest_sha256": "a9e6e9f7a69d7361af7549daa72595cae21a2f8fdc06bc5e158faac569d6956b"
+    },
+    {
       "id": "eb1c64eebf99bd728310ec4a",
       "name": "oh-my-zsh",
       "version": "commit-cca3bdfbef8c",
@@ -1290,6 +2220,21 @@
       "report_sha256": "eb1c64eebf99bd728310ec4ae239a1b130554c80768cc8d224b8ba7168dedb3b",
       "manifest": "records/eb1c64eebf99bd728310ec4a/manifest.json",
       "manifest_sha256": "c1d39a610ebdb5cdfb79dd20d0357ee5f013c89e0063da4c63f35bf04358aed9"
+    },
+    {
+      "id": "7b387487dce433c2bddbb1bf",
+      "name": "opam",
+      "version": "2.6.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/7b387487dce433c2bddbb1bf/report.json",
+      "report_sha256": "7b387487dce433c2bddbb1bfb5d2b0c591ea3f5e04df657cb5c77fb4e36f0668",
+      "manifest": "records/7b387487dce433c2bddbb1bf/manifest.json",
+      "manifest_sha256": "2d4f8b1bbcf70ee0b10831a27f267f0ebac16327985a5f4def3b634bae116737"
     },
     {
       "id": "ea1d1614efbe17b3ce76c516",
@@ -1322,6 +2267,21 @@
       "manifest_sha256": "39b63a05e472e3b30ade9f50e89cca7dd91a1918d1ba6bc3cf3e07df0c82137f"
     },
     {
+      "id": "9c0b70f64efcc84d186e4861",
+      "name": "opentofu",
+      "version": "1.13.9",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/9c0b70f64efcc84d186e4861/report.json",
+      "report_sha256": "9c0b70f64efcc84d186e486107cd788440b2c59839c39eb95f5c9abdeab36bec",
+      "manifest": "records/9c0b70f64efcc84d186e4861/manifest.json",
+      "manifest_sha256": "c3774463b922f5b595cce86d4ec4df4855cfd8325e0bfdd15c14d1e40bfac8bb"
+    },
+    {
       "id": "310956e58834f2ba98a7e1d6",
       "name": "oranda",
       "version": "0.6.5",
@@ -1335,6 +2295,21 @@
       "report_sha256": "310956e58834f2ba98a7e1d6318b4440b088fd0e17cd5b5c221d270951d42fdd",
       "manifest": "records/310956e58834f2ba98a7e1d6/manifest.json",
       "manifest_sha256": "3245bc0523ff80cb3ca9769303f2800bbf894ec6a22214e79df6b95844608652"
+    },
+    {
+      "id": "d210e6f38568d64809addb7f",
+      "name": "oranda",
+      "version": "0.6.5",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/d210e6f38568d64809addb7f/report.json",
+      "report_sha256": "d210e6f38568d64809addb7f394c267ba4a189f8c3dca84dc7acdf00bb009802",
+      "manifest": "records/d210e6f38568d64809addb7f/manifest.json",
+      "manifest_sha256": "38685e3c84a82739f4d5e70c8c41e312d878ea726d7723ce4d924acb6d16dd33"
     },
     {
       "id": "f3531535280a22736f975371",
@@ -1367,6 +2342,21 @@
       "manifest_sha256": "5e8fc18a2d6296c07a0624d6af63a2e2c6021d817f85f7b37480b339d940b03a"
     },
     {
+      "id": "a0db76b3a12cd7e35d602a4f",
+      "name": "pdm",
+      "version": "2.29.7",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/a0db76b3a12cd7e35d602a4f/report.json",
+      "report_sha256": "a0db76b3a12cd7e35d602a4fc10372f3a6bcfa59d3af79f1e40e9098dff9bd51",
+      "manifest": "records/a0db76b3a12cd7e35d602a4f/manifest.json",
+      "manifest_sha256": "c6fa0acee0ae2ae3ae13f730bf7f9cd97c1f88792c383abb33e7fceb4d3eaf7b"
+    },
+    {
       "id": "00fb148245ab16000fa6332e",
       "name": "perlbrew",
       "version": "1.02",
@@ -1380,6 +2370,21 @@
       "report_sha256": "00fb148245ab16000fa6332ed864ebc5877c46c1b319ab8294584dba8058ef7d",
       "manifest": "records/00fb148245ab16000fa6332e/manifest.json",
       "manifest_sha256": "845fa369607df6afaa61ab79edfe8a5e4dbebb801bb11d5099e3d5c3fdaedaf2"
+    },
+    {
+      "id": "48c57d8629d2d34d00c79646",
+      "name": "perlbrew",
+      "version": "1.02",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/48c57d8629d2d34d00c79646/report.json",
+      "report_sha256": "48c57d8629d2d34d00c79646f39266476ccd03a5d8bf3ad3d642380dcaf4d25c",
+      "manifest": "records/48c57d8629d2d34d00c79646/manifest.json",
+      "manifest_sha256": "1e20e31608d23a52a8000f9c35a884a4cdfd8c779e5b1c86a9f05ff867f441f0"
     },
     {
       "id": "621c3af25dfe957a1efefaff",
@@ -1410,6 +2415,36 @@
       "report_sha256": "694fb74a85770e888599896c73c3f414fce78168ded3546dcb2ebc97071a0df0",
       "manifest": "records/694fb74a85770e888599896c/manifest.json",
       "manifest_sha256": "6fff549dc241c38ba76e7e89c7ecb517f31ddbbf2bc7d8aa6a7e67fcea268787"
+    },
+    {
+      "id": "81facf74d3a9279a4604c7a4",
+      "name": "pixi",
+      "version": "0.84.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/81facf74d3a9279a4604c7a4/report.json",
+      "report_sha256": "81facf74d3a9279a4604c7a499f0927802a18bfb9d701e70b3466d90dc0e7e09",
+      "manifest": "records/81facf74d3a9279a4604c7a4/manifest.json",
+      "manifest_sha256": "70bb3404a26ad5e910b9ad19763b9ce77da6e715a1aecf10b858bb5cb85e7aec"
+    },
+    {
+      "id": "1e1231c631dfb50451d5d1e1",
+      "name": "pnpm",
+      "version": "12.18.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/1e1231c631dfb50451d5d1e1/report.json",
+      "report_sha256": "1e1231c631dfb50451d5d1e127f3316c059ec5d052319e4808a281e5b1feff8c",
+      "manifest": "records/1e1231c631dfb50451d5d1e1/manifest.json",
+      "manifest_sha256": "1e8e201813dcc78df8319106d08f3ecf6ef961b0e346a6e6f623ac7681d634a7"
     },
     {
       "id": "3d870c35dc1734c01cf358ef",
@@ -1472,6 +2507,36 @@
       "manifest_sha256": "8f5acdda66d366370b8ceaddc12a94772993015348e909c0d4770a7223ebdfc9"
     },
     {
+      "id": "faa843d0f0da218b80f5a591",
+      "name": "poetry",
+      "version": "2.5.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/faa843d0f0da218b80f5a591/report.json",
+      "report_sha256": "faa843d0f0da218b80f5a5918a8e8d4a3ff6792b2e3f7835763c4fe964b24b97",
+      "manifest": "records/faa843d0f0da218b80f5a591/manifest.json",
+      "manifest_sha256": "c683d98f54d587de0c7ab394c2996732cc989a4e24659148f9bb1428023c12bf"
+    },
+    {
+      "id": "2a3946abe017accbe8924279",
+      "name": "porter",
+      "version": "1.6.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/2a3946abe017accbe8924279/report.json",
+      "report_sha256": "2a3946abe017accbe89242799a3875d44ac384a6fb7ccf27775e643ba9a49754",
+      "manifest": "records/2a3946abe017accbe8924279/manifest.json",
+      "manifest_sha256": "d64ff6d35f3b47fd47aebc608e0aef95a8403e04a0a4fa9363a44b806ab9c88e"
+    },
+    {
       "id": "cb1ba62204e01b3ff56c23ac",
       "name": "porter",
       "version": "1.6.1",
@@ -1500,6 +2565,36 @@
       "report_sha256": "065cee3d59bde258de863f54e70708c69d75b65414d7a8b53812722e929ce60b",
       "manifest": "records/065cee3d59bde258de863f54/manifest.json",
       "manifest_sha256": "458222b78c10524cc348e70e97a4f55ee1ae3b6bcfcd079e64e9002dda3e7aef"
+    },
+    {
+      "id": "e169504aec87a99080e6b9e8",
+      "name": "posit-air",
+      "version": "0.13.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/e169504aec87a99080e6b9e8/report.json",
+      "report_sha256": "e169504aec87a99080e6b9e8224549397823dc8ea9a3e588f696c630735f6307",
+      "manifest": "records/e169504aec87a99080e6b9e8/manifest.json",
+      "manifest_sha256": "ff1cb4ddd44a272e1b53d4fc8f4272f563d1e000717b73c1212727c3618851b9"
+    },
+    {
+      "id": "2676bbd78defec18bb6014eb",
+      "name": "prek",
+      "version": "0.5.10",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/2676bbd78defec18bb6014eb/report.json",
+      "report_sha256": "2676bbd78defec18bb6014eb59b4e84175ce9bebdca5f9a30781b7f71683c1e6",
+      "manifest": "records/2676bbd78defec18bb6014eb/manifest.json",
+      "manifest_sha256": "20ef09986d6184c45bf96503f49c33ab56eb0199e68dd90091fa2156cab618fb"
     },
     {
       "id": "2ec68362ea9bd594ebb9112f",
@@ -1547,6 +2642,21 @@
       "manifest_sha256": "0bca8bd46881bf877684b425419e150cb6fce3425861ee96ffca7f1eea6b9c35"
     },
     {
+      "id": "f210cce8bcda813001260c13",
+      "name": "pulumi",
+      "version": "3.274.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/f210cce8bcda813001260c13/report.json",
+      "report_sha256": "f210cce8bcda813001260c135954d2b87abe0173437f38f240fc2816e264ebaf",
+      "manifest": "records/f210cce8bcda813001260c13/manifest.json",
+      "manifest_sha256": "3334f76abbe4b7f1506288430b89403a07dc5b27893d7157f08492f590e8c32a"
+    },
+    {
       "id": "8e45455bea8b07ab1e937109",
       "name": "pyenv",
       "version": "2.8.14",
@@ -1562,6 +2672,36 @@
       "manifest_sha256": "6d43c30c422e03e7488aee8f8ea2c25ef81f94e0bc8613976bd2bf77ca88b481"
     },
     {
+      "id": "a22668aa08aebaec8bad2147",
+      "name": "pyenv",
+      "version": "2.8.14",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/a22668aa08aebaec8bad2147/report.json",
+      "report_sha256": "a22668aa08aebaec8bad214788b1ff8415e5d29307cecc147049703cc0a233b6",
+      "manifest": "records/a22668aa08aebaec8bad2147/manifest.json",
+      "manifest_sha256": "01f961219166eb61fb71d4a599ea4d9b513ef49315db02c31ee06ff556b7a7dd"
+    },
+    {
+      "id": "b26b22123a553ed659bee64a",
+      "name": "railway",
+      "version": "5.71.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/b26b22123a553ed659bee64a/report.json",
+      "report_sha256": "b26b22123a553ed659bee64af8c69a14d23d4577664b0750109766308dfe4837",
+      "manifest": "records/b26b22123a553ed659bee64a/manifest.json",
+      "manifest_sha256": "39b93cbb7fa3e26dd04f1a16481836eb880ccca7b5967bb6d968be0513edf2f9"
+    },
+    {
       "id": "cc76443173e88bb716934bcd",
       "name": "railway",
       "version": "5.71.0",
@@ -1575,6 +2715,21 @@
       "report_sha256": "cc76443173e88bb716934bcd240208a585e3054ba6fb12d3af4c68bd341f1e3f",
       "manifest": "records/cc76443173e88bb716934bcd/manifest.json",
       "manifest_sha256": "fd2a42cb2645bbcdd66e416570a53a4dce40de3d154591ababf8862e9ca5ab39"
+    },
+    {
+      "id": "6b209575e043e2fe90fa023d",
+      "name": "rbenv",
+      "version": "1.3.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/6b209575e043e2fe90fa023d/report.json",
+      "report_sha256": "6b209575e043e2fe90fa023d9c6ba4cfcf59fe44185797b12a2de14bcb456849",
+      "manifest": "records/6b209575e043e2fe90fa023d/manifest.json",
+      "manifest_sha256": "7460e3b3ca50ecea7d717e5c84137ad3702f2572402505b2b9663b35a648f07e"
     },
     {
       "id": "7d99402b2fd623327e0a3fb0",
@@ -1622,6 +2777,36 @@
       "manifest_sha256": "0c8e26756b3b6bb64770e3cc501958877ad4d4370c347a49f71afcd9e840cd0f"
     },
     {
+      "id": "76ec1b7812865e6fa42e7e7a",
+      "name": "rclone",
+      "version": "1.76.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/76ec1b7812865e6fa42e7e7a/report.json",
+      "report_sha256": "76ec1b7812865e6fa42e7e7ab216f5d1513aa6a9c11458062c1f0b45ac422253",
+      "manifest": "records/76ec1b7812865e6fa42e7e7a/manifest.json",
+      "manifest_sha256": "901cd039fd7632bbf3c1d09fb8d319e0df6c067a7997e082c47d52e520d5a567"
+    },
+    {
+      "id": "ab80d1b014eafc6ad111401f",
+      "name": "rqlite",
+      "version": "10.6.6",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ab80d1b014eafc6ad111401f/report.json",
+      "report_sha256": "ab80d1b014eafc6ad111401fff8f1fcdab9defbe06d364e1ab5089d26fd72110",
+      "manifest": "records/ab80d1b014eafc6ad111401f/manifest.json",
+      "manifest_sha256": "94efeb38a3e6b517de36be0b779eedd92cd408be13eb84db8b9846cd10e5c0be"
+    },
+    {
       "id": "daad20bc5eafb89058a6db4a",
       "name": "rqlite",
       "version": "10.6.6",
@@ -1667,6 +2852,21 @@
       "manifest_sha256": "594dbd31b7ac6280fe02230192321e755ca3a600e2a2ca5dd037782a5e3831cd"
     },
     {
+      "id": "f87c850ce4b874018c79be4f",
+      "name": "ruff",
+      "version": "0.17.4",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/f87c850ce4b874018c79be4f/report.json",
+      "report_sha256": "f87c850ce4b874018c79be4f512e5e6445e70ea4d21ce47a9acc69afd3d22663",
+      "manifest": "records/f87c850ce4b874018c79be4f/manifest.json",
+      "manifest_sha256": "153f4e1bc4dcbaafd528f2f42d4a3fc5f2da125a029ee675721937987d0c1344"
+    },
+    {
       "id": "5af06fd50fbf486ab314683e",
       "name": "rustup",
       "version": "1.29.3-rust1.90.0",
@@ -1682,6 +2882,21 @@
       "manifest_sha256": "f7971bcc2ddde4f873af6acc28183843c5d9b7ec5966c3756d3e65142d4f2ed2"
     },
     {
+      "id": "ca8bba143d830cb28dabd28a",
+      "name": "rustup",
+      "version": "1.29.3-rust1.90.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ca8bba143d830cb28dabd28a/report.json",
+      "report_sha256": "ca8bba143d830cb28dabd28aba4bf2195c25e57c267fa6fcc21313504e74886b",
+      "manifest": "records/ca8bba143d830cb28dabd28a/manifest.json",
+      "manifest_sha256": "4043723641d35462e5dce230fad2aad7f0378e54b9f0815a35a15859f32bcd7d"
+    },
+    {
       "id": "f6670a274056974732397945",
       "name": "rustup",
       "version": "1.29.3-rust1.90.0",
@@ -1695,6 +2910,21 @@
       "report_sha256": "f6670a27405697473239794538d0739ecf1bad804eb3ee60df9056be95769d60",
       "manifest": "records/f6670a274056974732397945/manifest.json",
       "manifest_sha256": "d5605772caf6f26243dc7b187b8291b2749749c888779ea6aee63bbd51582292"
+    },
+    {
+      "id": "657c13b1521bb1e1b40341d0",
+      "name": "samply",
+      "version": "0.13.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/657c13b1521bb1e1b40341d0/report.json",
+      "report_sha256": "657c13b1521bb1e1b40341d08ffd1d82ebaa7713475097225296e76e31637f3e",
+      "manifest": "records/657c13b1521bb1e1b40341d0/manifest.json",
+      "manifest_sha256": "34e2d3c907a76707bff853a4d768b0bb6301f0c89dfa509185da992c67f0f1a6"
     },
     {
       "id": "e2cdc9aa5609f5ad6a50373c",
@@ -1727,6 +2957,21 @@
       "manifest_sha256": "434f74c94bab47c74cb1c0addf5239897c31bc8873add4790ddf87cd430bb5f0"
     },
     {
+      "id": "25a07084b2e016df74bc017a",
+      "name": "scala-cli",
+      "version": "1.18.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/25a07084b2e016df74bc017a/report.json",
+      "report_sha256": "25a07084b2e016df74bc017ae0e4f6b097e435498d25cf60a1db4527ec6bd9b0",
+      "manifest": "records/25a07084b2e016df74bc017a/manifest.json",
+      "manifest_sha256": "d10cbbda980abd896092eee0a6728ffe2d68d2e0e8a246f773f2537e9f32990b"
+    },
+    {
       "id": "97b2bf860b4586af83b8d58f",
       "name": "scala-cli",
       "version": "1.18.0",
@@ -1740,6 +2985,21 @@
       "report_sha256": "97b2bf860b4586af83b8d58f9d6247015cc3834e37ba5e5eea6dfa8592267823",
       "manifest": "records/97b2bf860b4586af83b8d58f/manifest.json",
       "manifest_sha256": "5ac9fa89393e6122a73d2496af39ae0629fab34f26747c877654ac65e26cd614"
+    },
+    {
+      "id": "3025d2b886821c4145e6a973",
+      "name": "sdkman",
+      "version": "5.24.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/3025d2b886821c4145e6a973/report.json",
+      "report_sha256": "3025d2b886821c4145e6a973be74fde46cf41378e6be110964cbe01ba286a4ba",
+      "manifest": "records/3025d2b886821c4145e6a973/manifest.json",
+      "manifest_sha256": "94842a91c1871206578196dd71afaefce2a184f09924802260f2c39ac6a19ab3"
     },
     {
       "id": "94f3b7abaa59cb7be4b787ea",
@@ -1772,6 +3032,21 @@
       "manifest_sha256": "cfe8e41ca4a1d67893ab6d815cb3b1cc49a696e1e23c90a4756ad35d40a88cb9"
     },
     {
+      "id": "4761964c1f6f7ef1ec3a053a",
+      "name": "secretspec",
+      "version": "0.21.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/4761964c1f6f7ef1ec3a053a/report.json",
+      "report_sha256": "4761964c1f6f7ef1ec3a053a3796e5c6794a01760843015a6e9300509a5f9d1e",
+      "manifest": "records/4761964c1f6f7ef1ec3a053a/manifest.json",
+      "manifest_sha256": "b127fc3a90822e4be3b45cdfbe8cc4b7a15054bad03eb2dfd4d567173f0cf2d4"
+    },
+    {
       "id": "50d4f65c9b958b7045b6ea46",
       "name": "secretspec",
       "version": "0.21.1",
@@ -1802,6 +3077,21 @@
       "manifest_sha256": "8a0e10dd9106b019eaf3a4139e5d5acc2e3dbe4d0abedeafd392a6ce0dbaf44b"
     },
     {
+      "id": "7a453b986b54e670a7c26102",
+      "name": "sheldon",
+      "version": "0.8.5",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/7a453b986b54e670a7c26102/report.json",
+      "report_sha256": "7a453b986b54e670a7c2610252d70484613e44ff31928dca1a38c3eb390a294d",
+      "manifest": "records/7a453b986b54e670a7c26102/manifest.json",
+      "manifest_sha256": "b67e80ac0c80e3ab58d38ada9cbbdfea00bc52cabcdd2797ee6de026c06dae38"
+    },
+    {
       "id": "ebf67ccd1282d5bf540cf521",
       "name": "sheldon",
       "version": "0.8.5",
@@ -1815,6 +3105,21 @@
       "report_sha256": "ebf67ccd1282d5bf540cf5211d470cba02a87e2bbf4303cc43dafe376fd8fd00",
       "manifest": "records/ebf67ccd1282d5bf540cf521/manifest.json",
       "manifest_sha256": "c7b97f9c95d63ab568d50d9fcf98fbdac1fb57aeb587fc79a0b73ef8a10b9c2f"
+    },
+    {
+      "id": "806756b504f65db6533ecf86",
+      "name": "skim",
+      "version": "5.9.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/806756b504f65db6533ecf86/report.json",
+      "report_sha256": "806756b504f65db6533ecf86d668772e0bb368a9238c20a686cb675cdc01a787",
+      "manifest": "records/806756b504f65db6533ecf86/manifest.json",
+      "manifest_sha256": "d78cecbf3c8477a8c1e6469fc6194d9891de2a381de7065c2da7ce03e48e1cd4"
     },
     {
       "id": "865570ffba9bea1578661ee8",
@@ -1847,6 +3152,21 @@
       "manifest_sha256": "4d1aec4291e1e67b4402145758ff1336a2748b63c8eec4d107acb3f958d1980b"
     },
     {
+      "id": "9720a9181e8761a9bd10ecb3",
+      "name": "sql-studio",
+      "version": "0.1.53",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/9720a9181e8761a9bd10ecb3/report.json",
+      "report_sha256": "9720a9181e8761a9bd10ecb3ae54b76c55b595953c58d18e870ee3566f187be9",
+      "manifest": "records/9720a9181e8761a9bd10ecb3/manifest.json",
+      "manifest_sha256": "1705af698658f0951c851556b98c8f3dab9663fa2bb2781d97ebbe61c69ed3b2"
+    },
+    {
       "id": "428aee037b2d6bc67525aa4b",
       "name": "stack",
       "version": "3.11.1",
@@ -1860,6 +3180,21 @@
       "report_sha256": "428aee037b2d6bc67525aa4b0cfda9d85938ae6c25ffcef95a976bf325fb0956",
       "manifest": "records/428aee037b2d6bc67525aa4b/manifest.json",
       "manifest_sha256": "00105ca8e45a5aea2d96e3fc7db8fd3bd142757088e77a3c56dd5720f058d8d6"
+    },
+    {
+      "id": "d7224e953c018a770e2121bc",
+      "name": "stack",
+      "version": "3.11.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/d7224e953c018a770e2121bc/report.json",
+      "report_sha256": "d7224e953c018a770e2121bce40115c509c7d5d3f05e455a5cd4d1a7d9c6b26f",
+      "manifest": "records/d7224e953c018a770e2121bc/manifest.json",
+      "manifest_sha256": "99d216d76718cd775c6e15646fbdf73096db27c1747b38fce194d8f098c35e8a"
     },
     {
       "id": "a9e642fa3d47c40f3e69beaa",
@@ -1877,6 +3212,21 @@
       "manifest_sha256": "4a0589e4002db66e0a95c3e719888d5c3e228300a0493648084d827602cc469a"
     },
     {
+      "id": "b266a9199d4b2eb5b3c683d1",
+      "name": "starship",
+      "version": "1.27.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/b266a9199d4b2eb5b3c683d1/report.json",
+      "report_sha256": "b266a9199d4b2eb5b3c683d1fcad6b9fe3384ccbb9b64b5aed614b332d987ec7",
+      "manifest": "records/b266a9199d4b2eb5b3c683d1/manifest.json",
+      "manifest_sha256": "512c530f23478ec39058e26bd2f5f7047068fd15f29904a6216a86bfd0884ed3"
+    },
+    {
       "id": "ef04afb956800d65e2e5a2f0",
       "name": "starship",
       "version": "1.27.0",
@@ -1892,6 +3242,21 @@
       "manifest_sha256": "549c0e80a04b1bfc675aba30af9dd2018412c98bdf9f72dd37b77e54f1aa38d8"
     },
     {
+      "id": "d4d62a9d11eb4bc0d61d511c",
+      "name": "svix-cli",
+      "version": "2.9.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/d4d62a9d11eb4bc0d61d511c/report.json",
+      "report_sha256": "d4d62a9d11eb4bc0d61d511c023527fa4a218fcf79fc11172aa6f7ce81bb4c8a",
+      "manifest": "records/d4d62a9d11eb4bc0d61d511c/manifest.json",
+      "manifest_sha256": "303ef362ba4e6990113c7d4c1f6fe0645251301c082253c3940c99eef6ec2847"
+    },
+    {
       "id": "efb8b141cd6a3ccf11f5e3fe",
       "name": "svix-cli",
       "version": "2.9.1",
@@ -1905,6 +3270,21 @@
       "report_sha256": "efb8b141cd6a3ccf11f5e3fec4dad64516b3d0fde5f7717f39cbd3a2878cf13c",
       "manifest": "records/efb8b141cd6a3ccf11f5e3fe/manifest.json",
       "manifest_sha256": "662f9ab426c2d84a4524b9988c6f0ec7f899fccdd86297c3dcd6acd3c6ed1b04"
+    },
+    {
+      "id": "61245211b8a75bc5117ba707",
+      "name": "syft",
+      "version": "1.57.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/61245211b8a75bc5117ba707/report.json",
+      "report_sha256": "61245211b8a75bc5117ba707bd0ffd531d10fdc6ab1a53572a0001f574b74bc2",
+      "manifest": "records/61245211b8a75bc5117ba707/manifest.json",
+      "manifest_sha256": "eb2285d17adffec25d19fa83081a5febda6150ddee926fb58d883f065f0f00da"
     },
     {
       "id": "b083357d3d7a661e85c261d1",
@@ -1935,6 +3315,21 @@
       "report_sha256": "49c85f5f41d5fce2827db46d87ac5d1a201ec5529861cf118fac6c8dc6a5ef68",
       "manifest": "records/49c85f5f41d5fce2827db46d/manifest.json",
       "manifest_sha256": "92bbf41aad924e02f1e47eab94588cf14ce9901c58f9be7ab37d4791bc943171"
+    },
+    {
+      "id": "90c026639661ef24c5edf7a6",
+      "name": "systemfd",
+      "version": "0.4.6",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/90c026639661ef24c5edf7a6/report.json",
+      "report_sha256": "90c026639661ef24c5edf7a6b6064a56f78044099a491b5d831584936b5fdd33",
+      "manifest": "records/90c026639661ef24c5edf7a6/manifest.json",
+      "manifest_sha256": "e040937c0c4aa87d14a43bc4de41f4e2fb4239f87b59d4c4b51ae3bfd494d1bb"
     },
     {
       "id": "abf815bcd98a6dd01c87cbe6",
@@ -1982,6 +3377,36 @@
       "manifest_sha256": "eecfc53faa9e80ba0ecb032f4405b1c9e48c63413a051f11f61eaacb7db3f255"
     },
     {
+      "id": "6c95e528d4a15e71636b2a2a",
+      "name": "task",
+      "version": "3.54.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/6c95e528d4a15e71636b2a2a/report.json",
+      "report_sha256": "6c95e528d4a15e71636b2a2a11bb9292124ce28c21ffd8f4ccde49d6a4f3cf8d",
+      "manifest": "records/6c95e528d4a15e71636b2a2a/manifest.json",
+      "manifest_sha256": "1ce68ba985b740fd3df6a15d5a2b8b243dfc27900784c74727838de4842419f0"
+    },
+    {
+      "id": "36d64c5647955a4c6a8dcac8",
+      "name": "tfswitch",
+      "version": "1.20.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/36d64c5647955a4c6a8dcac8/report.json",
+      "report_sha256": "36d64c5647955a4c6a8dcac84fa92bfc0ae4cf088937d5e663b4f9fc3983eb39",
+      "manifest": "records/36d64c5647955a4c6a8dcac8/manifest.json",
+      "manifest_sha256": "50e170e4cb4711dfb0cceda249c3062e45af432bf0064372a278332961d99211"
+    },
+    {
       "id": "d4b27fb958821b311cb08f1f",
       "name": "tfswitch",
       "version": "1.20.0",
@@ -1997,6 +3422,21 @@
       "manifest_sha256": "394cd141be1090860ffd9257f567c01674469e0777a635e6a59616721811fc1c"
     },
     {
+      "id": "3df5eead5c44e8ccfb0f8eca",
+      "name": "tilt",
+      "version": "0.37.8",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/3df5eead5c44e8ccfb0f8eca/report.json",
+      "report_sha256": "3df5eead5c44e8ccfb0f8eca116fe05c592868c188b6d4120febbd84d4ddbc47",
+      "manifest": "records/3df5eead5c44e8ccfb0f8eca/manifest.json",
+      "manifest_sha256": "578147dd046b7fef742858d6b61bc76784cfcb174324ef599603f3d468fd5720"
+    },
+    {
       "id": "62c4e59949319d98a4a9042c",
       "name": "tilt",
       "version": "0.37.8",
@@ -2010,6 +3450,21 @@
       "report_sha256": "62c4e59949319d98a4a9042c0cca2c0cc472a69196853ef058db1f35638cf80f",
       "manifest": "records/62c4e59949319d98a4a9042c/manifest.json",
       "manifest_sha256": "844556b5b270b42f3e424aa679e45b52c4ef57148abd0282655f164eca3a3f83"
+    },
+    {
+      "id": "2bfc97108432aa784703afb5",
+      "name": "trivy",
+      "version": "0.76.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/2bfc97108432aa784703afb5/report.json",
+      "report_sha256": "2bfc97108432aa784703afb557f5e4e7b1458740dc6dcc33afe39e6d32cff559",
+      "manifest": "records/2bfc97108432aa784703afb5/manifest.json",
+      "manifest_sha256": "70331481c4652d62a52ff2b4f5a960f79828e2f7eb7489dd2d6af7ae9432abb5"
     },
     {
       "id": "37be948eba648006359a7613",
@@ -2042,6 +3497,21 @@
       "manifest_sha256": "4ffc0b487a17d589b7e0466c7afe41bbbfa8c93d6d67f15cb9830dc8b1fb25b8"
     },
     {
+      "id": "803e2f26a8dbb1b19009eeb0",
+      "name": "uutils-findutils",
+      "version": "0.11.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/803e2f26a8dbb1b19009eeb0/report.json",
+      "report_sha256": "803e2f26a8dbb1b19009eeb07296cb4cd12e83e641b31f9192c9a84965445cec",
+      "manifest": "records/803e2f26a8dbb1b19009eeb0/manifest.json",
+      "manifest_sha256": "c261c2948351474d7d6dd03b027d86d54ab924efd0bb944eef3d7a5a2d145944"
+    },
+    {
       "id": "2a14f966bd63206e915fbd1a",
       "name": "uv",
       "version": "0.13.7",
@@ -2055,6 +3525,21 @@
       "report_sha256": "2a14f966bd63206e915fbd1ac0a199e22a2abf2a192257e9c544e5da75044ee6",
       "manifest": "records/2a14f966bd63206e915fbd1a/manifest.json",
       "manifest_sha256": "74ca3155c16d798f86efb7b91d3e07ab303a2b2ad9d64ab53a6a4a4b68a689f3"
+    },
+    {
+      "id": "2cd5f9d1cc609500cbf34329",
+      "name": "uv",
+      "version": "0.13.7",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "26.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/2cd5f9d1cc609500cbf34329/report.json",
+      "report_sha256": "2cd5f9d1cc609500cbf343299f38ad9d351133da819d3dc5feddf426c0695ac2",
+      "manifest": "records/2cd5f9d1cc609500cbf34329/manifest.json",
+      "manifest_sha256": "176aca1d76c2d192738a2ea78d7a1f2d9f8d3e84f3c6fe7e3a85ccba6fcc0df8"
     },
     {
       "id": "343016b5f63740f770012b9c",
@@ -2072,6 +3557,21 @@
       "manifest_sha256": "187b5f3f09676a6e6817205b666681836d44e9b9793596183a0fd73fb2810a21"
     },
     {
+      "id": "88d4ce17fa53dc6cba9dae38",
+      "name": "volta",
+      "version": "2.0.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/88d4ce17fa53dc6cba9dae38/report.json",
+      "report_sha256": "88d4ce17fa53dc6cba9dae3836f0486275ea4decd4a0aefb50ffb8f1fea333fa",
+      "manifest": "records/88d4ce17fa53dc6cba9dae38/manifest.json",
+      "manifest_sha256": "3ae1eec489f8baf58100a705b2fe3aae59c447600bc6101913ba47d1472f1b60"
+    },
+    {
       "id": "8aa424e2d05ad21899f7d7cf",
       "name": "volta",
       "version": "2.0.2",
@@ -2085,6 +3585,21 @@
       "report_sha256": "8aa424e2d05ad21899f7d7cfcc18ebf03003f62dc59070442a81d5f9e931c5c4",
       "manifest": "records/8aa424e2d05ad21899f7d7cf/manifest.json",
       "manifest_sha256": "f5babd367d952141c0c2b2067e429d5e9d7917857b0848c339204b8736cbb687"
+    },
+    {
+      "id": "641ff1a6914a7f3e9973b71d",
+      "name": "worktrunk",
+      "version": "0.81.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/641ff1a6914a7f3e9973b71d/report.json",
+      "report_sha256": "641ff1a6914a7f3e9973b71d54c2bc2a9b5c733e4741a59920f66b263b1ce259",
+      "manifest": "records/641ff1a6914a7f3e9973b71d/manifest.json",
+      "manifest_sha256": "dfdb7d370c130d7744ee2c43a538fa1b8b6c289a15da91871b9ab60c7323ecf7"
     },
     {
       "id": "7560d762497ebb7ac1f7e1fd",
@@ -2117,6 +3632,36 @@
       "manifest_sha256": "562f0f24edefeca836d634a0f3e9e6279503de7aef783298e172d2e8d7ac0778"
     },
     {
+      "id": "ce6594ade9f7aec76ce4421e",
+      "name": "xh",
+      "version": "0.26.3",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/ce6594ade9f7aec76ce4421e/report.json",
+      "report_sha256": "ce6594ade9f7aec76ce4421eb893848e23db1fa4f77c6fe82512df3d42417dc3",
+      "manifest": "records/ce6594ade9f7aec76ce4421e/manifest.json",
+      "manifest_sha256": "3ed22ba8f7f49589a02fba4dbeb2bf5f8679c12e8dcd62f146af252a902fb218"
+    },
+    {
+      "id": "44620e35d5807e637f0f3820",
+      "name": "xmake",
+      "version": "3.1.2",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/44620e35d5807e637f0f3820/report.json",
+      "report_sha256": "44620e35d5807e637f0f382049ebeb5992553304d3047e6f4a123a6e28ef7c7d",
+      "manifest": "records/44620e35d5807e637f0f3820/manifest.json",
+      "manifest_sha256": "d53aa5d27b3003d0140a06e507cf9f84d3d42903c7fef1d85ef8da8b4e2ba979"
+    },
+    {
       "id": "5217d75d77e998f584bc4357",
       "name": "xmake",
       "version": "3.1.2",
@@ -2145,6 +3690,21 @@
       "report_sha256": "1d8efe6c6685763a48d78092954226c3799e9c8e6f259deed2833701035b76de",
       "manifest": "records/1d8efe6c6685763a48d78092/manifest.json",
       "manifest_sha256": "be451caabd1c8abdfb0647a60cf290476f56cb798f254044c84376b1df416681"
+    },
+    {
+      "id": "37730aa13f69c6770d5a7191",
+      "name": "yarn",
+      "version": "1.22.22",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/37730aa13f69c6770d5a7191/report.json",
+      "report_sha256": "37730aa13f69c6770d5a71916d9d4376e3e29e89d645c4366bdedae8f54894fb",
+      "manifest": "records/37730aa13f69c6770d5a7191/manifest.json",
+      "manifest_sha256": "e443c0463f9a9adb52b0f96e2f5810a27b9c0bafc3ae1b35ae59413a641bca80"
     },
     {
       "id": "7633f42b7020453d3dca47be",
@@ -2177,6 +3737,21 @@
       "manifest_sha256": "3a4e911d5a8c8449e34e61626e2a400ec1882232fa2adaaad2de5b9529ec5b72"
     },
     {
+      "id": "945404f5289fa16acb6e763d",
+      "name": "zinit",
+      "version": "3.17.1",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/945404f5289fa16acb6e763d/report.json",
+      "report_sha256": "945404f5289fa16acb6e763dc95afb1279b27e98bd0d964718f9e2d3de694caf",
+      "manifest": "records/945404f5289fa16acb6e763d/manifest.json",
+      "manifest_sha256": "8c737b3905ec63b5969c9592605c2def7618c72633d642a919737e878f5bc39a"
+    },
+    {
       "id": "1f82f07f38f3cb5a8c095fb5",
       "name": "zoxide",
       "version": "0.10.0",
@@ -2205,6 +3780,21 @@
       "report_sha256": "7036eff4de301c623abee96de5ef80166f0c7dff873ff14e92b71e0f7243e151",
       "manifest": "records/7036eff4de301c623abee96d/manifest.json",
       "manifest_sha256": "6e50c28ef07edb9558fcfe3a52f557cc1e960831979fe4857d660b446b3fd66a"
+    },
+    {
+      "id": "cdce6bcf23cf34d15bcac80d",
+      "name": "zoxide",
+      "version": "0.10.0",
+      "target": "linux-x86_64",
+      "environment": {
+        "os_id": "ubuntu",
+        "os_version": "22.04"
+      },
+      "provenance_level": "code-bound",
+      "report": "records/cdce6bcf23cf34d15bcac80d/report.json",
+      "report_sha256": "cdce6bcf23cf34d15bcac80dcd0c7d0698eacc83cf59c36d51b9580e11a5a3f9",
+      "manifest": "records/cdce6bcf23cf34d15bcac80d/manifest.json",
+      "manifest_sha256": "b021b770e73bef8d17b8c876472f61eafd02f5141878c6ec4a1059f233f3a56f"
     },
     {
       "id": "23b0b9965359be2fb26baf32",

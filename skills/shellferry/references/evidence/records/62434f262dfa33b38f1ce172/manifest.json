@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "dprint",
+  "version": "0.64.3",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/dprint-x86_64-unknown-linux-gnu.zip",
+      "url": "https://github.com/dprint/dprint/releases/download/0.64.3/dprint-x86_64-unknown-linux-gnu.zip",
+      "sha256": "f71cb7e22d6776439eba168d5cb296092d6413fea7148fe4d70684a2702a4fee",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/json.wasm",
+      "url": "https://plugins.dprint.dev/json-0.21.1.wasm",
+      "sha256": "09eb556cb5e581972b06ceb2c4536a90ae032b84d384beea8837c99188454cdf",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/dprint/dprint/9c48f60bb912c1fd1aedd545f472f7fc5427cf6e/website/src/assets/install.sh",
+      "sha256_original": "177d5f7623012b447ef9ea99c3a143bfe5061e7c3915bba746c8e1159898ef30",
+      "sha256_patched": "dfedb57c153af3a53accba50822fc758adadd20bcfceae3e026eb1fb1ca2dfd1",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "unzip",
+    "realpath",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Includes a pinned JSON WebAssembly formatting plugin so the real formatting test does not download a plugin.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "ed08d83b5dec409ee1512cbdca1918e480481dddc5bb1422bd61afa36b1f6258",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

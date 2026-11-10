@@ -57,7 +57,7 @@ For a local source, install again from its updated directory. Use a GitHub URL
 with the release tag to pin a release instead of following the default branch:
 
 ```sh
-npx skills add https://github.com/nanocm/shellferry/tree/v0.1.1/skills/shellferry --agent codex claude-code --global
+npx skills add https://github.com/nanocm/shellferry/tree/v0.1.2/skills/shellferry --agent codex claude-code --global
 ```
 
 The `owner/repository@name` shorthand selects a skill name in Skills CLI; it does
@@ -210,7 +210,7 @@ release, using temporary home and project directories:
 
 ```sh
 python3 tools/package.py
-python3 tools/check_installation.py --archive dist/shellferry-0.1.1.zip
+python3 tools/check_installation.py --archive dist/shellferry-0.1.2.zip
 ```
 
 This requires Node.js 22.20+ and fetches `skills@1.7.6` through `npx`. Claude Code

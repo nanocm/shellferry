@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "opentofu",
+  "version": "1.13.9",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/tofu_1.13.9_linux_amd64.zip",
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_linux_amd64.zip",
+      "sha256": "bc44eb6b06446ba83bd4072114891987f590f66cca712737a7f1147c50c539ce",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/tofu_1.13.9_SHA256SUMS",
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_SHA256SUMS",
+      "sha256": "f8a2925243a71078e84a911f1bb8eaf9c0974c3d5637475921a6af01082d080c",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/tofu_1.13.9_SHA256SUMS.gpgsig",
+      "url": "https://github.com/opentofu/opentofu/releases/download/v1.13.9/tofu_1.13.9_SHA256SUMS.gpgsig",
+      "sha256": "8cdfa942cbefc45d2649d1f5f85576e41c9bc55bded0c1206cb64a794bc4836d",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/opentofu.asc",
+      "url": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/static/opentofu.asc",
+      "sha256": "3b20a1ef48c34c1ecfdafbe14133e19a4fe5770472f5650d701744b4f6d9450f",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/opentofu/get.opentofu.org/3d354dfa62d9a36f33df16cdd6bb506ace1e6e2e/static/install-opentofu.sh",
+      "sha256_original": "e4e899ae7bd86241fd17ad99e9d32f5b2d20a11b1a40d088acabb6e06dba49c5",
+      "sha256_patched": "d13c28c0f9d79b7f31e04162802a9e5e5a1fc16043853a90096efc7f94591eaa",
+      "patch_count": 2
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "068fbed0d694745970b756b23c43595e50cb003ff88e5cbe89896491b4d910ee",
+      "sha256_patched": "3ab2ca5f018310895fd8f2c59a2f15ac8ee99c7aba2d9b29491858f55a2198e2",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum",
+    "unzip",
+    "gpg"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Preserves the default signature verification using bundled release signatures and the pinned upstream GPG public key; GnuPG is an explicit target prerequisite. Tests local HCL formatting and validation with no external provider dependency."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "79155c1285208a080f866938fa386fc1fa4bc12a04157eb5691b3787d883c366",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

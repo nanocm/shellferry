@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "k0s",
+  "version": "1.37.2+k0s.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/k0s-v1.37.2+k0s.1-amd64",
+      "url": "https://github.com/k0sproject/k0s/releases/download/v1.37.2%2Bk0s.1/k0s-v1.37.2%2Bk0s.1-amd64",
+      "sha256": "4770cf89ff45e43292819f6e3a02a25a453bc750c777f6f7ad2de335f3f41df5",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/k0sproject/get/f640708ce3ec6f34b9e61f5b14d6b92ead57fa58/index.html",
+      "sha256_original": "e7491fa3afd1e0e3b22d86b5d58b1824d3532204387e5689db28d5213c9657a1",
+      "sha256_patched": "7ab5a28158cbfb7f9c7718aebeb4e84905cbe1f1966151792335ef1a8071a580",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored.",
+    "Installs the k0s CLI and validates local cluster configuration generation. Cluster services and the separate airgap container image bundle are outside this tested scope.",
+    "The official k0sproject/get source repository has no explicit license. The catalog retains only the minimal download-call anchor; it fetches the complete original by fixed commit and SHA-256 during a user-requested build."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "c02de41ed376940a8bddfa8b0a1183078339f0fd56efc1f358f1d37f658162f1",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "atuin",
+  "version": "18.24.5",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/atuin-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://github.com/atuinsh/atuin/releases/download/v18.24.5/atuin-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "e16a95f10e9592543d2d578e44c2f1dccf89b57915c2e2c6935b435b3f43cee4",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in the pinned original official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh",
+      "sha256_original": "6c4aba2c831734a8a3c9a924c1199cae05520bf0b359d5e996666a9e9f0e44bf",
+      "sha256_patched": "f06cad9dbc04d7a54267898d729cb2d4d86f19c64e2c23bd71095f6ff639b89a",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/atuin-installer.sh",
+      "url": "https://github.com/atuinsh/atuin/releases/download/v18.24.5/atuin-installer.sh",
+      "sha256_original": "85742e9f87ab0d8d9c0ea53482c6e178d52599ef2b0fba4f4a336bf168934bce",
+      "sha256_patched": "a61e2a1ca44fa5b53ffca54eafa9e31e24983c84e01babbf5bc5b17457eac8c7",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk"
+  ],
+  "runtime": {},
+  "notes": [
+    "Official setup.atuin.sh returned 502/403 while preparing; fetched the official repository install.sh instead.",
+    "Preserves entry script plus pinned second-stage installer. Non-interactive setup disables sync; shell hooks are still installed as upstream setup normally does."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "72f7e16969ee9cd3719d467aaa61326ead96191b97d9f1d366f6b7efa74cb668",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

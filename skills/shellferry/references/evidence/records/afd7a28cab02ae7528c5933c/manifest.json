@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "oh-my-zsh",
+  "version": "commit-cca3bdfbef8c",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/oh-my-zsh-source.tar.gz",
+      "url": "https://codeload.github.com/ohmyzsh/ohmyzsh/tar.gz/cca3bdfbef8c52ef8939ce7911ff68852b949daa",
+      "sha256": "d7b44efa4cc13e19b8973ad73b7e447c617acdf8d139f8cccca5992f8d50ba5c",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/cca3bdfbef8c52ef8939ce7911ff68852b949daa/tools/install.sh",
+      "sha256_original": "5574b96e94dbcb769f0d1592fa83aeb6ca2caf41c6ae5d76fcc7f04c524b4f55",
+      "sha256_patched": "e3322c5937c17f78807377c87184df8c3d37a1efc4c69a331fffd7d2fee5d385",
+      "patch_count": 1
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "541a3a2b6db36d7c0439e3d2fad62c4a0485e32c1db0b1e756515cbf19235fbd",
+      "sha256_patched": "5e5eb9a1637634ebc4b9f85787caa3b99a25339706aba874fe781af2dccf918b",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "git",
+    "zsh",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Fetches a complete pinned source tree in place of git network transport, preserving config generation and supported --unattended behavior. Explicit --verify-existing repeat mode accepts only the same pinned source marker; normal first-install overwrite protection remains upstream behavior.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "03bb163d2d8f6ade4f28d940aaceaae8234d80e6e4e87a4a88528918588fab5a",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

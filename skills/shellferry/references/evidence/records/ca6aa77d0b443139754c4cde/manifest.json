@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "micromamba",
+  "version": "2.10.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/micromamba-linux-64",
+      "url": "https://github.com/mamba-org/micromamba-releases/releases/download/2.10.0-0/micromamba-linux-64",
+      "sha256": "701f39c06f8e6a670a0e186c8479b9e5c0502a2f0cda6cef65d83bdd2875e8bd",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/mamba-org/micromamba-releases/346bb1cf50c51a92d58dd4c3063e7c70b78a8246/install.sh",
+      "sha256_original": "b0c482f627af23613f21b31bbaa70e4829544acc91430cafd3d5b4c37b5651ff",
+      "sha256_patched": "0e875edbc078f53b6b057998632bdd54524305ceb6425f381526e6eb8bc40a48",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "bash",
+    "ps",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Manager binary only; package environments need separately collected packages. Uses supported no-shell-init/no-channel-configuration options. Tests creation of an empty offline environment and command execution in it.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill.",
+    "Installer repository has no established license grant; full script is runtime-fetch-only and patch anchors are kept minimal. Generated bundles require separate redistribution review."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "70e26b62d275151727c6ba70e6b237fa97ee3473ae253d152762f6c913da467c",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

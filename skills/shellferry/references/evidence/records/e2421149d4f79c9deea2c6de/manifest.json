@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "bats",
+  "version": "1.14.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/bats-source.tar.gz",
+      "url": "https://codeload.github.com/bats-core/bats-core/tar.gz/9c153ec126fa6c005dfc6d2a39c04bb81a329e9b",
+      "sha256": "c24f60f1c42e4f5cee907fb386acfb4741d88e6e907c9b6ed16ac8fa4046ff12",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/bats-core/bats-core/9c153ec126fa6c005dfc6d2a39c04bb81a329e9b/install.sh",
+      "sha256_original": "4c816c0f245784e190f2093cf6f3aa69e6a50a0d8d9e0a0c77d3f46a8178218b",
+      "sha256_patched": "942c3d87fc556c56e66edd78164b5343ab05d7166d9374214302d3b4f25c4b16",
+      "patch_count": 0
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "d0ece98a41e42ec499369ffebbb9d38125a5da132b50b9875fe5c0e0fdf2edb3",
+      "sha256_patched": "7ab999a376abd5bceafa4006966644a7a776e62c26fb15f3d78f9abbe40d18fc",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "bash",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Runs the official source install.sh with all pinned source-tree companions. No compiler required.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "8f5d8fba40bd63e0c1a997eb426dd9aceca97880fcb6eb7f86bf4894d2e6a303",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "cargo-leptos",
+  "version": "0.3.11",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/cargo-leptos-x86_64-unknown-linux-gnu.tar.gz",
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "1c9cf0e1e3ffae6c8b58d29281d949dab560cea613b80d361f323f93071df7c8",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/cargo-leptos-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "149b88535fd8f44321da0d667fecc445c15af35f62931b2091687445297cc9e0",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/leptos-rs/cargo-leptos/releases/download/v0.3.11/cargo-leptos-installer.sh",
+      "sha256_original": "3104fd1818f6e4ae67974734f2cfa7e61ded88df11c184c6d4a94ac2bb9de8e9",
+      "sha256_patched": "b86f919f3cec887412ca6315990a5613b8a14eb3292f0e3dd45db56e39c4a914",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "c946767f5d7a155a5dd189724c6ff8c0ec7872ca781531285fb770e2e00c6979",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

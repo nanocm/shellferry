@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "zoxide",
+  "version": "0.10.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "2d93385b99f3e82cf2701609a1bffcad863fbeb75aa3fe7eb6be4d29be68b1ae",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh",
+      "sha256_original": "0c25aed6cce9d56ee0596c9a5df8cbe99ffd0f7a7054de0262234dd268b61404",
+      "sha256_patched": "2ee192db82b18748413ba1c156a3c0347d1bc1eccf2751bb37d3e505d5f01f7d",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "cp",
+    "chmod",
+    "mkdir",
+    "mktemp",
+    "grep"
+  ],
+  "runtime": {},
+  "notes": [
+    "Replaces GitHub latest API lookup and release download with pinned local archive; preserves binary/manpage installation and permission handling."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "d0e9dd362fee0e92f890926738243ddfa41f981977865241aacdaa4055eed971",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "flux",
+  "version": "2.10.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/wrapper.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/flux_2.10.0_linux_amd64.tar.gz",
+      "url": "https://github.com/fluxcd/flux2/releases/download/v2.10.0/flux_2.10.0_linux_amd64.tar.gz",
+      "sha256": "208dd7012c04fedeed5b2d0b6e63df3b15b1c34a381527811685c098bc9f8659",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/flux_2.10.0_checksums.txt",
+      "url": "https://github.com/fluxcd/flux2/releases/download/v2.10.0/flux_2.10.0_checksums.txt",
+      "sha256": "4267dbab83ad0dab0570cf87f5af8392b862e9a6d23d57cb856601444f031788",
+      "expected_checksum_matched": true,
+      "checksum_source": "GitHub release asset digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/fluxcd/flux2/22c6ee1a6099ce252b729199c105a38319b587d4/install/flux.sh",
+      "sha256_original": "60b78fb0ff7ff63f43e5d97a7bf020380e97c9da73d11aa5f44246ea0e5c9053",
+      "sha256_patched": "a3fa69f72d909bb74c21b8045b7dbc4e00e7ae066d31759acb560d2761218e4c",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/wrapper.sh",
+      "url": null,
+      "sha256_original": "fe2277fd47b4b796a69ed7ac6a55313caa2e0d00bea11419e80d04cbb66db3db",
+      "sha256_patched": "014046015fe195bd31b421869867ff93888bce9fad735e662a1d72c1fd26e637",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "bash",
+    "tar",
+    "gzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Converts the official upstream installer; upstream source is fetched at a fixed commit rather than vendored."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "7a489dc36a0833267f40b5cb5f9569ca1021cbac1b8521f1c015f753340b052a",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

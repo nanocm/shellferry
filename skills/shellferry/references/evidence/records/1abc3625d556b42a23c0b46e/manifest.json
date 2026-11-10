@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "oh-my-posh",
+  "version": "32.0.0",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/posh-linux-amd64",
+      "url": "https://cdn.ohmyposh.dev/releases/v32.0.0/posh-linux-amd64",
+      "sha256": "55f9b15e49827bf2d79bdafde28e93808b6f84be7677db8e3b2196772b081a26",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/themes.zip",
+      "url": "https://cdn.ohmyposh.dev/releases/v32.0.0/themes.zip",
+      "sha256": "49eae266efd1705d68582d425b4d94ffe4b06fba7defab4bf7163e75768ea180",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://ohmyposh.dev/install.sh",
+      "sha256_original": "2e03d4e90e0d390f28ce739fbd90ed2a14f1e7b48bf693d538bede460b547560",
+      "sha256_patched": "0f1dac4d43b2a8b94ceb145dc7d18c134703e817e3575656d9094d8ff3f56ea8",
+      "patch_count": 12
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "sha256sum",
+    "bash",
+    "unzip",
+    "realpath",
+    "dirname"
+  ],
+  "runtime": {},
+  "notes": [
+    "Main binary and theme archive both pinned to v32.0.0, replacing upstream latest themes to avoid mismatched versions.",
+    "Creates requested install directory and quotes upstream path expansions; required for a fresh custom prefix containing spaces."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "5530c27602c92b024f1f34b378734ec84a029d214715900127262e6d9cff0b95",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

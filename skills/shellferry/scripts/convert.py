@@ -42,14 +42,14 @@ def shell_code_index(command):
 def resource_path(value):
     safe_path(value)
     if not value.startswith("resources/"):
-        raise PackError("资源路径必须以 resources/ 开头。")
+        raise PackError("Resource paths must start with resources/.")
     return value
 
 
 def script_path(value):
     safe_path(value)
     if not value.startswith("upstream/"):
-        raise PackError("脚本路径必须以 upstream/ 开头。")
+        raise PackError("Script paths must start with upstream/.")
     return value
 
 
@@ -58,59 +58,59 @@ def apply_patches(text, patches):
         old, new = patch["old"], patch["new"]
         count = patch.get("count", 1)
         if not isinstance(old, str) or not old or not isinstance(new, str) or not isinstance(count, int) or count < 1:
-            raise PackError(f"无效替换规则 #{index + 1}")
+            raise PackError(f"Invalid patch rule #{index + 1}")
         actual = text.count(old)
         if actual != count:
-            raise PackError(f"替换规则 #{index + 1} 匹配 {actual} 次，预期 {count} 次；上游脚本可能已变化，需重新分析。")
+            raise PackError(f"Patch rule #{index + 1} matched {actual} times; expected {count}. The upstream script may have changed and needs review.")
         text = text.replace(old, new, count)
     return text
 
 
 def validate_recipe(recipe):
     if recipe.get("schema") != 1:
-        raise PackError("recipe schema 必须是 1。")
+        raise PackError("Recipe schema must be 1.")
     safe_name(recipe["name"])
     if not isinstance(recipe.get("version"), str) or not recipe["version"]:
-        raise PackError("需明确固定 version。")
+        raise PackError("An explicit pinned version is required.")
     if recipe.get("target") not in TARGETS:
-        raise PackError("需明确 target。")
+        raise PackError("An explicit supported target is required.")
     if recipe.get("shell", "sh") not in {"sh", "bash"}:
-        raise PackError("shell 必须是 sh 或 bash。")
+        raise PackError("shell must be sh or bash.")
     default_prefix = recipe.get("default_prefix", "{home}/.local")
     if not isinstance(default_prefix, str) or not default_prefix.startswith(("/", "{home}/")) or any(c in default_prefix for c in "\n\r\x00"):
-        raise PackError("default_prefix 必须是绝对路径或 {home}/ 下的路径。")
+        raise PackError("default_prefix must be an absolute path or a path under {home}/.")
     prefix_env = recipe.get("default_prefix_env")
     if prefix_env is not None and (not isinstance(prefix_env, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", prefix_env)):
-        raise PackError("default_prefix_env 必须是环境变量名。")
+        raise PackError("default_prefix_env must be an environment variable name.")
     script_path(recipe["entrypoint"])
     if not recipe.get("scripts") or not recipe.get("smoke"):
-        raise PackError("需提供 scripts 和至少一个 smoke 验证命令。")
+        raise PackError("scripts and at least one smoke test command are required.")
     for key, value in recipe.get("env", {}).items():
         if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", key) or not isinstance(value, str):
-            raise PackError(f"无效环境变量：{key}")
+            raise PackError(f"Invalid environment variable: {key}")
         if key in {"OFFLINE_ROOT", "OFFLINE_AUDIT", "HOME", "BASH_ENV", "ENV", "LD_PRELOAD"}:
-            raise PackError(f"环境变量 {key} 由包装器管理。")
+            raise PackError(f"Environment variable {key} is managed by the wrapper.")
     for command in recipe["smoke"]:
         if not isinstance(command, list) or not command or not all(isinstance(v, str) for v in command):
-            raise PackError("smoke 必须是非空字符串参数数组的列表。")
+            raise PackError("smoke must be a list of nonempty argument arrays containing strings.")
         code_index = shell_code_index(command)
         if code_index is not None and re.search(r"\{(?:prefix|bundle|home)\}", command[code_index]):
-            raise PackError("shell -c 代码不能插入路径占位符，请在代码中引用 \"$OFFLINE_PREFIX\"、\"$OFFLINE_ROOT\"、\"$HOME\"。")
+            raise PackError("Shell -c code cannot contain path placeholders; use quoted \"$OFFLINE_PREFIX\", \"$OFFLINE_ROOT\", and \"$HOME\" instead.")
     for field in ("args", "repeat_args", "requires", "notes"):
         values = recipe.get(field, [])
         if not isinstance(values, list) or not all(isinstance(v, str) for v in values):
-            raise PackError(f"{field} 必须是字符串数组。")
+            raise PackError(f"{field} must be an array of strings.")
     runtime = recipe.get("runtime", {})
     if not isinstance(runtime, dict) or set(runtime) - {"libc", "os_id", "os_version"}:
-        raise PackError("runtime 只接受 libc、os_id、os_version。")
+        raise PackError("runtime accepts only libc, os_id, and os_version.")
     for field, value in runtime.items():
         if not isinstance(value, str) or not re.fullmatch(r"[A-Za-z0-9_.+\-]+", value):
-            raise PackError(f"runtime.{field} 格式无效。")
+            raise PackError(f"Invalid runtime.{field} format.")
     if runtime.get("libc") not in {None, "glibc", "musl"}:
-        raise PackError("runtime.libc 必须是 glibc 或 musl。")
+        raise PackError("runtime.libc must be glibc or musl.")
     for command in recipe.get("requires", []):
         if not re.fullmatch(r"[A-Za-z0-9_.+\-]+", command):
-            raise PackError(f"无效前置命令：{command}")
+            raise PackError(f"Invalid prerequisite command: {command}")
 
 
 def make_library(resources):
@@ -210,7 +210,7 @@ def build(recipe_file, destination, cache):
     recipe = json.loads(recipe_file.read_text(encoding="utf-8-sig"))
     validate_recipe(recipe)
     if destination.exists():
-        raise PackError(f"输出已存在，请选择新目录：{destination}")
+        raise PackError(f"Output already exists; choose a new directory: {destination}")
     destination.parent.mkdir(parents=True, exist_ok=True)
     entries = []
     url_map = {}
@@ -221,18 +221,18 @@ def build(recipe_file, destination, cache):
         for item in recipe.get("resources", []):
             path = resource_path(item["path"])
             if path in resource_names:
-                raise PackError(f"资源路径重复：{path}")
+                raise PackError(f"Duplicate resource path: {path}")
             resource_names.add(path)
             validate_url(item["url"])
             for url in [item["url"]] + item.get("aliases", []):
                 if url in url_map:
-                    raise PackError(f"URL 映射重复：{url}")
+                    raise PackError(f"Duplicate URL mapping: {url}")
                 url_map[url] = path
             if item.get("source"):
                 source = (recipe_file.parent / item["source"]).resolve()
                 digest = sha256(source)
                 if item.get("sha256") and digest.lower() != item["sha256"].lower():
-                    raise PackError(f"资源摘要不匹配：{path}")
+                    raise PackError(f"Resource digest mismatch: {path}")
             else:
                 source, digest = download(item["url"], cache, item.get("sha256"))
             output = root / path
@@ -245,17 +245,17 @@ def build(recipe_file, destination, cache):
         for item in recipe["scripts"]:
             path = script_path(item["path"])
             if path in script_names:
-                raise PackError(f"脚本路径重复：{path}")
+                raise PackError(f"Duplicate script path: {path}")
             script_names.add(path)
             if item.get("source"):
                 original = (recipe_file.parent / item["source"]).read_bytes()
             elif item.get("url"):
                 original = read_url(item["url"])
             else:
-                raise PackError(f"脚本没有来源：{path}")
+                raise PackError(f"Script has no source: {path}")
             original_digest = hashlib.sha256(original).hexdigest()
             if item.get("sha256") and original_digest.lower() != item["sha256"].lower():
-                raise PackError(f"原脚本摘要变化：{path}")
+                raise PackError(f"Original script digest changed: {path}")
             text = original.decode("utf-8-sig").replace("\r\n", "\n")
             patched = apply_patches(text, item.get("patches", []))
             # Keep the shebang first for subprocesses that invoke an embedded script directly.
@@ -271,7 +271,7 @@ def build(recipe_file, destination, cache):
             entries.append({"kind": "script", "path": path, "url": item.get("url"), "sha256_original": original_digest,
                             "sha256_patched": sha256(root / path), "patch_count": len(item.get("patches", []))})
         if recipe["entrypoint"] not in script_names:
-            raise PackError("entrypoint 不在 scripts 中。")
+            raise PackError("entrypoint is not listed in scripts.")
         write(root / "offline-lib.sh", make_library(recipe.get("resources", [])))
         write(root / "install.sh", make_wrapper(recipe), 0o755)
         smoke = '#!/bin/sh\nset -eu\nprefix=${1:?prefix required}\nOFFLINE_PREFIX=$prefix\nOFFLINE_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)\nexport OFFLINE_ROOT OFFLINE_PREFIX\n'
@@ -312,13 +312,13 @@ def build(recipe_file, destination, cache):
 
 def archive_bundle(bundle, output):
     if output.exists():
-        raise PackError(f"输出已存在：{output}")
+        raise PackError(f"Output already exists: {output}")
     output.parent.mkdir(parents=True, exist_ok=True)
     with tarfile.open(output, "w:gz") as archive:
         for path in [bundle] + sorted(bundle.rglob("*")):
             info = archive.gettarinfo(str(path), arcname=str(Path(bundle.name) / path.relative_to(bundle)).replace("\\", "/"))
             if not (info.isfile() or info.isdir()):
-                raise PackError("包目录只能包含普通文件和目录。")
+                raise PackError("The bundle directory may contain only regular files and directories.")
             info.uid = info.gid = info.mtime = 0
             info.uname = info.gname = ""
             info.mode = 0o755 if info.isdir() or path.suffix == ".sh" else 0o644

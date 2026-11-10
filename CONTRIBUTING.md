@@ -4,7 +4,7 @@ Contribute an installer adaptation, a fix for a reproduced failure, clearer
 instructions, or portable test evidence. Describe the software and environment
 your change supports.
 
-## Documentation language
+## Code and documentation language
 
 Write `SKILL.md`, agent references, and contributor guides in English. Keep
 `README.md` and `README.zh-CN.md` consistent in commands and feature claims.
@@ -12,6 +12,12 @@ Write the READMEs for people choosing and using the skill; write `SKILL.md` as
 execution instructions, with explicit branches, inputs, and completion criteria.
 The skill responds in the user's language. Preserve upstream sources, license
 text, and recorded evidence in their original form.
+
+Write maintained code comments, docstrings, CLI help, logs, and error messages
+in English. The repository check rejects CJK text in the project's Python and
+shell helpers. Localized READMEs, upstream sources, license text, and historical
+evidence retain their original language. The agent may explain CLI output in the
+user's language.
 
 ## Development checks
 
@@ -24,7 +30,7 @@ python3 tools/coverage.py --check --minimum 105
 ```
 
 The repository checker validates recipes, source pins, evidence bindings,
-plugin metadata, relative Markdown links, and accidental local-machine paths.
+plugin metadata, code language, relative Markdown links, and accidental local-machine paths.
 Run checks relevant to the change. Documentation edits need these consistency
 checks; changed installation behavior also needs a functional test.
 

@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "samply",
+  "version": "0.13.1",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/samply-x86_64-unknown-linux-gnu.tar.xz",
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "61875daad67888798690dea3cb2748279df6ac299c5c6a857d67eed7642473d9",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "resource",
+      "path": "resources/samply-x86_64-unknown-linux-musl.tar.xz",
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-x86_64-unknown-linux-musl.tar.xz",
+      "sha256": "691f48f3b3ece38d6fc0d93ce2143fd8ca5621fe627ebc4c13f1f0081fcb6480",
+      "expected_checksum_matched": true,
+      "checksum_source": "SHA-256 embedded in pinned official cargo-dist installer"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://github.com/mstange/samply/releases/download/samply-v0.13.1/samply-installer.sh",
+      "sha256_original": "0573ba577d99bb14f2f9c612115866e03752be7717ce2eb8ab7eb66b9f60d510",
+      "sha256_patched": "766064279f48411e04f0136c767092251ac14c1c4b229d32072a1aad33e67d04",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "xz",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "python3"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official release cargo-dist shell installer; preserves archive selection, extraction, binary installation and embedded checksum verification.",
+    "The documented unmanaged installation option disables PATH editing, receipts and optional self-updater download; installs into the requested ordinary-user prefix.",
+    "Original installer is fetched from the pinned official release URL during build rather than vendored. Every resource is pinned; the target still requires the listed extraction tools.",
+    "Python 3 is used only by the local loopback functional assertion. External network remains disabled; no browser, external API or live service is required for this checked local operation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "e963c43482497cff245e4c5f0b3756a0ce0c738618a1710c96df5aadde8ae6ec",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "code-server",
+  "version": "4.145.2",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/code-server-4.145.2-linux-amd64.tar.gz",
+      "url": "https://github.com/coder/code-server/releases/download/v4.145.2/code-server-4.145.2-linux-amd64.tar.gz",
+      "sha256": "2f6db6c3e8b733dd6b3aeee83532e148b2bae2e392353ba85452d03572348962",
+      "expected_checksum_matched": true,
+      "checksum_source": "official-github-release-asset-digest"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/coder/code-server/302bc77436721f5a474e06d1fe34cf8f86195d5e/install.sh",
+      "sha256_original": "3a71d87a26d39d03332a8eda6b0692e4cb0b5d7b760a598ea0d0fcb723ed7ddc",
+      "sha256_patched": "6935a31da73cea4467d2dcdba85fd48dd016f8d95fa1b477b844cab095be5287",
+      "patch_count": 3
+    },
+    {
+      "kind": "script",
+      "path": "upstream/smoke.sh",
+      "url": null,
+      "sha256_original": "a369031db8862b2a43f11527b2d4c5d4faa6002fadcb46c400b1e5c8fd28c65d",
+      "sha256_patched": "e3c8471600f241dd1c5f78797f0e340d140e525c3c10a45e4de22f83abeed39c",
+      "patch_count": 0
+    }
+  ],
+  "requires": [
+    "sh",
+    "tar",
+    "gzip",
+    "sed",
+    "uname",
+    "mkdir",
+    "mv",
+    "ln",
+    "cp",
+    "readlink",
+    "dirname",
+    "basename",
+    "cat",
+    "sha256sum"
+  ],
+  "runtime": {
+    "libc": "glibc"
+  },
+  "notes": [
+    "Converts the official install.sh at a fixed commit. Uses upstream --method standalone for ordinary-user installation, preserving the bundled Node runtime, symlink layout, and existing-version behavior.",
+    "The standalone installation path uses argument arrays; the original sh_c reparsed arguments with sh -c and lost spaces. This adaptation invokes the existing argument vector directly for that selected path.",
+    "Preserves upstream --dry-run by routing local resource copies through sh_c. Refreshes the upstream cache from the verified bundle instead of trusting an existing same-named cache entry.",
+    "Final archive was checked against the GitHub release asset SHA-256 digest. The bundled code-server runtime requires glibc >= 2.28 and GLIBCXX >= 3.4.21; Ubuntu 22.04 with libstdc++6 supplies them.",
+    "Functional check starts the editor on container loopback with authentication disabled only for this local test, optional telemetry and update checks disabled, then requests the health endpoint and editor workbench using bundled Node. Extensions from a marketplace, browser interaction, external authentication, and remote tunnels are not included."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "06cec032766ad2d6ad8a3aeed07aba78bcf4e1413a360a0acfa2c92044661893",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "xh",
+  "version": "0.26.3",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/xh-v0.26.3-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/ducaale/xh/releases/download/v0.26.3/xh-v0.26.3-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "cbbf53bd76007d57d95e4bed8ba7fb3b7fcec22af4bdfc1ff119cd5de351e74f",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/ducaale/xh/8b21cc07a6deeff0ca50ba2a4bfa8d34daffd94f/install.sh",
+      "sha256_original": "dc47b7fc1e5997b81424f762ebe6aeda81be835c53f099e429ccb89cbca29842",
+      "sha256_patched": "c6c8ce65e7e8b358314bceb5c30777c7219571d7895d4f27414e1b52f95338d7",
+      "patch_count": 3
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "mv",
+    "ln"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream.",
+    "Pins the latest-release lookup and creates the explicit XH_BINDIR before preserving upstream move and xhs symlink installation."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "f2497e3339811b427709b314bac39bd6c676145bf95a553f5caab6ada52eb9c0",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

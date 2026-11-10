@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "mcfly",
+  "version": "0.9.4",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/mcfly-v0.9.4-x86_64-unknown-linux-musl.tar.gz",
+      "url": "https://github.com/cantino/mcfly/releases/download/v0.9.4/mcfly-v0.9.4-x86_64-unknown-linux-musl.tar.gz",
+      "sha256": "72d2c6fdaa111ac96c2cf725fc40e313e2856643482be58608911a09440313f1",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-pinned after HTTPS download; not independent upstream verification"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/cantino/mcfly/6eed8ebd879c257249f1f4e07b8515edb1e9e395/ci/install.sh",
+      "sha256_original": "356a67566d1b7b2975500878ae9e4e0f4a23052e57c846755169d242be00bba3",
+      "sha256_patched": "e5e01325a6e6a3a208921896feac0403c2877bbdeb22dae922cae991241bc1d5",
+      "patch_count": 4
+    }
+  ],
+  "requires": [
+    "tar",
+    "gzip",
+    "cp",
+    "mkdir",
+    "mktemp",
+    "grep",
+    "sed",
+    "awk",
+    "sha256sum",
+    "install",
+    "basename",
+    "cut"
+  ],
+  "runtime": {
+    "os_id": "ubuntu",
+    "os_version": "22.04"
+  },
+  "notes": [
+    "Converts the official documented shell installation path with exact patches, pinned version and bundled resources.",
+    "Upstream source is fetched from a fixed Git commit at build time rather than vendored. Runtime software license remains upstream."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "b35721370100e81da3294d295ad89028db75cb2639afcfe841adc6a4eaa16148",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "mode": "converted-script",
+  "name": "clojure-lsp",
+  "version": "2026.10.15-11.42.38",
+  "target": "linux-x86_64",
+  "entrypoint": "upstream/install.sh",
+  "resources": [
+    {
+      "kind": "resource",
+      "path": "resources/clojure-lsp-native-static-linux-amd64.zip",
+      "url": "https://github.com/clojure-lsp/clojure-lsp/releases/download/2026.10.15-11.42.38/clojure-lsp-native-static-linux-amd64.zip",
+      "sha256": "81fa5cc4aeef09fd14e94b9913d3e46a47c32f39096d60c49b27f3609912c44a",
+      "expected_checksum_matched": true,
+      "checksum_source": "locally-computed-pin from official HTTPS release; not independently authenticated publisher checksum"
+    },
+    {
+      "kind": "script",
+      "path": "upstream/install.sh",
+      "url": "https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/3ef962ffa9c79c3360b3119af102d7d62b1d8eac/install",
+      "sha256_original": "31d68f040afa20bada37e1e1f81846a96aa24c6be97e48cda67283bf39a10bf4",
+      "sha256_patched": "0e6d27530d35daf77029030663c45884f796f385d328a505927a7a713699fbfa",
+      "patch_count": 1
+    }
+  ],
+  "requires": [
+    "bash",
+    "unzip",
+    "sha256sum"
+  ],
+  "runtime": {},
+  "notes": [
+    "Native LSP CLI with local file-formatting smoke test; project dependency resolution and language-server editor integration are outside this bundle.",
+    "Upstream installer is fetched at build time from a pinned commit. No upstream script snapshot is vendored in the skill."
+  ],
+  "default_prefix": "{home}/.local",
+  "default_prefix_env": null,
+  "validation_status": "not-run",
+  "recipe_sha256": "82126418f5721d568d51c82b71d888674950c05310054cc321f7e65fa1ac13ce",
+  "builder": {
+    "convert.py": "130cc33844116a39d5c3321bd6de29dafee4cb9e573a08cf81dcb1dadb24a8aa",
+    "offpack.py": "e4537a146b9343e991d1b102a7da0f5183450299750feb69b375a1bc128b43fd"
+  }
+}
